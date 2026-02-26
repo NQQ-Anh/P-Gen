@@ -4,7 +4,7 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "123456", // sửa theo máy bạn
-  database: "learning_system",
+  database: "p_gen",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
