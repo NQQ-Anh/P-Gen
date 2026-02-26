@@ -3,7 +3,7 @@ import mysql from "mysql2/promise";
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "123456", // sửa theo máy bạn
+  password: "123456", // Thay bằng pass db local
   database: "p_gen",
   waitForConnections: true,
   connectionLimit: 10,
