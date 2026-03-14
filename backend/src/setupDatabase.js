@@ -16,7 +16,7 @@ async function setupDatabase() {
     await connection.query(`USE p_gen`);
 
     // =====================
-    // Subjects
+    // 1-Subjects
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Subjects (
@@ -27,7 +27,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Tags
+    // 2-Tags
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Tags (
@@ -39,7 +39,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Chapters
+    // 3-Chapters
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Chapters (
@@ -52,7 +52,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Users
+    // 4-Users
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Users (
@@ -65,7 +65,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Questions
+    // 5-Questions
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions (
@@ -83,7 +83,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Questions_Tags
+    // 6-Questions_Tags
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions_tags (
@@ -96,7 +96,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Answers
+    // 7-Answers
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Answers (
@@ -109,7 +109,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Learning_Process
+    // 8-Learning_Process
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Learning_process (
@@ -125,6 +125,28 @@ async function setupDatabase() {
       ) ENGINE=InnoDB;
     `);
 
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS History (
+      id BIGINT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      question_id INT NOT NULL,
+      is_correct BOOLEAN NOT NULL,
+      answered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+      FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+      ) ENGINE=InnoDB;
+      `);
+
+      await connection.query(`
+        INSERT IGNORE INTO Users (id, username, password, email, role) VALUES
+      (1, 'admin1', 'admin111', 'admin1@pgen.vn', 'Admin'),
+      (2, 'admin2', 'admin222', 'admin2@pgen.vn', 'Admin'),
+      (3, 'user1', 'user111', 'user1@pgen.vn', 'User'),
+      (4, 'user2', 'user222', 'user2@pgen.vn', 'User'),
+      (5, 'user3', 'user333', 'user3@pgen.vn', 'User'),
+      (6, 'user4', 'user444', 'user4@pgen.vn', 'User'),
+      (7, 'user5', 'user555', 'user5@pgen.vn', 'User');
+      `);
     console.log("✅ Database & Tables created successfully!");
     await connection.end();
     process.exit();
