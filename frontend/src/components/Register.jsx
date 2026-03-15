@@ -1,136 +1,113 @@
-import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
   const { login } = useAuth();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
-    // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      setLoading(false);
-      return;
-    }
-
-    // Validate password length
-    if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError("Passwords do not match");
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:5001/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Registration failed');
+        throw new Error(data.message);
       }
 
-      // Auto-login after successful registration
-      const loginResult = await login(formData.username, formData.password);
-      if (!loginResult.success) {
-        setError('Registration successful, but login failed. Please try logging in manually.');
-      }
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+      await login(formData.username, formData.password);
+    } catch (err) {
+      setError(err.message);
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
+    <div className="auth-container">
+      <div className="auth-form">
+        <h2>Đăng ký</h2>
+
+        <form onSubmit={handleSubmit}>
           <input
-            type="text"
-            id="username"
             name="username"
+            placeholder="Tên đăng nhập"
             value={formData.username}
             onChange={handleChange}
             required
-            minLength="3"
           />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
           <input
-            type="email"
-            id="email"
             name="email"
+            type="email"
+            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
             required
           />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
           <input
-            type="password"
-            id="password"
             name="password"
+            type="password"
+            placeholder="Mật khẩu"
             value={formData.password}
             onChange={handleChange}
             required
-            minLength="6"
           />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
-            type="password"
-            id="confirmPassword"
             name="confirmPassword"
+            type="password"
+            placeholder="Xác nhận mật khẩu"
             value={formData.confirmPassword}
             onChange={handleChange}
             required
-            minLength="6"
           />
-        </div>
 
-        {error && <div className="error-message">{error}</div>}
+          {error && <div className="error">{error}</div>}
 
-        <button type="submit" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
+          <button disabled={loading}>
+            {loading ? "Registering..." : "Đăng ký"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

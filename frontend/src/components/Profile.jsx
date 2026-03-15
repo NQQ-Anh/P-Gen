@@ -1,25 +1,28 @@
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from "../contexts/AuthContext";
 
 const Profile = () => {
   const { user, logout } = useAuth();
 
   if (!user) {
-    return <div>Please log in to view your profile.</div>;
+    return <div className="auth-container">Please login</div>;
   }
 
   return (
-    <div className="profile-container">
-      <h2>User Profile</h2>
-      <div className="profile-info">
-        <p><strong>ID:</strong> {user.id}</p>
-        <p><strong>Username:</strong> {user.username}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Role:</strong> {user.role}</p>
-      </div>
+    <div className="auth-container">
+      <div className="profile-card">
+        <h2>Thông tin</h2>
 
-      <button onClick={logout} className="logout-btn">
-        Logout
-      </button>
+        <div className="profile-info">
+          <p style={{ color: "black" }}><strong>ID:</strong> {user.id}</p>
+          <p style={{ color: "black" }}><strong>Tên đăng nhập:</strong> {user.username}</p>
+          <p style={{ color: "black" }}><strong>Email:</strong> {user.email}</p>
+          <p style={{ color: "black" }}><strong>Role:</strong> {user.role}</p>
+        </div>
+
+        <button className="logout-btn" onClick={logout}>
+          Đăng xuất
+        </button>
+      </div>
     </div>
   );
 };

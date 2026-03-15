@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import db from '../config/db.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
-const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
 
 export const authenticateToken = async (req, res, next) => {
   const authHeader = req.headers['authorization'];

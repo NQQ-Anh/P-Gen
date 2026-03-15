@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
   const { login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     const result = await login(username, password);
@@ -24,42 +23,34 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
+    <div className="auth-container">
+      <div className="auth-form">
+        <h2>Đăng nhập</h2>
+
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
-            id="username"
+            placeholder="Tên đăng nhập"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
-            id="password"
+            placeholder="Mật khẩu"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
 
-        {error && <div className="error-message">{error}</div>}
+          {error && <div className="error">{error}</div>}
 
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Đăng nhập"}
+          </button>
+        </form>
 
-      <div className="test-credentials">
-        <p><strong>Test Credentials:</strong></p>
-        <p>Username: testuser</p>
-        <p>Password: password123</p>
       </div>
     </div>
   );
