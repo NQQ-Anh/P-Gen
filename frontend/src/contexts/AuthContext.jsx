@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -13,6 +14,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Check for existing tokens on app start
   useEffect(() => {
@@ -23,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, []); // Remove dependency to avoid issues
 
   const login = async (username, password) => {
     try {
@@ -73,41 +75,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const fetchProfile = async () => {
-    try {
-      const token = localStorage.getItem('accessToken');
-      if (!token) {
-        setLoading(false);
-        return;
-      }
-
-      const response = await fetch('http://localhost:5001/api/auth/profile', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-      } else if (response.status === 401) {
-        // Token expired, try refresh
-        await refreshAccessToken();
-      } else {
-        throw new Error('Failed to fetch profile');
-      }
-    } catch (error) {
-      console.error('Profile fetch error:', error);
-      // Clear invalid tokens
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
-      setUser(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const refreshAccessToken = async () => {
+    if (isRefreshing) return; // Prevent multiple refresh calls
+    setIsRefreshing(true);
     try {
       const refreshToken = localStorage.getItem('refreshToken');
       if (!refreshToken) {
@@ -141,6 +111,42 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('refreshToken');
       setUser(null);
       setLoading(false);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+
+      const response = await fetch('http://localhost:5001/api/auth/profile', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData);
+      } else if (response.status === 401 && !isRefreshing) {
+        // Token expired, try refresh
+        await refreshAccessToken();
+      } else {
+        throw new Error('Failed to fetch profile');
+      }
+    } catch (error) {
+      console.error('Profile fetch error:', error);
+      // Clear invalid tokens
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      setUser(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -150,6 +156,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     fetchProfile,
+    token: localStorage.getItem('accessToken'),
   };
 
   return (

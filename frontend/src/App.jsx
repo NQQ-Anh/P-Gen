@@ -3,18 +3,25 @@ import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import AdminSide from "./components/AdminSide";
 import "./App.css";
 
 function AppContent() {
   const { user, logout, loading } = useAuth();
   const [view, setView] = useState("home");
 
-  // Auto redirect to profile after login
+  // Set view based on user role after login
   useEffect(() => {
-    if (user && (view === "login" || view === "register")) {
-      setView("profile");
+    if (user) {
+      if (user.role === 'Admin') {
+        setView("admin");
+      } else {
+        setView("profile");
+      }
+    } else {
+      setView("home");
     }
-  }, [user, view]);
+  }, [user]);
 
   if (loading) {
     return <div className="loading">Loading...</div>;
@@ -38,6 +45,9 @@ function AppContent() {
           {user && (
             <>
               <button onClick={() => setView("profile")}>Thông tin</button>
+              {user.role === 'Admin' && (
+                <button onClick={() => setView("admin")}>Quản lý User</button>
+              )}
               <button className="logout" onClick={logout}>
                 Đăng xuất
               </button>
@@ -81,6 +91,7 @@ function AppContent() {
         {view === "login" && !user && <Login />}
         {view === "register" && !user && <Register />}
         {view === "profile" && user && <Profile />}
+        {view === "admin" && user && user.role === 'Admin' && <AdminSide />}
       </main>
 
       <footer className="footer">

@@ -3,29 +3,43 @@ import bcrypt from 'bcryptjs';
 
 async function createTestUser() {
   try {
-    console.log('Creating test user...');
+    console.log('Creating test users...');
 
-    const username = 'testuser';
-    const password = 'password123';
-    const email = 'test@example.com';
+    // Create regular user
+    const userUsername = 'testuser';
+    const userPassword = 'password123';
+    const userEmail = 'user@example.com';
+    const userHashedPassword = await bcrypt.hash(userPassword, 10);
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Insert user
-    const [result] = await db.execute(
+    await db.execute(
       'INSERT INTO Users (username, password, email, role) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE id=id',
-      [username, hashedPassword, email, 'User']
+      [userUsername, userHashedPassword, userEmail, 'User']
     );
 
-    console.log('✅ Test user created/updated successfully');
+    console.log('✅ Regular user created/updated');
     console.log('Username: testuser');
     console.log('Password: password123');
-    console.log('Email: test@example.com');
+    console.log('Email: user@example.com');
+
+    // Create admin user
+    const adminUsername = 'admin';
+    const adminPassword = 'admin123';
+    const adminEmail = 'admin@example.com';
+    const adminHashedPassword = await bcrypt.hash(adminPassword, 10);
+
+    await db.execute(
+      'INSERT INTO Users (username, password, email, role) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE id=id',
+      [adminUsername, adminHashedPassword, adminEmail, 'Admin']
+    );
+
+    console.log('✅ Admin user created/updated');
+    console.log('Username: admin');
+    console.log('Password: admin123');
+    console.log('Email: admin@example.com');
 
     process.exit(0);
   } catch (error) {
-    console.error('❌ Error creating test user:', error.message);
+    console.error('❌ Error creating test users:', error.message);
     process.exit(1);
   }
 }

@@ -43,10 +43,32 @@ export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { username, email, role } = req.body;
+    const currentUser = req.user;
+
+    // Check permissions
+    if (currentUser.role !== 'Admin' && currentUser.id != id) {
+      return res.status(403).json({ message: 'You can only update your own profile' });
+    }
+
+    // If not admin, prevent role change
+    let updateRole = role;
+    if (currentUser.role !== 'Admin') {
+      // Get current user role from DB to prevent role change
+      const [currentUserData] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
+      if (currentUserData.length === 0) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      updateRole = currentUserData[0].role;
+    }
+
+    // Prevent changing role to Admin if not already Admin
+    if (role === 'Admin' && currentUser.role !== 'Admin') {
+      return res.status(403).json({ message: 'Cannot assign Admin role' });
+    }
 
     const [result] = await db.execute(
       'UPDATE Users SET username = ?, email = ?, role = ? WHERE id = ?',
-      [username, email, role, id]
+      [username, email, updateRole, id]
     );
 
     if (result.affectedRows === 0) {
@@ -62,6 +84,19 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
+    const currentUser = req.user;
+
+    // Prevent deleting other Admins
+    if (currentUser.role === 'Admin') {
+      const [userToDelete] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
+      if (userToDelete.length === 0) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      if (userToDelete[0].role === 'Admin') {
+        return res.status(403).json({ message: 'Cannot delete Admin users' });
+      }
+    }
+
     const [result] = await db.execute('DELETE FROM Users WHERE id = ?', [id]);
 
     if (result.affectedRows === 0) {

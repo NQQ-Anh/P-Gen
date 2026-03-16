@@ -1,11 +1,13 @@
 import express from 'express';
 import { getAllUsers, createUser, updateUser, deleteUser } from '../controllers/UserController.js';
+import { authenticateToken, authorize } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', getAllUsers);
-router.post('/', createUser);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+// Admin only routes
+router.get('/', authenticateToken, authorize('Admin'), getAllUsers);
+router.post('/', authenticateToken, authorize('Admin'), createUser);
+router.put('/:id', authenticateToken, updateUser); // Will check permissions in controller
+router.delete('/:id', authenticateToken, authorize('Admin'), deleteUser); // Will check in controller
 
 export default router;
