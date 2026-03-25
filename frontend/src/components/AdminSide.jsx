@@ -158,21 +158,23 @@ const AdminSide = () => {
               <option value="Admin">Admin</option>
             </select>
           </div>
-          <button type="submit">{editingUser ? "Cập nhật" : "Tạo"}</button>
-          {editingUser && <button type="button" onClick={cancelEdit}>Hủy</button>}
+          <div className="form-btn-group">
+            <button class="red-btn" type="submit">{editingUser ? "Cập nhật" : "Tạo"}</button>
+            {editingUser && <button class="red-btn" type="button" onClick={cancelEdit}>Hủy</button>}
+          </div>
         </form>
       </div>
 
-      <div className="user-list">
+      <div className="user-list table-responsive">
         <h3>Danh sách User</h3>
         <table>
           <thead style={{ backgroundColor: "#f0f0f0" }}>
             <tr style={{ color: "black" }}>
-              <th>ID</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Actions</th>
+              <th class="col-id">ID</th>
+              <th class="col-username">Username</th>
+              <th class="col-email">Email</th>
+              <th class="col-role">Role</th>
+              <th class="col-actions">Actions</th>
             </tr>
           </thead>
           <tbody style={{ color: "#080000" }}>
@@ -182,9 +184,9 @@ const AdminSide = () => {
                 <td>{u.username}</td>
                 <td>{u.email}</td>
                 <td>{u.role}</td>
-                <td>
-                  <button onClick={() => startEdit(u)}>Sửa</button>
-                  <button onClick={() => handleDelete(u.id)}>Xóa</button>
+                <td class="btn-group">
+                  <button class="red-btn" onClick={() => startEdit(u)}>Sửa</button>
+                  <button class="red-btn" onClick={() => handleDelete(u.id)}>Xóa</button>
                 </td>
               </tr>
             ))}

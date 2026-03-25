@@ -46,7 +46,7 @@ const Login = () => {
 
           {error && <div className="error">{error}</div>}
 
-          <button type="submit" disabled={loading}>
+          <button class="red-btn" type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Đăng nhập"}
           </button>
         </form>

@@ -59,10 +59,13 @@ function AppContent() {
       <main className="content">
         {view === "home" && (
           <div className="home">
-            <h2>Chào mừng đến với P-Gen</h2>
-            <p>
-
-            </p>
+            <div className="slider">
+              <h2>Chào mừng đến với P-Gen</h2>
+              <p>
+                Hệ thống ôn luyện trắc nghiệm thông minh cho sinh viên. <br/>
+                P-Gen giúp bạn làm chủ kiến thức nhờ thuật toán ghi nhớ để tối ưu thời gian ôn thi.
+              </p>
+            </div>
 
             <div className="card-grid">
               <div className="card">
