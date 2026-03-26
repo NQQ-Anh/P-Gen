@@ -7,6 +7,9 @@
 }
 
 /* Regular */
+.brand-name{
+  white-space: nowrap;
+}
 .red-btn {
   width: 100%;
   background: white;
@@ -52,8 +55,15 @@ body {
   align-items: center;
 }
 
-.logo {
-  margin: 0;
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+.logo-pic {
+  height: 48px;
+  width: auto;
+  margin-right: 10px;
 }
 
 .menu > button {
@@ -97,7 +107,7 @@ body {
   aspect-ratio: 3/1;
   padding: 40px;
   margin: 0 -40px;
-  background: url('./assets/img/slide1.jpg') no-repeat center / cover;
+  background: url('../public/img/slide1.jpg') no-repeat center / cover;
   display: flex;
   flex-direction: column;
   justify-content: center; 
@@ -108,6 +118,7 @@ body {
 .home .slider h2 {
   color: #A4161A;
   margin-bottom: 12px;
+  font-size: 48px;
 }
 
 .home .slider p{
@@ -118,13 +129,29 @@ body {
 /* CARDS */
 
 .card-grid {
-  margin-top: 30px;
+  margin: 0 -40px;
+  padding: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .card-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (min-width: 1200px){
+  .card-grid{
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 
 .card {
+  display: flex;
+  align-items: center;
   background: white;
   border-radius: 16px;
   padding: 20px;
@@ -135,6 +162,28 @@ body {
 
 .card:hover {
   transform: translateY(-4px) scale(1.02);
+}
+
+.card .fa-solid{
+  font-size: 32px;
+  text-align: center;
+  color: #A4161A;
+}
+
+.card .card-content{
+  padding: 0 10px;
+  flex: 1;
+}
+
+.card .card-content h3{
+  color: #A4161A;
+  font-size: 14px;
+}
+
+.card .card-content p{
+  font-size: 11px;
+  color: rgba(0,0,0,0.7);
+  font-style: italic;
 }
 
 /* FOOTER */

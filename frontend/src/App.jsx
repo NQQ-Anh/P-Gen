@@ -30,7 +30,10 @@ function AppContent() {
   return (
     <div className="container">
       <header className="navbar">
-        <h1 className="logo">P-Gen</h1>
+        <div className="logo">
+          <img className="logo-pic" src="/img/pgen-noback.png" alt="P-Gen" />
+          <h1 className="logo-cont"><span className="brand-name">P-Gen</span></h1>
+        </div>
 
         <div className="menu">
           <button onClick={() => setView("home")}>Trang chủ</button>
@@ -60,7 +63,7 @@ function AppContent() {
         {view === "home" && (
           <div className="home">
             <div className="slider">
-              <h2>Chào mừng đến với P-Gen</h2>
+              <h2>Chào mừng đến với <span className="brand-name">P-Gen</span></h2>
               <p>
                 Hệ thống ôn luyện trắc nghiệm thông minh cho sinh viên. <br/>
                 P-Gen giúp bạn làm chủ kiến thức nhờ thuật toán ghi nhớ để tối ưu thời gian ôn thi.
@@ -69,24 +72,37 @@ function AppContent() {
 
             <div className="card-grid">
               <div className="card">
-                <h3></h3>
-                <p></p>
+                <i class="fa-solid fa-brain"></i>
+                <div className="card-content">
+                  <h3>Tối ưu lộ trình học</h3>
+                  <p>Nhờ áp dụng thuật toán nhắc lại.</p>
+                </div>
               </div>
 
               <div className="card">
-                <h3></h3>
-                <p></p>
+                <i class="fa-solid fa-book"></i>
+                <div className="card-content">
+                  <h3>Kho dữ liệu đa dạng</h3>
+                  <p>Tổng hợp 2000+ câu hỏi trắc nghiệm.</p>
+                </div>
               </div>
 
               <div className="card">
-                <h3></h3>
-                <p></p>
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <div className="card-content">
+                  <h3>Trải nghiệm thực tế</h3>
+                  <p>Giả lập môi trường thi với bộ đếm giờ và câu hỏi ngẫu nhiên.</p>
+                </div>
               </div>
 
               <div className="card">
-                <h3></h3>
-                <p></p>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <div className="card-content">
+                  <h3>Giao diện thân thiện</h3>
+                  <p>Thiết kế hiện đại, dễ dàng thao tác.</p>
+                </div>
               </div>
+
             </div>
           </div>
         )}
