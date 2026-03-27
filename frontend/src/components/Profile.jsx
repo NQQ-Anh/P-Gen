@@ -19,7 +19,7 @@ const Profile = () => {
           <p style={{ color: "black" }}><strong>Role:</strong> {user.role}</p>
         </div>
 
-        <button className="logout-btn" onClick={logout}>
+        <button className="logout-btn red-btn" onClick={logout}>
           Đăng xuất
         </button>
       </div>

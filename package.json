@@ -13,7 +13,12 @@
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
-  "keywords": ["react", "node", "jwt", "authentication"],
+  "keywords": [
+    "react",
+    "node",
+    "jwt",
+    "authentication"
+  ],
   "author": "",
   "license": "ISC"
 }

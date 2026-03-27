@@ -5,7 +5,7 @@ import cors from "cors";
 import db from "./config/db.js";
 import userRoutes from "./routes/userRoute.js";
 import authRoutes from "./routes/authRoute.js";
-
+import questionRoutes from "./routes/questionRoutes.js";
 const app = express();
 
 // Middleware
@@ -16,8 +16,9 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/users", userRoutes);
+app.use("/auth", authRoutes);
+app.use("/questions", questionRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

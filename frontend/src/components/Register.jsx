@@ -103,7 +103,7 @@ const Register = () => {
 
           {error && <div className="error">{error}</div>}
 
-          <button disabled={loading}>
+          <button class="red-btn" disabled={loading}>
             {loading ? "Registering..." : "Đăng ký"}
           </button>
         </form>
