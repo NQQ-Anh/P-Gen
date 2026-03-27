@@ -15,7 +15,7 @@ const AdminSide = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5001/api/users", {
+      const response = await fetch("http://localhost:5001/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
