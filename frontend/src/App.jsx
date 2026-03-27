@@ -201,7 +201,49 @@ function AppContent() {
       </main>
 
       <footer className="footer">
-        <p>Đây là footer</p>
+        <div className="footer-container">
+          <div className="footer-column footer-info">
+            <div className="logo">
+              <img src="/img/pgen.png" alt="P-Gen Logo" className="logo-pic" />
+              <h1 className="logo-cont">
+                <span className="brand-name">P-Gen</span>
+              </h1>
+            </div>
+            <p className="footer-description">
+              Hệ thống ôn luyện trắc nghiệm thông minh dành riêng cho sinh viên tại PTIT. 
+              Đồng hành cùng bạn chinh phục mọi bài thi trắc nghiệm.
+            </p>
+          </div>
+
+          <div className="footer-column footer-connect">
+            <h3 className="footer-title">Kết nối</h3>
+            <div className="social-links">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                <i className="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noreferrer" aria-label="Discord">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+              <a href="https://web.telegram.org" target="_blank" rel="noreferrer" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <i className="fa-brands fa-github"></i>
+              </a>
+            </div>
+            <div className="contact-details">
+              <p>
+                <i className="fa-solid fa-envelope"></i> support@pgen.vn
+              </p>
+              <p>
+                <i className="fa-solid fa-location-dot"></i> PTIT - Hà Đông, Hà Nội
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="footer-copyright">
+          &copy; 2026 P-Gen Project. Developed by nam. and quanh
+        </div>
       </footer>
     </div>
   );
