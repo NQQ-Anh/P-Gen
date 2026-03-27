@@ -138,16 +138,6 @@ async function setupDatabase() {
       ) ENGINE=InnoDB;
       `);
 
-      // await connection.query(`
-      //   INSERT IGNORE INTO Users (id, username, password, email, role) VALUES
-      // (1, 'admin1', 'admin111', 'admin1@pgen.vn', 'Admin'),
-      // (2, 'admin2', 'admin222', 'admin2@pgen.vn', 'Admin'),
-      // (3, 'user1', 'user111', 'user1@pgen.vn', 'User'),
-      // (4, 'user2', 'user222', 'user2@pgen.vn', 'User'),
-      // (5, 'user3', 'user333', 'user3@pgen.vn', 'User'),
-      // (6, 'user4', 'user444', 'user4@pgen.vn', 'User'),
-      // (7, 'user5', 'user555', 'user5@pgen.vn', 'User');
-      // `);
 
 
 const users = [
