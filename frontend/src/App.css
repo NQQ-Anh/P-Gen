@@ -9,6 +9,7 @@
 /* Regular */
 .brand-name{
   white-space: nowrap;
+  display: inline-block;
 }
 .red-btn {
   width: 100%;
@@ -47,40 +48,50 @@ body {
 /* NAVBAR */
 
 .navbar {
+  width: 100%;
   background: #A4161A;
   color: white;
-  padding: 16px 40px;
+  padding: 8px 20px;
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
+  z-index: 1001;
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
 .logo-pic {
-  height: 48px;
+  height: 40px;
   width: auto;
   margin-right: 10px;
 }
 
-.menu > button {
+.logo-cont {
+  font-size: 28px;
+}
+
+.menu button {
   margin-left: 10px;
   padding: 8px 16px;
   border: none;
-  background: white;
-  color: #A4161A;
+  background: none;
+  color: white;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 13px;
+  text-align: center;
   font-weight: 600;
   transition: 0.1s ease;
 }
 
-.menu > button:hover {
+.menu button:hover {
   transform: scale(1.02) translateY(-2px);
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  color: #A4161A;
   background: #fff3f3;
 }
 
@@ -89,9 +100,102 @@ body {
   color: white;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background:none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-toggle .fa-xmark{
+    background-color: white;
+    color: #A4161A;
+    padding: 2px 4px;
+    border-radius: 8px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90%;
+    right: 2%;
+    width: 160px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 10px 0;
+    z-index: 1001;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+
+  .menu.open {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+  }
+
+  .menu.open button {
+    margin-left: 0;
+    width: 85%;
+    padding: 15px 0;
+    border-radius: 8px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+    color: #A4161A;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.1s ease;
+  }
+
+  .menu.open button:hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    background: #fff3f3;
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px); 
+  -webkit-backdrop-filter: blur(4px);
+
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* CONTENT */
 
 .content {
+  margin-top: 58px;
   flex: 1;
   padding: 0 40px;
 }
@@ -104,10 +208,12 @@ body {
 }
 
 .home .slider{
+  width: 100vw;
+  overflow: hidden;
   aspect-ratio: 3/1;
   padding: 40px;
   margin: 0 -40px;
-  background: url('../public/img/slide1.jpg') no-repeat center / cover;
+  background: url('/img/slide1.jpg') no-repeat center / cover;
   display: flex;
   flex-direction: column;
   justify-content: center; 
@@ -115,15 +221,56 @@ body {
   text-align: center;
 }
 
-.home .slider h2 {
+.cursor-slide {
+  font-weight: 200;
   color: #A4161A;
-  margin-bottom: 12px;
-  font-size: 48px;
+  margin-left: 3px;
+  animation: blink 0.8s infinite;
 }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Đảm bảo h2 có chiều cao cố định để nội dung trang không bị nhảy lên xuống khi chữ biến mất */
+.home .slider h2 {
+  min-height: 1.5em; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #A4161A;
+  font-size: 48px;
+  flex-wrap: wrap;
+}
+
 
 .home .slider p{
   color: rgba(0,0,0,0.7);
   font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .home .slider{
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
+  .home .slider h2 {
+    font-size: 26px; 
+    line-height: 1.2;
+    margin-bottom: 10px;
+    
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .home .slider p {
+    font-size: 13px;
+  }
 }
 
 /* CARDS */
@@ -132,7 +279,7 @@ body {
   margin: 0 -40px;
   padding: 40px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   background-color: white;
 }

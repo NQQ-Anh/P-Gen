@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -9,8 +9,19 @@ import "./App.css";
 function AppContent() {
   const { user, logout, loading } = useAuth();
   const [view, setView] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef(null);
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  const fullText = "Chào mừng đến với P-Gen";
 
-  // Set view based on user role after login
+  const handleSetView = (newView) => {
+    setView(newView);
+    setIsMenuOpen(false); // Đóng menu sau khi chọn
+  };
+
+  // Hiển thị dựa trên Role của người dùng
   useEffect(() => {
     if (user) {
       if (user.role === 'Admin') {
@@ -23,35 +34,104 @@ function AppContent() {
     }
   }, [user]);
 
+  // Hiệu ứng của welcome
+  useEffect(() => {
+    const handleTyping = () => {
+      // Nếu đang xóa: cắt bớt 1 ký tự. Nếu đang gõ: thêm 1 ký tự
+      const nextText = isDeleting
+        ? fullText.substring(0, typedText.length - 1)
+        : fullText.substring(0, typedText.length + 1);
+
+      setTypedText(nextText);
+
+      if (!isDeleting && nextText === fullText) {
+        // Đã gõ xong -> Nghỉ
+        setTypingSpeed(3000);
+        setIsDeleting(true);
+      } else if (isDeleting && nextText === "") {
+        // Đã xóa xong -> Nghỉ
+        setIsDeleting(false);
+        setTypingSpeed(600);
+      } else {
+        // Tốc độ khi đang xóa và khi đang gõ
+        setTypingSpeed(isDeleting ? 30 : 75);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, typingSpeed]);
+
+  // Đóng menu
+  useEffect(() => {
+    // Đóng khi thay đổi kích thước hoặc cuộn trang
+    const handleOutsideEvents = (event) => {
+    if (event.type === 'resize'|| event.type === 'wheel' || event.type === 'touchmove') {
+      console.log("resize");
+      setIsMenuOpen(false);
+    }
+
+    // Đóng khi click ra ngoài vùng Navbar
+    if (event.type === 'mousedown'|| event.type === 'touchstart') {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+  };
+    
+    window.addEventListener("resize", handleOutsideEvents);
+    window.addEventListener("wheel", handleOutsideEvents);
+    window.addEventListener("touchmove", handleOutsideEvents);
+    document.addEventListener("mousedown", handleOutsideEvents);
+    document.addEventListener("touchstart", handleOutsideEvents);
+
+    return () => {
+      window.removeEventListener("resize", handleOutsideEvents);
+      window.removeEventListener("wheel", handleOutsideEvents);
+      window.removeEventListener("touchmove", handleOutsideEvents);
+      document.removeEventListener("mousedown", handleOutsideEvents);    
+      document.removeEventListener("touchstart", handleOutsideEvents);    
+    };
+  }, []);
+
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
 
   return (
     <div className="container">
-      <header className="navbar">
-        <div className="logo">
+      <div 
+        className={`menu-overlay ${isMenuOpen ? "active" : ""}`} 
+        onClick={() => setIsMenuOpen(false)}
+      ></div>
+
+      <header className="navbar" ref={navRef}>
+        <div className="logo" onClick={() => handleSetView("home")} style={{cursor: 'pointer'}}>
           <img className="logo-pic" src="/img/pgen-noback.png" alt="P-Gen" />
           <h1 className="logo-cont"><span className="brand-name">P-Gen</span></h1>
         </div>
 
-        <div className="menu">
-          <button onClick={() => setView("home")}>Trang chủ</button>
+        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <i className={isMenuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
+        </button>
+
+        <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+          <button onClick={() => handleSetView("home")}>Trang chủ</button>
 
           {!user && (
             <>
-              <button onClick={() => setView("login")}>Đăng nhập</button>
-              <button onClick={() => setView("register")}>Đăng ký</button>
+              <button onClick={() => handleSetView("login")}>Đăng nhập</button>
+              <button onClick={() => handleSetView("register")}>Đăng ký</button>
             </>
           )}
 
           {user && (
             <>
-              <button onClick={() => setView("profile")}>Thông tin</button>
+              <button onClick={() => handleSetView("profile")}>Thông tin</button>
               {user.role === 'Admin' && (
-                <button onClick={() => setView("admin")}>Quản lý User</button>
+                <button onClick={() => handleSetView("admin")}>Quản lý</button>
               )}
-              <button className="logout" onClick={logout}>
+              <button className="logout" onClick={() => { logout(); setIsMenuOpen(false); }}>
                 Đăng xuất
               </button>
             </>
@@ -60,10 +140,18 @@ function AppContent() {
       </header>
 
       <main className="content">
+        {/* Giữ nguyên phần nội dung các trang ở đây */}
         {view === "home" && (
           <div className="home">
             <div className="slider">
-              <h2>Chào mừng đến với <span className="brand-name">P-Gen</span></h2>
+              <h2>
+                {typedText.slice(0, 17)}
+                {typedText.length > 17 && <>&nbsp;</>}
+                {typedText.length > 18 && (
+                  <span className="brand-name">{typedText.slice(18)}</span>
+                )}
+                <span className="cursor-slide">|</span>
+              </h2>
               <p>
                 Hệ thống ôn luyện trắc nghiệm thông minh cho sinh viên. <br/>
                 P-Gen giúp bạn làm chủ kiến thức nhờ thuật toán ghi nhớ để tối ưu thời gian ôn thi.
@@ -106,7 +194,6 @@ function AppContent() {
             </div>
           </div>
         )}
-
         {view === "login" && !user && <Login />}
         {view === "register" && !user && <Register />}
         {view === "profile" && user && <Profile />}
