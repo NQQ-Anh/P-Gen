@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { useState, useEffect, useRef, startTransition } from "react";
+import { AuthProvider } from "./contexts/AuthContext";
+import { useAuth } from './hooks/useAuth';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
@@ -20,13 +21,17 @@ function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
   const [typedText, setTypedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(150);
   const fullText = "Chào mừng đến với P-Gen";
 
   const handleSetView = (newView) => {
-    setView(newView);
-    setIsMenuOpen(false); // Đóng menu sau khi chọn
+    startTransition(() => {
+      setView(newView);
+    });
+    setIsMenuOpen(false);
+
+    if (newView === "home") {
+      setTypedText(""); 
+    }
   };
 
   // Hiển thị dựa trên Role của người dùng
@@ -44,31 +49,14 @@ function AppContent() {
 
   // Hiệu ứng của welcome
   useEffect(() => {
-    const handleTyping = () => {
-      // Nếu đang xóa: cắt bớt 1 ký tự. Nếu đang gõ: thêm 1 ký tự
-      const nextText = isDeleting
-        ? fullText.substring(0, typedText.length - 1)
-        : fullText.substring(0, typedText.length + 1);
+    if (view !== "home" || typedText === fullText) return;
 
-      setTypedText(nextText);
+    const timer = setTimeout(() => {
+      setTypedText(fullText.substring(0, typedText.length + 1));
+    }, 75);
 
-      if (!isDeleting && nextText === fullText) {
-        // Đã gõ xong -> Nghỉ
-        setTypingSpeed(3000);
-        setIsDeleting(true);
-      } else if (isDeleting && nextText === "") {
-        // Đã xóa xong -> Nghỉ
-        setIsDeleting(false);
-        setTypingSpeed(600);
-      } else {
-        // Tốc độ khi đang xóa và khi đang gõ
-        setTypingSpeed(isDeleting ? 30 : 75);
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [typedText, isDeleting, typingSpeed]);
+  }, [typedText, view]);
 
   // Đóng menu
   useEffect(() => {
@@ -168,7 +156,7 @@ function AppContent() {
 
             <div className="card-grid">
               <div className="card">
-                <i class="fa-solid fa-brain"></i>
+                <i className="fa-solid fa-brain"></i>
                 <div className="card-content">
                   <h3>Tối ưu lộ trình học</h3>
                   <p>Nhờ áp dụng thuật toán nhắc lại.</p>
@@ -176,7 +164,7 @@ function AppContent() {
               </div>
 
               <div className="card">
-                <i class="fa-solid fa-book"></i>
+                <i className="fa-solid fa-book"></i>
                 <div className="card-content">
                   <h3>Kho dữ liệu đa dạng</h3>
                   <p>Tổng hợp 2000+ câu hỏi trắc nghiệm.</p>
@@ -184,7 +172,7 @@ function AppContent() {
               </div>
 
               <div className="card">
-                <i class="fa-solid fa-fire-flame-curved"></i>
+                <i className="fa-solid fa-fire-flame-curved"></i>
                 <div className="card-content">
                   <h3>Trải nghiệm thực tế</h3>
                   <p>Giả lập môi trường thi với bộ đếm giờ và câu hỏi ngẫu nhiên.</p>
@@ -192,7 +180,7 @@ function AppContent() {
               </div>
 
               <div className="card">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <i className="fa-solid fa-wand-magic-sparkles"></i>
                 <div className="card-content">
                   <h3>Giao diện thân thiện</h3>
                   <p>Thiết kế hiện đại, dễ dàng thao tác.</p>
@@ -230,10 +218,10 @@ function AppContent() {
                 <i className="fa-brands fa-facebook"></i>
               </a>
               <a href="https://discord.com" target="_blank" rel="noreferrer" aria-label="Discord">
-                <i class="fa-brands fa-discord"></i>
+                <i className="fa-brands fa-discord"></i>
               </a>
               <a href="https://web.telegram.org" target="_blank" rel="noreferrer" aria-label="Telegram">
-                <i class="fa-brands fa-telegram"></i>
+                <i className="fa-brands fa-telegram"></i>
               </a>
               <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <i className="fa-brands fa-github"></i>

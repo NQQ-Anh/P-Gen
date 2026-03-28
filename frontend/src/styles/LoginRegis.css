@@ -1,37 +1,160 @@
-.auth-container {
+.auth-page {
+  line-height: 1;
+  contain: strict;
+  overflow: hidden;
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-bottom: -40px;
+  min-height: 75vh;
+  background: url('/img/auth-back.png') no-repeat center / cover;;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+}
+
+/* 3. Khung chứa 2 cột*/
+.auth-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* --- CỘT TRÁI --- */
+.auth-form-side{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form-wrapper {
   padding: 40px;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
 }
 
-.auth-form {
-  width: 360px;
-  background: var(--second-color);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.auth-form h2 {
-  font-size: var(--fs-h2);
-  margin-bottom: 16px;
+.auth-title { 
+  font-size: var(--fs-h2); 
+  margin-bottom: 8px; 
+  font-weight: 700;
   color: var(--primary-color);
 }
 
-.auth-form input {
-  font-size: var(--fs-body);
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #d1d1d1;
-  border-radius: 8px;
-  display: block;
-  color: black;
-  background-color: var(--second-color);
+.auth-subtitle { 
+  color: #333; 
+  font-size: var(--fs-body); 
+  margin-bottom: 20px; 
 }
 
-.error {
-  color: red;
-  margin-bottom: 10px;
+/* Style cho từng nhóm Input */
+.auth-group { margin-bottom: 16px;}
+
+.auth-group label { 
+  display: block; 
+  font-size: var(--fs-body); 
+  margin-bottom: 8px; 
+  color: var(--primary-color); 
+  font-weight: 600;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-input:focus {
+  border-color: #A4161A; /* Đỏ đô */
+  outline: none;
+  background: rgba(164, 22, 26, 0.05);
+}
+
+/* Thông báo lỗi*/
+.auth-error-msg {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  text-align: center;
+}
+
+/* --- CỘT PHẢI: IMAGE --- */
+.auth-img-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-img-box {
+  width: 85%;
+  max-width: 500px;
+  animation: authFloat 5s ease-in-out infinite;
+}
+
+.auth-img-box img{
+  width: 85%;
+}
+
+.auth-img-desk{display: block;}
+.auth-img-tablet{display: none;}
+
+@keyframes authFloat {
+  0%, 100% { transform: translateY(20px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+
+  .auth-form-side{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .auth-form-wrapper {
+    padding: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    border-radius: 16px;
+  }
+
+  .auth-img-side {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/img/auth-pic2.jpg") no-repeat center / cover;
+  }
+
+  .auth-img-desk{display: none;}
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .auth-img-side { display: none; }
+  .auth-container { max-width: 500px; }
+  .auth-form-side { padding: 40px; }
 }

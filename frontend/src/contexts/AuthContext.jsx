@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
@@ -150,14 +150,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const value = {
+  const value = useMemo(() => ({
     user,
     loading,
     login,
     logout,
     fetchProfile,
     token: localStorage.getItem('accessToken'),
-  };
+  }), [user, loading]);
 
   return (
     <AuthContext.Provider value={value}>
