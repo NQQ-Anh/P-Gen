@@ -8,7 +8,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="auth-container">
+    <div className="profile-container">
       <div className="profile-card">
         <h2>Thông tin</h2>
 

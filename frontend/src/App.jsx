@@ -4,7 +4,15 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import AdminSide from "./components/AdminSide";
-import "./App.css";
+
+import "./styles/AdminSide.css";
+import "./styles/App.css";
+import "./styles/Common.css";
+import "./styles/Footer.css";
+import "./styles/Home.css";
+import "./styles/LoginRegis.css";
+import "./styles/Navbar.css";
+import "./styles/Profile.css";
 
 function AppContent() {
   const { user, logout, loading } = useAuth();
