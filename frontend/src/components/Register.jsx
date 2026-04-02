@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const Register = () => {
   const { login } = useAuth();
@@ -61,52 +61,76 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-form">
-        <h2>Đăng ký</h2>
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-form-side">
+          <div className="auth-form-wrapper">
+            <h2 className="auth-title">Join P-Gen</h2>
+            <p className="auth-subtitle">Chào mừng bạn đến với hệ thống ôn luyện thông minh.</p>
 
-        <form onSubmit={handleSubmit}>
-          <input
-            name="username"
-            placeholder="Tên đăng nhập"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
+            <form onSubmit={handleSubmit} className="auth-form">
+              <div className="auth-group">  
+                <label>Tên đăng nhập</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="Username"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+              <div className="auth-group">  
+                <label>Email</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          <input
-            name="password"
-            type="password"
-            placeholder="Mật khẩu"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+              <div className="auth-group">  
+                <label>Mậu khẩu</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="Xác nhận mật khẩu"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+              <div className="auth-group">  
+                <label>Xác nhận mật khẩu</label>
+                <input
+                  type="text"
+                  className="auth-input"
+                  placeholder="Confirm password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          {error && <div className="error">{error}</div>}
+              {error && <div className="error">{error}</div>}
 
-          <button class="red-btn" disabled={loading}>
-            {loading ? "Registering..." : "Đăng ký"}
-          </button>
-        </form>
+              <button class="red-btn" disabled={loading}>
+                {loading ? "Registering..." : "Đăng ký"}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="auth-img-side">
+          <div className="auth-img-box">
+            <img src="/img/auth-pic1.png" className="auth-img-desk" alt="P-Gen" />
+          </div>
+        </div>
       </div>
     </div>
   );

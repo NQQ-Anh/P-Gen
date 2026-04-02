@@ -22,8 +22,8 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Subjects (
         id INT AUTO_INCREMENT PRIMARY KEY,
-    subject_name VARCHAR(255) NOT NULL,
-    description TEXT
+        subject_name VARCHAR(255) NOT NULL,
+        description TEXT
       ) ENGINE=InnoDB;
     `);
 
@@ -33,9 +33,9 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Tags (
         id INT AUTO_INCREMENT PRIMARY KEY,
-    tag_name VARCHAR(100) NOT NULL,
-    subject_id INT NOT NULL,
-    FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        tag_name VARCHAR(100) NOT NULL,
+        subject_id INT NOT NULL,
+        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -44,11 +44,11 @@ async function setupDatabase() {
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Chapters (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-    chapter_name VARCHAR(255) NOT NULL,
-    order_index INT DEFAULT 0,
-    subject_id INT NOT NULL,
-    FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        chapter_name VARCHAR(255) NOT NULL,
+        order_index INT DEFAULT 0,
+        subject_id INT NOT NULL,
+        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -58,10 +58,10 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Users (
         id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    role ENUM('Admin', 'User') DEFAULT 'User'
+        username VARCHAR(50) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL,
+        email VARCHAR(100) NOT NULL UNIQUE,
+        role ENUM('Admin', 'User') DEFAULT 'User'
       ) ENGINE=InnoDB;
     `);
 
@@ -71,15 +71,15 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions (
         id INT AUTO_INCREMENT PRIMARY KEY,
-    content TEXT NOT NULL,
-    explanation TEXT,
-    status ENUM('Pending', 'Approved') DEFAULT 'Pending',
-    author_id INT NOT NULL,
-    chapter_id INT NOT NULL,
-    subject_id INT NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (chapter_id) REFERENCES Chapters(id) ON DELETE CASCADE,
-    FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        content TEXT NOT NULL,
+        explanation TEXT,
+        status ENUM('Pending', 'Approved') DEFAULT 'Pending',
+        author_id INT NOT NULL,
+        chapter_id INT NOT NULL,
+        subject_id INT NOT NULL,
+        FOREIGN KEY (author_id) REFERENCES Users(id) ON DELETE CASCADE,
+        FOREIGN KEY (chapter_id) REFERENCES Chapters(id) ON DELETE CASCADE,
+        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -89,10 +89,10 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions_tags (
         question_id INT NOT NULL,
-    tag_id INT NOT NULL,
-    PRIMARY KEY (question_id, tag_id),
-    FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE,
-    FOREIGN KEY (tag_id) REFERENCES Tags(id) ON DELETE CASCADE
+        tag_id INT NOT NULL,
+        PRIMARY KEY (question_id, tag_id),
+        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE,
+        FOREIGN KEY (tag_id) REFERENCES Tags(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -102,10 +102,10 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Answers (
         id INT AUTO_INCREMENT PRIMARY KEY,
-    content TEXT NOT NULL,
-    is_correct BOOLEAN DEFAULT FALSE,
-    question_id INT NOT NULL,
-    FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        content TEXT NOT NULL,
+        is_correct BOOLEAN DEFAULT FALSE,
+        question_id INT NOT NULL,
+        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -115,28 +115,28 @@ async function setupDatabase() {
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Learning_process (
         user_id INT NOT NULL,
-    question_id INT NOT NULL,
-    interval_days INT DEFAULT 0,
-    easiness_factor FLOAT DEFAULT 2.5,
-    repetition INT DEFAULT 0,
-    next_review DATETIME NOT NULL,
-    PRIMARY KEY (user_id, question_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        question_id INT NOT NULL,
+        interval_days INT DEFAULT 0,
+        easiness_factor FLOAT DEFAULT 2.5,
+        repetition INT DEFAULT 0,
+        next_review DATETIME NOT NULL,
+        PRIMARY KEY (user_id, question_id),
+        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
     await connection.query(`
       CREATE TABLE IF NOT EXISTS History (
-      id BIGINT AUTO_INCREMENT PRIMARY KEY,
-      user_id INT NOT NULL,
-      question_id INT NOT NULL,
-      is_correct BOOLEAN NOT NULL,
-      answered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-      FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        question_id INT NOT NULL,
+        is_correct BOOLEAN NOT NULL,
+        answered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
-      `);
+    `);
 
 
 
