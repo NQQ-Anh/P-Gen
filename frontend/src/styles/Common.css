@@ -1,0 +1,24 @@
+.brand-name{
+  white-space: nowrap;
+  display: inline-block;
+}
+.red-btn {
+  width: 100%;
+  background: var(--second-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.red-btn:hover {
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  color: var(--second-color);
+  transform: scale(1.03) translateY(-2px);
+}
