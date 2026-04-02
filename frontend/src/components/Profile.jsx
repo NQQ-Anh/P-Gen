@@ -1,4 +1,4 @@
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -8,7 +8,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="auth-container">
+    <div className="profile-container">
       <div className="profile-card">
         <h2>Thông tin</h2>
 
