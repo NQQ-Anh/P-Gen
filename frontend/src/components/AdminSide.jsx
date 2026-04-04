@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from '../contexts/AuthContext';
+import "../styles/AdminSide.css";
 
 const AdminSide = () => {
   const { token } = useAuth();

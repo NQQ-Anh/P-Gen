@@ -1,8 +1,7 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -12,8 +11,15 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null); //Tạm thời tắt
+  // const [user, setUser] = useState({ 
+  //   id: 999, 
+  //   username: "Guest_User", 
+  //   role: "User" 
+  // });
+  const [loading, setLoading] = useState(true); // Tạm thời tắt
+  // const [loading, setLoading] = useState(false); 
+
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Check for existing tokens on app start

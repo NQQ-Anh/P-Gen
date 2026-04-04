@@ -1,0 +1,230 @@
+/* QuestionView.css - Full Version */
+
+/* 1. Biến màu sắc đồng bộ với P-Gen */
+:root {
+  --primary-red: #A4161A;
+  --dark-bg: #0b0b0b;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-sub: #b0b0b0;
+  --correct: #2ecc71;
+  --incorrect: #e74c3c;
+  --pending: #f1c40f;
+}
+
+/* 2. Container chính */
+.quiz-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--dark-bg);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Header & Thanh điều hướng */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.back-link {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: var(--primary-red);
+}
+
+/* 4. Switch Toggle (Flashcard/Danh sách) */
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: 30px;
+}
+
+.toggle-label {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.toggle-label.active {
+  color: var(--primary-red);
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #333;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider { background-color: var(--primary-red); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* 5. Question Card */
+.question-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.question-text {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+/* 6. Nút đáp án (Quan trọng nhất) */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Chia 2 cột trên PC */
+  gap: 15px;
+}
+
+.answer-btn {
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  color: var(--text-main);
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answer-btn:hover:not(:disabled) {
+  background: rgba(164, 22, 26, 0.1);
+  border-color: var(--primary-red);
+  transform: translateX(5px);
+}
+
+.answer-btn.selected {
+  border-color: var(--pending);
+  background: rgba(241, 196, 15, 0.1);
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);
+}
+
+.answer-btn.correct {
+  background: var(--correct) !important;
+  border-color: #27ae60 !important;
+  color: white;
+}
+
+.answer-btn.incorrect {
+  background: var(--incorrect) !important;
+  border-color: #c0392b !important;
+  color: white;
+}
+
+/* 7. Chế độ Danh sách */
+.list-view-container {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.list-view-container::-webkit-scrollbar { width: 6px; }
+.list-view-container::-webkit-scrollbar-thumb {
+  background: var(--primary-red);
+  border-radius: 10px;
+}
+
+.question-card.list-item {
+  margin-bottom: 30px;
+  border-left: 4px solid var(--primary-red);
+}
+
+/* 8. Footer & Nút chức năng */
+.quiz-footer {
+  margin-top: auto;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  background: #222;
+  border: 1px solid var(--border-light);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-buttons button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.submit-quiz-btn {
+  padding: 12px 35px;
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(164, 22, 26, 0.4);
+}
+
+.submit-quiz-btn:hover { background: #660708; }
+
+/* 9. Hiệu ứng & Mobile */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .answers-grid { grid-template-columns: 1fr; }
+  .quiz-container { padding: 15px; margin: 0; }
+  .quiz-header { flex-direction: column; gap: 15px; }
+}

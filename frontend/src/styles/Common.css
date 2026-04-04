@@ -4,7 +4,7 @@
 }
 
 .red-btn {
-  width: 100%;
+  width: calc(100% - 8px);
   background: var(--second-color);
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
@@ -15,6 +15,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.15s ease;
+  z-index: 1;
 }
 
 .red-btn:hover {

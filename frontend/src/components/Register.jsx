@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from '../contexts/AuthContext';
+import "../styles/LoginRegis.css";
 
 const Register = () => {
   const { login } = useAuth();
