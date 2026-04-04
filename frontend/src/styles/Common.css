@@ -2,6 +2,7 @@
   white-space: nowrap;
   display: inline-block;
 }
+
 .red-btn {
   width: 100%;
   background: var(--second-color);
