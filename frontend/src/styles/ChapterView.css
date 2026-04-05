@@ -8,7 +8,7 @@
 
 /* CONTAINER CHÍNH */
 .setup-container {
-  max-width: 900px;
+  max-width: 1000px;
   width: 95%;
   margin: 40px auto;
   background: #ffffff;
@@ -38,7 +38,7 @@
 /* BỐ CỤC GRID */
 .setup-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 300px;
   gap: 35px;
 }
 
@@ -70,16 +70,16 @@
 
 .chapter-info {
   width: 100%;
-  overflow: hidden;
 }
 
 .chap-name {
   font-size: var(--fs-body);
   color: #0f0f0f;
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.5;
 }
 
 /* HOVER & SELECTED */
@@ -105,6 +105,7 @@
   background: #fafafa;
   border-radius: 20px;
   border: 1px solid #f0f0f0;
+  align-self: start;
 }
 
 .setting-item {
@@ -128,7 +129,7 @@
 /* --- TÙY CHỈNH SWITCH (THAY THẾ CHECKBOX) --- */
 .setting-item input[type="checkbox"] {
   position: relative;
-  width: 44px;
+  min-width: 44px;
   height: 22px;
   appearance: none; /* Ẩn checkbox mặc định */
   background: #ccc;

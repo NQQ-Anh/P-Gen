@@ -104,12 +104,13 @@
 }
 
 .subject-view-container .subject-card:hover .card-content {
-  height: 320px; /* Nội dung nở dài ra */
+  height: auto; /* Nội dung nở dài ra */
+  min-height: 100%;
   transform: translateY(-10px); /* Nhích nhẹ lên trên */
   border-color: #A4161A;
   box-shadow: 0 20px 40px rgba(164, 22, 26, 0.15);
   justify-content: flex-start;
-  padding-top: 40px;
+  padding: 20px;
 }
 
 .subject-view-container .subject-card:hover .card-basic-info {

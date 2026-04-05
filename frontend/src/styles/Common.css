@@ -24,3 +24,7 @@
   color: var(--second-color);
   transform: scale(1.03) translateY(-2px);
 }
+
+.red-btn:disabled {
+  border: 2px solid #ADB5BD;
+}
