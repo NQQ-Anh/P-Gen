@@ -71,7 +71,7 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         });
     };
 
-    // Component con hiển thị nội dung một câu hỏi (để tái sử dụng cho cả 2 chế độ)
+    // Component con hiển thị nội dung một câu hỏi
     const renderQuestion = (q, index) => (
         <div key={q.id} className={`question-card ${isListView ? 'list-item' : ''}`}>
             <h3 className="question-text">Câu {index + 1}: {q.content}</h3>
@@ -121,7 +121,7 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                         />
                         <span className="slider"></span>
                     </label>
-                    <span className={isListView ? "toggle-label active" : "toggle-label"}>Danh sách</span>
+                    <span className={isListView ? "toggle-label active" : "toggle-label"}>List</span>
                 </div>
             </div>
 
@@ -138,12 +138,12 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             <div className="quiz-footer">
                 {!isListView && (
                     <div className="nav-buttons">
-                        <button disabled={currentIndex === 0} onClick={() => setCurrentIndex(c => c - 1)}>Trước</button>
+                        <button className="red-btn" disabled={currentIndex === 0} onClick={() => setCurrentIndex(c => c - 1)}>Trước</button>
                         <span>{currentIndex + 1} / {questions.length}</span>
-                        <button disabled={currentIndex === questions.length - 1} onClick={() => setCurrentIndex(c => c + 1)}>Sau</button>
+                        <button className="red-btn" disabled={currentIndex === questions.length - 1} onClick={() => setCurrentIndex(c => c + 1)}>Sau</button>
                     </div>
                 )}
-                <button className="submit-quiz-btn" onClick={handleSubmit}>Nộp bài tập</button>
+                <button className="red-btn submit-quiz-btn" onClick={handleSubmit}>Nộp bài tập</button>
             </div>
         </div>
     );
