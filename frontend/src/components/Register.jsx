@@ -35,7 +35,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/api/auth/register",
+        "http://localhost:5001/auth/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -99,7 +99,7 @@ const Register = () => {
               <div className="auth-group">  
                 <label>Mậu khẩu</label>
                 <input
-                  type="text"
+                  type="password"
                   className="auth-input"
                   name="password"
                   placeholder="Password"
@@ -112,7 +112,7 @@ const Register = () => {
               <div className="auth-group">  
                 <label>Xác nhận mật khẩu</label>
                 <input
-                  type="text"
+                  type="password"
                   className="auth-input"
                   name="confirmPassword"
                   placeholder="Confirm password"
