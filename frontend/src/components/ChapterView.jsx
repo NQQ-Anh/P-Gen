@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/ChapterView.css";
 
 export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
+  const { token } = useAuth();
   const [chapters, setChapters] = useState([]);
   const [selectedChapters, setSelectedChapters] = useState([]);
   const [settings, setSettings] = useState({
@@ -9,14 +11,43 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
     showAnswerImmediately: true,
     autoNext: false
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/subjects/${subject.id}`)
-      .then(res => res.json())
-      .then(data => {
+    if (!subject?.id || !token) {
+      return;
+    }
+
+    const loadChapters = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const res = await fetch(`http://localhost:5001/subjects/${subject.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.message || `Lỗi ${res.status}`);
+        }
+
+        const data = await res.json();
         setChapters(data.chapters || []);
-      });
-  }, [subject.id]);
+      } catch (err) {
+        console.error("Lỗi lấy chương:", err);
+        setError(err.message);
+        setChapters([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadChapters();
+  }, [subject?.id, token]);
   // useEffect(() => {
   //   // Dữ liệu chương cứng để test
   //   const hardcodedChapters = {
@@ -57,18 +88,25 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
       <div className="setup-grid">
         <div className="chapter-selection">
           <h3>Chọn chương ôn tập</h3>
-          {chapters.map(chap => (
-            <div 
-              key={chap.id} 
-              // Kiểm tra xem ID này có phải là ID duy nhất trong mảng không để hiện style "đã chọn"
-              className={`chapter-item-card ${selectedChapters[0] === chap.id ? 'selected' : ''}`}
-              onClick={() => handleSelectChapter(chap.id)}
-            >
-              <div className="chapter-info">
-                <p className="chap-name">{chap.chapter_name}</p>
+          {loading ? (
+            <div className="loading">Đang tải chương...</div>
+          ) : error ? (
+            <div className="error-message">Không tải được chương: {error}</div>
+          ) : chapters.length === 0 ? (
+            <div className="empty-message">Không có chương nào trong môn này.</div>
+          ) : (
+            chapters.map(chap => (
+              <div 
+                key={chap.id} 
+                className={`chapter-item-card ${selectedChapters[0] === chap.id ? 'selected' : ''}`}
+                onClick={() => handleSelectChapter(chap.id)}
+              >
+                <div className="chapter-info">
+                  <p className="chap-name">{chap.chapter_name}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
 
         <div className="mode-settings">
