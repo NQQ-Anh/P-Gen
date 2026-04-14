@@ -15,14 +15,23 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             setLoading(true);
             let allQuestions = [];
             for (const chapterId of chapterIds) {
-                const response = await fetch(
-                    `http://localhost:5001/subjects/${subjectId}/chapters/${chapterId}/questions`,
-                    {
-                        headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` }
-                    }
-                );
+                const response = await fetch(`http://localhost:5001/subjects/${subjectId}/chapters/${chapterId}/questions`, {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` }
+                });
                 const data = await response.json();
-                allQuestions = [...allQuestions, ...data];
+                
+                // KIỂM TRA LỖI TOKEN NGAY TẠI ĐÂY
+                if (response.status === 401 || data.message === "Token expired") {
+                    alert("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại!");
+                    onBack(); // Quay lại trang thiết lập
+                    return;
+                }
+
+                if (!response.ok) throw new Error(data.message || "Lỗi tải dữ liệu");
+
+                // Xử lý dữ liệu mảng trả về (Router của bạn trả về mảng result)
+                const questionsBatch = Array.isArray(data) ? data : (data.questions || []);
+                allQuestions = [...allQuestions, ...questionsBatch];
             }
 
             if (settings.shuffle) {
@@ -30,11 +39,11 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             }
             setQuestions(allQuestions);
         } catch (error) {
-            console.error("Lỗi tải câu hỏi:", error);
+            console.error("Lỗi fetch:", error);
         } finally {
             setLoading(false);
         }
-    }, [subjectId, chapterIds, settings.shuffle]);
+    }, [subjectId, chapterIds, settings.shuffle, onBack]);
 
     useEffect(() => {
         fetchQuestions();
@@ -126,12 +135,27 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             </div>
 
             <div className="quiz-body">
-                {isListView ? (
-                    <div className="list-view-container">
-                        {questions.map((q, idx) => renderQuestion(q, idx))}
+                {/* Trường hợp đang tải */}
+                {loading && <p className="loading-text">Đang tải câu hỏi...</p>}
+
+                {/* Trường hợp đã tải xong nhưng không có câu hỏi (Tránh lỗi 1/0 và crash) */}
+                {!loading && questions.length === 0 && (
+                    <div className="empty-state">
+                        <p>Chương này chưa có câu hỏi nào. Vui lòng quay lại sau!</p>
+                        <button className="red-btn" onClick={onBack}>Quay lại</button>
                     </div>
-                ) : (
-                    renderQuestion(questions[currentIndex], currentIndex)
+                )}
+
+                {/* Chỉ hiển thị câu hỏi nếu mảng có dữ liệu */}
+                {!loading && questions.length > 0 && (
+                    isListView ? (
+                        <div className="list-view-container">
+                            {questions.map((q, idx) => renderQuestion(q, idx))}
+                        </div>
+                    ) : (
+                        // Thêm kiểm tra questions[currentIndex] trước khi gọi renderQuestion
+                        questions[currentIndex] && renderQuestion(questions[currentIndex], currentIndex)
+                    )
                 )}
             </div>
 
