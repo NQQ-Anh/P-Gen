@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from '../contexts/AuthContext';
+import "../styles/LoginRegis.css";
 
 const Register = () => {
   const { login } = useAuth();
@@ -34,7 +35,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/api/auth/register",
+        "http://localhost:5001/auth/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +99,7 @@ const Register = () => {
               <div className="auth-group">  
                 <label>Mậu khẩu</label>
                 <input
-                  type="text"
+                  type="password"
                   className="auth-input"
                   name="password"
                   placeholder="Password"
@@ -111,7 +112,7 @@ const Register = () => {
               <div className="auth-group">  
                 <label>Xác nhận mật khẩu</label>
                 <input
-                  type="text"
+                  type="password"
                   className="auth-input"
                   name="confirmPassword"
                   placeholder="Confirm password"

@@ -2,7 +2,13 @@ import db from '../config/db.js';
 
 export const getAllSubjects = async (req, res) => {
   try {
-    const [rows] = await db.execute('SELECT * FROM Subjects');
+    const [rows] = await db.execute(`
+      SELECT s.*, 
+        (SELECT COUNT(*) FROM Chapters WHERE subject_id = s.id) AS total_chapters,
+        (SELECT COUNT(*) FROM Questions q 
+         WHERE q.subject_id = s.id) AS total_questions
+      FROM Subjects s
+    `);
     res.json(rows);
   } catch (error) {
     res.status(500).json({ message: error.message });

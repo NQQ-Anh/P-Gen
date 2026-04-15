@@ -1,4 +1,5 @@
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from '../contexts/AuthContext';
+import "../styles/Profile.css";
 
 const Profile = () => {
   const { user, logout } = useAuth();

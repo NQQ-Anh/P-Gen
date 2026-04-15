@@ -1,27 +1,33 @@
 import { useState, useEffect, useRef, startTransition } from "react";
 import { AuthProvider } from "./contexts/AuthContext";
-import { useAuth } from './hooks/useAuth';
+import { useAuth } from './contexts/AuthContext';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import AdminSide from "./components/AdminSide";
+import {SubjectView} from "./components/SubjectView";
+import {ChapterView} from "./components/ChapterView";
+import QuestionView from "./components/QuestionView";
+import {ResultView} from "./components/ResultView";
 
-import "./styles/AdminSide.css";
 import "./styles/App.css";
 import "./styles/Common.css";
 import "./styles/Footer.css";
 import "./styles/Home.css";
-import "./styles/LoginRegis.css";
 import "./styles/Navbar.css";
-import "./styles/Profile.css";
 
 function AppContent() {
   const { user, logout, loading } = useAuth();
-  const [view, setView] = useState("home");
+  const [view, setView] = useState("home"); // Tắt tạm thời
+  // const [view, setView] = useState("subject");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
   const [typedText, setTypedText] = useState("");
   const fullText = "Chào mừng đến với P-Gen";
+  const [selectedSubject, setSelectedSubject] = useState(null)
+  const [selectedChapters, setSelectedChapters] = useState([]);
+  const [quizSettings, setQuizSettings] = useState({});
+  const [quizResult, setQuizResult] = useState(null);
 
   const handleSetView = (newView) => {
     startTransition(() => {
@@ -123,6 +129,7 @@ function AppContent() {
 
           {user && (
             <>
+              <button onClick={() => handleSetView("subject")}>Ôn luyện</button>
               <button onClick={() => handleSetView("profile")}>Thông tin</button>
               {user.role === 'Admin' && (
                 <button onClick={() => handleSetView("admin")}>Quản lý</button>
@@ -136,7 +143,6 @@ function AppContent() {
       </header>
 
       <main className="content">
-        {/* Giữ nguyên phần nội dung các trang ở đây */}
         {view === "home" && (
           <div className="home">
             <div className="slider">
@@ -194,6 +200,48 @@ function AppContent() {
         {view === "register" && !user && <Register />}
         {view === "profile" && user && <Profile />}
         {view === "admin" && user && user.role === 'Admin' && <AdminSide />}
+        {view === "subject" && (
+          <SubjectView 
+            onSelectSubject={(sub) => {
+              setSelectedSubject(sub);
+              handleSetView("chapter"); // Chuyển sang view chapter
+            }} 
+          />
+        )}
+        {view === "chapter" && selectedSubject && (
+          <ChapterView 
+            subject={selectedSubject}
+            onBack={() => handleSetView("subject")}
+            onStartQuiz={(chapters, settings) => {
+              // 1. Lưu danh sách các mã chương đã chọn
+              setSelectedChapters(chapters);
+              
+              // 2. Lưu các cài đặt (xáo trộn, hiện đáp án, v.v.)
+              setQuizSettings(settings);
+              
+              // 3. Chuyển sang giao diện làm bài
+              handleSetView("question");
+            }}
+          />
+        )}
+        {view === "question" && selectedSubject && (
+          <QuestionView 
+            subjectId={selectedSubject.id}
+            chapterIds={selectedChapters}
+            settings={quizSettings}
+            onBack={() => handleSetView("chapter")}
+          />
+        )}
+        {view === "result" && quizResult && (
+          <ResultView 
+            result={quizResult}
+            onRestart={() => handleSetView("question")}
+            onHome={() => {
+              setQuizResult(null);
+              handleSetView("subject");
+            }}
+          />
+        )}
       </main>
 
       <footer className="footer">

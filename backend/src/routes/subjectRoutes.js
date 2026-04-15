@@ -8,7 +8,6 @@ import { authenticateToken, authorize } from '../middleware/auth.js';
 const router = express.Router();
 
 // ==================== SUBJECTS ====================
-// GET /subjects - Lấy tất cả subjects
 router.get('/', authenticateToken, getAllSubjects);
 
 // POST /subjects - Tạo subject mới (Admin)
@@ -24,7 +23,6 @@ router.put('/:id', authenticateToken, authorize('Admin'), updateSubject);
 router.delete('/:id', authenticateToken, authorize('Admin'), deleteSubject);
 
 // ==================== CHAPTERS ====================
-// GET /subjects/:id/chapters - Lấy tất cả chapters của subject
 router.get('/:id/chapters', authenticateToken, async (req, res) => {
   try {
     const { id: subjectId } = req.params;
@@ -87,10 +85,9 @@ router.delete('/:id/chapters/:chapterId', authenticateToken, authorize('Admin'),
 });
 
 // ==================== QUESTIONS ====================
-// GET /subjects/:id/chapters/:chapterId/questions - Lấy tất cả questions của chapter
 router.get('/:id/chapters/:chapterId/questions', authenticateToken, async (req, res) => {
   try {
-    const { id: subjectId, chapterId } = req.params;
+    const { id: subjectId, chapterId: chapterPk } = req.params; 
     const [rows] = await db.execute(`
       SELECT 
         q.id AS question_id,
@@ -98,10 +95,11 @@ router.get('/:id/chapters/:chapterId/questions', authenticateToken, async (req, 
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM Questions q
-      LEFT JOIN Answers a ON q.id = a.question_id
-      WHERE q.subject_id = ? AND q.chapter_id = ?
-    `, [subjectId, chapterId]);
+      FROM questions q
+      INNER JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      LEFT JOIN answers a ON q.id = a.question_id
+      WHERE c.id = ? AND c.subject_id = ?
+    `, [chapterPk, subjectId]);
 
     const result = [];
     const map = {};

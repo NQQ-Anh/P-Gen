@@ -1,4 +1,7 @@
 node_modules/
 config/db.js
 .env
-src/DB/import/
+src/DB/import/JSON.js
+src/DB/import/WORD.js
+src/DB/import/XLSX.js
+src/DB/import/SQL.js

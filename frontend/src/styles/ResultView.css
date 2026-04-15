@@ -1,0 +1,124 @@
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.result-card {
+  background: #141414;
+  padding: 50px 40px;
+  border-radius: 32px;
+  text-align: center;
+  border: 1px solid rgba(164, 22, 26, 0.5);
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(164, 22, 26, 0.1);
+  animation: slideUp 0.6s ease-out;
+}
+
+.trophy-icon {
+  font-size: 4rem;
+  color: #f1c40f;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(241, 196, 15, 0.3));
+}
+
+.score-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.score-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid #A4161A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(164, 22, 26, 0.1) 0%, transparent 70%);
+}
+
+.final-score {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.score-label {
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.stats-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 25px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.result-feedback {
+  font-size: 1.2rem;
+  margin: 25px 0 35px;
+  font-weight: 500;
+}
+
+.result-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.action-btn {
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  flex: 1;
+}
+
+.restart-btn {
+  background: #A4161A;
+  color: white;
+}
+
+.home-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.2);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
