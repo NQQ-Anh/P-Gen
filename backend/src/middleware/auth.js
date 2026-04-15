@@ -32,7 +32,7 @@ export const authenticateToken = async (req, res, next) => {
 };
 
 export const generateTokens = (userId) => {
-  const accessToken = jwt.sign({ userId }, JWT_SECRET, { expiresIn: '15m' });
+  const accessToken = jwt.sign({ userId }, JWT_SECRET, { expiresIn: '30m' });
   const refreshToken = jwt.sign({ userId }, JWT_REFRESH_SECRET, { expiresIn: '7d' });
   return { accessToken, refreshToken };
 };

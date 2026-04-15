@@ -6,7 +6,9 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "reset" : "node src/DB/resetDB.js && node src/DB/setupDB.js ",
+    "addDB" : "node src/DB/import/SQL.js"
   },
   "keywords": [],
   "author": "",

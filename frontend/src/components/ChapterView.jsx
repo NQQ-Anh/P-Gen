@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import "../styles/ChapterView.css";
 
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
   const { token } = useAuth();
   const [chapters, setChapters] = useState([]);
@@ -24,7 +25,7 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
       setError(null);
 
       try {
-        const res = await fetch(`http://localhost:5001/subjects/${subject.id}`, {
+        const res = await fetch(`${API_URL}/subjects/${subject.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/QuestionView.css';
 
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish }) => {
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,9 +16,12 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             setLoading(true);
             let allQuestions = [];
             for (const chapterId of chapterIds) {
-                const response = await fetch(`http://localhost:5001/subjects/${subjectId}/chapters/${chapterId}/questions`, {
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` }
-                });
+                const response = await fetch(
+                    `${API_URL}/subjects/${subjectId}/chapters/${chapterId}/questions`,
+                    {
+                        headers: { 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` }
+                    }
+                );
                 const data = await response.json();
                 
                 // KIỂM TRA LỖI TOKEN NGAY TẠI ĐÂY

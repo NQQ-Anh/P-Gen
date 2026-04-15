@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from '../contexts/AuthContext';
 import "../styles/LoginRegis.css";
 
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 const Register = () => {
   const { login } = useAuth();
 
@@ -35,7 +36,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/auth/register",
+        `${API_URL}/auth/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
