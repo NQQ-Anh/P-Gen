@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from '../contexts/AuthContext';
-import "../styles/AdminSide.css";
+import { useAuth } from '../../contexts/AuthContext';
+import "../../styles/AdminSide.css";
 
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 const AdminSide = () => {
   const { token } = useAuth();
   const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ const AdminSide = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5001/users", {
+      const response = await fetch(`${API_URL}/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +43,7 @@ const AdminSide = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/api/users", {
+      const response = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +66,7 @@ const AdminSide = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5001/api/users/${editingUser.id}`, {
+      const response = await fetch(`${API_URL}/users/${editingUser.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +91,7 @@ const AdminSide = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      const response = await fetch(`http://localhost:5001/api/users/${id}`, {
+      const response = await fetch(`${API_URL}/users/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

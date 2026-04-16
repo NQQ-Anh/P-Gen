@@ -1,6 +1,7 @@
-import { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
 const AuthContext = createContext();
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -9,6 +10,8 @@ export const useAuth = () => {
   }
   return context;
 };
+
+const INACTIVITY_TIMEOUT_MS = 30* 60 * 1000; // 30 phút
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); //Tạm thời tắt
@@ -21,21 +24,26 @@ export const AuthProvider = ({ children }) => {
   // const [loading, setLoading] = useState(false); 
 
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const inactivityTimerRef = useRef(null);
 
   // Check for existing tokens on app start
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      // Verify token by fetching profile
-      fetchProfile();
-    } else {
-      setLoading(false);
-    }
-  }, []); // Remove dependency to avoid issues
+    const verifyToken = async () => {
+      const token = localStorage.getItem('accessToken');
+      if (token) {
+        await fetchProfile();
+      } else {
+        setLoading(false);
+      }
+    };
+
+    verifyToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:5001/auth/login', {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,11 +68,11 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = async () => {
+  const logout = useCallback(async () => {
     try {
       const token = localStorage.getItem('accessToken');
       if (token) {
-        await fetch('http://localhost:5001/auth/logout', {
+        await fetch(`${API_URL}/auth/logout`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -78,8 +86,12 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('accessToken');
       localStorage.removeItem('refreshToken');
       setUser(null);
+      if (inactivityTimerRef.current) {
+        clearTimeout(inactivityTimerRef.current);
+        inactivityTimerRef.current = null;
+      }
     }
-  };
+  }, []);
 
   const refreshAccessToken = async () => {
     if (isRefreshing) return; // Prevent multiple refresh calls
@@ -90,7 +102,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error('No refresh token');
       }
 
-      const response = await fetch('http://localhost:5001/auth/refresh', {
+      const response = await fetch(`${API_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +142,7 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
-      const response = await fetch('http://localhost:5001/auth/profile', {
+      const response = await fetch(`${API_URL}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -156,14 +168,46 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const resetInactivityTimer = useCallback(() => {
+    if (inactivityTimerRef.current) {
+      clearTimeout(inactivityTimerRef.current);
+    }
+    inactivityTimerRef.current = window.setTimeout(() => {
+      logout();
+    }, INACTIVITY_TIMEOUT_MS);
+  }, [logout]);
+
+  useEffect(() => {
+    if (!user) {
+      if (inactivityTimerRef.current) {
+        clearTimeout(inactivityTimerRef.current);
+        inactivityTimerRef.current = null;
+      }
+      return;
+    }
+
+    const events = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart'];
+    const handleActivity = () => resetInactivityTimer();
+
+    events.forEach((eventName) => window.addEventListener(eventName, handleActivity));
+    resetInactivityTimer();
+
+    return () => {
+      if (inactivityTimerRef.current) {
+        clearTimeout(inactivityTimerRef.current);
+        inactivityTimerRef.current = null;
+      }
+      events.forEach((eventName) => window.removeEventListener(eventName, handleActivity));
+    };
+  }, [user, resetInactivityTimer]);
+
   const value = useMemo(() => ({
     user,
     loading,
     login,
     logout,
-    fetchProfile,
     token: localStorage.getItem('accessToken'),
-  }), [user, loading]);
+  }), [user, loading, logout]);
 
   return (
     <AuthContext.Provider value={value}>

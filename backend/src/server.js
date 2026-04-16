@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5174", "http://localhost:5175"], // Vite dev server ports
+  origin: true,
   credentials: true
 }));
 app.use(express.json());
@@ -29,6 +29,6 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", message: "Server is running" });
 });
 
-app.listen(5001, () => {
+app.listen(5001, "0.0.0.0", () => {
   console.log("🚀 Server is running on port 5001");
 });
