@@ -1,0 +1,207 @@
+/* --- Container & Header --- */
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.history-header h2 {
+    font-size: var(--fs-h2);
+    color: #2d2d2d;
+    margin: 0;
+    font-weight: 600;
+}
+
+.history-header .red-btn { width: 100px;}
+
+.history-header .red-btn i {margin-left: -5px;}
+
+/* --- History List & Cards --- */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(164, 22, 26, 0.08);
+    border-color: rgba(164, 22, 26, 0.2);
+}
+
+.card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.subject-name {
+    font-size: var(--fs-h2);
+    font-weight: 600;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Phần tóm tắt chi tiết */
+.detail-summary {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Chia cột cân đối hơn */
+    background: #fff5f5;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border-left: 6px solid #A4161A;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.summary-col p {
+    margin: 10px 0;
+    font-size: var(--fs-body);
+    color: #333;
+}
+.chapter-index,
+.attempt-date {
+    font-size: var(--fs-small);
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Badge điểm số nổi bật */
+.score-badge {
+    background: linear-gradient(135deg, #A4161A 0%, #660708 100%);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 70px;
+    box-shadow: 0 4px 15px rgba(164, 22, 26, 0.2);
+}
+
+.score-num {
+    font-size: var(--fs-h2);
+    font-weight: 900;
+    display: block;
+    line-height: 1;
+}
+
+.score-text { 
+    font-size: var(--fs-small); 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    font-size: var(--fs-body);
+    color: #555;
+}
+
+.stats strong { color: #2d2d2d; }
+
+/* Nút chi tiết */
+.detail-link-btn {
+    background: #fff0f0;
+    border: none;
+    color: #A4161A;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.detail-link-btn:hover {
+    background: #A4161A;
+    color: white;
+}
+
+/* --- Detail View (Phần xem lại câu hỏi) --- */
+.detail-summary {
+    color: #1a1a1a;
+    background: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #A4161A;
+    border-left: 5px solid #A4161A;
+}
+
+.detail-view .review-item {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+}
+
+/* Màu nền nhẹ cho thẻ câu hỏi */
+.correct-card { background-color: #f0fff4 !important; border-color: #c6f6d5 !important; }
+.incorrect-card { background-color: #fff5f5 !important; border-color: #fed7d7 !important; }
+
+.review-q-text { font-size: var(--fs-body); font-weight: 500; margin-bottom: 15px; }
+
+.review-ans-card {
+    background: white;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.border-correct { border: 3px solid #27ae60 !important; }
+.border-wrong { border: 3px solid #e74c3c !important; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .card-main { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .score-badge { width: 100%; }
+    .card-footer { flex-direction: column; gap: 15px; align-items: flex-start; }
+    .detail-link-btn { width: 100%; justify-content: center; }
+}
