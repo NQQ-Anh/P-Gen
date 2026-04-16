@@ -16,13 +16,13 @@ async function main() {
   });
 
   const files = [
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/Subjects_and_Chapters_Input.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/AnToanBaoMatHeThongThongTin.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/CoSoDuLieu.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/KinhTeChinhTriMacLenin.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/MangMayTinh.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/PhapLuatDaiCuong.sql",
-    "E:/SRCcode/Code/P_Gen/P-Gen/backend/srcDB/TuTuongHoChiMinh.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/Subjects_and_Chapters_Input.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/AnToanBaoMatHeThongThongTin.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/CoSoDuLieu.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/KinhTeChinhTriMacLenin.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/MangMayTinh.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/PhapLuatDaiCuong.sql",
+    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/TuTuongHoChiMinh.sql",
   ];
 
   for (const file of files) {

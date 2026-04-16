@@ -27,4 +27,9 @@
 
 .red-btn:disabled {
   border: 2px solid #ADB5BD;
+  background: #e9ecef !important;
+  color: #adb5bd !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
