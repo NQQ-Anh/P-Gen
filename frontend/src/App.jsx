@@ -7,7 +7,7 @@ import Profile from "./components/Profile";
 import AdminSide from "./components/Admin/AdminSide";
 import {SubjectView} from "./components/SubjectView";
 import {ChapterView} from "./components/ChapterView";
-import QuestionView from "./components/QuestionView";
+import {QuestionView} from "./components/QuestionView";
 import {ResultView} from "./components/ResultView";
 import { HistoryView } from "./components/HistoryView";
 

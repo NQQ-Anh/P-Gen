@@ -14,6 +14,7 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
     viewMode: 'list',
     timePerQuestion: 0, 
     questionCount: 30,
+    totalTime: 45,
     shuffle: false,
     showAnswerImmediately: true,
   });
