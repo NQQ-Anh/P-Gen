@@ -10,7 +10,8 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
   const [settings, setSettings] = useState({
     shuffle: false,
     showAnswerImmediately: true,
-    autoNext: false
+    autoNext: false,
+    time: 15
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -49,41 +50,21 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
 
     loadChapters();
   }, [subject?.id, token]);
-  // useEffect(() => {
-  //   // Dữ liệu chương cứng để test
-  //   const hardcodedChapters = {
-  //     // Nếu subject.id là 1 (Cấu trúc dữ liệu)
-  //     1: [
-  //       { id: 101, chapter_name: "Chương 1: Tổng quan về thuật toán", question_count: 25 },
-  //       { id: 102, chapter_name: "Chương 2: Danh sách liên kết (Linked List)", question_count: 30 },
-  //       { id: 103, chapter_name: "Chương 3: Ngăn xếp và Hàng đợi", question_count: 20 },
-  //       { id: 104, chapter_name: "Chương 4: Cây nhị phân", question_count: 45 },
-  //     ],
-  //     // Nếu subject.id là 2 (Mạng máy tính)
-  //     2: [
-  //       { id: 201, chapter_name: "Chương 1: Mô hình OSI và TCP/IP", question_count: 15 },
-  //       { id: 202, chapter_name: "Chương 2: Tầng vật lý", question_count: 10 },
-  //       { id: 203, chapter_name: "Chương 3: Tầng liên kết dữ liệu", question_count: 40 },
-  //     ]
-  //   };
-
-  //   // Lấy danh sách chương dựa trên subject đang chọn
-  //   // Nếu không tìm thấy subject.id trong danh sách trên, sẽ lấy một mảng mặc định
-  //   const chaptersForSubject = hardcodedChapters[subject.id] || [
-  //     { id: 0, chapter_name: "Chương mẫu 1", question_count: 10 },
-  //     { id: 99, chapter_name: "Chương mẫu 2", question_count: 10 }
-  //   ];
-
-  //   setChapters(chaptersForSubject);
-  // }, [subject.id]);
 
   const handleSelectChapter = (id) => {
     setSelectedChapters([id]);
   };
 
+  const handleTimeChange = (e) => {
+    const value = parseInt(e.target.value) || 0;
+    setSettings(prev => ({ ...prev, time: value }));
+  };
+
   return (
     <div className="setup-container">
-      <button className="red-btn" onClick={onBack}>← Quay lại</button>
+      <button className="red-btn" onClick={onBack}>
+        <i class="fa-solid fa-caret-left"></i> Quay lại
+      </button>
       <h2>Thiết lập ôn luyện: {subject.subject_name}</h2>
       
       <div className="setup-grid">
@@ -119,6 +100,15 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
           <div className="setting-item">
             <span>Hiện đáp án ngay</span>
             <input type="checkbox" checked={settings.showAnswerImmediately} onChange={(e) => setSettings({...settings, showAnswerImmediately: e.target.checked})} />
+          </div>
+          <div className="setting-item">
+            <span>Thời gian (phút)</span>
+            <input 
+              type="number" 
+              value={settings.time} 
+              onChange={handleTimeChange} 
+              min="0"
+            />
           </div>
           
           <button 

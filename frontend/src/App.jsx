@@ -9,6 +9,7 @@ import {SubjectView} from "./components/SubjectView";
 import {ChapterView} from "./components/ChapterView";
 import QuestionView from "./components/QuestionView";
 import {ResultView} from "./components/ResultView";
+import { HistoryView } from "./components/HistoryView";
 
 import "./styles/App.css";
 import "./styles/Common.css";
@@ -131,6 +132,7 @@ function AppContent() {
             <>
               <button onClick={() => handleSetView("subject")}>Ôn luyện</button>
               <button onClick={() => handleSetView("profile")}>Thông tin</button>
+              <button onClick={() => handleSetView("history")}>Lịch sử</button>
               {user.role === 'Admin' && (
                 <button onClick={() => handleSetView("admin")}>Quản lý</button>
               )}
@@ -230,6 +232,10 @@ function AppContent() {
             chapterIds={selectedChapters}
             settings={quizSettings}
             onBack={() => handleSetView("chapter")}
+            onFinish={(result) => {
+              setQuizResult(result);
+              handleSetView("result");
+            }}
           />
         )}
         {view === "result" && quizResult && (
@@ -241,6 +247,9 @@ function AppContent() {
               handleSetView("subject");
             }}
           />
+        )}
+        {view === "history" && (
+          <HistoryView onBack={() => setView("home")} />
         )}
       </main>
 

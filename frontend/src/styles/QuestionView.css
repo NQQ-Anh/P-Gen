@@ -52,6 +52,41 @@
   color: var(--primary-red);
 }
 
+.back-link i {margin-left: -6px;}
+
+.quiz-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f9fa; /* Nền xám nhạt */
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #A4161A; /* Màu đỏ đô chủ đạo */
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.quiz-timer i {
+    font-size: 1.2rem;
+}
+
+/* Hiệu ứng khi còn dưới 1 phút (Cảnh báo) */
+.timer-warning {
+    background: #fff0f0;
+    border-color: #ffcccc;
+    color: #e74c3c;
+    animation: timer-pulse 1s infinite;
+}
+
+@keyframes timer-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 /* 4. Switch Toggle (Thiết kế lại cho sáng sủa) */
 .view-toggle {
   display: flex;

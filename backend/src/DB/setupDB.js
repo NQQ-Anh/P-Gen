@@ -17,7 +17,7 @@ async function setupDatabase() {
     await connection.query(`USE p_gen`);
 
     // =====================
-    // 1-Subjects
+    // Subjects
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Subjects (
@@ -28,7 +28,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 2-Tags
+    // Tags
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Tags (
@@ -40,7 +40,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 3-Chapters
+    // Chapters
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Chapters (
@@ -53,7 +53,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 4-Users
+    // Users
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Users (
@@ -66,7 +66,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 5-Questions
+    // Questions
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions (
@@ -84,7 +84,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 6-Questions_Tags
+    // Questions_Tags
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Questions_tags (
@@ -97,7 +97,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 7-Answers
+    // Answers
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Answers (
@@ -110,7 +110,7 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // 8-Learning_Process
+    // Learning_Process
     // =====================
     await connection.query(`
       CREATE TABLE IF NOT EXISTS Learning_process (
@@ -138,6 +138,40 @@ async function setupDatabase() {
       ) ENGINE=InnoDB;
     `);
 
+    // =====================
+    // Quiz Attempt
+    // =====================
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS QuizAttempts (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        subject_id INT NOT NULL,
+        chapter_id INT,
+        score DECIMAL(4,2) NOT NULL,
+        correct_count INT NOT NULL,
+        total_questions INT NOT NULL,
+        time_spent INT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE,
+        FOREIGN KEY (chapter_id) REFERENCES Chapters(id) ON DELETE SET NULL
+      ) ENGINE=InnoDB;
+    `);
+
+    // =====================
+    // Quiz Attempt Detail
+    // =====================
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS QuizAttemptDetail (
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        attempt_id INT NOT NULL,
+        question_id INT NOT NULL,
+        selected_answer_id INT,
+        is_correct BOOLEAN NOT NULL,
+        FOREIGN KEY (attempt_id) REFERENCES QuizAttempts(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+      ) ENGINE=InnoDB;
+    `);
 
 
 const users = [
