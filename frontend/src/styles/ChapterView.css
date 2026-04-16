@@ -26,6 +26,8 @@
   font-size: var(--fs-body);
 }
 
+.setup-container > .red-btn i {margin-left: -6px;}
+
 /* TIÊU ĐỀ CHÍNH */
 .setup-container h2 {
   color: #000000;
@@ -162,6 +164,33 @@
 /* Di chuyển nút tròn khi ON */
 .setting-item input[type="checkbox"]:checked::after {
   left: 24px;
+}
+
+.setting-item input[type="number"] {
+    width: 80px;
+    padding: 8px 12px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #A4161A; 
+    text-align: center;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    -moz-appearance: textfield;
+}
+
+.setting-item input[type="number"]::-webkit-outer-spin-button,
+.setting-item input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.setting-item input[type="number"]:focus {
+    border-color: #A4161A;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(164, 22, 26, 0.1);
 }
 
 /* --- NÚT BẮT ĐẦU --- */

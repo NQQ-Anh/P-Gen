@@ -8,6 +8,8 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
     const [isAnswered, setIsAnswered] = useState({}); // { questionId: true/false }
     const [isListView, setIsListView] = useState(false); // Trạng thái chuyển chế độ
     const [loading, setLoading] = useState(true);
+    const [timeLeft, setTimeLeft] = useState((settings?.time || 15) * 60);
+
 
     // Fetch dữ liệu từ API dựa trên danh sách chương đã chọn
     const fetchQuestions = useCallback(async () => {
@@ -49,6 +51,26 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         fetchQuestions();
     }, [fetchQuestions]);
 
+    useEffect(() => {
+        if (timeLeft <= 0) {
+            alert("Hết giờ làm bài! Hệ thống tự động nộp.");
+            handleSubmit();
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => prev - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [timeLeft]);
+
+    const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    };
+
     const handleSelectAnswer = (questionId, answerId, isCorrect) => {
         if (settings.showAnswerImmediately && isAnswered[questionId]) return;
 
@@ -64,20 +86,76 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        // 1. Xác nhận nộp bài
+        if (!window.confirm("Bạn có muốn nộp bài và kết thúc lượt làm này không?")) return;
+
+        // 2. Tính toán thời gian đã làm (đơn vị: giây)
+        const totalTimeSet = (settings?.time || 15) * 60;
+        const timeSpent = totalTimeSet - timeLeft;
+        const chapterIdToSave = chapterIds.length === 1 ? chapterIds[0] : null;
+
+        // 3. Chuẩn bị dữ liệu chi tiết cho QuizAttemptDetail và Review
         let correctCount = 0;
-        questions.forEach(q => {
+        const details = questions.map(q => {
             const selectedId = userAnswers[q.id];
             const correctAns = q.answers.find(a => a.is_correct === 1 || a.is_correct === true);
-            if (selectedId === correctAns?.id) correctCount++;
+            const isCorrect = selectedId === correctAns?.id;
+            
+            if (isCorrect) correctCount++;
+            
+            return {
+                questionId: q.id,
+                selectedAnswerId: selectedId,
+                isCorrect: isCorrect
+            };
         });
 
-        onFinish({
-            total: questions.length,
+        const finalScore = ((correctCount / questions.length) * 10).toFixed(2);
+
+        // 4. Dữ liệu gửi lên Backend
+        const payload = {
+            subjectId: subjectId,
+            chapterId: chapterIdToSave,
+            score: finalScore,
             correct: correctCount,
-            score: ((correctCount / questions.length) * 10).toFixed(2),
-            userAnswers
-        });
+            total: questions.length,
+            timeSpent: timeSpent,
+            details: details,
+            questions: questions,
+            userAnswers: userAnswers
+        };
+
+        try {
+            // 5. Gọi API lưu lịch sử (Sử dụng token từ Context hoặc LocalStorage)
+            const response = await fetch('http://localhost:5001/history/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error("Không thể lưu kết quả làm bài");
+
+            const savedResult = await response.json();
+
+            // 6. Chuyển dữ liệu sang ResultView
+            onFinish({
+                ...payload,
+                attemptId: savedResult.attemptId,
+                questions: questions,
+                userAnswers: userAnswers
+            });
+
+        } catch (error) {
+            console.error("Lỗi khi nộp bài:", error);
+            alert("Đã có lỗi xảy ra khi lưu kết quả. Bạn vẫn có thể xem điểm của mình.");
+            
+            // Vẫn cho xem kết quả kể cả khi lưu DB lỗi
+            onFinish({ ...payload, questions, userAnswers });
+        }
     };
 
     // Component con hiển thị nội dung một câu hỏi
@@ -117,7 +195,14 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
     return (
         <div className="quiz-container">
             <div className="quiz-header">
-                <button className="back-link" onClick={onBack}>← Thoát</button>
+                <button className="back-link" onClick={onBack}>
+                    <i class="fa-solid fa-caret-left"></i> Quay lại
+                </button>
+
+                <div className={`quiz-timer ${timeLeft < 60 ? "timer-warning" : ""}`}>
+                <i className="fa-regular fa-clock"></i>
+                <span>{formatTime(timeLeft)}</span>
+            </div>
                 
                 {/* Nút chuyển đổi chế độ List/Flashcard */}
                 <div className="view-toggle">
