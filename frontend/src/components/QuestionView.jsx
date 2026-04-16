@@ -3,42 +3,74 @@ import '../styles/QuestionView.css';
 
 const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 
-export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish }) => {
+export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, resumeData }) => {
     const isExam = settings?.isExam;
-    const [questions, setQuestions] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [userAnswers, setUserAnswers] = useState({});
-    const [isAnswered, setIsAnswered] = useState({});
+    const subjectId = subject?.id;
+
+    // 1. KHỞI TẠO STATE
+    const [questions, setQuestions] = useState(resumeData?.questions || []);
+    const [currentIndex, setCurrentIndex] = useState(resumeData?.currentIndex || 0);
+    const [userAnswers, setUserAnswers] = useState(resumeData?.userAnswers || {});
+    const [isAnswered, setIsAnswered] = useState(resumeData?.isAnswered || {});
+    const [flaggedQuestions, setFlaggedQuestions] = useState(resumeData?.flaggedQuestions || {});
+    const [loading, setLoading] = useState(!resumeData); // Nếu có resumeData thì không cần hiện loading fetch
     const [isListView, setIsListView] = useState(settings?.viewMode === 'list');
-    const [loading, setLoading] = useState(true);
+
+    // 2. LOGIC THỜI GIAN
     const [timeLeft, setTimeLeft] = useState(() => {
+        if (resumeData) {
+            if (isExam && resumeData.lastTimestamp) {
+                const now = Date.now();
+                const secondsPassedOffline = Math.floor((now - resumeData.lastTimestamp) / 1000);
+                const calculatedTime = resumeData.timeLeft - secondsPassedOffline;
+                return calculatedTime > 0 ? calculatedTime : 0;
+            }
+            return resumeData.timeLeft;
+        }
         if (isExam) return (settings?.totalTime || 15) * 60;
         if (settings?.timePerQuestion > 0) return settings.timePerQuestion;
         return null;
     });
-    const [flaggedQuestions, setFlaggedQuestions] = useState({});
 
-    // Fetch dữ liệu
+    // 3. LƯU PHIÊN
+    useEffect(() => {
+        if (questions.length === 0) return;
+
+        const session = {
+            subject: subject,
+            chapterIds,
+            settings,
+            questions,
+            userAnswers,
+            isAnswered,
+            currentIndex,
+            flaggedQuestions,
+            timeLeft,
+            isExam,
+            lastTimestamp: Date.now()
+        };
+
+        localStorage.setItem('PTIT_QUIZ_SESSION', JSON.stringify(session));
+    }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam]);
+
+    // 4. FETCH DỮ LIỆU
     const fetchQuestions = useCallback(async () => {
+        if (resumeData) return;
+
         try {
             setLoading(true);
-            let allQuestions = [];
             const token = localStorage.getItem('accessToken');
-
-            // BƯỚC 1: Xử lý trường hợp chapterIds rỗng (Chế độ Luyện thi tổng hợp)
             let chaptersToFetch = chapterIds;
             
             if (isExam && (!chapterIds || chapterIds.length === 0)) {
-                // Gọi API lấy thông tin môn học để lấy danh sách ID tất cả các chương
                 const resSubject = await fetch(`${API_URL}/subjects/${subjectId}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const subjectData = await resSubject.json();
-                // Lấy tất cả chapter_id của môn học này
                 chaptersToFetch = (subjectData.chapters || []).map(c => c.id);
             }
 
-            // BƯỚC 2: Lấy câu hỏi từ danh sách chương đã xác định
+            let allQuestions = [];
             for (const chapterId of chaptersToFetch) {
                 const response = await fetch(
                     `${API_URL}/subjects/${subjectId}/chapters/${chapterId}/questions`,
@@ -52,17 +84,14 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                 }
 
                 const data = await response.json();
-                // Bao sân các kiểu trả về của API: mảng trực tiếp, .questions hoặc .result
                 const questionsBatch = Array.isArray(data) ? data : (data.questions || data.result || []);
                 allQuestions = [...allQuestions, ...questionsBatch];
             }
 
-            // BƯỚC 3: Xáo trộn câu hỏi (Random)
             if (settings.shuffle || isExam) {
                 allQuestions = allQuestions.sort(() => Math.random() - 0.5);
             }
 
-            // BƯỚC 4: Giới hạn số lượng câu hỏi (Lấy 30 câu hoặc theo settings)
             if (isExam && settings.questionCount) {
                 allQuestions = allQuestions.slice(0, settings.questionCount);
             }
@@ -73,21 +102,14 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         } finally {
             setLoading(false);
         }
-    }, [subjectId, chapterIds, settings.shuffle, settings.questionCount, isExam, onBack]);
+    }, [subjectId, chapterIds, settings.shuffle, settings.questionCount, isExam, onBack, resumeData]);
 
     useEffect(() => { fetchQuestions(); }, [fetchQuestions]);
 
-    useEffect(() => {
-        if (!isExam && settings?.timePerQuestion > 0) {
-            setTimeLeft(settings.timePerQuestion);
-        }
-    }, [currentIndex, isExam, settings?.timePerQuestion]);
-
-    // Hàm chuyển câu tập trung
+    // 5. LOGIC TIMER & CHUYỂN CÂU
     const handleNext = useCallback(() => {
         if (currentIndex < questions.length - 1) {
             setCurrentIndex(prev => prev + 1);
-            // Reset ngay timeLeft về giá trị cài đặt để tránh nhảy bước
             if (!isExam && settings?.timePerQuestion > 0) {
                 setTimeLeft(settings.timePerQuestion);
             }
@@ -96,12 +118,9 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         }
     }, [currentIndex, questions.length, isExam, settings?.timePerQuestion]);
 
-    // Logic Timer
     useEffect(() => {
         if (timeLeft === null) return;
-
         if (timeLeft <= 0) {
-            // Chỉ tự chuyển câu ở chế độ Từng câu
             if (!isExam && settings?.timePerQuestion > 0 && !isListView) {
                 handleNext();
             }
@@ -113,61 +132,54 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         }, 1000);
 
         return () => clearInterval(timer);
-        // QUAN TRỌNG: Không đưa currentIndex vào đây để tránh re-trigger khi đang ở 0s
     }, [timeLeft, isExam, settings?.timePerQuestion, isListView, handleNext]);
 
-    const answeredCount = useMemo(() => 
-        Object.keys(userAnswers).length, [userAnswers]);
-
-    // Thêm State quản lý trang của Map
-    const questionsPerPageMap = 30; 
-    const [mapPage, setMapPage] = useState(0);
-
-    // Tự động chuyển trang Map khi currentIndex thay đổi
+    // Ép nộp bài khi hết giờ
     useEffect(() => {
-        const targetPage = Math.floor(currentIndex / questionsPerPageMap);
-        setMapPage(targetPage);
+        if (isExam && timeLeft === 0) {
+            alert("Đã hết thời gian làm bài!");
+            handleSubmit();
+        }
+    }, [timeLeft, isExam]);
+
+    // 6. QUESTION MAP & PAGINATION
+    const questionsPerPageMap = 30; 
+    const [mapPage, setMapPage] = useState(Math.floor(currentIndex / questionsPerPageMap));
+
+    useEffect(() => {
+        setMapPage(Math.floor(currentIndex / questionsPerPageMap));
     }, [currentIndex]);
 
-    // Tính toán dữ liệu hiển thị cho Map
     const totalMapPages = Math.ceil(questions.length / questionsPerPageMap);
-    const currentMapQuestions = questions.slice(
-        mapPage * questionsPerPageMap,
-        (mapPage + 1) * questionsPerPageMap
-    );
+    const currentMapQuestions = questions.slice(mapPage * questionsPerPageMap, (mapPage + 1) * questionsPerPageMap);
 
+    // 7. LIST VIEW OBSERVER
     useEffect(() => {
         if (!isListView || questions.length === 0) return;
 
         const observerOptions = {
             root: null,
-            rootMargin: '-40% 0px -69% 0px',
+            rootMargin: '-40% 0px -59% 0px',
             threshold: 0 
         };
 
         const observerCallback = (entries) => {
             entries.forEach((entry) => {
-                // Khi một câu hỏi chạm vào vạch mép trên màn hình
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
                     const index = parseInt(id.replace('question-', ''));
-                    
-                    if (!isNaN(index)) {
-                        setCurrentIndex(index);
-                    }
+                    if (!isNaN(index)) setCurrentIndex(index);
                 }
             });
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        // QUAN TRỌNG: Phải đảm bảo các phần tử đã được render xong
         const timer = setTimeout(() => {
             questions.forEach((_, idx) => {
                 const el = document.getElementById(`question-${idx}`);
                 if (el) observer.observe(el);
             });
-        }, 100); // Delay nhẹ để DOM kịp render
+        }, 300);
 
         return () => {
             clearTimeout(timer);
@@ -175,11 +187,9 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
         };
     }, [isListView, questions]);
 
-    // Hàm nhảy câu
+    // 8. CÁC HÀM TƯƠNG TÁC
     const goToQuestion = (index) => {
-        if (!isExam && settings?.timePerQuestion > 0) {
-            return; 
-        }
+        if (!isExam && settings?.timePerQuestion > 0) return; 
 
         if (isListView) {
             const element = document.getElementById(`question-${index}`);
@@ -187,49 +197,32 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                 const offset = 150;
                 const bodyRect = document.body.getBoundingClientRect().top;
                 const elementRect = element.getBoundingClientRect().top;
-                const offsetPosition = (elementRect - bodyRect) - offset;
-
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                window.scrollTo({ top: (elementRect - bodyRect) - offset, behavior: 'smooth' });
             }
         } else {
             setCurrentIndex(index);
         }
     };
 
-    // Xử lý chọn đáp án
     const handleAnswerSelect = (questionId, answerId, isCorrect) => {
-        // Nếu đã trả lời rồi thì không cho chọn lại ở chế độ hiện đáp án ngay
         if (settings.showAnswerImmediately && isAnswered[questionId]) return;
 
         setUserAnswers(prev => ({ ...prev, [questionId]: answerId }));
         
         if (settings.showAnswerImmediately) {
             setIsAnswered(prev => ({ ...prev, [questionId]: true }));
-            
-            // Tự động chuyển câu sau khi chọn
-            // điều kiện: Nếu có timePerQuestion hoặc autoNext được bật
             const shouldAutoNext = settings.autoNext || settings.timePerQuestion > 0;
-            
             if (shouldAutoNext && !isListView) {
-                // Khi đã chọn, chúng ta có thể dừng timer của câu hiện tại
-                // để tránh việc vừa hết giờ vừa tự chuyển gây nhảy 2 bước
-                if (!isExam && settings?.timePerQuestion > 0) {
-                    setTimeLeft(null); 
-                }
-
-                setTimeout(() => {
-                    handleNext();
-                }, 2000); // Chờ 2s
+                if (!isExam && settings?.timePerQuestion > 0) setTimeLeft(null); 
+                setTimeout(() => { handleNext(); }, 2000); 
             }
         }
     };
 
-    // Nộp bài
     const handleSubmit = async () => {
-        // 1. Xác nhận nộp bài
-        if (!window.confirm("Bạn có muốn nộp bài và kết thúc lượt làm này không?")) return;
+        if (!isExam && timeLeft === 0) {} // Tránh trigger confirm khi ép nộp bài do hết giờ
+        else if (!window.confirm("Bạn có muốn nộp bài tập không?")) return;
 
-        // 2. Tính toán các chỉ số
         const totalTimeSet = isExam ? (settings?.totalTime || 15) * 60 : 0;
         const timeSpent = isExam ? totalTimeSet - timeLeft : 0;
         
@@ -239,34 +232,23 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
             const options = q.options || q.answers || [];
             const correctAns = options.find(o => o.is_correct === 1 || o.is_correct === true);
             const isCorrect = selectedId === correctAns?.id;
-            
             if (isCorrect) correctCount++;
-            
-            return {
-                questionId: q.id,
-                selectedAnswerId: selectedId,
-                isCorrect: isCorrect
-            };
+            return { questionId: q.id, selectedAnswerId: selectedId, isCorrect };
         });
 
-        const finalScore = ((correctCount / questions.length) * 10).toFixed(2);
-
-        // 3. Chuẩn bị dữ liệu gửi lên Backend
         const payload = {
-            subjectId: subjectId,
-            // Nếu làm nhiều chương thì để null, nếu 1 chương thì lấy id chương đó
+            subjectId,
             chapterId: chapterIds.length === 1 ? chapterIds[0] : null, 
-            score: finalScore,
+            score: ((correctCount / questions.length) * 10).toFixed(2),
             correct: correctCount,
             total: questions.length,
-            timeSpent: timeSpent,
-            details: details, // Chi tiết từng câu đúng/sai để lưu QuizAttemptDetail
-            questions: questions, // Gửi kèm để ResultView hiển thị lại
-            userAnswers: userAnswers
+            timeSpent,
+            details,
+            questions,
+            userAnswers
         };
 
         try {
-            // 4. Gửi API lưu vào Database
             const response = await fetch(`${API_URL}/history/save`, {
                 method: 'POST',
                 headers: {
@@ -276,36 +258,23 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                 body: JSON.stringify(payload)
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || "Không thể lưu kết quả");
+            if (response.ok) {
+                localStorage.removeItem('PTIT_QUIZ_SESSION'); // Xóa phiên khi nộp thành công
+                const savedResult = await response.json();
+                onFinish({ ...payload, attemptId: savedResult.attemptId });
             }
-
-            const savedResult = await response.json();
-            console.log("Đã lưu lịch sử thành công:", savedResult);
-
-            // 5. Chuyển sang màn hình kết quả (ResultView)
-            // Truyền thêm attemptId từ server trả về nếu cần xem lại sau này
-            onFinish({
-                ...payload,
-                attemptId: savedResult.attemptId 
-            });
-
         } catch (error) {
-            console.error("Lỗi khi lưu kết quả:", error);
-            alert("Lưu kết quả vào hệ thống thất bại, nhưng bạn vẫn có thể xem điểm.");
-            
-            // Vẫn cho xem kết quả kể cả khi lỗi DB để tránh mất công làm bài của user
+            console.error("Lỗi lưu kết quả:", error);
             onFinish(payload);
         }
     };
 
-    // Render Câu hỏi
+    const answeredCount = useMemo(() => Object.keys(userAnswers).length, [userAnswers]);
+
+    // RENDER
     const renderQuestion = (q, index) => {
         const userAnswerId = userAnswers[q.id];
         const hasAnswered = isAnswered[q.id] || (settings.showAnswerImmediately && userAnswerId);
-        
-        // Kiểm tra xem API trả về tên là 'options' hay 'answers'
         const displayOptions = q.options || q.answers || [];
 
         return (
@@ -319,26 +288,23 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                         <i className={flaggedQuestions[q.id] ? "fa-solid fa-flag" : "fa-regular fa-flag"}></i>
                     </button>
                 </div>
-                
                 <div className="answers-grid">
                     {displayOptions.map((opt) => {
                         const isSelected = userAnswerId === opt.id;
-                        // Kiểm tra is_correct dù là kiểu Boolean hay 1/0
                         const isCorrect = opt.is_correct === 1 || opt.is_correct === true;
 
                         let btnClass = "answer-btn";
                         if (settings.showAnswerImmediately && hasAnswered) {
-                            if (isCorrect) btnClass += " correct"; // Hiện xanh lá cho câu đúng
-                            else if (isSelected) btnClass += " incorrect"; // Hiện đỏ cho câu chọn sai
+                            if (isCorrect) btnClass += " correct";
+                            else if (isSelected) btnClass += " incorrect";
                         } else if (isSelected) {
-                            btnClass += " selected"; // Hiện vàng cho câu đang chọn (chế độ ôn tập)
+                            btnClass += " selected";
                         }
 
                         return (
                             <button
                                 key={opt.id}
                                 className={btnClass}
-                                // GỌI ĐÚNG TÊN HÀM: handleAnswerSelect
                                 onClick={() => handleAnswerSelect(q.id, opt.id, isCorrect)}
                                 disabled={settings.showAnswerImmediately && hasAnswered}
                             >
@@ -373,10 +339,7 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                             <span className="completion-stats">{answeredCount} / {questions.length} câu</span>
                         </div>
                         <div className="completion-bar-bg">
-                            <div 
-                                className="completion-bar-fill" 
-                                style={{ width: `${(answeredCount / questions.length) * 100}%` }}
-                            ></div>
+                            <div className="completion-bar-fill" style={{ width: `${(answeredCount / questions.length) * 100}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -404,72 +367,36 @@ export const QuestionView = ({ subjectId, chapterIds, settings, onBack, onFinish
                 <div className="question-map-card">
                     <div className="map-card-header">
                         <h4>Danh sách câu hỏi</h4>
-                        {totalMapPages > 1 && (
-                            <div className="map-pagination-info">
-                                {mapPage + 1}/{totalMapPages}
-                            </div>
-                        )}
+                        {totalMapPages > 1 && <div className="map-pagination-info">{mapPage + 1}/{totalMapPages}</div>}
                     </div>
 
                     {totalMapPages > 1 && (
                         <div className="map-page-controls">
-                            <button 
-                                className="map-page-btn" 
-                                disabled={mapPage === 0}
-                                onClick={() => setMapPage(p => p - 1)}
-                            >
-                                <i className="fa-solid fa-chevron-left"></i>
-                            </button>
-                            
+                            <button className="map-page-btn" disabled={mapPage === 0} onClick={() => setMapPage(p => p - 1)}><i className="fa-solid fa-chevron-left"></i></button>
                             <div className="map-page-dots">
                                 {Array.from({ length: totalMapPages }).map((_, pIdx) => (
-                                    <span 
-                                        key={pIdx} 
-                                        className={`page-dot ${pIdx === mapPage ? 'active' : ''}`}
-                                        onClick={() => setMapPage(pIdx)}
-                                    ></span>
+                                    <span key={pIdx} className={`page-dot ${pIdx === mapPage ? 'active' : ''}`} onClick={() => setMapPage(pIdx)}></span>
                                 ))}
                             </div>
-
-                            <button 
-                                className="map-page-btn" 
-                                disabled={mapPage === totalMapPages - 1}
-                                onClick={() => setMapPage(p => p + 1)}
-                            >
-                                <i className="fa-solid fa-chevron-right"></i>
-                            </button>
+                            <button className="map-page-btn" disabled={mapPage === totalMapPages - 1} onClick={() => setMapPage(p => p + 1)}><i className="fa-solid fa-chevron-right"></i></button>
                         </div>
                     )}
 
                     <div className="map-grid">
                         {currentMapQuestions.map((q, localIdx) => {
                             const globalIdx = mapPage * questionsPerPageMap + localIdx;
-                            
                             let nodeClass = "map-node";
                             const isLocked = !isExam && settings?.timePerQuestion > 0;
-                            
                             if (globalIdx === currentIndex) nodeClass += " current";
                             if (flaggedQuestions[q.id]) nodeClass += " flagged";
-                            
                             if (userAnswers[q.id]) {
                                 if (settings?.showAnswerImmediately) {
                                     const opts = q.options || q.answers || [];
                                     const isCorrect = userAnswers[q.id] === opts.find(o => o.is_correct === 1 || o.is_correct === true)?.id;
                                     nodeClass += isCorrect ? " correct" : " incorrect";
-                                } else {
-                                    nodeClass += " answered";
-                                }
+                                } else nodeClass += " answered";
                             }
-
-                            return (
-                                <div 
-                                    key={q.id} 
-                                    className={nodeClass}
-                                    onClick={() => !isLocked && goToQuestion(globalIdx)}
-                                >
-                                    {globalIdx + 1}
-                                </div>
-                            );
+                            return <div key={q.id} className={nodeClass} onClick={() => !isLocked && goToQuestion(globalIdx)}>{globalIdx + 1}</div>;
                         })}
                     </div>
                 </div>
