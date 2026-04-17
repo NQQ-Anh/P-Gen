@@ -9,7 +9,7 @@ async function setupDatabase() {
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "123456", // Thay bằng pass db local
+      password: "", // Thay bằng pass db local
     });
 
     // Tạo database
@@ -23,7 +23,8 @@ async function setupDatabase() {
       CREATE TABLE IF NOT EXISTS Subjects (
         id INT AUTO_INCREMENT PRIMARY KEY,
         subject_name VARCHAR(255) NOT NULL,
-        description TEXT
+        description TEXT,
+        status ENUM('Active', 'Inactive') DEFAULT 'Inactive'
       ) ENGINE=InnoDB;
     `);
 
@@ -48,6 +49,7 @@ async function setupDatabase() {
         chapter_name VARCHAR(255) NOT NULL,
         order_index INT DEFAULT 0,
         subject_id INT NOT NULL,
+        status ENUM('Active', 'Inactive') DEFAULT 'Inactive',
         FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
@@ -73,7 +75,7 @@ async function setupDatabase() {
         id INT AUTO_INCREMENT PRIMARY KEY,
         content TEXT NOT NULL,
         explanation TEXT,
-        status ENUM('Pending', 'Approved') DEFAULT 'Pending',
+        status ENUM('Active', 'Inactive') DEFAULT 'Inactive',
         author_id INT NOT NULL,
         chapter_id INT NOT NULL,
         subject_id INT NOT NULL,
@@ -173,29 +175,69 @@ async function setupDatabase() {
       ) ENGINE=InnoDB;
     `);
 
+    const users = [
+      {
+        id: 1,
+        username: "admin1",
+        password: "admin111",
+        email: "admin1@pgen.vn",
+        role: "Admin",
+      },
+      {
+        id: 2,
+        username: "admin2",
+        password: "admin222",
+        email: "admin2@pgen.vn",
+        role: "Admin",
+      },
+      {
+        id: 3,
+        username: "user1",
+        password: "user111",
+        email: "user1@pgen.vn",
+        role: "User",
+      },
+      {
+        id: 4,
+        username: "user2",
+        password: "user222",
+        email: "user2@pgen.vn",
+        role: "User",
+      },
+      {
+        id: 5,
+        username: "user3",
+        password: "user333",
+        email: "user3@pgen.vn",
+        role: "User",
+      },
+      {
+        id: 6,
+        username: "user4",
+        password: "user444",
+        email: "user4@pgen.vn",
+        role: "User",
+      },
+      {
+        id: 7,
+        username: "user5",
+        password: "user555",
+        email: "user5@pgen.vn",
+        role: "User",
+      },
+    ];
 
-const users = [
-  { id:1, username:"admin1", password:"admin111", email:"admin1@pgen.vn", role:"Admin"},
-  { id:2, username:"admin2", password:"admin222", email:"admin2@pgen.vn", role:"Admin"},
-  { id:3, username:"user1", password:"user111", email:"user1@pgen.vn", role:"User"},
-  { id:4, username:"user2", password:"user222", email:"user2@pgen.vn", role:"User"},
-  { id:5, username:"user3", password:"user333", email:"user3@pgen.vn", role:"User"},
-  { id:6, username:"user4", password:"user444", email:"user4@pgen.vn", role:"User"},
-  { id:7, username:"user5", password:"user555", email:"user5@pgen.vn", role:"User"}
-];
+    for (const user of users) {
+      const hash = await bcrypt.hash(user.password, 10);
 
-for (const user of users) {
-  const hash = await bcrypt.hash(user.password,10);
-
-  await connection.query(
-    "INSERT INTO Users (id, username, password, email, role) VALUES (?, ?, ?, ?, ?)",
-    [user.id, user.username, hash, user.email, user.role]
-  );
-}
+      await connection.query(
+        "INSERT INTO Users (id, username, password, email, role) VALUES (?, ?, ?, ?, ?)",
+        [user.id, user.username, hash, user.email, user.role],
+      );
+    }
     console.log("✅ Database & Tables created successfully!");
     await connection.end();
     process.exit();
-
   } catch (error) {
     console.error("❌ Setup failed:", error);
     process.exit(1);

@@ -1,7 +1,7 @@
 SET NAMES 'utf8mb4';
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng về: Điều kiện để sản xuất hàng hoá ra đời?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm đáp án đúng về: Điều kiện để sản xuất hàng hoá ra đời?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mong muốn của con người muốn tiêu dùng những sản phẩm do người khác làm ra.', 0, @last_question_id);
@@ -13,7 +13,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D. Phân công lao động xã hội và sự tách biệt về mặt kinh tế của các chủ thể sản xuất', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là lao động xã hội của người sản xuất hàng hóa kết tinh trong hàng hoá.', 1, @last_question_id);
@@ -25,7 +25,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biểu hiện tính hai mặt của hàng hoá mà mặt kia là giá trị sử dụng như một thuộc tính không thể thiếu của mọi loaị hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lao động trừu tượng tạo ra cái gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Lao động trừu tượng tạo ra cái gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Tạo ra giá trị sử dụng của hàng hoá.', 0, @last_question_id);
@@ -37,7 +37,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D. Tạo ra giá trị của hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng:Thước đo Lượng giá trị của hàng hoá?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm câu trả lời đúng:Thước đo Lượng giá trị của hàng hoá?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Hao phí vật tư kỹ thuật và tiền lương chi phí cho công nhân.', 0, @last_question_id);
@@ -49,7 +49,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động sống và lao động quá khứ kết tinh trong hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung thời gian lao động xã hội cần thiết để sản xuất ra một hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Nội dung thời gian lao động xã hội cần thiết để sản xuất ra một hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Với trình độ khoa học kỹ thuật trung bình mà xã hội đã đạt tới ở 1 thời điểm nhất định.', 0, @last_question_id);
@@ -61,7 +61,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trong điều kiện sản xuất bình thường xét trên phạm vi quốc gia hoặc phạm vi quốc tế.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố nào làm giảm giá trị trong 1 đơn vị hàng hoá?', '', 'Approved', 1, 2, 5);
+VALUES ('Yếu tố nào làm giảm giá trị trong 1 đơn vị hàng hoá?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường độ lao động để giảm chi phí tiền lương trên 1 đơn vị sản phẩm.', 0, @last_question_id);
@@ -73,7 +73,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng thêm những trang bị vật chất và kỹ thuật cho lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị sử dụng của hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị sử dụng của hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị để cho người sản xuất ra nó sử dụng trực tiếp hoặc đem trao đổi lấy 1 giá trị khác.', 0, @last_question_id);
@@ -85,7 +85,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cái tạo nên nội dung và ý nghĩa của giá trị hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hai hàng hoá trao đổi với nhau trên cơ sở nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Hai hàng hoá trao đổi với nhau trên cơ sở nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Lượng thời gian lao động xã hội cần thiết.', 1, @last_question_id);
@@ -97,7 +97,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có hao phí vật tư kỹ thuật cụ thể bằng nhau.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất: Giá cả của hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm câu trả lời đúng nhất: Giá cả của hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Là giá trị của hàng hoá.', 0, @last_question_id);
@@ -109,7 +109,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hình thức biểu hiện bằng tiền của giá trị hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tăng cường độ lao động thì lượng giá trị của một đơn vị hàng hoá sẽ như thế nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Tăng cường độ lao động thì lượng giá trị của một đơn vị hàng hoá sẽ như thế nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm cho lượng giá trị của một hàng hoá tăng lên.', 0, @last_question_id);
@@ -121,7 +121,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm cho lượng giá trị của tổng hàng hoá không đổi.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của quy luật giá trị?', '', 'Approved', 1, 2, 5);
+VALUES ('Nội dung của quy luật giá trị?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người sản xuất chỉ sản xuất những loại hàng hoá nào đem lại nhiều giá trị cho họ.', 0, @last_question_id);
@@ -133,7 +133,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả mọi sản phẩm có ích do người lao động làm ra đều có giá trị.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một sản phẩm vật chất hoặc tinh thần có ích cho con người hoặc cho xã hội.', 0, @last_question_id);
@@ -145,7 +145,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D.Một sản phẩm của lao động, sản xuất ra để tiêu dùng cho sản xuất hoặc cho cá nhân.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố căn bản quyết định giá cả hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Yếu tố căn bản quyết định giá cả hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Quan hệ cung cầu.', 0, @last_question_id);
@@ -157,7 +157,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng cơ bản nhất của tiền là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Chức năng cơ bản nhất của tiền là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Phương tiện lưu thông.', 0, @last_question_id);
@@ -169,7 +169,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thước đo giá trị.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy luật giá trị là quy luật của nền kinh tế nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Quy luật giá trị là quy luật của nền kinh tế nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Mọi nền sản xuất trong lịch sử loài người.', 0, @last_question_id);
@@ -181,7 +181,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất hàng hoá tư bản chủ nghĩa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng: Lao động cụ thể tạo ra?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm đáp án đúng: Lao động cụ thể tạo ra?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Tạo ra giá trị sử dụng của hàng hoá.', 1, @last_question_id);
@@ -193,7 +193,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biểu hiện tính chất xã hội của người sản xuất hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiểu theo nghĩa rộng thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Hiểu theo nghĩa rộng thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nơi diễn ra hành vi trao đổi mua bán', 0, @last_question_id);
@@ -205,7 +205,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là thị trường diễn ra trong phạm vi thế giới.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dấu hiệu đặc trưng của cơ chế thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Dấu hiệu đặc trưng của cơ chế thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ chế hình thành giá cả một cách tự do.', 1, @last_question_id);
@@ -217,7 +217,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ chế hình thành giá cả theo ý muốn chủ quan của người bán.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy luật kinh tế chủ yếu của thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Những quy luật kinh tế chủ yếu của thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy luật giá trị, quy luật cung cầu.', 0, @last_question_id);
@@ -229,7 +229,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy luật cung cầu, quy luật cạnh tranh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các chủ thể chính tham gia thị trường?', '', 'Approved', 1, 2, 5);
+VALUES ('Các chủ thể chính tham gia thị trường?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người bán và người mua.', 0, @last_question_id);
@@ -241,7 +241,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước và nhân dân lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất: Tác dụng của quy luật giá trị đối với nền kinh tế - xã hội?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm câu trả lời đúng nhất: Tác dụng của quy luật giá trị đối với nền kinh tế - xã hội?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy cải tiến kỹ thuật, nâng cao năng suất lao động.', 0, @last_question_id);
@@ -253,7 +253,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy cải tiến kỹ thuật, điều tiết sản xuất, lưu thông hàng hóa và phân hoá những người sản xuất hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để sức lao động trở thành hàng hoá?', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện để sức lao động trở thành hàng hoá?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Xã hội chia thành người đi bóc lột và người bị bóc lột.', 0, @last_question_id);
@@ -265,7 +265,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân công lao động xã hội phát triển tới mức có 1 số lĩnh vực sản xuất không đủ số lượng lao động và phải thuê thêm công nhân.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị sức lao động của người công nhân làm thuê cho chủ tư bản.', 0, @last_question_id);
@@ -277,7 +277,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị bóc lột được do nhà tư bản trả tiền công thấp hơn giá trị sức lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tăng năng suất lao động và tăng cường độ lao động giống nhau ở điểm nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Tăng năng suất lao động và tăng cường độ lao động giống nhau ở điểm nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tìm phương án đúng nhất', 0, @last_question_id);
@@ -291,7 +291,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đều làm hao phí calo tăng lên.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của giá trị thặng dư là?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của giá trị thặng dư là?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do lao động không công của người lao động làm thuê.', 1, @last_question_id);
@@ -303,7 +303,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do mua rẻ, bán đắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản bất biến là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản bất biến là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái Tư liệu sản xuất.', 1, @last_question_id);
@@ -315,7 +315,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái đối tượng lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản khả biến là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản khả biến là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái Sức lao động.', 1, @last_question_id);
@@ -327,7 +327,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('. D. Bộ phận tư bản tồn tại dưới hình thái công nghệ mới.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về mặt lượng tư bản khả biến trong quá trình sản xuất sẽ như thế nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Về mặt lượng tư bản khả biến trong quá trình sản xuất sẽ như thế nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Không tăng lên về lượng.', 0, @last_question_id);
@@ -339,7 +339,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên về lượng.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất giá trị thặng dư biểu hiện điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất giá trị thặng dư biểu hiện điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Qui mô bóc lột của tư bản đối với người lao động.', 0, @last_question_id);
@@ -351,7 +351,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạm vi bóc lột của tư bản đối với lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng giá trị thặng dư phản ánh điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng giá trị thặng dư phản ánh điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Trình độ bóc lột của tư bản đối với lao động.', 0, @last_question_id);
@@ -363,7 +363,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Qui mô bóc lột của tư bản đối với lao động.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương pháp sản xuất giá trị thặng dư tương đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Phương pháp sản xuất giá trị thặng dư tương đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài ngày lao động, trong lúc vẫn giữ nguyên thời gian lao động tất yếu.', 0, @last_question_id);
@@ -375,7 +375,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường độ lao động và kéo dài thời gian lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chi phí sản xuất Tư bản chủ nghã là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Chi phí sản xuất Tư bản chủ nghã là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao phí lao động quá khứ và phần lao động sống được trả công.', 1, @last_question_id);
@@ -387,7 +387,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao phí tư bản khả biến để sản xuất ra hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu đúng nhất: Mối quan hệ giữa lợi nhuận và giá trị thặng dư?', '', 'Approved', 1, 3, 5);
+VALUES ('Tìm câu đúng nhất: Mối quan hệ giữa lợi nhuận và giá trị thặng dư?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Lợi nhuận và giá trị thặng dư khác nhau về nguồn gốc.', 0, @last_question_id);
@@ -399,7 +399,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là hình thức biến tướng của giá trị thặng dư .', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương pháp sản xuất ra giá trị thặng dư tuyệt đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Phương pháp sản xuất ra giá trị thặng dư tuyệt đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài ngày lao động một cách tuyệt đối vượt quá thời gian lao động tất yếu.', 1, @last_question_id);
@@ -411,7 +411,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do áp dụng kỹ thuật tiên tiến.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự bình quân hoá lợi nhuận?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguyên nhân dẫn đến sự bình quân hoá lợi nhuận?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Cạnh tranh giữa các nước và các khu vực.', 0, @last_question_id);
@@ -423,7 +423,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do mọi nhà tư bản đều có xu hướng cải tiến kỹ thuật nhằm chiếm lợi nhuận siêu ngạch.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhân tố nào sau đây ảnh hưởng đến tỷ suất lợi nhuận?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhân tố nào sau đây ảnh hưởng đến tỷ suất lợi nhuận?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Tỷ suất giá trị thặng dư.', 0, @last_question_id);
@@ -435,7 +435,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các nhân tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận phản ánh điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận phản ánh điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Phản ánh mức doanh lợi đầu tư tư bản.', 1, @last_question_id);
@@ -447,7 +447,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh lợi ích của nhà tư bản trong sử dụng lao động làm thuê.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cố định là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cố định là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản sản xuất tồn tại dưới hình thái tư liệu lao động (máy móc, nhà xưởng,…).', 1, @last_question_id);
@@ -459,7 +459,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái hàng hóa sản xuất ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản lưu động là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản lưu động là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái sức lao động và nguyên vật liệu.', 1, @last_question_id);
@@ -471,7 +471,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái máy móc, nhà xưởng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ giữa giá cả và giá trị trước khi hình thành lợi nhuận bình quân như thế nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Quan hệ giữa giá cả và giá trị trước khi hình thành lợi nhuận bình quân như thế nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung lớn hơn cầu thì giá cả lớn hơn giá trị hàng hoá.', 0, @last_question_id);
@@ -483,7 +483,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung bằng cầu thì giá cả lớn hơn giá trị hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận bình quân là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận bình quân là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận trung bình của các nhà tư bản kinh doanh trong lĩnh vực công nghiệp.', 0, @last_question_id);
@@ -495,7 +495,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận trung bình tính cho một đồng vốn sau khi đã trừ đi mọi khoản chi phí sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để có lợi nhuận siêu ngạch nhà tư bản sử dụng biện pháp gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Để có lợi nhuận siêu ngạch nhà tư bản sử dụng biện pháp gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Tăng cường độ lao động.', 0, @last_question_id);
@@ -507,7 +507,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Di chuyển tư bản từ ngành này sang ngành khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Căn cứ để phân chia tư bản thành tư bản bất biến và tư bản khả biến?', '', 'Approved', 1, 3, 5);
+VALUES ('Căn cứ để phân chia tư bản thành tư bản bất biến và tư bản khả biến?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Đặc điểm của mỗi loại tư bản.', 0, @last_question_id);
@@ -519,7 +519,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự chu chuyển giá trị của mỗi loại tư bản.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm quan trọng nhất để hàng hóa sức lao động là hàng hoá đặc biệt là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Đặc điểm quan trọng nhất để hàng hóa sức lao động là hàng hoá đặc biệt là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì sức lao động là yếu tố quan trọng nhất của mọi nền sản xuất xã hội.', 0, @last_question_id);
@@ -531,7 +531,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì giá trị hàng hoá sức lao động mang yếu tố tinh thần và lịch sử.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận biểu hiện điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận biểu hiện điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ bóc lột của tư bản đối với lao động.', 0, @last_question_id);
@@ -543,7 +543,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mức doanh lợi của đầu tư tư bản.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục đích chính của sự vận động của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Mục đích chính của sự vận động của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Đổi giá trị sử dụng này lấy giá trị sử dụng khác.', 0, @last_question_id);
@@ -555,7 +555,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện lưu thông hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một số lượng của cải có giá trị sử dụng là kinh doanh kiếm lời.', 0, @last_question_id);
@@ -567,7 +567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D.Là nhà xưởng, máy móc và một số tiền vốn cần thiết để hoạt động sản xuất kinh doanh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nào thì tiền tệ biến thành tư bản?', '', 'Approved', 1, 3, 5);
+VALUES ('Khi nào thì tiền tệ biến thành tư bản?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Khi sức lao động trở thành hàng hoá.', 1, @last_question_id);
@@ -579,7 +579,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi giai cấp tư sản và giai cấp công nhân được hình thành.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá cả sản xuất bằng gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giá cả sản xuất bằng gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí sản xuất cộng với lợi nhuận bình quân.', 1, @last_question_id);
@@ -591,7 +591,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của hàng hoá cộng với lợi nhuận của nhà tư bản công nghiệp.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố kinh tế nào tác động làm cho giá cả xoay quanh giá trị?', '', 'Approved', 1, 3, 5);
+VALUES ('Yếu tố kinh tế nào tác động làm cho giá cả xoay quanh giá trị?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Trình độ quản lý sản xuất kinh doanh.', 0, @last_question_id);
@@ -603,7 +603,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ quản lý và tay nghề của người lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động tích cực của cạnh tranh là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Tác động tích cực của cạnh tranh là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy phát triển LLSX và phát triển nền kinh tế thị trường.', 0, @last_question_id);
@@ -615,7 +615,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động tiêu cực của cạnh tranh là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Tác động tiêu cực của cạnh tranh là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cạnh tranh không lành mạnh gây tổn hại môi trường kinh doanh.', 0, @last_question_id);
@@ -627,7 +627,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục đích của cạnh tranh giữa các ngành là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Mục đích của cạnh tranh giữa các ngành là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Để chèn ép các doanh nghiệp yếu thế hơn.', 0, @last_question_id);
@@ -639,7 +639,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhằm thu lợi nhuận nhiều hơn cho các doanh nghiệp khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cạnh tranh trong nội bộ ngành dẫn đến hình thành điều gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Cạnh tranh trong nội bộ ngành dẫn đến hình thành điều gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Lợi nhuận bình quân.', 0, @last_question_id);
@@ -651,7 +651,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận độc quyền.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công thức xác định giá trị thặng dư siêu ngạch?', '', 'Approved', 1, 3, 5);
+VALUES ('Công thức xác định giá trị thặng dư siêu ngạch?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị xã hội của hàng hoá + giá trị cá biệt của hàng hoá.', 0, @last_question_id);
@@ -663,7 +663,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị xã hội của hàng hoá + giá trị thặng dư.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất: Bản chất của lợi nhuận là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tìm câu trả lời đúng nhất: Bản chất của lợi nhuận là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Lợi nhuận là do mua rẻ bán đắt.', 0, @last_question_id);
@@ -675,7 +675,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('So sánh lợi nhuận với giá trị thặng dư do tác động của quy luật cung cầu:', '', 'Approved', 1, 3, 5);
+VALUES ('So sánh lợi nhuận với giá trị thặng dư do tác động của quy luật cung cầu:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Cung  cầu thì p  m.', 0, @last_question_id);
@@ -687,7 +687,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung = cầu thì p  m.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các hình thức biểu hiện của giá trị thặng dư trong nền kinh tế thị trường?', '', 'Approved', 1, 3, 5);
+VALUES ('Các hình thức biểu hiện của giá trị thặng dư trong nền kinh tế thị trường?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Lợi nhuận và lợi tức.', 0, @last_question_id);
@@ -699,7 +699,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận, lợi tức và địa tô.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công trong CNTB là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công trong CNTB là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền mà nhà tư bản đã trả để đổi lấy toàn bộ số lượng lao động mà người công nhân đã bỏ ra khi tiến hành sản xuất.', 0, @last_question_id);
@@ -711,7 +711,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D. Sự biểu hiện bằng tiền của giá trị hàng hóa sức lao động.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất của tích lũy tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Bản chất của tích lũy tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là việc sát nhập các nhà tư bản lại với nhau.', 0, @last_question_id);
@@ -723,7 +723,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là vay thêm tiền để mở rộng quy mô sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tích tụ tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tích tụ tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mở rộng sản xuất bằng cách tư bản hóa giá trị thặng dư.', 1, @last_question_id);
@@ -735,7 +735,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mở rộng sản xuất trên cơ sở thôn tính đối thủ cạnh tranh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tập trung tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tập trung tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là tư bản hóa giá trị thặng dư.', 0, @last_question_id);
@@ -747,7 +747,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là mở rộng sản xuất trên cơ sở tín dụng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những nhân tố nào sau đây làm tăng quy mô tích lũy tư bản?', '', 'Approved', 1, 3, 5);
+VALUES ('Những nhân tố nào sau đây làm tăng quy mô tích lũy tư bản?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Nâng cao tỷ suất giá trị thặng dư và năng suất lao động.', 0, @last_question_id);
@@ -759,7 +759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các nhân tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để tư bản tuần hoàn một cách bình thường là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện để tư bản tuần hoàn một cách bình thường là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Ba loại tư bản tồn tại trong cùng một giai đoạn.', 0, @last_question_id);
@@ -771,7 +771,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ba hình thức tư bản cùng tồn tại và tuần hoàn liên tục trong cả ba giai đoạn.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tuần hoàn của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tuần hoàn của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự vận động liên tục của tư bản tiền tệ của các nhà tư bản.', 0, @last_question_id);
@@ -783,7 +783,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự vận động liên tục của tư bản cố định và tư bản lưu động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhân tố chủ yếu ảnh hưởng đến tốc độ chu chuyển của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhân tố chủ yếu ảnh hưởng đến tốc độ chu chuyển của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Thời gian sản xuất dài hay ngắn trong một vòng tuần hoàn.', 0, @last_question_id);
@@ -795,7 +795,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian bán hàng hoá để thu về giá trị thặng dư và thời gian mua hàng hoá để tiếp tục vòng tuần hoàn.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Căn cứ để phân chia tư bản thành tư bản cố định và tư bản lưu động là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Căn cứ để phân chia tư bản thành tư bản cố định và tư bản lưu động là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Việc xác định nguồn gốc cuối cùng của giá trị thặng dư.', 0, @last_question_id);
@@ -807,7 +807,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tốc độ chu chuyển của tư bản.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giải pháp quan trọng nhất để giảm thời gian sản xuất, tăng tốc độ chu chuyển của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giải pháp quan trọng nhất để giảm thời gian sản xuất, tăng tốc độ chu chuyển của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng nguồn lao động có tay nghề thành thạo.', 0, @last_question_id);
@@ -819,7 +819,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có chính sách thưởng, phạt hợp lý đối với người lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biện pháp chủ yếu để khôi phục lại tư bản cố định đã hao mòn?', '', 'Approved', 1, 3, 5);
+VALUES ('Biện pháp chủ yếu để khôi phục lại tư bản cố định đã hao mòn?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Tăng chi phí bảo dưỡng, sửa chữa.', 0, @last_question_id);
@@ -831,7 +831,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nắm vững hai loại hao mòn hữu hình và vô hình tư bản cố định.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thời gian của một vòng chu chuyển tư bản bao gồm những thời gian nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Thời gian của một vòng chu chuyển tư bản bao gồm những thời gian nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian mua và thời gian bán.', 0, @last_question_id);
@@ -843,7 +843,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian sản xuất và thời gian lưu thông.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân cơ bản làm cho tư bản cố định hao mòn hữu hình là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguyên nhân cơ bản làm cho tư bản cố định hao mòn hữu hình là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Ứng dụng tiến bộ khoa học kỹ thuật mới.', 0, @last_question_id);
@@ -855,7 +855,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sử dụng và do tác động của thiên nhiên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà tư bản công nghiệp nhường một phần giá trị thặng dư cho nhà tư bản thương nghiệp bằng cách nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhà tư bản công nghiệp nhường một phần giá trị thặng dư cho nhà tư bản thương nghiệp bằng cách nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán cho nhà tư bản thương nghiệp bằng chi phí sản xuất để họ bán theo giá trị.', 0, @last_question_id);
@@ -867,7 +867,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán cho nhà tư bản thương nghiệp bằng giá cả thị trường để họ tuỳ ý nâng giá bán.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của lợi nhuận thương nghiệp là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của lợi nhuận thương nghiệp là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Bán hàng hoá với giá cả cao hơn giá trị.', 0, @last_question_id);
@@ -879,7 +879,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lừa đảo trong quá trình mua bán hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của lợi tức?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của lợi tức?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một phần của giá trị thặng dư được tạo ra từ sản xuất.', 1, @last_question_id);
@@ -891,7 +891,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giá trị thặng dư do một loại hàng hoá đặc biệt là tiền tệ tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cho vay là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cho vay là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản mang hình thái hàng hoá.', 0, @last_question_id);
@@ -903,7 +903,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là tư bản đầu tư thêm vào sản xuất để từ đó nhận được cả lợi tức lẫn lợi nhuận trong khi không phải trực tiếp quản lý công việc kinh doanh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô tư bản chủ nghĩa là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô tư bản chủ nghĩa là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một phần của giá trị thặng dư trong nông nghiệp.', 1, @last_question_id);
@@ -915,7 +915,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một phần giá trị thặng dư mà tư bản nông nghiệp trích trong lợi nhuận bình quân của mình để trả cho chủ ruộng đất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch I là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch I là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch do sản xuất trên những ruộng đất có vị trí thuận lợi tạo ra.', 0, @last_question_id);
@@ -927,7 +927,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch do đầu tư thêm tư bản để thâm canh tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô tuyệt đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô tuyệt đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị thặng dư mà chủ ruộng đất bóc lột trực tiếp công nhân nông nghiệp.', 0, @last_question_id);
@@ -939,7 +939,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch thu được do sản xuất trên ruộng đất tốt và trung bình.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch II là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch II là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch do sản xuất trên những ruộng đất tốt tạo ra.', 0, @last_question_id);
@@ -951,7 +951,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch sản xuất trên những ruộng đất có vị trí thuận lợi tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tính quy luật của việc hình thành các tổ chức độc quyền là do?', '', 'Approved', 1, 4, 5);
+VALUES ('Tính quy luật của việc hình thành các tổ chức độc quyền là do?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tự do cạnh tranh dẫn tới tiêu diệt và làm phá sản phần lớn các nhà tư bản yếu kém.', 0, @last_question_id);
@@ -963,7 +963,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tự do cạnh tranh thúc đẩy tích tụ và tập trung sản xuất, đến một trình độ nhất định sẽ sinh ra độc quyền.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản là đặc điểm kinh tế của CNTB ở giai đoạn nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản là đặc điểm kinh tế của CNTB ở giai đoạn nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai đoạn chủ nghĩa tư bản tự do cạnh tranh phát triển vượt khỏi quy mô quốc gia.', 0, @last_question_id);
@@ -975,7 +975,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai đoạn sản xuất hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản tài chính là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Tư bản tài chính là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là sự hoạt động của các tư bản thương nghiệp.', 0, @last_question_id);
@@ -987,7 +987,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là sự hoạt động của tư bản ngân hàng phát triển tới mức thống trị toàn bộ các loại tư bản khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản có nghĩa là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản có nghĩa là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Là mang hàng hoá ra nước ngoài bán.', 0, @last_question_id);
@@ -999,7 +999,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là mang tiền ra nước ngoài mua hàng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của phân chia thế giới về kinh tế?', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung của phân chia thế giới về kinh tế?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Phân chia thuộc địa và phạm vi ảnh hưởng.', 0, @last_question_id);
@@ -1011,7 +1011,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân chia nơi cung cấp nhân công.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản có mấy hình thức', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản có mấy hình thức', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Một hình thức.', 0, @last_question_id);
@@ -1023,7 +1023,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bốn hình thức', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biểu hiện chủ yếu của độc quyền nhà nước trong CNTB?', '', 'Approved', 1, 4, 5);
+VALUES ('Biểu hiện chủ yếu của độc quyền nhà nước trong CNTB?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước.', 0, @last_question_id);
@@ -1035,7 +1035,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 3 biểu hiện trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vì sao Việt Nam phải phát triển nền kinh tế thị trường định hướng xã hội chủ nghĩa?', '', 'Approved', 1, 5, 5);
+VALUES ('Vì sao Việt Nam phải phát triển nền kinh tế thị trường định hướng xã hội chủ nghĩa?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì nó phù hợp với tính quy luật phát triển khách quan.', 0, @last_question_id);
@@ -1047,7 +1047,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các lý do trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa của Việt Nam là?', '', 'Approved', 1, 5, 5);
+VALUES ('Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa của Việt Nam là?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nền kinh tế vận hành theo các quy luật của thị trường.', 0, @last_question_id);
@@ -1059,7 +1059,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng của kinh tế thị trường định hướng XHCN ở Việt Nam khác với đặc trưng của kinh tế thị trường nói chung như thế nào?', '', 'Approved', 1, 5, 5);
+VALUES ('Đặc trưng của kinh tế thị trường định hướng XHCN ở Việt Nam khác với đặc trưng của kinh tế thị trường nói chung như thế nào?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn toàn khác nhau vì không có điểm chung.', 0, @last_question_id);
@@ -1071,7 +1071,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khác nhau về bản chất nhưng có nội dung giống nhau.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vì sao phải hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam? Tìm câu trả lời đầy đủ nhất .', '', 'Approved', 1, 5, 5);
+VALUES ('Vì sao phải hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam? Tìm câu trả lời đầy đủ nhất .', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Do hệ thống thể chế đó còn chưa đồng bộ.', 0, @last_question_id);
@@ -1083,7 +1083,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do hệ thống thể chế còn chưa đồng bộ, chưa đầy đủ, kém hiệu lực, hiệu quả. Kém đầy đủ các yếu tố thị trường và các loại thị trường.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vai trò của lợi ích kinh tế đối với các chủ thể kinh tế xã hội? Tìm câu trả lời toàn diên nhất', '', 'Approved', 1, 5, 5);
+VALUES ('Vai trò của lợi ích kinh tế đối với các chủ thể kinh tế xã hội? Tìm câu trả lời toàn diên nhất', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ sở để phân chia lợi nhuận với nhau.', 0, @last_question_id);
@@ -1095,7 +1095,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là động lực trực tiếp của các chủ thể kinh tế tham gia vào hoạt động kinh tế xã hội và là cơ sở thúc đẩy sự phát triển các lợi ích khác.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xã hội loài người đã và đang trải qua mấy cuộc cách mạng công nghiệp?', '', 'Approved', 1, 6, 5);
+VALUES ('Xã hội loài người đã và đang trải qua mấy cuộc cách mạng công nghiệp?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. 1.', 0, @last_question_id);
@@ -1107,7 +1107,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất về: Vai trò của Cách mạng công nghiệp đổi với sự phát triển của xã hội?', '', 'Approved', 1, 6, 5);
+VALUES ('Tìm câu trả lời đúng nhất về: Vai trò của Cách mạng công nghiệp đổi với sự phát triển của xã hội?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy phát triển lực lượng sản xuất.', 0, @last_question_id);
@@ -1119,7 +1119,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 3 yếu tố trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng của cuộc cách mạng 4.0 (Cách mạng công nghiệp lần thứ tư)?', '', 'Approved', 1, 6, 5);
+VALUES ('Đặc trưng của cuộc cách mạng 4.0 (Cách mạng công nghiệp lần thứ tư)?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng năng lượng nước và hơi nước.', 0, @last_question_id);
@@ -1131,7 +1131,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Liên kết giữa thế giới thực và ảo để thực hiện công việc thông minh và hiệu quả nhất.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất về: Công nghiệp hóa là gì?', '', 'Approved', 1, 6, 5);
+VALUES ('Tìm câu trả lời đúng nhất về: Công nghiệp hóa là gì?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quá trình chuyển đổi từ lao động thủ công trong nông nghiệp sang lao động bằng máy móc.', 0, @last_question_id);
@@ -1143,7 +1143,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công nghiệp hóa là quá trình phát triển nền sản suất theo hướng ưu tiên phát triển công nghiệp nặng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời toàn diện nhất: Vì sao Việt Nam phải thực hiện công nghiệp hóa, hiện đại hóa?', '', 'Approved', 1, 6, 5);
+VALUES ('Tìm câu trả lời toàn diện nhất: Vì sao Việt Nam phải thực hiện công nghiệp hóa, hiện đại hóa?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đây là quy luật phổ biến cho sự phát triển lực lượng sản xuất.', 0, @last_question_id);
@@ -1155,7 +1155,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quy luật phổ biến của sự phát triển Lực lượng sản xuất mà mội nước đều phải trải qua, đối với nước ta còn nhằm xây dựng cơ sở vật chất kỹ thuật cho CNXH', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công nghiệp hóa ứng với trình độ kỹ thuật nào của cách mạng công nghiệp .', '', 'Approved', 1, 6, 5);
+VALUES ('Công nghiệp hóa ứng với trình độ kỹ thuật nào của cách mạng công nghiệp .', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cách mạng công nghiệp lần thứ nhất.', 0, @last_question_id);
@@ -1167,7 +1167,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cách mạng công nghiệp lần thứ tư .', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội nhập kinh tế quốc tế là gì?', '', 'Approved', 1, 6, 5);
+VALUES ('Hội nhập kinh tế quốc tế là gì?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quá trình quốc gia đó gắn kết nền kinh tế của mình với nền kinh tế thế giới.', 0, @last_question_id);
@@ -1179,7 +1179,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả ba yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời phù hợp nhất: Những nhân tố nào ảnh hưởng đến quan hệ lợi ích kinh tế?', '', 'Approved', 1, 5, 5);
+VALUES ('Tìm câu trả lời phù hợp nhất: Những nhân tố nào ảnh hưởng đến quan hệ lợi ích kinh tế?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ phát triển của lực lượng sản xuất và địa vị của chủ thể trong hệ thống sản xuất.', 0, @last_question_id);
@@ -1191,7 +1191,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính sách phân phối của nhà nước, nhu cầu của chủ thể trong hệ thống sản xuất xã hội và toàn cầu hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội nhập kinh tế quốc tế có tác động tích cực hay tiêu cực đến nền kinh tế Việt Nam hiện nay? Tìm đáp án đúng nhất.', '', 'Approved', 1, 6, 5);
+VALUES ('Hội nhập kinh tế quốc tế có tác động tích cực hay tiêu cực đến nền kinh tế Việt Nam hiện nay? Tìm đáp án đúng nhất.', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có nhiều tác động tích cực.', 0, @last_question_id);
@@ -1203,7 +1203,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có tác động tích cực hay tiêu cực là do nhận thức và điều hành của chính phủ.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có 2 người sản xuất bình hoa bằng gốm là A và B. A làm một bình hết 6 giờ lao động, cung cấp cho thị trường 100 bình; B làm một bình hết 8 giờ lao động, cung cấp cho thị trường 25 bình. Nếu NSLĐ của A tăng 25%, NSLĐ của B tăng 40%, mọi điều kiện khác không đổi thì giá trị 1 bình gốm trên thị trường như thế nào so với ban đầu?', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có 2 người sản xuất bình hoa bằng gốm là A và B. A làm một bình hết 6 giờ lao động, cung cấp cho thị trường 100 bình; B làm một bình hết 8 giờ lao động, cung cấp cho thị trường 25 bình. Nếu NSLĐ của A tăng 25%, NSLĐ của B tăng 40%, mọi điều kiện khác không đổi thì giá trị 1 bình gốm trên thị trường như thế nào so với ban đầu?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên thành 6.5 giờ', 0, @last_question_id);
@@ -1215,7 +1215,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không xác định được', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có 2 người may áo sơ mi là ông Lâm và ông Thành. Ông Lâm may mỗi áo hết 3 giờ và cung cấp cho thị trường 100 áo; ông Thành may mỗi áo hết 4 giờ, cung cấp cho thị trường 25 áo. Thời gian lao động trung bình để sản xuất 1 áo (hay giá trị của 1 áo) bằng:', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có 2 người may áo sơ mi là ông Lâm và ông Thành. Ông Lâm may mỗi áo hết 3 giờ và cung cấp cho thị trường 100 áo; ông Thành may mỗi áo hết 4 giờ, cung cấp cho thị trường 25 áo. Thời gian lao động trung bình để sản xuất 1 áo (hay giá trị của 1 áo) bằng:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3.2 giờ', 1, @last_question_id);
@@ -1227,7 +1227,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3.5 giờ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một người vào rừng thấy một tảng đá có hình thù lạ liền mang về nhà. Có người thích hỏi mua và ông ta bán được 10 triệu đồng. Bạn đồng ý với ý kiến nào sau đây:', '', 'Approved', 1, 2, 5);
+VALUES ('Một người vào rừng thấy một tảng đá có hình thù lạ liền mang về nhà. Có người thích hỏi mua và ông ta bán được 10 triệu đồng. Bạn đồng ý với ý kiến nào sau đây:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tảng đá này không phải hàng hóa vì không phải là sản phẩm của lao động', 0, @last_question_id);
@@ -1235,7 +1235,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tảng đá này là hàng hóa vì vẫn có đủ 3 đặc trưng của hàng hóa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị sử dụng của một hàng hóa thể hiện ở:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị sử dụng của một hàng hóa thể hiện ở:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công dụng cho người khác, cho xã hội', 1, @last_question_id);
@@ -1249,7 +1249,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vật liệu dùng để chế tạo nó', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người ta có thể xác định lượng giá trị hàng hóa bằng:', '', 'Approved', 1, 2, 5);
+VALUES ('Người ta có thể xác định lượng giá trị hàng hóa bằng:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian sản xuất cộng với thời gian vận chuyển hàng hóa', 0, @last_question_id);
@@ -1259,7 +1259,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian lao động xã hội cần thiết để sản xuất hàng hóa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm KTCT, một bộ phim có giá trị vì nó hay và nhận được sự tán thưởng của nhiều người', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quan điểm KTCT, một bộ phim có giá trị vì nó hay và nhận được sự tán thưởng của nhiều người', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
@@ -1267,7 +1267,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kết luận sau đây đúng hay sai:', '', 'Approved', 1, 2, 5);
+VALUES ('Kết luận sau đây đúng hay sai:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('“Xét về mặt là lao động trừu tượng, các lao động khác nhau về lượng”', 0, @last_question_id);
@@ -1277,7 +1277,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị của hàng hóa được quy định bởi:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị của hàng hóa được quy định bởi:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ích lợi của nó', 0, @last_question_id);
@@ -1291,7 +1291,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức của nó', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng nào sau đây là của hàng hóa?', '', 'Approved', 1, 2, 5);
+VALUES ('Đặc trưng nào sau đây là của hàng hóa?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do lao động của con người tạo ra', 0, @last_question_id);
@@ -1305,7 +1305,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không có phương án nào', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cường độ lao động tăng làm cho:', '', 'Approved', 1, 2, 5);
+VALUES ('Cường độ lao động tăng làm cho:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số lượng hàng hóa sản xuất trong một đơn vị thời gian tăng và Tổng giá trị tạo ra trong một đơn vị thời gian tăng', 1, @last_question_id);
@@ -1319,7 +1319,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số lượng hàng hóa sản xuất trong một đơn vị thời gian tăng và Tổng giá trị tạo ra trong một đơn vị thời gian không đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cường độ lao động giảm làm cho:', '', 'Approved', 1, 2, 5);
+VALUES ('Cường độ lao động giảm làm cho:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số lượng hàng hóa tạo ra trong một đơn vị thời gian giảm', 0, @last_question_id);
@@ -1331,7 +1331,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn một kết luận đúng nhất:', '', 'Approved', 1, 2, 5);
+VALUES ('Chọn một kết luận đúng nhất:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị do lao động cụ thể tạo ra', 0, @last_question_id);
@@ -1343,7 +1343,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động trừu tượng mang đến một công dụng nhất định cho hàng hóa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kết luận sau đây đúng hay sai:', '', 'Approved', 1, 2, 5);
+VALUES ('Kết luận sau đây đúng hay sai:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('“Lao động cụ thể của người thợ dệt vải tạo ra giá trị sử dụng của vải”', 0, @last_question_id);
@@ -1353,7 +1353,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thời gian lao động xã hội cần thiết (TGLĐXH trung bình) để sản xuất hàng hóa:', '', 'Approved', 1, 2, 5);
+VALUES ('Thời gian lao động xã hội cần thiết (TGLĐXH trung bình) để sản xuất hàng hóa:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là trung bình cộng của các thời gian cá biệt', 0, @last_question_id);
@@ -1363,7 +1363,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được quyết định bởi thời gian cá biệt của người sản xuất cung cấp đại bộ phận hàng hóa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có Bà Lan và Bà Cúc đan mũ len. Bà Lan đan mỗi chiếc mũ hết 4 giờ và cung cấp cho thị trường được 200 mũ mỗi tháng. Bà Cúc đan một chiếc mũ hết 7 giờ và mỗi tháng cung cấp được 40 chiếc.', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có Bà Lan và Bà Cúc đan mũ len. Bà Lan đan mỗi chiếc mũ hết 4 giờ và cung cấp cho thị trường được 200 mũ mỗi tháng. Bà Cúc đan một chiếc mũ hết 7 giờ và mỗi tháng cung cấp được 40 chiếc.', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị mỗi chiếc mũ trên thị trường bằng:', 0, @last_question_id);
@@ -1375,7 +1375,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4.5 giờ', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hóa có các thuộc tính nào sau đây:', '', 'Approved', 1, 2, 5);
+VALUES ('Hàng hóa có các thuộc tính nào sau đây:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị', 0, @last_question_id);
@@ -1389,7 +1389,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể trao đổi và mua bán được', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm KTCT, những thứ nào sau đây có thể xếp vào danh mục hàng hóa:', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quan điểm KTCT, những thứ nào sau đây có thể xếp vào danh mục hàng hóa:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bàn ghế', 1, @last_question_id);
@@ -1403,7 +1403,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không khí', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kết luận sau đây đúng hay sai:', '', 'Approved', 1, 2, 5);
+VALUES ('Kết luận sau đây đúng hay sai:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('“Lao động trừu tượng của người thợ xây tạo ra giá trị sử dụng của ngôi nhà”', 0, @last_question_id);
@@ -1413,7 +1413,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có 2 người đóng bàn là A và B. A đóng 1 bàn hết 2 ngày, cung cấp cho thị trường 100 bàn; B đóng 1 bàn hết 3,5 ngày, cung cấp cho thị trường 20 bàn. Thời gian lao động xã hội trung bình để đóng 1 bàn là:', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có 2 người đóng bàn là A và B. A đóng 1 bàn hết 2 ngày, cung cấp cho thị trường 100 bàn; B đóng 1 bàn hết 3,5 ngày, cung cấp cho thị trường 20 bàn. Thời gian lao động xã hội trung bình để đóng 1 bàn là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không xác định được', 0, @last_question_id);
@@ -1425,7 +1425,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2.25 ngày', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một người nông dân trồng được cây chuối có 10 nải. Ông để lại 2 nải để ăn, 2 nải cho con gái, 2 nải đem đổi lấy 1 kg gạo nếp, 2 nải mang ra chợ bán và 2 nải mang lên chùa thắp hương. Số chuối có tư cách hàng hóa là:', '', 'Approved', 1, 2, 5);
+VALUES ('Một người nông dân trồng được cây chuối có 10 nải. Ông để lại 2 nải để ăn, 2 nải cho con gái, 2 nải đem đổi lấy 1 kg gạo nếp, 2 nải mang ra chợ bán và 2 nải mang lên chùa thắp hương. Số chuối có tư cách hàng hóa là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không có nải nào', 0, @last_question_id);
@@ -1439,7 +1439,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('8 nải', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có Bà Lan và Bà Cúc đan mũ len. Bà Lan đan mỗi chiếc mũ hết 4 giờ và cung cấp cho thị trường được 200 mũ mỗi tháng. Bà Cúc đan một chiếc mũ hết 7 giờ và mỗi tháng cung cấp được 40 chiếc. Nếu năng suất lao động của Bà Lan giảm 30% và năng suất lao động của Bà Cúc tăng 50%, mọi điều kiện khác giữ nguyên thì giá trị mỗi chiếc mũ thay đổi thế nào so với ban đầu?', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có Bà Lan và Bà Cúc đan mũ len. Bà Lan đan mỗi chiếc mũ hết 4 giờ và cung cấp cho thị trường được 200 mũ mỗi tháng. Bà Cúc đan một chiếc mũ hết 7 giờ và mỗi tháng cung cấp được 40 chiếc. Nếu năng suất lao động của Bà Lan giảm 30% và năng suất lao động của Bà Cúc tăng 50%, mọi điều kiện khác giữ nguyên thì giá trị mỗi chiếc mũ thay đổi thế nào so với ban đầu?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên thành 5.4 giờ', 1, @last_question_id);
@@ -1449,7 +1449,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm KTCT, những thứ nào sau đây không phải là hàng hóa:', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quan điểm KTCT, những thứ nào sau đây không phải là hàng hóa:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Gà nuôi trong gia đình để ăn', 0, @last_question_id);
@@ -1463,7 +1463,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nước suối tự nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi năng suất lao động giảm, có thể dự đoán:', '', 'Approved', 1, 2, 5);
+VALUES ('Khi năng suất lao động giảm, có thể dự đoán:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng giá trị hàng hóa tạo ra trong một đơn vị thời gian giảm', 0, @last_question_id);
@@ -1477,7 +1477,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('C và D', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lao động sản xuất hàng hóa biểu hiện ở các mặt nào sau đây:', '', 'Approved', 1, 2, 5);
+VALUES ('Lao động sản xuất hàng hóa biểu hiện ở các mặt nào sau đây:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động thủ công', 0, @last_question_id);
@@ -1491,7 +1491,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động cụ thể và lao động trừu tượng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có 2 người may áo sơ mi là ông Lâm và ông Thành. Ông Lâm may mỗi áo hết 3 giờ và cung cấp cho thị trường 100 áo; ông Thành may mỗi áo hết 4 giờ, cung cấp cho thị trường 25 áo. Nếu cường độ lao động của ông Lâm tăng 1,5 lần, cường độ lao động của ông Thành tăng gấp đôi thì giá trị 1 áo trên thị trường:', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có 2 người may áo sơ mi là ông Lâm và ông Thành. Ông Lâm may mỗi áo hết 3 giờ và cung cấp cho thị trường 100 áo; ông Thành may mỗi áo hết 4 giờ, cung cấp cho thị trường 25 áo. Nếu cường độ lao động của ông Lâm tăng 1,5 lần, cường độ lao động của ông Thành tăng gấp đôi thì giá trị 1 áo trên thị trường:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không đổi so với cường độ lao động ban đầu', 0, @last_question_id);
@@ -1501,7 +1501,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm xuống còn 3 giờ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm kinh tế chính trị, có thể nói đất đai rất có giá trị', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quan điểm kinh tế chính trị, có thể nói đất đai rất có giá trị', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
@@ -1511,7 +1511,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị sử dụng phản ánh:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị sử dụng phản ánh:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt chất của hàng hóa', 1, @last_question_id);
@@ -1525,7 +1525,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt lượng của hàng hóa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng suất lao động tăng làm cho:', '', 'Approved', 1, 2, 5);
+VALUES ('Năng suất lao động tăng làm cho:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng giá trị tạo ra trong một đơn vị thời gian tăng', 0, @last_question_id);
@@ -1539,7 +1539,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử thị trường chỉ có 2 người sản xuất bình hoa bằng gốm là A và B. A làm một bình hết 6 giờ lao động, cung cấp cho thị trường 100 bình; B làm một bình hết 8 giờ lao động, cung cấp cho thị trường 25 bình.Giá trị 1 bình gốm trên thị trường bằng:', '', 'Approved', 1, 2, 5);
+VALUES ('Giả sử thị trường chỉ có 2 người sản xuất bình hoa bằng gốm là A và B. A làm một bình hết 6 giờ lao động, cung cấp cho thị trường 100 bình; B làm một bình hết 8 giờ lao động, cung cấp cho thị trường 25 bình.Giá trị 1 bình gốm trên thị trường bằng:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A.6.4 giờ', 1, @last_question_id);
@@ -1549,7 +1549,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('7 giờ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm KTCT, có thể nói xe máy có giá trị hơn ô tô', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quan điểm KTCT, có thể nói xe máy có giá trị hơn ô tô', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vừa đúng vừa sai', 0, @last_question_id);
@@ -1559,7 +1559,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị sử dụng của hàng hóa là thuộc tính:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị sử dụng của hàng hóa là thuộc tính:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mang tính chất vĩnh viễn', 0, @last_question_id);
@@ -1567,7 +1567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mang tính chất lịch sử', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bạn mua một cây bút để viết. Cây bút này:', '', 'Approved', 1, 2, 5);
+VALUES ('Bạn mua một cây bút để viết. Cây bút này:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một hàng hóa và có giá trị sử dụng đối với bạn', 1, @last_question_id);
@@ -1581,7 +1581,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có giá trị sử dụng đối với bạn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị của một quyển sách thể hiện ở:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị của một quyển sách thể hiện ở:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tên tác giả', 0, @last_question_id);
@@ -1595,7 +1595,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lượng lao động làm ra cuốn sách', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể giải thích nguyên nhân của giá trị tăng thêm ở:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể giải thích nguyên nhân của giá trị tăng thêm ở:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền', 0, @last_question_id);
@@ -1605,7 +1605,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hàng hóa đặc biệt', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư thuộc quyền chiếm hữu của:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư thuộc quyền chiếm hữu của:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người lao động', 0, @last_question_id);
@@ -1615,7 +1615,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người chủ và người lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử một ngày lao động có 8 giờ, trong đó thời gian lao động cần thiết và thời gian lao động thặng dư bằng nhau. Tỷ suất GTTD là:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử một ngày lao động có 8 giờ, trong đó thời gian lao động cần thiết và thời gian lao động thặng dư bằng nhau. Tỷ suất GTTD là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('50%', 0, @last_question_id);
@@ -1625,7 +1625,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('100%', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản hàng hóa là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản hàng hóa là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dùng để trao đổi với các hàng hóa khác', 0, @last_question_id);
@@ -1639,7 +1639,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể mua bán được', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với tỷ suất GTTD', 0, @last_question_id);
@@ -1653,7 +1653,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị mới được tạo bởi:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị mới được tạo bởi:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động quá khứ', 0, @last_question_id);
@@ -1663,7 +1663,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị cũ được tạo bởi:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị cũ được tạo bởi:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động quá khứ', 1, @last_question_id);
@@ -1673,7 +1673,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Sức lao động là:', '', 'Approved', 1, 2, 5);
+VALUES ('Sức lao động là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực thể chất của người lao động', 0, @last_question_id);
@@ -1683,7 +1683,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực tinh thần của người lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng thước đo giá trị của tiền có nghĩa là:', '', 'Approved', 1, 2, 5);
+VALUES ('Chức năng thước đo giá trị của tiền có nghĩa là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền có thể sử dụng vào việc cất trữ', 0, @last_question_id);
@@ -1697,7 +1697,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể đưa tiền vào dự trữ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Sức lao động luôn luôn là hàng hóa có thể mua – bán được”.', '', 'Approved', 1, 2, 5);
+VALUES ('Nhận định sau đúng hay sai: “Sức lao động luôn luôn là hàng hóa có thể mua – bán được”.', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
@@ -1705,7 +1705,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử một ngày lao động có 8 giờ, trong đó 4 giờ là thời gian lao động cần thiết. Nếu kéo dài ngày lao động thêm 1 giờ mà không thay đổi TGLĐCT thì tỷ suất giá trị thặng dư sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử một ngày lao động có 8 giờ, trong đó 4 giờ là thời gian lao động cần thiết. Nếu kéo dài ngày lao động thêm 1 giờ mà không thay đổi TGLĐCT thì tỷ suất giá trị thặng dư sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng 20%', 0, @last_question_id);
@@ -1719,7 +1719,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất GTTD phản ánh:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất GTTD phản ánh:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô bóc lột lao động làm thuê', 0, @last_question_id);
@@ -1729,7 +1729,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quy luật lưu thông tiền tệ thực tế, số lượng tiền cần thiết cho lưu thông sẽ tăng trong các trường hợp:', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quy luật lưu thông tiền tệ thực tế, số lượng tiền cần thiết cho lưu thông sẽ tăng trong các trường hợp:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng số giá cả hàng hóa khấu trừ trực tiếp giảm đi', 0, @last_question_id);
@@ -1745,7 +1745,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('F. A, D và E', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể xếp vào tư bản khả biến các bộ phận sau đây:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể xếp vào tư bản khả biến các bộ phận sau đây:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công cụ lao động', 0, @last_question_id);
@@ -1759,7 +1759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('GTTD tuyệt đối được sản xuất bằng cách:', '', 'Approved', 1, 3, 5);
+VALUES ('GTTD tuyệt đối được sản xuất bằng cách:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài ngày lao động', 0, @last_question_id);
@@ -1773,7 +1773,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể giảm chi phí tư bản bất biến nếu:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể giảm chi phí tư bản bất biến nếu:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mua thêm máy móc mới', 0, @last_question_id);
@@ -1787,7 +1787,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm chi phí cho lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư là giá trị tương ứng với:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư là giá trị tương ứng với:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phần đóng góp của ông chủ', 0, @last_question_id);
@@ -1797,7 +1797,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phần lao động được trả công của công nhân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quy luật lưu thông tiền tệ, số lượng tiền cần thiết cho lưu thông:', '', 'Approved', 1, 2, 5);
+VALUES ('Theo quy luật lưu thông tiền tệ, số lượng tiền cần thiết cho lưu thông:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với tổng giá cả', 0, @last_question_id);
@@ -1811,7 +1811,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản tiền tệ là:', '', 'Approved', 1, 2, 5);
+VALUES ('Tư bản tiền tệ là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền người chủ tích lũy được', 0, @last_question_id);
@@ -1825,7 +1825,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản biểu hiện dưới hình thái tiền tệ', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị của hàng hóa SLĐ:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị của hàng hóa SLĐ:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do LĐXHCT tạo ra', 0, @last_question_id);
@@ -1839,7 +1839,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong số các công thức sau đây, công thức nào được gọi là công thức chung của tư bản:', '', 'Approved', 1, 2, 5);
+VALUES ('Trong số các công thức sau đây, công thức nào được gọi là công thức chung của tư bản:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('H – T – H', 0, @last_question_id);
@@ -1853,7 +1853,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không có công thức nào', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng thanh toán của tiền được hiểu là:', '', 'Approved', 1, 2, 5);
+VALUES ('Chức năng thanh toán của tiền được hiểu là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền phục vụ mục đích mua – bán chịu hàng hóa', 0, @last_question_id);
@@ -1867,7 +1867,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư tương đối được sản xuất bằng cách:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư tương đối được sản xuất bằng cách:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài thời gian lao động thặng dư', 0, @last_question_id);
@@ -1881,7 +1881,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A hoặc B', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng GTTD phản ánh:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng GTTD phản ánh:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Độ dài của ngày lao động', 0, @last_question_id);
@@ -1891,7 +1891,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô bóc lột lao động làm thuê', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người ta có thể cất trữ tiền dưới dạng:', '', 'Approved', 1, 2, 5);
+VALUES ('Người ta có thể cất trữ tiền dưới dạng:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền vàng và vàng thoi', 0, @last_question_id);
@@ -1905,7 +1905,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('GTSD đặc biệt của hàng hóa SLĐ là:', '', 'Approved', 1, 2, 5);
+VALUES ('GTSD đặc biệt của hàng hóa SLĐ là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bù đắp hao phí về giá trị của SLĐ', 0, @last_question_id);
@@ -1915,7 +1915,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kết hợp với các TLSX để sản xuất sản phẩm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị của hàng hóa SLĐ có đặc điểm:', '', 'Approved', 1, 2, 5);
+VALUES ('Giá trị của hàng hóa SLĐ có đặc điểm:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các TLSH nhằm bảo đảm nhu cầu tối thiểu của người lao động', 0, @last_question_id);
@@ -1929,7 +1929,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục đích vận động của tư bản là:', '', 'Approved', 1, 2, 5);
+VALUES ('Mục đích vận động của tư bản là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hàng hóa phong phú hơn về mẫu mã', 0, @last_question_id);
@@ -1943,7 +1943,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng thêm hàng hóa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị SLĐ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị SLĐ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được tạo ra trong thời gian lao động cần thiết', 1, @last_question_id);
@@ -1953,7 +1953,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản là:', '', 'Approved', 1, 2, 5);
+VALUES ('Tư bản là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền đầu tư của nhà tư bản', 0, @last_question_id);
@@ -1967,7 +1967,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số TLSX mà nhà tư bản sử dụng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư là phần giá trị vượt trội so với:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư là phần giá trị vượt trội so với:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị SLĐ', 1, @last_question_id);
@@ -1977,7 +1977,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị các TLSX', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mâu thuẫn của công thức chung thể hiện ở chỗ: giá trị tăng thêm trong lưu thông, lại không thể tăng thêm trong lưu thông.', '', 'Approved', 1, 2, 5);
+VALUES ('Mâu thuẫn của công thức chung thể hiện ở chỗ: giá trị tăng thêm trong lưu thông, lại không thể tăng thêm trong lưu thông.', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
@@ -1985,7 +1985,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một tư bản có tổng bằng 1000, đầu tư theo cấu tạo hữu cơ 3/2 và đạt tỷ suất GTTD bằng 100%. Cơ cấu sản xuất của tư bản này là:', '', 'Approved', 1, 3, 5);
+VALUES ('Một tư bản có tổng bằng 1000, đầu tư theo cấu tạo hữu cơ 3/2 và đạt tỷ suất GTTD bằng 100%. Cơ cấu sản xuất của tư bản này là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('600 C + 400 V + 400 M', 1, @last_question_id);
@@ -1995,7 +1995,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('400 C + 600 V + 400 M', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu tạo hữu cơ được tính bằng cách:', '', 'Approved', 1, 3, 5);
+VALUES ('Cấu tạo hữu cơ được tính bằng cách:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('So sánh giá trị máy móc, thiết bị và giá trị SLĐ', 0, @last_question_id);
@@ -2009,7 +2009,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('So sánh giá trị SLĐ và toàn bộ tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản trực tiếp tạo ra GTTD là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản trực tiếp tạo ra GTTD là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản bất biến', 0, @last_question_id);
@@ -2019,7 +2019,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mua – bán hàng hóa SLĐ có thể dựa trên cơ sở:', '', 'Approved', 1, 3, 5);
+VALUES ('Mua – bán hàng hóa SLĐ có thể dựa trên cơ sở:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của SLĐ', 0, @last_question_id);
@@ -2033,7 +2033,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền xuất hiện là do:', '', 'Approved', 1, 2, 5);
+VALUES ('Tiền xuất hiện là do:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội quy định phải có tiền', 0, @last_question_id);
@@ -2047,7 +2047,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Yêu cầu của trao đổi ở một trình độ cao nhất định', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nếu tỷ suất GTTD tăng 50% và khối lượng giá trị SLĐ giảm 20% thì khối lượng GTTD sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Nếu tỷ suất GTTD tăng 50% và khối lượng giá trị SLĐ giảm 20% thì khối lượng GTTD sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng 20%', 1, @last_question_id);
@@ -2061,7 +2061,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm 30%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử một ngày lao động có 10 giờ không thay đổi, trong đó 4 giờ là thời gian lao động cần thiết. Nếu rút ngắn TGLĐCT xuống còn 2 giờ thì tỷ suất GTTD sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử một ngày lao động có 10 giờ không thay đổi, trong đó 4 giờ là thời gian lao động cần thiết. Nếu rút ngắn TGLĐCT xuống còn 2 giờ thì tỷ suất GTTD sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên 200%', 0, @last_question_id);
@@ -2075,7 +2075,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm xuống 100%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư có nguồn gốc từ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư có nguồn gốc từ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất', 1, @last_question_id);
@@ -2085,7 +2085,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lưu thông', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu tạo hữu cơ tăng khi:', '', 'Approved', 1, 3, 5);
+VALUES ('Cấu tạo hữu cơ tăng khi:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí tư bản khả biến giảm', 0, @last_question_id);
@@ -2099,7 +2099,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí tư bản bất biến tăng nhanh hơn chi phí tư bản khả biến', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất GTTD tăng 20% và khối lượng giá trị SLĐ tăng 20% sẽ làm cho khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất GTTD tăng 20% và khối lượng giá trị SLĐ tăng 20% sẽ làm cho khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng 20%', 0, @last_question_id);
@@ -2113,7 +2113,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một tư bản có giá trị 1000, đầu tư cho TLSX hết 800; thuê SLĐ hết 200. Cấu tạo hữu cơ của tư bản này bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Một tư bản có giá trị 1000, đầu tư cho TLSX hết 800; thuê SLĐ hết 200. Cấu tạo hữu cơ của tư bản này bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2/4 hay 1/2', 0, @last_question_id);
@@ -2127,7 +2127,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4/1', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu tạo hữu cơ của tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Cấu tạo hữu cơ của tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh trình độ phát tiển của kỹ thuật sản xuất', 1, @last_question_id);
@@ -2137,7 +2137,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh mức độ sinh lợi của tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư được tạo bởi:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư được tạo bởi:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người chủ tư bản', 0, @last_question_id);
@@ -2147,7 +2147,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người lao động làm thuê', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mâu thuẫn của công thức chung thể hiện ở chỗ: giá trị vừa tăng thêm vừa không tăng thêm.', '', 'Approved', 1, 2, 5);
+VALUES ('Mâu thuẫn của công thức chung thể hiện ở chỗ: giá trị vừa tăng thêm vừa không tăng thêm.', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
@@ -2155,7 +2155,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản sản xuất là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản sản xuất là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tồn tại dưới hình thái TLSX', 0, @last_question_id);
@@ -2169,7 +2169,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đầu tư vào máy móc, thiết bị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền:', '', 'Approved', 1, 2, 5);
+VALUES ('Tiền:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một vật', 0, @last_question_id);
@@ -2183,7 +2183,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hóa SLĐ là một phạm trù:', '', 'Approved', 1, 3, 5);
+VALUES ('Hàng hóa SLĐ là một phạm trù:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Gắn với mọi phương thức sản xuất xã hội', 0, @last_question_id);
@@ -2199,7 +2199,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('F. C và D', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản khả biến là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản khả biến là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể thay đổi hình thái', 0, @last_question_id);
@@ -2213,7 +2213,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tồn tại dưới hình thái các TLSX', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng phương tiện lưu thông của tiền có nghĩa là:', '', 'Approved', 1, 2, 5);
+VALUES ('Chức năng phương tiện lưu thông của tiền có nghĩa là:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đưa tiền vào lưu thông', 0, @last_question_id);
@@ -2227,7 +2227,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền được chuyển từ tay người này sang tay người khác', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ngày lao động 10 giờ, trong đó một nửa là thời gian lao động cần thiết. Người lao động được trả 8$ một ngày, mua được 2 kg thịt gà. Khi năng suất lao động trong ngành chăn nuôi tăng làm giá thịt gà giảm còn 3.2$/kg và người lao động vẫn được trả công bảo đảm mua được 2 kg thịt gà như trước. TGLĐCT lúc này sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Ngày lao động 10 giờ, trong đó một nửa là thời gian lao động cần thiết. Người lao động được trả 8$ một ngày, mua được 2 kg thịt gà. Khi năng suất lao động trong ngành chăn nuôi tăng làm giá thịt gà giảm còn 3.2$/kg và người lao động vẫn được trả công bảo đảm mua được 2 kg thịt gà như trước. TGLĐCT lúc này sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
@@ -2241,7 +2241,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm xuống còn 4 giờ', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền:', '', 'Approved', 1, 2, 5);
+VALUES ('Tiền:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do Nhà nước tạo ra', 0, @last_question_id);
@@ -2255,7 +2255,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được những người trao đổi hàng hóa thỏa thuận lựa chọn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất GTTD tăng 20% và khối lượng giá trị SLĐ giảm 20% sẽ làm cho khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất GTTD tăng 20% và khối lượng giá trị SLĐ giảm 20% sẽ làm cho khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm 40%', 0, @last_question_id);
@@ -2269,7 +2269,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không xác định được', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để SLĐ trở thành hàng hóa là:', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện để SLĐ trở thành hàng hóa là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người lao động bị tách khỏi các TLSX', 0, @last_question_id);
@@ -2285,7 +2285,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('F. A và D', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hóa SLĐ có:', '', 'Approved', 1, 3, 5);
+VALUES ('Hàng hóa SLĐ có:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả GTSD và giá trị đều đặc biệt', 0, @last_question_id);
@@ -2295,7 +2295,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('GTSD đặc biệt', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh mối quan hệ chủ - thợ', 0, @last_question_id);
@@ -2305,7 +2305,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh mối quan hệ bóc lột lao động làm thuê của người chủ tư bản', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử một ngày lao động có 10 giờ, trong đó thời gian lao động cần thiết là 4 giờ. Tỷ suất GTTD là:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử một ngày lao động có 10 giờ, trong đó thời gian lao động cần thiết là 4 giờ. Tỷ suất GTTD là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('60%', 0, @last_question_id);
@@ -2319,7 +2319,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không xác định được', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể giải thích nguyên nhân của giá trị tăng thêm ở:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể giải thích nguyên nhân của giá trị tăng thêm ở:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả ở GTSD và giá trị của hàng hóa đặc biệt', 0, @last_question_id);
@@ -2329,7 +2329,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của hàng hóa đặc biệt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất GTTD là tương quan so sánh giữa:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất GTTD là tương quan so sánh giữa:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian lao động cần thiết và thời gian của ngày lao động', 0, @last_question_id);
@@ -2339,7 +2339,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian lao động thặng dư và thời gian của ngày lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các bộ phận sau đây được xếp vào tư bản bất biến:', '', 'Approved', 1, 3, 5);
+VALUES ('Các bộ phận sau đây được xếp vào tư bản bất biến:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Máy móc, thiết bị', 0, @last_question_id);
@@ -2353,7 +2353,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Giá trị hàng hóa SLĐ bao gồm cả các chi phí để nuôi con cái của người lao động”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Giá trị hàng hóa SLĐ bao gồm cả các chi phí để nuôi con cái của người lao động”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
@@ -2361,7 +2361,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất GTTD là tương quan so sánh giữa:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất GTTD là tương quan so sánh giữa:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('GTTD và giá trị SLĐ', 1, @last_question_id);
@@ -2371,7 +2371,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị SLĐ và vốn của người chủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư được tạo ra:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư được tạo ra:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trong thời gian lao động cần thiết', 0, @last_question_id);
@@ -2381,7 +2381,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trong cả ngày lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thăng dư phát sinh từ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thăng dư phát sinh từ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị sử dụng của hàng hóa SLĐ', 1, @last_question_id);
@@ -2391,7 +2391,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản có thể tồn tại dưới các hình thái:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản có thể tồn tại dưới các hình thái:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản tiền tệ', 0, @last_question_id);
@@ -2405,7 +2405,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A hoặc B hoặc C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các bộ phận sau đây được tính trong giá trị hàng hóa:', '', 'Approved', 1, 3, 5);
+VALUES ('Các bộ phận sau đây được tính trong giá trị hàng hóa:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản bất biến', 0, @last_question_id);
@@ -2419,7 +2419,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản bất biến là bộ phận của tư bản sản xuất:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản bất biến là bộ phận của tư bản sản xuất:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mà giá trị được chuyển nguyên vẹn, không tăng thêm trong sản xuất', 1, @last_question_id);
@@ -2433,7 +2433,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có giá trị không đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tính giá trị tư bản bất biến, có thể cộng các khoản sau đây:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tính giá trị tư bản bất biến, có thể cộng các khoản sau đây:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao mòn công cụ lao động', 0, @last_question_id);
@@ -2447,7 +2447,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hóa tiền:', '', 'Approved', 1, 2, 5);
+VALUES ('Hàng hóa tiền:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xuất hiện một cách ngẫu nhiên', 0, @last_question_id);
@@ -2461,7 +2461,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có giá trị sử dụng đặc biệt', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu tạo hữu cơ của tư bản là 3/2, tỷ suất tích lũy bằng 60%, tổng GTTD là 400. TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Approved', 1, 3, 5);
+VALUES ('Cấu tạo hữu cơ của tư bản là 3/2, tỷ suất tích lũy bằng 60%, tổng GTTD là 400. TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('144 và 96', 1, @last_question_id);
@@ -2471,7 +2471,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('160 và 240', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của tích lũy tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của tích lũy tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự tiết kiệm của người chủ tư bản', 0, @last_question_id);
@@ -2481,7 +2481,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị thăng dư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất tích lũy của tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất tích lũy của tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ giữa TBBB phụ thêm và tổng tư bản', 0, @last_question_id);
@@ -2495,7 +2495,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ giữa TBBB phụ thêm và TBKB phụ thêm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ cấu sản xuất của tư bản là: 4.000 C + 1.000 V + 2.000 M. Giả sử tư bản dành 1600 GTTD để tích lũy, trong đó phân chia cho TBBB phụ thêm 1500 và TBKB phụ thêm 100. Sau tích lũy, cấu tạo hữu cơ chung của tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Cơ cấu sản xuất của tư bản là: 4.000 C + 1.000 V + 2.000 M. Giả sử tư bản dành 1600 GTTD để tích lũy, trong đó phân chia cho TBBB phụ thêm 1500 và TBKB phụ thêm 100. Sau tích lũy, cấu tạo hữu cơ chung của tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
@@ -2505,7 +2505,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên 5/1', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền trả công được tạo ra bởi:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền trả công được tạo ra bởi:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người chủ tư bản', 0, @last_question_id);
@@ -2515,7 +2515,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người lao động', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản ứng trước bằng 2000, cấu tạo hữu cơ của tư bản bằng 4/1, tỷ suất GTTD 100% và tỷ suất tích lũy bằng 60%. Có thể xác định tư bản tích lũy, TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản ứng trước bằng 2000, cấu tạo hữu cơ của tư bản bằng 4/1, tỷ suất GTTD 100% và tỷ suất tích lũy bằng 60%. Có thể xác định tư bản tích lũy, TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('800, 400 và 160', 0, @last_question_id);
@@ -2529,7 +2529,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('400, 200 và 160', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản tích lũy được sử dụng để:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản tích lũy được sử dụng để:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mua TLSX bổ sung', 0, @last_question_id);
@@ -2543,7 +2543,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nếu giá cả TLSH tăng 25% mà tiền công danh nghĩa tăng 30%, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Nếu giá cả TLSH tăng 25% mà tiền công danh nghĩa tăng 30%, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế giảm 4%', 0, @last_question_id);
@@ -2557,7 +2557,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế tăng 5%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ sở của tiền công là:', '', 'Approved', 1, 3, 5);
+VALUES ('Cơ sở của tiền công là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự thỏa thuận giữa người chủ và lao động', 0, @last_question_id);
@@ -2567,7 +2567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mức sống của người lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổng GTTD là 600, trong đó phần tích lũy là 400 và phần tiêu dùng là 200. Nếu tổng GTTD tăng lên 900, với mọi điều kiện khác không đổi, tư bản tích lũy sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Tổng GTTD là 600, trong đó phần tích lũy là 400 và phần tiêu dùng là 200. Nếu tổng GTTD tăng lên 900, với mọi điều kiện khác không đổi, tư bản tích lũy sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giữ nguyên 400', 0, @last_question_id);
@@ -2577,7 +2577,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên 600', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi cầu lao động vượt cung lao động, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi cầu lao động vượt cung lao động, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công giảm xuống', 0, @last_question_id);
@@ -2591,7 +2591,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản khả biến phụ thêm thể hiện bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản khả biến phụ thêm thể hiện bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số nguyên, vật liệu bổ sung', 0, @last_question_id);
@@ -2605,7 +2605,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền công bổ sung', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công theo thời gian:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công theo thời gian:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do thời gian lao động cần thiết quy định', 0, @last_question_id);
@@ -2615,7 +2615,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với thời gian lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản ứng trước bằng 500, sản xuất khối lượng GTTD bằng 200. Nếu tích lũy với tỷ suất tích lũy bằng 60%, tư bản sẽ lớn lên thành:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản ứng trước bằng 500, sản xuất khối lượng GTTD bằng 200. Nếu tích lũy với tỷ suất tích lũy bằng 60%, tư bản sẽ lớn lên thành:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('680', 0, @last_question_id);
@@ -2629,7 +2629,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('580', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biểu hiện của tiền công trên thị trường là:', '', 'Approved', 1, 3, 5);
+VALUES ('Biểu hiện của tiền công trên thị trường là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá cả hàng hóa SLĐ', 0, @last_question_id);
@@ -2643,7 +2643,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tỷ suất GTTD tăng gấp đôi, với mọi điều kiện khác không đổi, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tỷ suất GTTD tăng gấp đôi, với mọi điều kiện khác không đổi, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô tích lũy của tư bản tăng gấp đôi', 1, @last_question_id);
@@ -2653,7 +2653,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô tích lũy của tư bản không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử phân cách thu nhập giữa tư bản và lao động đang là 12/1. Do tích lũy tư bản mở rộng, thu nhập của tư bản tăng 40% và thu nhập của lao động tăng 20%. Tỷ lệ cách biệt về thu nhập giữa tư bản và lao động bây giờ là:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử phân cách thu nhập giữa tư bản và lao động đang là 12/1. Do tích lũy tư bản mở rộng, thu nhập của tư bản tăng 40% và thu nhập của lao động tăng 20%. Tỷ lệ cách biệt về thu nhập giữa tư bản và lao động bây giờ là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('14/1', 1, @last_question_id);
@@ -2663,7 +2663,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('16/1', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công danh nghĩa là tiền công:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công danh nghĩa là tiền công:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sự thỏa thuận giữa người chủ và lao động', 0, @last_question_id);
@@ -2677,7 +2677,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do người lao động yêu cầu người chủ trả', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tích tụ tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tích tụ tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tích lũy đồng thời của nhiều tư bản', 0, @last_question_id);
@@ -2687,7 +2687,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tích lũy bằng sự liên kết giữa các tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công thực tế là tiền công:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công thực tế là tiền công:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được người chủ trả thực tế', 0, @last_question_id);
@@ -2701,7 +2701,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo đảm mức sống thực tế của lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử tiền công danh nghĩa là 10$/ ngày. Nếu giá thịt gà bằng 4 $/ kg thì tiền công thực tế một ngày bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử tiền công danh nghĩa là 10$/ ngày. Nếu giá thịt gà bằng 4 $/ kg thì tiền công thực tế một ngày bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2.5 kg thịt gà', 1, @last_question_id);
@@ -2711,7 +2711,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('0.4 kg thịt gà', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tư bản ứng trước tăng gấp đôi, với mọi điều kiện cho trước khác không đổi, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tư bản ứng trước tăng gấp đôi, với mọi điều kiện cho trước khác không đổi, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản tích lũy tăng gấp đôi', 0, @last_question_id);
@@ -2725,7 +2725,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những nhân tố ảnh hưởng đến tiền công là:', '', 'Approved', 1, 3, 5);
+VALUES ('Những nhân tố ảnh hưởng đến tiền công là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ cung – cầu về lao động', 0, @last_question_id);
@@ -2739,7 +2739,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản có thể tích lũy bằng con đường:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản có thể tích lũy bằng con đường:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tích tụ tư bản', 0, @last_question_id);
@@ -2749,7 +2749,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi khối lượng GTTD giảm một nửa, với mọi điều kiện khác không đổi, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi khối lượng GTTD giảm một nửa, với mọi điều kiện khác không đổi, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô tích lũy của tư bản giảm một nửa', 1, @last_question_id);
@@ -2759,7 +2759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô tích lũy của tư bản không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi cung lao động vượt cầu lao động, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi cung lao động vượt cầu lao động, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công đạt mức cao nhất', 0, @last_question_id);
@@ -2773,7 +2773,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công lên cao', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất của tiền công là:', '', 'Approved', 1, 3, 5);
+VALUES ('Bản chất của tiền công là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền người lao động đòi hỏi', 0, @last_question_id);
@@ -2783,7 +2783,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biểu hiện bằng tiền của giá trị hàng hóa SLĐ', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tập trung tư bản có thể diễn ra thông qua con đường:', '', 'Approved', 1, 3, 5);
+VALUES ('Tập trung tư bản có thể diễn ra thông qua con đường:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tự nguyện sáp nhập', 0, @last_question_id);
@@ -2797,7 +2797,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B hoặc C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổng số GTTD của tư bản bằng 1.000, trong đó dành 600 để tích lũy và 400 để tiêu dùng. Để tích lũy, chủ tư bản dùng 500 mua TLSX bổ sung và 100 thuê lao động bổ sung. Tư bản bất biến phụ thêm và tư bản khả biến phụ thêm lần lượt là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tổng số GTTD của tư bản bằng 1.000, trong đó dành 600 để tích lũy và 400 để tiêu dùng. Để tích lũy, chủ tư bản dùng 500 mua TLSX bổ sung và 100 thuê lao động bổ sung. Tư bản bất biến phụ thêm và tư bản khả biến phụ thêm lần lượt là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('600 và 400', 0, @last_question_id);
@@ -2811,7 +2811,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('500 và 100', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Với mọi điều kiện cho trước không đổi, tỷ suất tích lũy tăng từ 40% lên 50% sẽ làm cho tỷ lệ tích lũy – tiêu dùng:', '', 'Approved', 1, 3, 5);
+VALUES ('Với mọi điều kiện cho trước không đổi, tỷ suất tích lũy tăng từ 40% lên 50% sẽ làm cho tỷ lệ tích lũy – tiêu dùng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm từ 3 – 2 xuống 1 – 1', 0, @last_question_id);
@@ -2821,7 +2821,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổng tư bản bằng 1200, cấu tạo hữu cơ bằng 5/1, tỷ suất GTTD bằng 200%, tỷ suất tích lũy bằng 75%. Tư bản bất biến phụ thêm và tư bản khả biến phụ thêm lần lượt bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tổng tư bản bằng 1200, cấu tạo hữu cơ bằng 5/1, tỷ suất GTTD bằng 200%, tỷ suất tích lũy bằng 75%. Tư bản bất biến phụ thêm và tư bản khả biến phụ thêm lần lượt bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('600 và 100', 0, @last_question_id);
@@ -2835,7 +2835,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('250 và 50', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tăng tích lũy, cấu tạo hữu cơ của tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tăng tích lũy, cấu tạo hữu cơ của tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi', 0, @last_question_id);
@@ -2845,7 +2845,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công theo sản phẩm:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công theo sản phẩm:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với số lượng sản phẩm', 1, @last_question_id);
@@ -2855,7 +2855,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với số lượng sản phẩm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất tích lũy bằng 50%, tư bản tích lũy bằng 400, trong đó 300 là TBBB phụ thêm và 100 là TBKB phụ thêm. Khi tỷ suất tích lũy tăng lên 75%, với mọi điều kiện khác không đổi, có thể dự đoán tư bản tích lũy, TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất tích lũy bằng 50%, tư bản tích lũy bằng 400, trong đó 300 là TBBB phụ thêm và 100 là TBKB phụ thêm. Khi tỷ suất tích lũy tăng lên 75%, với mọi điều kiện khác không đổi, có thể dự đoán tư bản tích lũy, TBBB phụ thêm và TBKB phụ thêm lần lượt là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('700, 500 và 175', 0, @last_question_id);
@@ -2869,7 +2869,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('475, 375 và 175', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổng số GTTD của tư bản bằng 500, trong đó dành 300 cho tích lũy và 200 để tiêu dùng. Tỷ suất tích lũy của tư bản bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tổng số GTTD của tư bản bằng 500, trong đó dành 300 cho tích lũy và 200 để tiêu dùng. Tỷ suất tích lũy của tư bản bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('40%', 0, @last_question_id);
@@ -2879,7 +2879,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('60%', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nếu tiền công danh nghĩa giảm 25% và giá cả TLSH tăng 25%, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Nếu tiền công danh nghĩa giảm 25% và giá cả TLSH tăng 25%, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế tăng 1%', 0, @last_question_id);
@@ -2893,7 +2893,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế giảm 1%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Muốn có tích lũy tư bản, người chủ tư bản phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Muốn có tích lũy tư bản, người chủ tư bản phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng hết GTTD để tiêu dùng', 0, @last_question_id);
@@ -2903,7 +2903,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chia GTTD thành phần tích lũy và phần tiêu dùng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tiền công danh nghĩa không đổi mà giá cả TLSH tăng lên, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tiền công danh nghĩa không đổi mà giá cả TLSH tăng lên, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế giảm xuống', 1, @last_question_id);
@@ -2911,7 +2911,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế tăng lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tích lũy tư bản mở rộng sẽ dẫn tới kết quả:', '', 'Approved', 1, 3, 5);
+VALUES ('Tích lũy tư bản mở rộng sẽ dẫn tới kết quả:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động nghèo khổ hơn', 0, @last_question_id);
@@ -2923,7 +2923,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản giàu có lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công theo thời gian đòi hỏi phải kiểm soát:', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công theo thời gian đòi hỏi phải kiểm soát:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng suất lao động', 0, @last_question_id);
@@ -2933,7 +2933,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tích lũy tăng, cấu tạo hữu cơ của tư bản tăng là do:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tích lũy tăng, cấu tạo hữu cơ của tư bản tăng là do:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí cho TBBB phụ thêm tăng nhanh hơn chi phí cho TBKB phụ thêm', 1, @last_question_id);
@@ -2945,7 +2945,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí cho TBBB tăng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tập trung tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tập trung tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tích lũy thông qua việc kết hợp của nhiều tư bản', 1, @last_question_id);
@@ -2955,7 +2955,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tích lũy xảy ra đối với những tư bản lớn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử tỷ suất GTTD là 100%, tổng GTTD là 500, trong đó dành 300 để tích lũy và 200 để tiêu dùng. Nếu tỷ suất GTTD tăng lên thành 150%, với mọi điều kiện khác không đổi, tư bản tích lũy sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử tỷ suất GTTD là 100%, tổng GTTD là 500, trong đó dành 300 để tích lũy và 200 để tiêu dùng. Nếu tỷ suất GTTD tăng lên thành 150%, với mọi điều kiện khác không đổi, tư bản tích lũy sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('300', 0, @last_question_id);
@@ -2965,7 +2965,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('450', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất tích lũy bằng 60%. Tỷ lệ tích lũy – tiêu dùng là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất tích lũy bằng 60%. Tỷ lệ tích lũy – tiêu dùng là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4 – 1', 0, @last_question_id);
@@ -2975,7 +2975,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5 – 1', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi tiền công danh nghĩa tăng mà giá cả TLSH không thay đổi, có thể dự đoán:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi tiền công danh nghĩa tăng mà giá cả TLSH không thay đổi, có thể dự đoán:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế giảm xuống', 0, @last_question_id);
@@ -2985,7 +2985,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiền công thực tế tăng lên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản bất biến phụ thêm là tư bản thể hiện bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản bất biến phụ thêm là tư bản thể hiện bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền công bổ sung', 0, @last_question_id);
@@ -2999,7 +2999,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số máy móc bổ sung', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tích lũy tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tích lũy tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiết kiệm tư bản đầu tư', 0, @last_question_id);
@@ -3009,7 +3009,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Gom góp một số tư bản đủ lớn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công thức xác định TNQD là:', '', 'Approved', 1, 3, 5);
+VALUES ('Công thức xác định TNQD là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (M) + II (M)', 0, @last_question_id);
@@ -3023,7 +3023,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (V + M) + II (V + M)', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để tăng tốc độ chu chuyển của tư bản, cần phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Để tăng tốc độ chu chuyển của tư bản, cần phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiết kiệm chi phí tư bản', 0, @last_question_id);
@@ -3033,7 +3033,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm thời gian sản xuất và thời gian lưu thông', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thời gian chu chuyển của tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Thời gian chu chuyển của tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian sản xuất', 0, @last_question_id);
@@ -3047,7 +3047,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian lưu thông', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thực chất của lưu thông tư bản xã hội là:', '', 'Approved', 1, 3, 5);
+VALUES ('Thực chất của lưu thông tư bản xã hội là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trao đổi TLSX của khu vực I và TLSH của khu vực II', 1, @last_question_id);
@@ -3057,7 +3057,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trao đổi sản phẩm trong mỗi khu vực I và II', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công thức xác định TSPXH là:', '', 'Approved', 1, 3, 5);
+VALUES ('Công thức xác định TSPXH là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (M) + II (M)', 0, @last_question_id);
@@ -3071,7 +3071,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (C + V + M) + II (C + V + M)', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khu vực I của nền sản xuất xã hội là khu vực:', '', 'Approved', 1, 3, 5);
+VALUES ('Khu vực I của nền sản xuất xã hội là khu vực:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất ra TLSX', 1, @last_question_id);
@@ -3081,7 +3081,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất ra tư liệu sinh hoạt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần tư bản cố định:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần tư bản cố định:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trụ sở, văn phòng', 0, @last_question_id);
@@ -3095,7 +3095,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với tốc độ chu chuyển của tư bản', 0, @last_question_id);
@@ -3105,7 +3105,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với tốc độ chu chuyển của tư bản', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổng sản phẩm xã hội (TSPXH) là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tổng sản phẩm xã hội (TSPXH) là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng GTTD của cả hai khu vực I và II', 0, @last_question_id);
@@ -3119,7 +3119,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng giá trị mới của cả hai khu vực I và II', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với thời gian chu chuyển của tư bản', 0, @last_question_id);
@@ -3129,7 +3129,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không phụ thuộc thời gian chu chuyển của tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tái sản xuất giản đơn là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tái sản xuất giản đơn là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tái sản xuất theo quy mô thay đổi qua từng năm', 0, @last_question_id);
@@ -3139,7 +3139,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tái sản xuất để duy trì quy mô tối thiểu', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng GTTD:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng GTTD:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với số vòng chu chuyển của tư bản', 1, @last_question_id);
@@ -3149,7 +3149,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với số vòng chu chuyển của tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để giảm thời gian lưu thông, cần phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Để giảm thời gian lưu thông, cần phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm thời gian vận chuyển', 0, @last_question_id);
@@ -3163,7 +3163,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản lưu động là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản lưu động là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không thay đổi hình thái hiện vật', 0, @last_question_id);
@@ -3175,7 +3175,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chuyển hết giá trị vào sản phẩm trong quá trình sản xuất', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản lưu động:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản lưu động:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dụng cụ đo lường', 0, @last_question_id);
@@ -3185,7 +3185,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nguyên liệu', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thu nhập quốc dân (TNQD) là:', '', 'Approved', 1, 3, 5);
+VALUES ('Thu nhập quốc dân (TNQD) là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng giá tri mới của cả hai khu vực I và II', 1, @last_question_id);
@@ -3199,7 +3199,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổng giá trị TLSX của cả hai khu vực I và II', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong TSXGĐ, nhu cầu về TLSH của khu vực I phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong TSXGĐ, nhu cầu về TLSH của khu vực I phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng với nhu cầu về TLSX của khu vực II', 1, @last_question_id);
@@ -3209,7 +3209,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng với nhu cầu TLSH của khu vực II', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khu vực II của nền sản xuất xã hội là khu vực:', '', 'Approved', 1, 3, 5);
+VALUES ('Khu vực II của nền sản xuất xã hội là khu vực:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất ra tư liệu sinh hoạt', 1, @last_question_id);
@@ -3219,7 +3219,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất ra tư bản khả biến', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện cơ bản của TSXMR là:', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện cơ bản của TSXMR là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (V + M) &gt; II (V + M)', 0, @last_question_id);
@@ -3233,7 +3233,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (V + M ) &lt; II (C)', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản cố định:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản cố định:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiêu liệu', 0, @last_question_id);
@@ -3247,7 +3247,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Máy móc, thiết bị và nhà xưởng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Số vòng chu chuyển của tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Số vòng chu chuyển của tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với thời gian chu chuyển', 1, @last_question_id);
@@ -3257,7 +3257,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với tốc độ chu chuyển', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để giảm thời gian sản xuất, cần phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Để giảm thời gian sản xuất, cần phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giảm thời gian lao động', 0, @last_question_id);
@@ -3271,7 +3271,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong khu vực II, có thể thực hiện trao đổi nội bộ đối với phần giá trị ứng với:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong khu vực II, có thể thực hiện trao đổi nội bộ đối với phần giá trị ứng với:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu tư bản bất biến', 0, @last_question_id);
@@ -3281,7 +3281,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu TLSX', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong TSXMR, nhu cầu về TLSX của khu vực II phải:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong TSXMR, nhu cầu về TLSX của khu vực II phải:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng với nhu cầu về TLSX của khu vực I', 0, @last_question_id);
@@ -3291,7 +3291,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng với GTTD của khu vực I', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tái sản xuất mở rộng là tái sản xuất trong đó:', '', 'Approved', 1, 3, 5);
+VALUES ('Tái sản xuất mở rộng là tái sản xuất trong đó:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('GTTD được tiêu dùng hết', 0, @last_question_id);
@@ -3301,7 +3301,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ có quy mô sử dụng SLĐ tăng lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện cơ bản của TSXGĐ là:', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện cơ bản của TSXGĐ là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (C + M) = II (C + M)', 0, @last_question_id);
@@ -3315,7 +3315,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('I (V + M) = II (V + M)', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cố định là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cố định là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chuyển giá trị từng phần vào sản phẩm trong quá trình sản xuất', 0, @last_question_id);
@@ -3329,7 +3329,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản lưu động:', '', 'Approved', 1, 3, 5);
+VALUES ('Có thể xếp bộ phận nào sau đây vào thành phần của tư bản lưu động:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vật liệu phụ', 0, @last_question_id);
@@ -3343,7 +3343,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không có bộ phận nào', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng tư bản ứng trước:', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng tư bản ứng trước:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với tốc độ chu chuyển của tư bản', 0, @last_question_id);
@@ -3353,7 +3353,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ nghịch với tốc độ chu chuyển của tư bản', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong khu vực I, có thể thực hiện trao đổi nội bộ đối với phần giá trị ứng với:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong khu vực I, có thể thực hiện trao đổi nội bộ đối với phần giá trị ứng với:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu TLSX', 1, @last_question_id);
@@ -3363,7 +3363,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu tư bản khả biến', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong điều kiện có lợi nhuận bình quân, giá cả sản xuất là sự chuyển hóa của:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong điều kiện có lợi nhuận bình quân, giá cả sản xuất là sự chuyển hóa của:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị tư bản', 0, @last_question_id);
@@ -3373,7 +3373,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá cả', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử có 2 ngành sản xuất cùng đầu tư một số tư bản bằng 1.000. Tỷ suất lợi nhuận đạt được ở ngành I là 20 %, ở ngành II là 30 %. Tỷ suất lợi nhuận bình quân của tư bản bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử có 2 ngành sản xuất cùng đầu tư một số tư bản bằng 1.000. Tỷ suất lợi nhuận đạt được ở ngành I là 20 %, ở ngành II là 30 %. Tỷ suất lợi nhuận bình quân của tư bản bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('10%', 0, @last_question_id);
@@ -3383,7 +3383,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('50%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Tư bản cho vay là một loại hàng hóa đặc biệt”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Tư bản cho vay là một loại hàng hóa đặc biệt”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
@@ -3391,7 +3391,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô phản ánh mối quan hệ của các giai cấp:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô phản ánh mối quan hệ của các giai cấp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ tư bản và lao động làm thuê', 0, @last_question_id);
@@ -3403,7 +3403,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả chủ đất, chủ tư bản và lao động làm thuê', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận thương nghiệp có nguồn gốc từ sản xuất”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận thương nghiệp có nguồn gốc từ sản xuất”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
@@ -3411,7 +3411,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận thương nghiệp có được là do:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận thương nghiệp có được là do:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mua rẻ, bán đắt', 0, @last_question_id);
@@ -3421,7 +3421,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản sản xuất chia lại', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận và GTTD bằng nhau trong trường hợp:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận và GTTD bằng nhau trong trường hợp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá cả hàng hóa thấp hơn giá trị của nó', 0, @last_question_id);
@@ -3431,7 +3431,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá cả hàng hóa bằng giá trị của nó', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận bình quân là lợi nhuận là lợi nhuận được tính căn cứ theo tỷ suất lợi nhuận bình quân”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận bình quân là lợi nhuận là lợi nhuận được tính căn cứ theo tỷ suất lợi nhuận bình quân”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
@@ -3439,7 +3439,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện xuất hiện tư bản cho vay là:', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện xuất hiện tư bản cho vay là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một số người có tư bản nhàn rỗi', 0, @last_question_id);
@@ -3453,7 +3453,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch II phát sinh do:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch II phát sinh do:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kết quả của việc đầu tư cải tạo đất', 1, @last_question_id);
@@ -3463,7 +3463,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Độ màu mỡ tự nhiên của đất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô phát sinh từ:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô phát sinh từ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực của người chủ đất', 0, @last_question_id);
@@ -3473,7 +3473,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất nông nghiệp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận có xu hướng giảm theo thời gian cùng với việc mở rộng tích lũy tư bản.', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận có xu hướng giảm theo thời gian cùng với việc mở rộng tích lũy tư bản.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nguyên nhân là do:', 0, @last_question_id);
@@ -3489,7 +3489,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp hoạt động trong lĩnh vực:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp hoạt động trong lĩnh vực:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lưu thông', 1, @last_question_id);
@@ -3499,7 +3499,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công nghiệp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Lợi tức là giá cả của hàng hóa tư bản cho vay”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Lợi tức là giá cả của hàng hóa tư bản cho vay”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
@@ -3507,7 +3507,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong nông nghiệp tồn tại các giai cấp:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong nông nghiệp tồn tại các giai cấp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ tư bản kinh doanh nông nghiệp', 0, @last_question_id);
@@ -3521,7 +3521,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cho vay biểu hiện dưới hình thức nào sau đây:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cho vay biểu hiện dưới hình thức nào sau đây:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tín dụng thương mại', 0, @last_question_id);
@@ -3535,7 +3535,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi cung hàng hóa lớn hơn cầu hàng hóa, lợi nhuận thu được sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi cung hàng hóa lớn hơn cầu hàng hóa, lợi nhuận thu được sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thấp hơn GTTD', 1, @last_question_id);
@@ -3545,7 +3545,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng GTTD', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Tỷ suất lợi nhuận thường lớn hơn hoặc bằng tỷ suất GTTD” ?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Tỷ suất lợi nhuận thường lớn hơn hoặc bằng tỷ suất GTTD” ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
@@ -3553,7 +3553,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp chu chuyển nhanh có tác dụng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp chu chuyển nhanh có tác dụng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thu lợi nhuận siêu ngạch', 0, @last_question_id);
@@ -3567,7 +3567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận bình quân hình thành là do:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận bình quân hình thành là do:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự thỏa thuận giữa các nhà tư bản với nhau', 0, @last_question_id);
@@ -3577,7 +3577,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy luật giá trị tác động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử một cổ phiếu có mệnh giá 10.000 đ, tỷ suất lợi tức 10%. Nếu lãi suất ngân hàng là 4% thì cổ phiếu này có thể mua – bán theo giá:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử một cổ phiếu có mệnh giá 10.000 đ, tỷ suất lợi tức 10%. Nếu lãi suất ngân hàng là 4% thì cổ phiếu này có thể mua – bán theo giá:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('25.000 đ', 1, @last_question_id);
@@ -3587,7 +3587,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('11.000 đ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận là tỷ lệ phần trăm khi so sánh lợi nhuận với:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận là tỷ lệ phần trăm khi so sánh lợi nhuận với:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Toàn bộ tư bản', 1, @last_question_id);
@@ -3597,7 +3597,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản bất biến', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá cả sản xuất bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá cả sản xuất bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá cả bình quân của sản xuất', 0, @last_question_id);
@@ -3607,7 +3607,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí tư bản cộng lợi nhuận bình quân', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng của tư bản cho vay là:', '', 'Approved', 1, 3, 5);
+VALUES ('Chức năng của tư bản cho vay là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kinh doanh tiền tệ', 1, @last_question_id);
@@ -3617,7 +3617,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kinh doanh hàng hóa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lượng địa tô tuyệt đối phụ thuộc vào:', '', 'Approved', 1, 3, 5);
+VALUES ('Lượng địa tô tuyệt đối phụ thuộc vào:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch trên đất trung bình', 0, @last_question_id);
@@ -3627,7 +3627,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch của nông nghiệp so với lợi nhuận bình quân chung', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Tỷ suất lợi nhuận là sự chuyển hóa của tỷ suất GTTD” ?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Tỷ suất lợi nhuận là sự chuyển hóa của tỷ suất GTTD” ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
@@ -3635,7 +3635,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một tư bản sản xuất bỏ vốn 800, sản xuất được hàng hóa có giá trị 1.000. Một tư bản thương nghiệp bỏ vốn 200 để bán hàng cho tư bản sản xuất. Tư bản sản xuất bán hàng theo giá 960 cho tư bản thương nghiệp thì tỷ suất lợi nhuận bình quân của cả hai tư bản là:', '', 'Approved', 1, 3, 5);
+VALUES ('Một tư bản sản xuất bỏ vốn 800, sản xuất được hàng hóa có giá trị 1.000. Một tư bản thương nghiệp bỏ vốn 200 để bán hàng cho tư bản sản xuất. Tư bản sản xuất bán hàng theo giá 960 cho tư bản thương nghiệp thì tỷ suất lợi nhuận bình quân của cả hai tư bản là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('20%', 1, @last_question_id);
@@ -3645,7 +3645,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('25%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tham dự việc chia phần lợi nhuận với tư bản sản xuất', 0, @last_question_id);
@@ -3659,7 +3659,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch là địa tô thu được trên đất nào sau đây:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch là địa tô thu được trên đất nào sau đây:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đất tốt', 0, @last_question_id);
@@ -3673,7 +3673,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi cầu hàng hóa lớn hơn cung hàng hóa, lợi nhuận thu được sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi cầu hàng hóa lớn hơn cung hàng hóa, lợi nhuận thu được sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cao hơn GTTD', 1, @last_question_id);
@@ -3683,7 +3683,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thấp hơn GTTD', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá cả của tư bản cho vay là:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá cả của tư bản cho vay là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá mua quyền sử dụng tư bản cho vay', 1, @last_question_id);
@@ -3693,7 +3693,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá thỏa thuận giữa người cho vay và người môi giới', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận được coi là:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận được coi là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con đẻ của toàn bộ tư bản', 1, @last_question_id);
@@ -3703,7 +3703,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con đẻ của tư bản bất biến', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch I phát sinh do:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch I phát sinh do:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do hiệu quả của tư bản đầu tư', 0, @last_question_id);
@@ -3713,7 +3713,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do điều kiện tự nhiên (độ màu mỡ, vị trí xa gần) của đất', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi tức phụ thuộc:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi tức phụ thuộc:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ suất lợi nhuận bình quân', 0, @last_question_id);
@@ -3727,7 +3727,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm giảm giá trị của hàng hóa', 0, @last_question_id);
@@ -3739,7 +3739,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm giảm GTTD trong hàng hóa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về bản chất, địa tô TBCN là:', '', 'Approved', 1, 3, 5);
+VALUES ('Về bản chất, địa tô TBCN là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch', 1, @last_question_id);
@@ -3749,7 +3749,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận bình quân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận thương nghiệp:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận thương nghiệp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là phần nâng giá bán của người bán', 0, @last_question_id);
@@ -3759,7 +3759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một phần của GTTD tạo ra trong sản xuất', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô tuyệt đối là địa tô thu được trên đất nào sau đây:', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô tuyệt đối là địa tô thu được trên đất nào sau đây:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đất tốt', 0, @last_question_id);
@@ -3773,7 +3773,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền sở hữu tư bản cho vay thuộc về ai?', '', 'Approved', 1, 3, 5);
+VALUES ('Quyền sở hữu tư bản cho vay thuộc về ai?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người môi giới cho vay', 0, @last_question_id);
@@ -3783,7 +3783,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người đi vay', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi giá cả hàng hóa thấp hơn giá trị, lợi nhuận sẽ:', '', 'Approved', 1, 3, 5);
+VALUES ('Khi giá cả hàng hóa thấp hơn giá trị, lợi nhuận sẽ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cao hơn GTTD', 0, @last_question_id);
@@ -3793,7 +3793,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bằng GTTD', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản sản xuất bỏ vốn 1.000 đầu tư theo cơ cấu: 800 C + 200 V + 240 M. Tư bản thương nghiệp bỏ vốn 200 để bán hàng cho tư bản sản xuất. Để đạt tỷ suất lợi nhuận bình quân 20%, giá bán buôn của tư bản sản xuất cho tư bản thương nghiệp phải bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản sản xuất bỏ vốn 1.000 đầu tư theo cơ cấu: 800 C + 200 V + 240 M. Tư bản thương nghiệp bỏ vốn 200 để bán hàng cho tư bản sản xuất. Để đạt tỷ suất lợi nhuận bình quân 20%, giá bán buôn của tư bản sản xuất cho tư bản thương nghiệp phải bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('1.240', 0, @last_question_id);
@@ -3803,7 +3803,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('1.200', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Không có sự san bằng tỷ suất lợi nhuận trong nông nghiệp là do sự cản trở của độc quyền sở hữu và độc quyền kinh doanh đất”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Không có sự san bằng tỷ suất lợi nhuận trong nông nghiệp là do sự cản trở của độc quyền sở hữu và độc quyền kinh doanh đất”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
@@ -3811,7 +3811,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận thương nghiệp độc lập với GTTD”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Lợi nhuận thương nghiệp độc lập với GTTD”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 0, @last_question_id);
@@ -3819,7 +3819,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả sử 2 ngành sản xuất cùng đầu tư một lượng tư bản bằng 1.000. Ngành I thu được lợi nhuận bằng 300, ngành II thu được lợi nhuận bằng 400. Tỷ suất lợi nhuận bình quân bằng:', '', 'Approved', 1, 3, 5);
+VALUES ('Giả sử 2 ngành sản xuất cùng đầu tư một lượng tư bản bằng 1.000. Ngành I thu được lợi nhuận bằng 300, ngành II thu được lợi nhuận bằng 400. Tỷ suất lợi nhuận bình quân bằng:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('10%', 0, @last_question_id);
@@ -3829,7 +3829,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('70%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi tức là tỷ lệ phần trăm khi so sánh:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi tức là tỷ lệ phần trăm khi so sánh:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi tức và tư bản ứng trước', 0, @last_question_id);
@@ -3843,7 +3843,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi tức và lợi nhuận sản xuất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận là:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phần thưởng của người mua dành cho người bán', 0, @last_question_id);
@@ -3853,7 +3853,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chênh lệch giữa giá bán hàng hóa và chi phí sản xuất tư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tính chất đặc biệt của hàng hóa tư bản cho vay là:', '', 'Approved', 1, 3, 5);
+VALUES ('Tính chất đặc biệt của hàng hóa tư bản cho vay là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền sở hữu tách rời quyền sử dụng', 1, @last_question_id);
@@ -3863,7 +3863,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mua – bán dựa trên GTSD', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lượng lợi nhuận:', '', 'Approved', 1, 3, 5);
+VALUES ('Lượng lợi nhuận:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luôn lớn hơn lượng GTTD', 0, @last_question_id);
@@ -3877,7 +3877,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luôn nhỏ hơn lượng GTTD', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định sau đúng hay sai: “Đất đai không phải là hàng hóa và không có giá trị vì không phải là sản phẩm của lao động”.', '', 'Approved', 1, 3, 5);
+VALUES ('Nhận định sau đúng hay sai: “Đất đai không phải là hàng hóa và không có giá trị vì không phải là sản phẩm của lao động”.', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
@@ -3885,7 +3885,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không tham gia sản xuất hàng hóa', 0, @last_question_id);
@@ -3899,7 +3899,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận phản ánh:', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận phản ánh:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ lao động sống so với lao động quá khứ', 0, @last_question_id);
@@ -3909,7 +3909,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mức độ bóc lột lao động làm thuê', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc thật sự của địa tô là:', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc thật sự của địa tô là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('SLĐ làm thuê', 1, @last_question_id);
@@ -3919,7 +3919,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực của đất đai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng của tư bản thương nghiệp là:', '', 'Approved', 1, 3, 5);
+VALUES ('Chức năng của tư bản thương nghiệp là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kinh doanh dịch vụ', 0, @last_question_id);
@@ -3929,7 +3929,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kinh doanh hàng hóa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền sử dụng tư bản cho vay thuộc về ai?', '', 'Approved', 1, 3, 5);
+VALUES ('Quyền sử dụng tư bản cho vay thuộc về ai?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người môi giới cho vay', 0, @last_question_id);
@@ -3939,7 +3939,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người đi vay', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do mua rẻ bán đắt mà có', 0, @last_question_id);
@@ -3949,7 +3949,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được sinh ra trong lưu thông', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lượng địa tô chênh lệch phụ thuộc vào:', '', 'Approved', 1, 3, 5);
+VALUES ('Lượng địa tô chênh lệch phụ thuộc vào:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch của đất trung bình', 0, @last_question_id);
@@ -3959,7 +3959,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch của nông nghiệp so với công nghiệp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong nông nghiệp tồn tại các giai cấp:', '', 'Approved', 1, 3, 5);
+VALUES ('Trong nông nghiệp tồn tại các giai cấp:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ tư bản kinh doanh nông nghiệp', 0, @last_question_id);
@@ -3973,7 +3973,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản sản xuất chia lại lợi nhuận cho tư bản thương nghiệp bằng cách:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản sản xuất chia lại lợi nhuận cho tư bản thương nghiệp bằng cách:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán hàng theo giá bán buôn', 1, @last_question_id);
@@ -3983,7 +3983,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chuyển tiền mặt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cho vay là tư bản hoạt động trong lĩnh vực:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cho vay là tư bản hoạt động trong lĩnh vực:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất', 0, @last_question_id);
@@ -3993,7 +3993,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công nghiệp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá cả đất đai:', '', 'Approved', 1, 3, 5);
+VALUES ('Giá cả đất đai:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ lệ thuận với địa tô', 0, @last_question_id);
@@ -4005,7 +4005,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thực chất của lợi nhuận là:', '', 'Approved', 1, 3, 5);
+VALUES ('Thực chất của lợi nhuận là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự chuyển hóa của giá trị SLĐ', 0, @last_question_id);
@@ -4015,7 +4015,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự chuyển hóa của GTTD trong thực tế', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi tức cho vay có nguồn gốc từ:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi tức cho vay có nguồn gốc từ:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất', 1, @last_question_id);
@@ -4025,7 +4025,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng tự nhiên của tiền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản thương nghiệp là tư bản:', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản thương nghiệp là tư bản:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một bộ phận của tư bản công nghiệp', 0, @last_question_id);
@@ -4039,7 +4039,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và D', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chu chuyển nhanh của tư bản thương nghiệp có tác động:', '', 'Approved', 1, 3, 5);
+VALUES ('Chu chuyển nhanh của tư bản thương nghiệp có tác động:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tiết kiệm chi phí lưu thông chung của xã hội', 0, @last_question_id);
@@ -4053,7 +4053,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một người cho vay 1.000 và đòi người vay phải trả lợi tức 100. Tỷ suất lợi tức là:', '', 'Approved', 1, 3, 5);
+VALUES ('Một người cho vay 1.000 và đòi người vay phải trả lợi tức 100. Tỷ suất lợi tức là:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('10%', 1, @last_question_id);
@@ -4063,7 +4063,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('100%', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận siêu ngạch tồn tại phổ biến trong nông nghiệp vì:', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận siêu ngạch tồn tại phổ biến trong nông nghiệp vì:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Độc quyền của người thuê đất', 0, @last_question_id);
@@ -4073,7 +4073,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 2 phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ở Việt Nam, Đảng cộng sản ra đời', '', 'Approved', 1, 4, 5);
+VALUES ('Ở Việt Nam, Đảng cộng sản ra đời', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do khát vọng giải phóng dân tộc', 0, @last_question_id);
@@ -4085,7 +4085,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đảng cộng sản là', '', 'Approved', 1, 4, 5);
+VALUES ('Đảng cộng sản là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự kết hợp của Chủ nghĩa Marx vào phong trào công nhân', 0, @last_question_id);
@@ -4097,7 +4097,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy chọn 1 cụm từ phù hợp để hoàn chỉnh câu sau: “Giai cấp công nhân là một tập đoàn xã hội ổn định, hình thành và phát triển cùng với ………, trực tiếp và gián tiếp tham gia vào quá trình sản xuất và tái sản xuất ra của cải xã hội.”', '', 'Approved', 1, 4, 5);
+VALUES ('Hãy chọn 1 cụm từ phù hợp để hoàn chỉnh câu sau: “Giai cấp công nhân là một tập đoàn xã hội ổn định, hình thành và phát triển cùng với ………, trực tiếp và gián tiếp tham gia vào quá trình sản xuất và tái sản xuất ra của cải xã hội.”', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('quá trình phát triển của LLSX có tính xã hội hóa ngày càng cao', 1, @last_question_id);
@@ -4109,7 +4109,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('quá trình phát triển của xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện chủ quan quyết định nhất đối với thắng lợi của Cách mạng XHCN là:', '', 'Approved', 1, 4, 5);
+VALUES ('Điều kiện chủ quan quyết định nhất đối với thắng lợi của Cách mạng XHCN là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Liên minh giữa công nhân, nông dân và trí thức', 0, @last_question_id);
@@ -4121,7 +4121,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa tư sản và vô sản đến đỉnh điểm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về vị trí trong QHSX TBCN, giai cấp công nhân là', '', 'Approved', 1, 4, 5);
+VALUES ('Về vị trí trong QHSX TBCN, giai cấp công nhân là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là những người không có TLSX', 0, @last_question_id);
@@ -4133,7 +4133,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục tiêu Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Mục tiêu Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thành lập nhà nước chuyên chính vô sản', 0, @last_question_id);
@@ -4145,7 +4145,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xác lập vai trò lãnh đạo của Đảng cộng sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đảng cộng sản lãnh đạo giai cấp công nhân thực hiện Sứ mệnh lịch sử của giai cấp công nhân bằng cách nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Đảng cộng sản lãnh đạo giai cấp công nhân thực hiện Sứ mệnh lịch sử của giai cấp công nhân bằng cách nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trên cơ sở thực tiễn cách mạng, lí luận khoa học của Chủ nghĩa Marx – Lenin đưa ra đường lối chiến lược sách lược đúng đắn', 0, @last_question_id);
@@ -4157,7 +4157,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thái kinh tế xã hội CSCN bắt đầu từ khi nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Hình thái kinh tế xã hội CSCN bắt đầu từ khi nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ khi Đảng cộng sản ra đời', 0, @last_question_id);
@@ -4169,7 +4169,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ khi giai cấp công nhân thực hiện sứ mệnh lịch sử của mình', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp công nhân là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Giai cấp công nhân là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giai cấp bị áp bức', 0, @last_question_id);
@@ -4181,7 +4181,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giai cấp thống trị dưới CNTB', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những thay đổi của giai cấp công nhân ngày nay', '', 'Approved', 1, 4, 5);
+VALUES ('Những thay đổi của giai cấp công nhân ngày nay', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không làm thay đổi bản chất giai cấp công nhân', 1, @last_question_id);
@@ -4193,7 +4193,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm thay đổi bản chất của giai cấp tư sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục tiêu của giai đoạn thứ nhất của cuộc cách mạng XHCN là:', '', 'Approved', 1, 4, 5);
+VALUES ('Mục tiêu của giai đoạn thứ nhất của cuộc cách mạng XHCN là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân phải tập hợp các tầng lớp nhân dân lao động thành lực lượng cách mạng mạnh mẽ để xây dựng thành công Hình thái kinh tế - xã hội CSCN', 0, @last_question_id);
@@ -4205,7 +4205,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giành chính quyền từ tay các giai cấp bóc lột, thiết lập chính quyền của mình', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dự báo của K.Marx và F.Engels về sự ra đời Hình thái kinh tế xã hội cộng sản chủ nghĩa như một xu hướng tất yếu của lịch sử loài người là', '', 'Approved', 1, 4, 5);
+VALUES ('Dự báo của K.Marx và F.Engels về sự ra đời Hình thái kinh tế xã hội cộng sản chủ nghĩa như một xu hướng tất yếu của lịch sử loài người là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dựa trên cơ sở khoa học của Chủ nghĩa Duy vật lịch sử', 0, @last_question_id);
@@ -4217,7 +4217,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm chính trị - xã hội của giai cấp công nhân?', '', 'Approved', 1, 4, 5);
+VALUES ('Đặc điểm chính trị - xã hội của giai cấp công nhân?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giai cấp tiên tiến nhất thời đại ngày nay', 0, @last_question_id);
@@ -4229,7 +4229,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ngày nay xu hướng “trí thức hóa” giai cấp công nhân ngày càng tăng là do', '', 'Approved', 1, 4, 5);
+VALUES ('Ngày nay xu hướng “trí thức hóa” giai cấp công nhân ngày càng tăng là do', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Toàn cầu hóa kinh tế quy định', 0, @last_question_id);
@@ -4241,7 +4241,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp tư sản đã thay đổi phương thúc bóc lột', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục tiêu của giai đoạn thứ hai của cuộc cách mạng XHCN là:', '', 'Approved', 1, 4, 5);
+VALUES ('Mục tiêu của giai đoạn thứ hai của cuộc cách mạng XHCN là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xây dựng thành công Hình thái kinh tế - xã hội CSCN, xóa bỏ tận gốc chế độ người bóc lột người', 1, @last_question_id);
@@ -4253,7 +4253,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân phải tập hợp các tầng lớp nhân dân lao động thành lực lượng cách mạng mạnh mẽ để xây dựng thành công Hình thái kinh tế - xã hội CSCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quá trình thực hiện sứ mệnh lịch sử của giai cấp công nhân là', '', 'Approved', 1, 4, 5);
+VALUES ('Quá trình thực hiện sứ mệnh lịch sử của giai cấp công nhân là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quá trình lâu dài diễn ra theo 2 giai đoạn', 0, @last_question_id);
@@ -4265,7 +4265,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục tiêu cuối cùng của Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Mục tiêu cuối cùng của Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giành chính quyền từ tay giai cấp tư sản', 0, @last_question_id);
@@ -4277,7 +4277,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xây dựng thành công Hình thái kinh tế - xã hội cộng sản chủ nghĩa nhằm xóa bỏ tận gốc chế độ người bóc lột người trên phạm vi toàn thế giới', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về phương thức lao động, giai cấp công nhân là', '', 'Approved', 1, 4, 5);
+VALUES ('Về phương thức lao động, giai cấp công nhân là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là những người không có TLSX', 0, @last_question_id);
@@ -4289,7 +4289,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Sự ra đời Hình thái kinh tế xã hội CSCN theo dự báo của Marx và Engels gồm mấy giai đoạn?', '', 'Approved', 1, 4, 5);
+VALUES ('Sự ra đời Hình thái kinh tế xã hội CSCN theo dự báo của Marx và Engels gồm mấy giai đoạn?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ba giai đoạn', 0, @last_question_id);
@@ -4301,7 +4301,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm giai đoạn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trình độ tự giác của giai cấp công nhân thể hiện?', '', 'Approved', 1, 4, 5);
+VALUES ('Trình độ tự giác của giai cấp công nhân thể hiện?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân nhận thức được vị trí và vai trò của mình', 0, @last_question_id);
@@ -4313,7 +4313,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự ra đời của Đảng cộng sản trong phong trào công nhân', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN là …………… để giai cấp công nhân hoàn thành Sứ mệnh lịch sử của mình.', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN là …………… để giai cấp công nhân hoàn thành Sứ mệnh lịch sử của mình.', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('nguyên nhân', 0, @last_question_id);
@@ -4325,7 +4325,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('kết quả', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp công nhân vừa là …………… vừa là ………. của Cách mạng XHCN', '', 'Approved', 1, 4, 5);
+VALUES ('Giai cấp công nhân vừa là …………… vừa là ………. của Cách mạng XHCN', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('chủ thể/ sản phẩm', 0, @last_question_id);
@@ -4337,7 +4337,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('lực lượng cơ bản/ giai cấp tiền phong', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thực hiện sứ mệnh lịch sử của giai cấp công nhân', '', 'Approved', 1, 4, 5);
+VALUES ('Thực hiện sứ mệnh lịch sử của giai cấp công nhân', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quá trình lâu dài diễn ra theo 2 giai đoạn', 0, @last_question_id);
@@ -4349,7 +4349,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp công nhân là giai cấp có tính tổ chức kỉ luật cao vì', '', 'Approved', 1, 4, 5);
+VALUES ('Giai cấp công nhân là giai cấp có tính tổ chức kỉ luật cao vì', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ là người bị bóc lột nặng nề nhất', 0, @last_question_id);
@@ -4361,7 +4361,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ là người tạo ra giá trị thặng dư', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Sứ mệnh lịch sử của giai cấp công nhân xuất hiện một cách ….…….. song để biến khả năng thành hiện thực phải thông qua nhân tố ………… đó là việc thành lập Đảng cộng sản', '', 'Approved', 1, 4, 5);
+VALUES ('Sứ mệnh lịch sử của giai cấp công nhân xuất hiện một cách ….…….. song để biến khả năng thành hiện thực phải thông qua nhân tố ………… đó là việc thành lập Đảng cộng sản', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('ngẫu nhiên/ tất nhiên', 0, @last_question_id);
@@ -4373,7 +4373,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('tất nhiên/ ngẫu nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xã hội CSCN là giai đoạn ………. của hình thái kinh tế xã hội CSCN. Trong giai đoạn này việc phân phối dựa trên nguyên tắc ……..', '', 'Approved', 1, 4, 5);
+VALUES ('Xã hội CSCN là giai đoạn ………. của hình thái kinh tế xã hội CSCN. Trong giai đoạn này việc phân phối dựa trên nguyên tắc ……..', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('cao/ làm theo năng lực, hưởng theo nhu cầu', 1, @last_question_id);
@@ -4385,7 +4385,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('thấp/ làm theo năng lực, hưởng theo nhu cầu', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Marx gọi giai cấp công nhân là “giai cấp vô sản” vì', '', 'Approved', 1, 4, 5);
+VALUES ('Marx gọi giai cấp công nhân là “giai cấp vô sản” vì', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ không có TLSX, muốn tồn tại họ phải bán sức lao động của mình như 1 hàng hóa cho nhà tư bản', 1, @last_question_id);
@@ -4397,7 +4397,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xã hội XHCN là giai đoạn ………. của hình thái kinh tế xã hội CSCN. Trong giai đoạn này việc phân phối dựa trên nguyên tắc ……..', '', 'Approved', 1, 4, 5);
+VALUES ('Xã hội XHCN là giai đoạn ………. của hình thái kinh tế xã hội CSCN. Trong giai đoạn này việc phân phối dựa trên nguyên tắc ……..', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('cao/ làm theo năng lực, hưởng theo lao động', 0, @last_question_id);
@@ -4409,7 +4409,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('cao/ làm theo năng lực, hưởng theo nhu cầu', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phạm trù cơ bản nhất của chủ nghĩa xã hội khoa học là:', '', 'Approved', 1, 4, 5);
+VALUES ('Phạm trù cơ bản nhất của chủ nghĩa xã hội khoa học là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân', 0, @last_question_id);
@@ -4421,7 +4421,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội chủ nghĩa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ngày nay giai cấp công nhân phải bán sức lao động chủ yếu là', '', 'Approved', 1, 4, 5);
+VALUES ('Ngày nay giai cấp công nhân phải bán sức lao động chủ yếu là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động chân tay', 0, @last_question_id);
@@ -4433,7 +4433,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điền từ còn thiếu vào chỗ trống trong câu sau “Với một Đảng cộng sản chân chính thì sự lãnh đạo của đảng cũng chính là ……………., giai cấp công nhân thực hiện sự lãnh đạo của mình thông qua Đảng cộng sản”', '', 'Approved', 1, 4, 5);
+VALUES ('Điền từ còn thiếu vào chỗ trống trong câu sau “Với một Đảng cộng sản chân chính thì sự lãnh đạo của đảng cũng chính là ……………., giai cấp công nhân thực hiện sự lãnh đạo của mình thông qua Đảng cộng sản”', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('sự lãnh đạo của số ít đối với số đông', 0, @last_question_id);
@@ -4445,7 +4445,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('sự lãnh đạo tập thể', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hai thuộc tính cơ bản của giai cấp công nhân là', '', 'Approved', 1, 4, 5);
+VALUES ('Hai thuộc tính cơ bản của giai cấp công nhân là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đại diện cho nền đại công nghiệp/ đại diện cho QHSX đương thời', 0, @last_question_id);
@@ -4457,7 +4457,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đại diện cho LLSX tiên tiến/ đại diện cho QHSX đương thời', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vai trò của Đảng cộng sản?', '', 'Approved', 1, 4, 5);
+VALUES ('Vai trò của Đảng cộng sản?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lãnh đạo giai cấp công nhân thực hiện Sứ mệnh lịch sử của mình', 0, @last_question_id);
@@ -4469,7 +4469,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dưới CNTB, giai cấp công nhân', '', 'Approved', 1, 4, 5);
+VALUES ('Dưới CNTB, giai cấp công nhân', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là con đẻ của nền đại công nghiệp', 0, @last_question_id);
@@ -4481,7 +4481,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp công nhân là giai cấp tiên tiến nhất vì', '', 'Approved', 1, 4, 5);
+VALUES ('Giai cấp công nhân là giai cấp tiên tiến nhất vì', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ là người lao động tạo ra của cải vật chất cho xã hội', 0, @last_question_id);
@@ -4493,7 +4493,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ là người bị bóc lột nặng nề nhất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về phương thức lao động, công nhân là những người', '', 'Approved', 1, 4, 5);
+VALUES ('Về phương thức lao động, công nhân là những người', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao đông sản xuất ra của cải vật chất cho xã hội', 0, @last_question_id);
@@ -4505,7 +4505,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trực tiếp vận hành máy móc thiết bị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy chọn 1 phương án đúng', '', 'Approved', 1, 4, 5);
+VALUES ('Hãy chọn 1 phương án đúng', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phong trào công nhân từ khi có Đảng cộng sản chỉ nhằm những mục tiêu kinh tế', 0, @last_question_id);
@@ -4517,7 +4517,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đảng cộng sản là liên hiệp của các giai cấp hữu sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung Sứ mệnh lịch sử của giai cấp công nhân là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xóa bỏ chế độ TBCN', 0, @last_question_id);
@@ -4529,7 +4529,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điền từ còn thiếu vào chỗ trống trong câu sau “Đảng cộng sản Việt nam ra đời là sản phẩm của sự kết hợp của chủ nghĩa Marx – Lenin với phong trào công nhân và ………….”', '', 'Approved', 1, 4, 5);
+VALUES ('Điền từ còn thiếu vào chỗ trống trong câu sau “Đảng cộng sản Việt nam ra đời là sản phẩm của sự kết hợp của chủ nghĩa Marx – Lenin với phong trào công nhân và ………….”', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('phong trào yêu nước chân chính', 1, @last_question_id);
@@ -4541,7 +4541,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('chủ nghĩa yêu nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cách mạng XHCN là ………….. thực hiện sứ mệnh lịch sử của giai cấp công nhân.', '', 'Approved', 1, 4, 5);
+VALUES ('Cách mạng XHCN là ………….. thực hiện sứ mệnh lịch sử của giai cấp công nhân.', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('kết quả', 0, @last_question_id);
@@ -4553,7 +4553,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('con đường', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đường lối cách mạng của đảng cộng sản được xây dựng trên cơ sở nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Đường lối cách mạng của đảng cộng sản được xây dựng trên cơ sở nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lí luận khoa học của Chủ nghĩa Marx – Lenin', 0, @last_question_id);
@@ -4565,7 +4565,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phương pháp luận khoa học của Chủ nghĩa Marx – Lenin', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cuộc cách mạng XHCN lần đầu tiên nổ ra và thắng lợi ở đâu?', '', 'Approved', 1, 4, 5);
+VALUES ('Cuộc cách mạng XHCN lần đầu tiên nổ ra và thắng lợi ở đâu?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việt Nam', 0, @last_question_id);
@@ -4577,7 +4577,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trung Quốc', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN thực hiện chức năng quản lí xã hội của mình bằng:', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN thực hiện chức năng quản lí xã hội của mình bằng:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đường lối, chủ trương', 0, @last_question_id);
@@ -4589,7 +4589,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân chủ XHCN vừa là .......... vừa là ............... của ..................', '', 'Approved', 1, 4, 5);
+VALUES ('Dân chủ XHCN vừa là .......... vừa là ............... của ..................', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('mục tiêu/ động lực/ quá trình xây dựng CNXH', 1, @last_question_id);
@@ -4601,7 +4601,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án trên đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung liên minh giữa giai cấp công nhân với nông dân và các tầng lớp lao động khác bao gồm:', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung liên minh giữa giai cấp công nhân với nông dân và các tầng lớp lao động khác bao gồm:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Liên minh về chính trị', 0, @last_question_id);
@@ -4613,7 +4613,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ở Việt Nam, quá độ lên CNXH bỏ qua chế độ TBCN có nghĩa là', '', 'Approved', 1, 4, 5);
+VALUES ('Ở Việt Nam, quá độ lên CNXH bỏ qua chế độ TBCN có nghĩa là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bỏ qua toàn bộ hình thái kinh tế xã hội TBCN', 0, @last_question_id);
@@ -4625,7 +4625,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân chủ là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Dân chủ là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hệ giá trị phản ánh trình độ tiến bộ xã hội', 0, @last_question_id);
@@ -4637,7 +4637,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân sâu xa của cách mạng xã hội chủ nghĩa là:', '', 'Approved', 1, 4, 5);
+VALUES ('Nguyên nhân sâu xa của cách mạng xã hội chủ nghĩa là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa LLSX có tính xã hội hóa ngày càng cao với QHSX dựa trên sở hữu tư nhân TBCN về TLSX', 1, @last_question_id);
@@ -4649,7 +4649,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa tư sản và vô sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là tổ chức thông qua đó Đảng của giai cấp công nhân thực hiện vai trò lãnh đạo của mình đối với toàn xã hội', 0, @last_question_id);
@@ -4661,7 +4661,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hình thức chuyên chính vô sản được thực hiện trong thời kì quá độ lên CNXH', 0, @last_question_id);
@@ -4673,7 +4673,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục tiêu cuối cùng của cuộc cách mạng XHCN là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Mục tiêu cuối cùng của cuộc cách mạng XHCN là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xóa bỏ chế độ tư hữu', 0, @last_question_id);
@@ -4685,7 +4685,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xóa bỏ chế độ TBCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cuộc cách mạng dân chủ tư sản kiểu mới do giai cấp nào lãnh đạo?', '', 'Approved', 1, 4, 5);
+VALUES ('Cuộc cách mạng dân chủ tư sản kiểu mới do giai cấp nào lãnh đạo?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp tư sản', 0, @last_question_id);
@@ -4697,7 +4697,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp nông dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để giành thắng lợi trong cách mạng XHCN, giai cấp công nhân phải liên minh chặt chẽ với giai cấp nông dân và các tầng lớp lao động khác vì:', '', 'Approved', 1, 4, 5);
+VALUES ('Để giành thắng lợi trong cách mạng XHCN, giai cấp công nhân phải liên minh chặt chẽ với giai cấp nông dân và các tầng lớp lao động khác vì:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đó là 1 tất yếu khách quan, nhằm tạo ra lực lượng cách mạng', 0, @last_question_id);
@@ -4709,7 +4709,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân chủ XHCN là', '', 'Approved', 1, 4, 5);
+VALUES ('Dân chủ XHCN là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền làm chủ của nhân dân', 0, @last_question_id);
@@ -4721,7 +4721,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc nào quyết định sự vững chắc của khối liên minh công nông và các tầng lớp lao động khác là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Nguyên tắc nào quyết định sự vững chắc của khối liên minh công nông và các tầng lớp lao động khác là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đảm bảo quyền lãnh đạo của giai cấp công nhân', 0, @last_question_id);
@@ -4733,7 +4733,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng nào sau đây không phải là đặc trưng của Nhà nước XHCN?', '', 'Approved', 1, 4, 5);
+VALUES ('Đặc trưng nào sau đây không phải là đặc trưng của Nhà nước XHCN?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là công cụ thực hiện quyền lực của nhân dân dưới sự lãnh đạo của Đảng cộng sản', 0, @last_question_id);
@@ -4745,7 +4745,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là công cụ chuyên chính của số ít đối với số đông', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cuộc cách mạng XHCN do giai cấp nào lãnh đạo?', '', 'Approved', 1, 4, 5);
+VALUES ('Cuộc cách mạng XHCN do giai cấp nào lãnh đạo?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân', 1, @last_question_id);
@@ -4757,7 +4757,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tầng lớp trí thức', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân chủ XHCN có cơ sở kinh tế là?', '', 'Approved', 1, 4, 5);
+VALUES ('Dân chủ XHCN có cơ sở kinh tế là?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chế độ công hữu về TLSX chủ yếu', 1, @last_question_id);
@@ -4769,7 +4769,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực nhà nước thuộc về nhân dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của cách mạng XHCN trên lĩnh vực chính trị là:', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung của cách mạng XHCN trên lĩnh vực chính trị là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát triển kinh tế, nâng cao đời sống nhân dân', 0, @last_question_id);
@@ -4781,7 +4781,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giành chính quyền từ tay các giai cấp thống trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN giống các nhà nước trước đây trong lịch sử ở đặc trưng nào sau đây', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN giống các nhà nước trước đây trong lịch sử ở đặc trưng nào sau đây', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là công cụ thực hiện quyền lực của nhân dân dưới sự lãnh đạo của Đảng cộng sản', 0, @last_question_id);
@@ -4793,7 +4793,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là công cụ chuyên chính của 1 giai cấp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ sở khách quan của việc xây dựng khối liên minh giữa giai cấp công nhân với giai cấp nông dân và các tầng lớp lao động khác trong cách mạng XHCN là', '', 'Approved', 1, 4, 5);
+VALUES ('Cơ sở khách quan của việc xây dựng khối liên minh giữa giai cấp công nhân với giai cấp nông dân và các tầng lớp lao động khác trong cách mạng XHCN là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ đều là người lao động, đều bị áp bức bóc lột', 0, @last_question_id);
@@ -4805,7 +4805,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phạm trù dân chủ xuất hiện khi nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Phạm trù dân chủ xuất hiện khi nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ khi có giai cấp công nhân', 0, @last_question_id);
@@ -4817,7 +4817,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ khi có nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước XHCN có chức năng nào sau đây?', '', 'Approved', 1, 4, 5);
+VALUES ('Nhà nước XHCN có chức năng nào sau đây?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lãnh đạo toàn bộ xã hội', 0, @last_question_id);
@@ -4829,7 +4829,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong 2 giai đoạn của quá trình thực hiện sứ mệnh lịch sử của giai cấp công nhân, chính quyền nhà nước là', '', 'Approved', 1, 4, 5);
+VALUES ('Trong 2 giai đoạn của quá trình thực hiện sứ mệnh lịch sử của giai cấp công nhân, chính quyền nhà nước là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mục tiêu của giai đoạn 2/ công cụ của giai đoạn 1', 0, @last_question_id);
@@ -4841,7 +4841,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mục tiêu của cả 2 giai đoạn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp công nhân có khả năng đoàn kết với các giai cấp và tầng lớp lao động khác vì:', '', 'Approved', 1, 4, 5);
+VALUES ('Giai cấp công nhân có khả năng đoàn kết với các giai cấp và tầng lớp lao động khác vì:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp công nhân là giai cấp đại diện cho PTSX mới của thời đại', 0, @last_question_id);
@@ -4853,7 +4853,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Họ có lợi ích cơ bản thống nhất với nhau', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ở Việt Nam, lựa chọn sự quá độ đi lên CNXH bỏ qua chế độ TBCN là một tất yếu vì:', '', 'Approved', 1, 4, 5);
+VALUES ('Ở Việt Nam, lựa chọn sự quá độ đi lên CNXH bỏ qua chế độ TBCN là một tất yếu vì:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xuất phát từ mong muốn chủ quan của Đảng cộng sản', 0, @last_question_id);
@@ -4865,7 +4865,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để giành thắng lợi trong cách mạng XHCN, giai cấp công nhân phải liên minh chặt chẽ với giai cấp nông dân và các tầng lớp lao động khác vì:', '', 'Approved', 1, 4, 5);
+VALUES ('Để giành thắng lợi trong cách mạng XHCN, giai cấp công nhân phải liên minh chặt chẽ với giai cấp nông dân và các tầng lớp lao động khác vì:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đó là 1 tất yếu khách quan, nhằm tạo ra lực lượng cách mạng', 0, @last_question_id);
@@ -4877,7 +4877,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổ chức nào đóng vai trò trụ cột trong hệ thống chính trị ở nước ta hiện nay?', '', 'Approved', 1, 4, 5);
+VALUES ('Tổ chức nào đóng vai trò trụ cột trong hệ thống chính trị ở nước ta hiện nay?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đảng cộng sản', 0, @last_question_id);
@@ -4889,7 +4889,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt trận tổ quốc', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân chủ XHCN khác căn bản các nền dân chủ trước đây ở đặc điểm nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Dân chủ XHCN khác căn bản các nền dân chủ trước đây ở đặc điểm nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nền dân chủ rộng rãi của giai cấp công nhân và nhân dân lao động', 1, @last_question_id);
@@ -4901,7 +4901,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phi lịch sử', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương thức xây dựng nền văn hoá xã hội chủ nghĩa là', '', 'Approved', 1, 4, 5);
+VALUES ('Phương thức xây dựng nền văn hoá xã hội chủ nghĩa là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường và giữ vững vai trò chủ đạo của hệ tư tưởng của giai cấp công nhân', 0, @last_question_id);
@@ -4913,7 +4913,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn hóa là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Văn hóa là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Toàn bộ những giá trị vật chất và tinh thần do con người sáng tạo ra trong quá trình hoạt động thực tiễn', 0, @last_question_id);
@@ -4925,7 +4925,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ở Việt nam hiện nay có bao nhiêu dân tộc anh em cùng sinh sống?', '', 'Approved', 1, 4, 5);
+VALUES ('Ở Việt nam hiện nay có bao nhiêu dân tộc anh em cùng sinh sống?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('56', 0, @last_question_id);
@@ -4937,7 +4937,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('45', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Câu nói “Muốn cứu nước giải phóng dân tộc không có con đường nào khác con đường cách mạng vô sản” là của ai?', '', 'Approved', 1, 4, 5);
+VALUES ('Câu nói “Muốn cứu nước giải phóng dân tộc không có con đường nào khác con đường cách mạng vô sản” là của ai?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phan Chu Trinh', 0, @last_question_id);
@@ -4949,7 +4949,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phan Bội Châu', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Luận điểm “Tôn giáo là thuốc phiện của nhân dân” (K.Marx) nói đến tính chất nào của tôn giáo?', '', 'Approved', 1, 4, 5);
+VALUES ('Luận điểm “Tôn giáo là thuốc phiện của nhân dân” (K.Marx) nói đến tính chất nào của tôn giáo?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tính tích cực của đạo đức tôn giáo', 0, @last_question_id);
@@ -4961,7 +4961,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tính hoang đường', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của Chủ nghĩa Marx – Lenin, Dân tộc và quốc gia là', '', 'Approved', 1, 4, 5);
+VALUES ('Theo quan điểm của Chủ nghĩa Marx – Lenin, Dân tộc và quốc gia là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hai khái niệm độc lập', 0, @last_question_id);
@@ -4973,7 +4973,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đều chỉ những cộng đồng người cụ thể', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việc xem xét và giải quyết vấn đề tôn giáo phải phân biệt hai mặt chính trị và tư tưởng của tôn giáo vì', '', 'Approved', 1, 4, 5);
+VALUES ('Việc xem xét và giải quyết vấn đề tôn giáo phải phân biệt hai mặt chính trị và tư tưởng của tôn giáo vì', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt tư tưởng là biểu hiện nhu cầu tín ngưỡng của nhân dân – cần được tôn trọng', 0, @last_question_id);
@@ -4985,7 +4985,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư tưởng “Liên hiệp công nhân tất cả các dân tộc” trong cương lĩnh dân tộc của Chủ nghĩa Marx – Lenin thể hiện', '', 'Approved', 1, 4, 5);
+VALUES ('Tư tưởng “Liên hiệp công nhân tất cả các dân tộc” trong cương lĩnh dân tộc của Chủ nghĩa Marx – Lenin thể hiện', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vai trò lãnh đạo của giai cấp công nhân', 0, @last_question_id);
@@ -4997,7 +4997,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự đoàn kết của giai cấp công nhân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan điểm của Chủ nghĩa Marx – Lenin cho rằng Xem xét và giải quyết vấn đề dân tộc phải đứng vững trên lập trường giai cấp công nhân vì', '', 'Approved', 1, 4, 5);
+VALUES ('Quan điểm của Chủ nghĩa Marx – Lenin cho rằng Xem xét và giải quyết vấn đề dân tộc phải đứng vững trên lập trường giai cấp công nhân vì', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi ích lâu dài và cơ bản của dân tộc và lợi ích giai cấp công nhân là thống nhất với nhau', 1, @last_question_id);
@@ -5009,7 +5009,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi ích của Đảng cộng sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan điểm của Chủ nghĩa Marx – Lenin cho rằng', '', 'Approved', 1, 4, 5);
+VALUES ('Quan điểm của Chủ nghĩa Marx – Lenin cho rằng', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo chỉ có tính tiêu cực mà thôi', 0, @last_question_id);
@@ -5021,7 +5021,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo sẽ mất đi khi giai cấp công nhân có chính quyền trong tay', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Marx - Lenin, tôn giáo là', '', 'Approved', 1, 4, 5);
+VALUES ('Theo quan điểm của chủ nghĩa Marx - Lenin, tôn giáo là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phản ánh hư ảo hiện thực', 0, @last_question_id);
@@ -5033,7 +5033,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm phương án sai: Lối sống XHCN là', '', 'Approved', 1, 4, 5);
+VALUES ('Tìm phương án sai: Lối sống XHCN là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đặc trưng của văn hóa XHCN', 0, @last_question_id);
@@ -5045,7 +5045,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đặc điểm của con người XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quá trình cách mạng Việt Nam đã thể hiện hai xu hướng của vấn đề dân tộc như thế nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Quá trình cách mạng Việt Nam đã thể hiện hai xu hướng của vấn đề dân tộc như thế nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cách mạng tháng 8/1945 thành công', 0, @last_question_id);
@@ -5057,7 +5057,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn hóa XHCN không có những đặc trưng nào sau đây', '', 'Approved', 1, 4, 5);
+VALUES ('Văn hóa XHCN không có những đặc trưng nào sau đây', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có tính nhân dân rộng rãi và tính dân tộc sâu sắc', 0, @last_question_id);
@@ -5069,7 +5069,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xa rời ý thức hệ của giai cấp công nhân', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung cương lĩnh dân tộc của Chủ nghĩa Marx – Lenin bao gồm:', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung cương lĩnh dân tộc của Chủ nghĩa Marx – Lenin bao gồm:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các dân tộc hoàn toàn bình đẳng', 0, @last_question_id);
@@ -5081,7 +5081,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tôn giáo có hai mặt là:', '', 'Approved', 1, 4, 5);
+VALUES ('Tôn giáo có hai mặt là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu tinh thần của nhân dân và tín ngưỡng', 0, @last_question_id);
@@ -5093,7 +5093,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính trị và tư tưởng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung cơ bản của quá trình xây dựng nền văn hóa xã hội chủ nghĩa là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung cơ bản của quá trình xây dựng nền văn hóa xã hội chủ nghĩa là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát huy nguồn lực con người', 0, @last_question_id);
@@ -5107,7 +5107,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phương án trên đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc cơ bản của chủ nghĩa Marx - Lenin trong việc giải quyết vấn đề dân tộc là', '', 'Approved', 1, 4, 5);
+VALUES ('Nguyên tắc cơ bản của chủ nghĩa Marx - Lenin trong việc giải quyết vấn đề dân tộc là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo vệ chủ quyền và lợi ích dân tộc', 0, @last_question_id);
@@ -5119,7 +5119,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xác lập quyền bình đẳng giữa các dân tộc', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dự báo của Lenin về hai xu hướng phát triển của vấn đề dân tộc là', '', 'Approved', 1, 4, 5);
+VALUES ('Dự báo của Lenin về hai xu hướng phát triển của vấn đề dân tộc là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các dân tộc ý thức về chủ quyền của mình đấu tranh giành quyền độc lập dân tộc', 0, @last_question_id);
@@ -5131,7 +5131,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và B', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng quan trọng nhất của quan hệ giữa các dân tộc ở Việt nam là', '', 'Approved', 1, 4, 5);
+VALUES ('Đặc trưng quan trọng nhất của quan hệ giữa các dân tộc ở Việt nam là', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phân bố đan xen lẫn nhau', 0, @last_question_id);
@@ -5143,7 +5143,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tinh thần đoàn kết, hòa hợp dân tộc', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độc quyền là sự liên minh giữa các doanh nghiệp có khả năng:', '', 'Approved', 1, 4, 5);
+VALUES ('Độc quyền là sự liên minh giữa các doanh nghiệp có khả năng:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định lĩnh vực sản xuất', 0, @last_question_id);
@@ -5157,7 +5157,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây phản ánh đặc trưng về mục tiêu của nền kinh tế thị trường định hướng XHCN ở VN:', '', 'Approved', 1, 5, 5);
+VALUES ('Nội dung nào sau đây phản ánh đặc trưng về mục tiêu của nền kinh tế thị trường định hướng XHCN ở VN:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát triển nền nông nghiệp truyền thống', 0, @last_question_id);
@@ -5171,7 +5171,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hướng nền kinh tế đến mô hình thị trường tự do', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độc quyền hình thành do các nguyên nhân:', '', 'Approved', 1, 4, 5);
+VALUES ('Độc quyền hình thành do các nguyên nhân:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhu cầu vốn lớn và cạnh tranh gay gắt', 0, @last_question_id);
@@ -5185,7 +5185,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các nguyên nhân trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản độc quyền nhà nước là:', '', 'Approved', 1, 4, 5);
+VALUES ('Tư bản độc quyền nhà nước là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quá trình Nhà nước bị độc quyền hóa theo lối tư bản', 0, @last_question_id);
@@ -5199,7 +5199,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự liên kết sức mạnh giữa tư bản độc quyền và Nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những hình thức biểu hiện cụ thể của tư bản độc quyền nhà nước là:', '', 'Approved', 1, 4, 5);
+VALUES ('Những hình thức biểu hiện cụ thể của tư bản độc quyền nhà nước là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kết hợp về mặt nhân sự giữa bộ máy nhà nước và tư bản độc quyền', 0, @last_question_id);
@@ -5213,7 +5213,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kết luận nào sau đây thể hiện rõ bản chất của tư bản độc quyền nhà nước:', '', 'Approved', 1, 4, 5);
+VALUES ('Kết luận nào sau đây thể hiện rõ bản chất của tư bản độc quyền nhà nước:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản độc quyền phải phục vụ lợi ích của Nhà nước', 0, @last_question_id);
@@ -5225,7 +5225,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước không sở hữu tài sản và không có khu vực kinh tế của riêng mình', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản tài chính là sự liên minh:', '', 'Approved', 1, 4, 5);
+VALUES ('Tư bản tài chính là sự liên minh:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giữa các độc quyền sản xuất và các độc quyền thương nghiệp với nhau', 0, @last_question_id);
@@ -5239,7 +5239,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giữa các độc quyền ngân hàng và độc quyền công nghiệp với nhau', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong điều kiện của CNTB độc quyền:', '', 'Approved', 1, 4, 5);
+VALUES ('Trong điều kiện của CNTB độc quyền:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị trường thế giới là thống nhất', 0, @last_question_id);
@@ -5253,7 +5253,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị trường thế giới bị phân chia bởi các độc quyền tư bản lớn', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độc quyền có thể gây ra những tác động nào sau đây:', '', 'Approved', 1, 4, 5);
+VALUES ('Độc quyền có thể gây ra những tác động nào sau đây:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng nhanh năng suất lao động xã hội', 0, @last_question_id);
@@ -5267,7 +5267,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động nào sau đây được thể hiện trong điều kiện thống trị của tư bản độc quyền nhà nước:', '', 'Approved', 1, 4, 5);
+VALUES ('Tác động nào sau đây được thể hiện trong điều kiện thống trị của tư bản độc quyền nhà nước:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước không có khả năng thực hiện chính sách thực dân hóa', 0, @last_question_id);
@@ -5281,7 +5281,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước chỉ điều tiết kinh tế bằng luật pháp và chính sách', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những khả năng nào sau đây xảy ra do tác động của độc quyền:', '', 'Approved', 1, 4, 5);
+VALUES ('Những khả năng nào sau đây xảy ra do tác động của độc quyền:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tạo sức mạnh kinh tế cho sản xuất lớn phát triển', 0, @last_question_id);
@@ -5295,7 +5295,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những tác động nào sau đây được coi là tác động tích cực về mặt kinh tế của CNTB:', '', 'Approved', 1, 4, 5);
+VALUES ('Những tác động nào sau đây được coi là tác động tích cực về mặt kinh tế của CNTB:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nâng cao mức sống vật chất và tinh thần của người dân', 0, @last_question_id);
@@ -5309,7 +5309,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mâu thuẫn nào sau đây thể hiện giới hạn lịch sử của CNTB:', '', 'Approved', 1, 4, 5);
+VALUES ('Mâu thuẫn nào sau đây thể hiện giới hạn lịch sử của CNTB:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa tư bản và lao động', 1, @last_question_id);
@@ -5321,7 +5321,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa con người với thiên nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những tác động nào sau đây có thể coi là tác động tích cực về mặt xã hội của CNTB:', '', 'Approved', 1, 4, 5);
+VALUES ('Những tác động nào sau đây có thể coi là tác động tích cực về mặt xã hội của CNTB:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội hóa nền sản xuất', 0, @last_question_id);
@@ -5335,7 +5335,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát triển nền kinh tế thị trường hiện đại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản là:', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xuất khẩu hàng hóa giữa các nước tư bản', 0, @last_question_id);
@@ -5347,7 +5347,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xuất khẩu tiền tệ giữa các nước tư bản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biểu hiện đặc trưng nhất của tư bản độc quyền nhà nước là:', '', 'Approved', 1, 4, 5);
+VALUES ('Biểu hiện đặc trưng nhất của tư bản độc quyền nhà nước là:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự điều tiết kinh tế của nhà nước ở tầm vĩ mô', 1, @last_question_id);
@@ -5361,7 +5361,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự mở rộng quy mô khu vực kinh tế nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong hoạt động của tư bản tài chính:', '', 'Approved', 1, 4, 5);
+VALUES ('Trong hoạt động của tư bản tài chính:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản ngân hàng phụ thuộc tư bản công nghiệp', 0, @last_question_id);
@@ -5373,7 +5373,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản ngân hàng độc lập với tư bản công nghiệp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độc quyền bắt đầu xuất hiện trong khoảng thời gian:', '', 'Approved', 1, 4, 5);
+VALUES ('Độc quyền bắt đầu xuất hiện trong khoảng thời gian:', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đầu thế kỷ XIX', 0, @last_question_id);
@@ -5385,7 +5385,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cuối thế kỷ XVIII', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây thể hiện rõ nhất đặc trưng của nền kinh tế thị trường định hướng XHCN ở VN:', '', 'Approved', 1, 5, 5);
+VALUES ('Nội dung nào sau đây thể hiện rõ nhất đặc trưng của nền kinh tế thị trường định hướng XHCN ở VN:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát triển kinh tế và xây dựng quốc phòng vững mạnh', 0, @last_question_id);
@@ -5399,7 +5399,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đẩy mạnh xuất khẩu hàng hóa ra nước ngoài và hội nhập kinh tế quốc tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những nội dung nào sau đây ứng với đặc điểm của kinh tế thị trường định hướng XHCN ở Việt Nam:', '', 'Approved', 1, 5, 5);
+VALUES ('Những nội dung nào sau đây ứng với đặc điểm của kinh tế thị trường định hướng XHCN ở Việt Nam:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vận hành theo cơ chế thị trường, hướng tới mục tiêu dân giàu, nước mạnh, dân chủ, công bằng, văn minh', 0, @last_question_id);
@@ -5413,7 +5413,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cách mạng công nghiệp lần thứ nhất có những đặc điểm nào sau đây:', '', 'Approved', 1, 6, 5);
+VALUES ('Cách mạng công nghiệp lần thứ nhất có những đặc điểm nào sau đây:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bắt đầu ở Mỹ trong khoảng giữa thế kỷ XVII', 0, @last_question_id);
@@ -5427,7 +5427,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ lợi ích kinh tế được thực hiện bằng phương thức nào sau đây:', '', 'Approved', 1, 5, 5);
+VALUES ('Quan hệ lợi ích kinh tế được thực hiện bằng phương thức nào sau đây:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Theo các nguyên tắc của kinh tế thị trường', 0, @last_question_id);
@@ -5439,7 +5439,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây không liên quan đến vấn đề hoàn thiện thể chế kinh tế thị trường định hướng XHCN ở VN:', '', 'Approved', 1, 5, 5);
+VALUES ('Nội dung nào sau đây không liên quan đến vấn đề hoàn thiện thể chế kinh tế thị trường định hướng XHCN ở VN:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn thiện thể chế phát triển đồng bộ các loại thị trường', 0, @last_question_id);
@@ -5453,7 +5453,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn thiện thể chế sở hữu và các thành phần kinh tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cùng nhằm điều chỉnh hoạt động của con người, song sự khác biệt cơ bản giữa thể chế nói chung và thể chế kinh tế thuộc về:', '', 'Approved', 1, 5, 5);
+VALUES ('Cùng nhằm điều chỉnh hoạt động của con người, song sự khác biệt cơ bản giữa thể chế nói chung và thể chế kinh tế thuộc về:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đối tượng điều chỉnh', 0, @last_question_id);
@@ -5467,7 +5467,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạm vi điều chỉnh', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung “Thể chế hóa đầy đủ và bảo đảm về mặt luật pháp các quyền về tài sản của mọi chủ thể kinh tế” là nội dung của việc hoàn thiện thể chế về sở hữu và các thành phần kinh tế.', '', 'Approved', 1, 5, 5);
+VALUES ('Nội dung “Thể chế hóa đầy đủ và bảo đảm về mặt luật pháp các quyền về tài sản của mọi chủ thể kinh tế” là nội dung của việc hoàn thiện thể chế về sở hữu và các thành phần kinh tế.', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đúng', 1, @last_question_id);
@@ -5475,7 +5475,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những lý do nào sau làm cho quá trình công nghiệp hóa, hiện đại hóa ở VN trở thành tất yếu khách quan:', '', 'Approved', 1, 6, 5);
+VALUES ('Những lý do nào sau làm cho quá trình công nghiệp hóa, hiện đại hóa ở VN trở thành tất yếu khách quan:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xây dựng cơ sở vật chất – kỹ thuật cho nền sản xuất lớn hiện đại', 0, @last_question_id);
@@ -5487,7 +5487,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nói về các tác động tiêu cực của hội nhập kinh tế quốc tế, điều nào sau đây là không đúng:', '', 'Approved', 1, 6, 5);
+VALUES ('Khi nói về các tác động tiêu cực của hội nhập kinh tế quốc tế, điều nào sau đây là không đúng:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tình trạng ô nhiễm môi trường gia tăng', 0, @last_question_id);
@@ -5501,7 +5501,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm tăng khả năng cạnh tranh của hàng hóa và dịch vụ trong nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hoàn thiện thể chế kinh tế thị trường ở VN bao gồm những nội dung nào sau đây:', '', 'Approved', 1, 5, 5);
+VALUES ('Hoàn thiện thể chế kinh tế thị trường ở VN bao gồm những nội dung nào sau đây:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn thiện chính sách thúc đẩy tăng trưởng kinh tế', 0, @last_question_id);
@@ -5513,7 +5513,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung cơ bản của cách mạng công nghiệp lần thứ nhất là:', '', 'Approved', 1, 6, 5);
+VALUES ('Nội dung cơ bản của cách mạng công nghiệp lần thứ nhất là:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy sản xuất theo dây chuyền đồng loạt', 0, @last_question_id);
@@ -5527,7 +5527,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biến nông nghiệp nhỏ thành nông nghiệp lớn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây không nằm trong phương hướng nâng cao hiệu quả của hội nhập kinh tế quốc tế ở VN:', '', 'Approved', 1, 6, 5);
+VALUES ('Nội dung nào sau đây không nằm trong phương hướng nâng cao hiệu quả của hội nhập kinh tế quốc tế ở VN:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ động tham gia các liên kết khu vực và liên kết quốc tế', 0, @last_question_id);
@@ -5541,7 +5541,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường nhập khẩu lao động từ nước ngoài', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhân tố nào sau đây không phải là tiền đề cho quá trình công nghiệp hóa:', '', 'Approved', 1, 6, 5);
+VALUES ('Nhân tố nào sau đây không phải là tiền đề cho quá trình công nghiệp hóa:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thể chế chính trị', 1, @last_question_id);
@@ -5553,7 +5553,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng tạo vốn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các cuộc cách mạng công nghiệp nói chung mang lại những tác động tích cực nào sau đây:', '', 'Approved', 1, 6, 5);
+VALUES ('Các cuộc cách mạng công nghiệp nói chung mang lại những tác động tích cực nào sau đây:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy lực lượng sản xuất phát triển nhanh chóng', 0, @last_question_id);
@@ -5565,7 +5565,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi ích là một phạm trù phản ánh:', '', 'Approved', 1, 5, 5);
+VALUES ('Lợi ích là một phạm trù phản ánh:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự hài lòng của con người về một vấn đề cụ thể nào đó', 0, @last_question_id);
@@ -5579,7 +5579,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự thỏa mãn nhu cầu của con người', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây không thuộc vai trò của Nhà nước trong việc bảo đảm sự hài hòa các quan hệ lợi ích kinh tế:', '', 'Approved', 1, 5, 5);
+VALUES ('Nội dung nào sau đây không thuộc vai trò của Nhà nước trong việc bảo đảm sự hài hòa các quan hệ lợi ích kinh tế:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tạo môi trường thuận lợi cho các chủ thể tìm kiếm lợi ích hợp pháp', 0, @last_question_id);
@@ -5593,7 +5593,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểm soát, ngăn chặn các lợi ích bất hợp pháp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nói về lợi ích kinh tế, điều nào sau đây là đúng:', '', 'Approved', 1, 5, 5);
+VALUES ('Khi nói về lợi ích kinh tế, điều nào sau đây là đúng:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản chất của lợi ích kinh tế phản ánh mục đích và động cơ hoạt động kinh tế', 1, @last_question_id);
@@ -5607,7 +5607,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Để đạt lợi ích kinh tế, chủ thể kinh tế không nhất thiết phải hoạt động kinh tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ nào sau đây không thuộc biểu hiện cụ thể của quan hệ lợi ích kinh tế:', '', 'Approved', 1, 5, 5);
+VALUES ('Quan hệ nào sau đây không thuộc biểu hiện cụ thể của quan hệ lợi ích kinh tế:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ giữa các cơ quan chức năng của Nhà nước với nhau', 1, @last_question_id);
@@ -5617,7 +5617,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ giữa chủ doanh nghiệp và người lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nói về lợi ích kinh tế, điều nào sau đây là không đúng:', '', 'Approved', 1, 5, 5);
+VALUES ('Khi nói về lợi ích kinh tế, điều nào sau đây là không đúng:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là biểu hiện trực tiếp lợi ích kinh tế của người chủ doanh nghiệp', 0, @last_question_id);
@@ -5631,7 +5631,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A, B và C', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều nào sau đây không đúng khi nói về cuộc Cách mạng công nghiệp lần thứ tư:', '', 'Approved', 1, 6, 5);
+VALUES ('Điều nào sau đây không đúng khi nói về cuộc Cách mạng công nghiệp lần thứ tư:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm thay đổi tận gốc tư duy của con người về mọi lĩnh vực', 0, @last_question_id);
@@ -5645,7 +5645,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Diễn ra trong khoảng cuối thế kỷ XX – Đầu thế kỷ XXI', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cách mạng công nghiệp lần thứ ba:', '', 'Approved', 1, 6, 5);
+VALUES ('Cách mạng công nghiệp lần thứ ba:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Diễn ra trong khoảng đầu thế kỷ XX, dựa trên tiền đề phát minh ra máy bay', 0, @last_question_id);
@@ -5659,7 +5659,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('B và C', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động nào dưới đây không diễn ra trong cách mạng công nghiệp lần thứ hai:', '', 'Approved', 1, 6, 5);
+VALUES ('Tác động nào dưới đây không diễn ra trong cách mạng công nghiệp lần thứ hai:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chế tạo và sử dụng động cơ đốt trong', 0, @last_question_id);
@@ -5673,7 +5673,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát minh máy tính điện tử', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việc hoàn thiện thể chế về sở hữu và các thành phần kinh tế bao gồm những nội dung nào sau đây:', '', 'Approved', 1, 5, 5);
+VALUES ('Việc hoàn thiện thể chế về sở hữu và các thành phần kinh tế bao gồm những nội dung nào sau đây:', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn thiện pháp luật về đất đai', 0, @last_question_id);
@@ -5685,7 +5685,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào sau đây không phản ánh đặc trưng của cách mạng công nghiệp:', '', 'Approved', 1, 6, 5);
+VALUES ('Nội dung nào sau đây không phản ánh đặc trưng của cách mạng công nghiệp:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các phát minh đột phá về kỹ thuật và công nghệ', 0, @last_question_id);
@@ -5699,7 +5699,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thay đổi căn bản về phân công lao động xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội nhập kinh tế quốc tế là một tất yếu khách quan đối với VN vì:', '', 'Approved', 1, 6, 5);
+VALUES ('Hội nhập kinh tế quốc tế là một tất yếu khách quan đối với VN vì:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xu thế khách quan của quá trình quốc tế hóa và toàn cầu hóa lôi cuốn', 0, @last_question_id);
@@ -5713,7 +5713,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các lý do trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nói về các tác động tích cực của hội nhập kinh tế quốc tế, điều nào sau đây là không đúng:', '', 'Approved', 1, 6, 5);
+VALUES ('Khi nói về các tác động tích cực của hội nhập kinh tế quốc tế, điều nào sau đây là không đúng:', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tình trạng ô nhiễm môi trường gia tăng', 0, @last_question_id);
@@ -5727,7 +5727,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nguy cơ làm tăng sự bất bình đẳng với các nền kinh tế lớn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những nhân tố nào sau đây làm tăng quy mô tích lũy tư bản?', '', 'Approved', 1, 3, 5);
+VALUES ('Những nhân tố nào sau đây làm tăng quy mô tích lũy tư bản?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nâng cao tỷ suất giá trị thặng dư và năng suất lao động.', 0, @last_question_id);
@@ -5739,7 +5739,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các nhân tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cho vay là gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cho vay là gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản mang hình thái hàng hoá.', 0, @last_question_id);
@@ -5751,7 +5751,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là tư bản đầu tư thêm vào sản xuất để từ đó nhận được cả lợi tức lẫn lợi nhuận trong khi không phải trực tiếp quản lý công việc kinh doanh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của lợi tức?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của lợi tức?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là một phần của giá trị thặng dư được tạo ra từ sản xuất.', 1, @last_question_id);
@@ -5763,7 +5763,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giá trị thặng dư do một loại hàng hoá đặc biệt là tiền tệ tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của lợi nhuận thương nghiệp là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của lợi nhuận thương nghiệp là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán hàng hoá với giá cả cao hơn giá trị.', 0, @last_question_id);
@@ -5775,7 +5775,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lừa đảo trong quá trình mua bán hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà tư bản công nghiệp nhường một phần giá trị thặng dư cho nhà tư bản thương nghiệp bằng cách nào ?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhà tư bản công nghiệp nhường một phần giá trị thặng dư cho nhà tư bản thương nghiệp bằng cách nào ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán cho nhà tư bản thương nghiệp bằng chi phí sản xuất để họ bán theo giá trị.', 0, @last_question_id);
@@ -5787,7 +5787,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bán cho nhà tư bản thương nghiệp bằng giá cả thị trường để họ tuỳ ý nâng giá bán.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân cơ bản làm cho tư bản cố định hao mòn hữu hình là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguyên nhân cơ bản làm cho tư bản cố định hao mòn hữu hình là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ứng dụng tiến bộ khoa học kỹ thuật mới.', 0, @last_question_id);
@@ -5799,7 +5799,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sử dụng và do tác động của thiên nhiên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thời gian của một vòng chu chuyển tư bản bao gồm những thời gian nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Thời gian của một vòng chu chuyển tư bản bao gồm những thời gian nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian mua và thời gian bán.', 0, @last_question_id);
@@ -5811,7 +5811,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian sản xuất và thời gian lưu thông.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biện pháp chủ yếu để khôi phục lại tư bản cố định đã hao mòn?', '', 'Approved', 1, 3, 5);
+VALUES ('Biện pháp chủ yếu để khôi phục lại tư bản cố định đã hao mòn?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng chi phí bảo dưỡng, sửa chữa.', 0, @last_question_id);
@@ -5823,7 +5823,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nắm vững hai loại hao mòn hữu hình và vô hình tư bản cố định.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giải pháp quan trọng nhất để giảm thời gian sản xuất, tăng tốc độ chu chuyển của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giải pháp quan trọng nhất để giảm thời gian sản xuất, tăng tốc độ chu chuyển của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng nguồn lao động có tay nghề thành thạo.', 0, @last_question_id);
@@ -5835,7 +5835,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có chính sách thưởng, phạt hợp lý đối với người lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Căn cứ để phân chia tư bản thành tư bản cố định và tư bản lưu động là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Căn cứ để phân chia tư bản thành tư bản cố định và tư bản lưu động là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việc xác định nguồn gốc cuối cùng của giá trị thặng dư.', 0, @last_question_id);
@@ -5847,7 +5847,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tốc độ chu chuyển của tư bản.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhân tố chủ yếu ảnh hưởng đến tốc độ chu chuyển của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhân tố chủ yếu ảnh hưởng đến tốc độ chu chuyển của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian sản xuất dài hay ngắn trong một vòng tuần hoàn.', 0, @last_question_id);
@@ -5859,7 +5859,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời gian bán hàng hoá để thu về giá trị thặng dư và thời gian mua hàng hoá để tiếp tục vòng tuần hoàn.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tuần hoàn của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tuần hoàn của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự vận động liên tục của tư bản tiền tệ của các nhà tư bản.', 0, @last_question_id);
@@ -5871,7 +5871,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự vận động liên tục của tư bản cố định và tư bản lưu động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để tư bản tuần hoàn một cách bình thường là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện để tư bản tuần hoàn một cách bình thường là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ba loại tư bản tồn tại trong cùng một giai đoạn.', 0, @last_question_id);
@@ -5883,7 +5883,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ba hình thức tư bản cùng tồn tại và tuần hoàn liên tục trong cả ba giai đoạn.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô tư bản chủ nghĩa là gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô tư bản chủ nghĩa là gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một phần của giá trị thặng dư trong nông nghiệp.', 1, @last_question_id);
@@ -5895,7 +5895,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một phần giá trị thặng dư mà tư bản nông nghiệp trích trong lợi nhuận bình quân của mình để trả cho chủ ruộng đất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tập trung tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tập trung tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là tư bản hóa giá trị thặng dư.', 0, @last_question_id);
@@ -5907,7 +5907,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là mở rộng sản xuất trên cơ sở tín dụng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tích tụ tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tích tụ tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mở rộng sản xuất bằng cách tư bản hóa giá trị thặng dư.', 1, @last_question_id);
@@ -5919,7 +5919,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mở rộng sản xuất trên cơ sở thôn tính đối thủ cạnh tranh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất của tích lũy tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Bản chất của tích lũy tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là việc sát nhập các nhà tư bản lại với nhau.', 0, @last_question_id);
@@ -5931,7 +5931,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là vay thêm tiền để mở rộng quy mô sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền công trong CNTB là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tiền công trong CNTB là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Số tiền mà nhà tư bản đã trả để đổi lấy toàn bộ số lượng lao động mà người công nhân đã bỏ ra khi tiến hành sản xuất.', 0, @last_question_id);
@@ -5943,7 +5943,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự biểu hiện bằng tiền của giá trị hàng hóa sức lao động.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các hình thức biểu hiện của giá trị thặng dư trong nền kinh tế thị trường ?', '', 'Approved', 1, 3, 5);
+VALUES ('Các hình thức biểu hiện của giá trị thặng dư trong nền kinh tế thị trường ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận và lợi tức.', 0, @last_question_id);
@@ -5955,7 +5955,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận, lợi tức và địa tô.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('So sánh lợi nhuận với giá trị thặng dư do tác động của quy luật cung cầu:', '', 'Approved', 1, 3, 5);
+VALUES ('So sánh lợi nhuận với giá trị thặng dư do tác động của quy luật cung cầu:', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung > cầu thì p > m.', 0, @last_question_id);
@@ -5967,7 +5967,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung = cầu thì p >m.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất: Bản chất của lợi nhuận là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tìm câu trả lời đúng nhất: Bản chất của lợi nhuận là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là do mua rẻ bán đắt.', 0, @last_question_id);
@@ -5979,7 +5979,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công thức xác định giá trị thặng dư siêu ngạch?', '', 'Approved', 1, 3, 5);
+VALUES ('Công thức xác định giá trị thặng dư siêu ngạch?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị xã hội của hàng hoá + giá trị cá biệt của hàng hoá.', 0, @last_question_id);
@@ -5991,7 +5991,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị xã hội của hàng hoá + giá trị thặng dư.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cạnh tranh trong nội bộ ngành dẫn đến hình thành điều gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Cạnh tranh trong nội bộ ngành dẫn đến hình thành điều gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận bình quân.', 0, @last_question_id);
@@ -6003,7 +6003,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận độc quyền.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục đích của cạnh tranh giữa các ngành là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Mục đích của cạnh tranh giữa các ngành là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Để chèn ép các doanh nghiệp yếu thế hơn.', 0, @last_question_id);
@@ -6015,7 +6015,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhằm thu lợi nhuận nhiều hơn cho các doanh nghiệp khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động tiêu cực của cạnh tranh là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tác động tiêu cực của cạnh tranh là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cạnh tranh không lành mạnh gây tổn hại môi trường kinh doanh.', 0, @last_question_id);
@@ -6027,7 +6027,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa của Việt Nam là?', '', 'Approved', 1, 5, 5);
+VALUES ('Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa của Việt Nam là?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nền kinh tế vận hành theo các quy luật của thị trường.', 0, @last_question_id);
@@ -6039,7 +6039,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội nhập kinh tế quốc tế có tác động tích cực hay tiêu cực đến nền kinh tế Việt Nam hiện nay? Tìm đáp án đúng nhất.', '', 'Approved', 1, 6, 5);
+VALUES ('Hội nhập kinh tế quốc tế có tác động tích cực hay tiêu cực đến nền kinh tế Việt Nam hiện nay? Tìm đáp án đúng nhất.', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có nhiều tác động tích cực.', 0, @last_question_id);
@@ -6051,7 +6051,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có tác động tích cực hay tiêu cực là do nhận thức và điều hành của chính phủ.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời phù hợp nhất : Những nhân tố nào ảnh hưởng đến quan hệ lợi ích kinh tế?', '', 'Approved', 1, 5, 5);
+VALUES ('Tìm câu trả lời phù hợp nhất : Những nhân tố nào ảnh hưởng đến quan hệ lợi ích kinh tế?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ phát triển của lực lượng sản xuất và địa vị của chủ thể trong hệ thống sản xuất.', 0, @last_question_id);
@@ -6063,7 +6063,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính sách phân phối của nhà nước, nhu cầu của chủ thể trong hệ thống sản xuất xã hội và toàn cầu hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội nhập kinh tế quốc tế là gì?', '', 'Approved', 1, 6, 5);
+VALUES ('Hội nhập kinh tế quốc tế là gì?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quá trình quốc gia đó gắn kết nền kinh tế của mình với nền kinh tế thế giới.', 0, @last_question_id);
@@ -6075,7 +6075,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả ba yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công nghiệp hóa ứng với trình độ kỹ thuật nào của cách mạng công nghiệp .', '', 'Approved', 1, 6, 5);
+VALUES ('Công nghiệp hóa ứng với trình độ kỹ thuật nào của cách mạng công nghiệp .', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cách mạng công nghiệp lần thứ nhất.', 0, @last_question_id);
@@ -6087,7 +6087,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cách mạng công nghiệp lần thứ tư .', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vì sao Việt Nam phải thực hiện công nghiệp hóa, hiện đại hóa?', '', 'Approved', 1, 6, 5);
+VALUES ('Vì sao Việt Nam phải thực hiện công nghiệp hóa, hiện đại hóa?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đây là quy luật phổ biến cho sự phát triển lực lượng sản xuất.', 0, @last_question_id);
@@ -6099,7 +6099,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quy luật phổ biến của sự phát triển Lực lượng sản xuất mà mỗi nước đều phải trải qua, đối với nước ta còn nhằm xây dựng cơ sở vật chất kỹ thuật cho CNXH', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất về : Công nghiệp hóa là gì?', '', 'Approved', 1, 6, 5);
+VALUES ('Tìm câu trả lời đúng nhất về : Công nghiệp hóa là gì?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là quá trình chuyển đổi từ lao động thủ công trong nông nghiệp sang lao động bằng máy móc.', 0, @last_question_id);
@@ -6111,7 +6111,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công nghiệp hóa là quá trình phát triển nền sản xuất theo hướng ưu tiên phát triển công nghiệp nặng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng của cuộc cách mạng 4.0 (Cách mạng công nghiệp lần thứ tư)?', '', 'Approved', 1, 6, 5);
+VALUES ('Đặc trưng của cuộc cách mạng 4.0 (Cách mạng công nghiệp lần thứ tư)?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng năng lượng nước và hơi nước.', 0, @last_question_id);
@@ -6123,7 +6123,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Liên kết giữa thế giới thực và ảo để thực hiện công việc thông minh và hiệu quả nhất.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm câu trả lời đúng nhất về : Vai trò của Cách mạng công nghiệp đổi với sự phát triển của xã hội?', '', 'Approved', 1, 6, 5);
+VALUES ('Tìm câu trả lời đúng nhất về : Vai trò của Cách mạng công nghiệp đổi với sự phát triển của xã hội?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy phát triển lực lượng sản xuất.', 0, @last_question_id);
@@ -6135,7 +6135,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 3 yếu tố trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xã hội loài người đã và đang trải qua mấy cuộc cách mạng công nghiệp?', '', 'Approved', 1, 6, 5);
+VALUES ('Xã hội loài người đã và đang trải qua mấy cuộc cách mạng công nghiệp?', '', 'Active', 1, 6, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('1.', 0, @last_question_id);
@@ -6147,7 +6147,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vai trò của lợi ích kinh tế đối với các chủ thể kinh tế xã hội? Tìm câu trả lời toàn diện nhất', '', 'Approved', 1, 5, 5);
+VALUES ('Vai trò của lợi ích kinh tế đối với các chủ thể kinh tế xã hội? Tìm câu trả lời toàn diện nhất', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ sở để phân chia lợi nhuận với nhau.', 0, @last_question_id);
@@ -6159,7 +6159,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là động lực trực tiếp của các chủ thể kinh tế tham gia vào hoạt động kinh tế xã hội và là cơ sở thúc đẩy sự phát triển các lợi ích khác.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vì sao phải hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam? Tìm câu trả lời đầy đủ nhất .', '', 'Approved', 1, 5, 5);
+VALUES ('Vì sao phải hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam? Tìm câu trả lời đầy đủ nhất .', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do hệ thống thể chế đó còn chưa đồng bộ.', 0, @last_question_id);
@@ -6171,7 +6171,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do hệ thống thể chế còn chưa đồng bộ, chưa đầy đủ, kém hiệu lực, hiệu quả. Kém đầy đủ các yếu tố thị trường và các loại thị trường.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc trưng của kinh tế thị trường định hướng XHCN ở Việt Nam khác với đặc trưng của kinh tế thị trường nói chung như thế nào?', '', 'Approved', 1, 5, 5);
+VALUES ('Đặc trưng của kinh tế thị trường định hướng XHCN ở Việt Nam khác với đặc trưng của kinh tế thị trường nói chung như thế nào?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hoàn toàn khác nhau vì không có điểm chung.', 0, @last_question_id);
@@ -6183,7 +6183,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khác nhau về bản chất nhưng có nội dung giống nhau.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tác động tích cực của cạnh tranh là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tác động tích cực của cạnh tranh là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy phát triển LLSX và phát triển nền kinh tế thị trường.', 0, @last_question_id);
@@ -6195,7 +6195,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các yếu tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vì sao Việt Nam phải phát triển nền kinh tế thị trường định hướng xã hội chủ nghĩa?', '', 'Approved', 1, 5, 5);
+VALUES ('Vì sao Việt Nam phải phát triển nền kinh tế thị trường định hướng xã hội chủ nghĩa?', '', 'Active', 1, 5, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì nó phù hợp với tính quy luật phát triển khách quan.', 0, @last_question_id);
@@ -6207,7 +6207,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các lý do trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biểu hiện chủ yếu của độc quyền nhà nước trong CNTB?', '', 'Approved', 1, 4, 5);
+VALUES ('Biểu hiện chủ yếu của độc quyền nhà nước trong CNTB?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước.', 0, @last_question_id);
@@ -6219,7 +6219,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 3 biểu hiện trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản có mấy hình thức', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản có mấy hình thức', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một hình thức.', 0, @last_question_id);
@@ -6231,7 +6231,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bốn hình thức', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của phân chia thế giới về kinh tế?', '', 'Approved', 1, 4, 5);
+VALUES ('Nội dung của phân chia thế giới về kinh tế?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân chia thuộc địa và phạm vi ảnh hưởng.', 0, @last_question_id);
@@ -6243,7 +6243,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân chia nơi cung cấp nhân công.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản có nghĩa là gì ?', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản có nghĩa là gì ?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là mang hàng hoá ra nước ngoài bán.', 0, @last_question_id);
@@ -6255,7 +6255,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là mang tiền ra nước ngoài mua hàng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản tài chính là gì?', '', 'Approved', 1, 4, 5);
+VALUES ('Tư bản tài chính là gì?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là sự hoạt động của các tư bản thương nghiệp.', 0, @last_question_id);
@@ -6267,7 +6267,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là sự hoạt động của tư bản ngân hàng phát triển tới mức thống trị toàn bộ các loại tư bản khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xuất khẩu tư bản là đặc điểm kinh tế của CNTB ở giai đoạn nào?', '', 'Approved', 1, 4, 5);
+VALUES ('Xuất khẩu tư bản là đặc điểm kinh tế của CNTB ở giai đoạn nào?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai đoạn CNTB tự do cạnh tranh phát triển vượt khỏi quy mô quốc gia.', 0, @last_question_id);
@@ -6279,7 +6279,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai đoạn sản xuất hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tính quy luật của việc hình thành các tổ chức độc quyền là do?', '', 'Approved', 1, 4, 5);
+VALUES ('Tính quy luật của việc hình thành các tổ chức độc quyền là do?', '', 'Active', 1, 4, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tự do cạnh tranh dẫn tới tiêu diệt và làm phá sản phần lớn các nhà tư bản yếu kém.', 0, @last_question_id);
@@ -6291,7 +6291,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tự do cạnh tranh thúc đẩy tích tụ và tập trung sản xuất, đến một trình độ nhất định sẽ sinh ra độc quyền.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch II là gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch II là gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch do sản xuất trên những ruộng đất tốt tạo ra.', 0, @last_question_id);
@@ -6303,7 +6303,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch sản xuất trên những ruộng đất có vị trí thuận lợi tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô tuyệt đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô tuyệt đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị thặng dư mà chủ ruộng đất bóc lột trực tiếp công nhân nông nghiệp.', 0, @last_question_id);
@@ -6315,7 +6315,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch thu được do sản xuất trên ruộng đất tốt và trung bình.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Địa tô chênh lệch I là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Địa tô chênh lệch I là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES (' Lợi nhuận siêu ngạch do sản xuất trên những ruộng đất có vị trí thuận lợi tạo ra.', 0, @last_question_id);
@@ -6327,7 +6327,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận siêu ngạch do đầu tư thêm tư bản để thâm canh tạo ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố căn bản quyết định giá cả hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Yếu tố căn bản quyết định giá cả hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ cung cầu.', 0, @last_question_id);
@@ -6339,7 +6339,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguồn gốc của giá trị thặng dư là ?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguồn gốc của giá trị thặng dư là ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do lao động không công của người lao động làm thuê.', 1, @last_question_id);
@@ -6351,7 +6351,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do mua rẻ, bán đắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tăng năng suất lao động và tăng cường độ lao động giống nhau ở điểm nào ? Tìm phương án đúng nhất:', '', 'Approved', 1, 2, 5);
+VALUES ('Tăng năng suất lao động và tăng cường độ lao động giống nhau ở điểm nào ? Tìm phương án đúng nhất:', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đều làm cho công việc nhanh chóng hoàn thành.', 0, @last_question_id);
@@ -6363,7 +6363,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đều làm hao phí calo tăng lên.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá trị thặng dư là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giá trị thặng dư là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị sức lao động của người công nhân làm thuê cho chủ tư bản.', 0, @last_question_id);
@@ -6375,7 +6375,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị bóc lột được do nhà tư bản trả tiền công thấp hơn giá trị sức lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để sức lao động trở thành hàng hoá?', '', 'Approved', 1, 3, 5);
+VALUES ('Điều kiện để sức lao động trở thành hàng hoá?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội chia thành người đi bóc lột và người bị bóc lột.', 0, @last_question_id);
@@ -6387,7 +6387,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân công lao động xã hội phát triển tới mức có 1 số lĩnh vực sản xuất không đủ số lượng lao động và phải thuê thêm công nhân.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ìm câu trả lời đúng nhất: Tác dụng của quy luật giá trị đối với nền kinh tế - xã hội?', '', 'Approved', 1, 2, 5);
+VALUES ('ìm câu trả lời đúng nhất: Tác dụng của quy luật giá trị đối với nền kinh tế - xã hội?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy cải tiến kỹ thuật, nâng cao năng suất lao động.', 0, @last_question_id);
@@ -6399,7 +6399,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thúc đẩy cải tiến kỹ thuật, điều tiết sản xuất, lưu thông hàng hóa và phân hoá những người sản xuất hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các chủ thể chính tham gia thị trường?', '', 'Approved', 1, 2, 5);
+VALUES ('Các chủ thể chính tham gia thị trường?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người bán và người mua.', 0, @last_question_id);
@@ -6411,7 +6411,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước và nhân dân lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy luật kinh tế chủ yếu của thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Những quy luật kinh tế chủ yếu của thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy luật giá trị, quy luật cung cầu.', 0, @last_question_id);
@@ -6423,7 +6423,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy luật cung cầu, quy luật cạnh tranh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dấu hiệu đặc trưng của cơ chế thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Dấu hiệu đặc trưng của cơ chế thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ chế hình thành giá cả một cách tự do.', 1, @last_question_id);
@@ -6435,7 +6435,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ chế hình thành giá cả theo ý muốn chủ quan của người bán.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiểu theo nghĩa rộng thị trường là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Hiểu theo nghĩa rộng thị trường là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nơi diễn ra hành vi trao đổi mua bán', 0, @last_question_id);
@@ -6447,7 +6447,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là thị trường diễn ra trong phạm vi thế giới.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng : Lao động cụ thể tạo ra ?', '', 'Approved', 1, 2, 5);
+VALUES ('Tìm đáp án đúng : Lao động cụ thể tạo ra ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tạo ra giá trị sử dụng của hàng hoá.', 1, @last_question_id);
@@ -6459,7 +6459,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biểu hiện tính chất xã hội của người sản xuất hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy luật giá trị là quy luật của nền kinh tế nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Quy luật giá trị là quy luật của nền kinh tế nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mọi nền sản xuất trong lịch sử loài người.', 0, @last_question_id);
@@ -6471,7 +6471,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sản xuất hàng hoá tư bản chủ nghĩa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng cơ bản nhất của tiền là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Chức năng cơ bản nhất của tiền là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phương tiện lưu thông.', 0, @last_question_id);
@@ -6483,7 +6483,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thước đo giá trị.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản bất biến là gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản bất biến là gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái Tư liệu sản xuất.', 1, @last_question_id);
@@ -6495,7 +6495,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái đối tượng lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('Hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một sản phẩm vật chất hoặc tinh thần có ích cho con người hoặc cho xã hội.', 0, @last_question_id);
@@ -6507,7 +6507,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một sản phẩm của lao động, sản xuất ra để tiêu dùng cho sản xuất hoặc cho cá nhân.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của quy luật giá trị ?', '', 'Approved', 1, 2, 5);
+VALUES ('Nội dung của quy luật giá trị ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người sản xuất chỉ sản xuất những loại hàng hoá nào đem lại nhiều giá trị cho họ.', 0, @last_question_id);
@@ -6519,7 +6519,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả mọi sản phẩm có ích do người lao động làm ra đều có giá trị.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tăng cường độ lao động thì lượng giá trị của một đơn vị hàng hoá sẽ như thế nào?', '', 'Approved', 1, 2, 5);
+VALUES ('Tăng cường độ lao động thì lượng giá trị của một đơn vị hàng hoá sẽ như thế nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm cho lượng giá trị của một hàng hóa tăng lên.', 0, @last_question_id);
@@ -6531,7 +6531,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Làm cho lượng giá trị của tổng hàng hoá không đổi.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ìm câu trả lời đúng nhất: Giá cả của hàng hoá là gì ?', '', 'Approved', 1, 2, 5);
+VALUES ('ìm câu trả lời đúng nhất: Giá cả của hàng hoá là gì ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là giá trị của hàng hoá.', 0, @last_question_id);
@@ -6543,7 +6543,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hình thức biểu hiện bằng tiền của giá trị hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ai hàng hoá trao đổi với nhau trên cơ sở nào?', '', 'Approved', 1, 2, 5);
+VALUES ('ai hàng hoá trao đổi với nhau trên cơ sở nào?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lượng thời gian lao động xã hội cần thiết.', 1, @last_question_id);
@@ -6555,7 +6555,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có hao phí vật tư kỹ thuật cụ thể bằng nhau.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('iá trị sử dụng của hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('iá trị sử dụng của hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị để cho người sản xuất ra nó sử dụng trực tiếp hoặc đem trao đổi lấy 1 giá trị khác.', 0, @last_question_id);
@@ -6567,7 +6567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cái tạo nên nội dung và ý nghĩa của giá trị hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ếu tố nào làm giảm giá trị trong 1 đơn vị hàng hoá?', '', 'Approved', 1, 2, 5);
+VALUES ('ếu tố nào làm giảm giá trị trong 1 đơn vị hàng hoá?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường độ lao động để giảm chi phí tiền lương trên 1 đơn vị sản phẩm.', 0, @last_question_id);
@@ -6579,7 +6579,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng thêm những trang bị vật chất và kỹ thuật cho lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ội dung thời gian lao động xã hội cần thiết để sản xuất ra một hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('ội dung thời gian lao động xã hội cần thiết để sản xuất ra một hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Với trình độ khoa học kỹ thuật trung bình mà xã hội đã đạt tới ở 1 thời điểm nhất định.', 0, @last_question_id);
@@ -6591,7 +6591,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trong điều kiện sản xuất bình thường xét trên phạm vi quốc gia hoặc phạm vi quốc tế.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ìm câu trả lời đúng :Thước đo Lượng giá trị của hàng hoá ?', '', 'Approved', 1, 2, 5);
+VALUES ('ìm câu trả lời đúng :Thước đo Lượng giá trị của hàng hoá ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao phí vật tư kỹ thuật và tiền lương chi phí cho công nhân.', 0, @last_question_id);
@@ -6603,7 +6603,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động sống và lao động quá khứ kết tinh trong hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ao động trừu tượng tạo ra cái gì ?', '', 'Approved', 1, 2, 5);
+VALUES ('ao động trừu tượng tạo ra cái gì ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tạo ra giá trị sử dụng của hàng hoá.', 0, @last_question_id);
@@ -6615,7 +6615,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tạo ra giá trị của hàng hoá.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('iá trị hàng hoá là gì?', '', 'Approved', 1, 2, 5);
+VALUES ('iá trị hàng hoá là gì?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là lao động xã hội của người sản xuất hàng hóa kết tinh trong hàng hoá.', 1, @last_question_id);
@@ -6627,7 +6627,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biểu hiện tính hai mặt của hàng hoá mà mặt kia là giá trị sử dụng như một thuộc tính không thể thiếu của mọi loại hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản cố định là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản cố định là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản sản xuất tồn tại dưới hình thái tư liệu lao động (máy móc, nhà xưởng,…).', 1, @last_question_id);
@@ -6639,7 +6639,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái hàng hóa sản xuất ra.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố kinh tế nào tác động làm cho giá cả xoay quanh giá trị ?', '', 'Approved', 1, 2, 5);
+VALUES ('Yếu tố kinh tế nào tác động làm cho giá cả xoay quanh giá trị ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ quản lý sản xuất kinh doanh.', 0, @last_question_id);
@@ -6651,7 +6651,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ quản lý và tay nghề của người lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giá cả sản xuất bằng gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Giá cả sản xuất bằng gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chi phí sản xuất cộng với lợi nhuận bình quân.', 1, @last_question_id);
@@ -6663,7 +6663,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giá trị của hàng hoá cộng với lợi nhuận của nhà tư bản công nghiệp.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nào thì tiền tệ biến thành tư bản?', '', 'Approved', 1, 3, 5);
+VALUES ('Khi nào thì tiền tệ biến thành tư bản?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi sức lao động trở thành hàng hoá.', 1, @last_question_id);
@@ -6675,7 +6675,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi giai cấp tư sản và giai cấp công nhân được hình thành.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một số lượng của cải có giá trị sử dụng là kinh doanh kiếm lời.', 0, @last_question_id);
@@ -6687,7 +6687,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nhà xưởng, máy móc và một số tiền vốn cần thiết để hoạt động sản xuất kinh doanh.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mục đích chính của sự vận động của tư bản là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Mục đích chính của sự vận động của tư bản là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đổi giá trị sử dụng này lấy giá trị sử dụng khác.', 0, @last_question_id);
@@ -6699,7 +6699,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện lưu thông hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận biểu hiện điều gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận biểu hiện điều gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ bóc lột của tư bản đối với lao động.', 0, @last_question_id);
@@ -6711,7 +6711,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mức doanh lợi của đầu tư tư bản.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm quan trọng nhất để hàng hóa sức lao động là hàng hoá đặc biệt là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Đặc điểm quan trọng nhất để hàng hóa sức lao động là hàng hoá đặc biệt là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì sức lao động là yếu tố quan trọng nhất của mọi nền sản xuất xã hội.', 0, @last_question_id);
@@ -6723,7 +6723,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vì giá trị hàng hoá sức lao động mang yếu tố tinh thần và lịch sử.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Căn cứ để phân chia tư bản thành tư bản bất biến và tư bản khả biến?', '', 'Approved', 1, 3, 5);
+VALUES ('Căn cứ để phân chia tư bản thành tư bản bất biến và tư bản khả biến?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đặc điểm của mỗi loại tư bản.', 0, @last_question_id);
@@ -6735,7 +6735,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự chu chuyển giá trị của mỗi loại tư bản.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để có lợi nhuận siêu ngạch nhà tư bản sử dụng biện pháp gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Để có lợi nhuận siêu ngạch nhà tư bản sử dụng biện pháp gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường độ lao động.', 0, @last_question_id);
@@ -6747,7 +6747,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Di chuyển tư bản từ ngành này sang ngành khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lợi nhuận bình quân là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Lợi nhuận bình quân là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận trung bình của các nhà tư bản kinh doanh trong lĩnh vực công nghiệp.', 0, @last_question_id);
@@ -6759,7 +6759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận trung bình tính cho một đồng vốn sau khi đã trừ đi mọi khoản chi phí sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ giữa giá cả và giá trị trước khi hình thành lợi nhuận bình quân như thế nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Quan hệ giữa giá cả và giá trị trước khi hình thành lợi nhuận bình quân như thế nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung lớn hơn cầu thì giá cả lớn hơn giá trị hàng hoá.', 0, @last_question_id);
@@ -6771,7 +6771,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cung bằng cầu thì giá cả lớn hơn giá trị hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản lưu động là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản lưu động là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái sức lao động và nguyên vật liệu.', 1, @last_question_id);
@@ -6783,7 +6783,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là bộ phận tư bản tồn tại dưới hình thái máy móc, nhà xưởng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ìm đáp án đúng về : Điều kiện để sản xuất hàng hoá ra đời ?', '', 'Approved', 1, 2, 5);
+VALUES ('ìm đáp án đúng về : Điều kiện để sản xuất hàng hoá ra đời ?', '', 'Active', 1, 2, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mong muốn của con người muốn tiêu dùng những sản phẩm do người khác làm ra.', 0, @last_question_id);
@@ -6795,7 +6795,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phân công lao động xã hội và sự tách biệt về mặt kinh tế của các chủ thể sản xuất.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất lợi nhuận phản ánh điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất lợi nhuận phản ánh điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh mức doanh lợi đầu tư tư bản.', 1, @last_question_id);
@@ -6807,7 +6807,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phản ánh lợi ích của nhà tư bản trong sử dụng lao động làm thuê.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhân tố nào sau đây ảnh hưởng đến tỷ suất lợi nhuận?', '', 'Approved', 1, 3, 5);
+VALUES ('Nhân tố nào sau đây ảnh hưởng đến tỷ suất lợi nhuận?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tỷ suất giá trị thặng dư.', 0, @last_question_id);
@@ -6819,7 +6819,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các nhân tố trên.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự bình quân hoá lợi nhuận?', '', 'Approved', 1, 3, 5);
+VALUES ('Nguyên nhân dẫn đến sự bình quân hoá lợi nhuận?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cạnh tranh giữa các nước và các khu vực.', 0, @last_question_id);
@@ -6831,7 +6831,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do mọi nhà tư bản đều có xu hướng cải tiến kỹ thuật nhằm chiếm lợi nhuận siêu ngạch.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương pháp sản xuất ra giá trị thặng dư tuyệt đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Phương pháp sản xuất ra giá trị thặng dư tuyệt đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài ngày lao động một cách tuyệt vượt quá thời gian lao động tất yếu.', 1, @last_question_id);
@@ -6843,7 +6843,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do áp dụng kỹ thuật tiên tiến.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('ìm câu đúng nhất: Mối quan hệ giữa lợi nhuận và giá trị thặng dư?', '', 'Approved', 1, 3, 5);
+VALUES ('ìm câu đúng nhất: Mối quan hệ giữa lợi nhuận và giá trị thặng dư?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận và giá trị thặng dư khác nhau về nguồn gốc.', 0, @last_question_id);
@@ -6855,7 +6855,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lợi nhuận là hình thức biến tướng của giá trị thặng dư .', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chi phí sản xuất Tư bản chủ nghã là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Chi phí sản xuất Tư bản chủ nghã là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao phí lao động quá khứ và phần lao động sống được trả công.', 0, @last_question_id);
@@ -6867,7 +6867,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hao phí tư bản khả biến để sản xuất ra hàng hoá.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương pháp sản xuất giá trị thặng dư tương đối là gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Phương pháp sản xuất giá trị thặng dư tương đối là gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kéo dài ngày lao động, trong lúc vẫn giữ nguyên thời gian lao động tất yếu.', 0, @last_question_id);
@@ -6879,7 +6879,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng cường độ lao động và kéo dài thời gian lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khối lượng giá trị thặng dư phản ánh điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Khối lượng giá trị thặng dư phản ánh điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trình độ bóc lột của tư bản đối với lao động.', 0, @last_question_id);
@@ -6891,7 +6891,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô bóc lột của tư bản đối với lao động.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tỷ suất giá trị thặng dư biểu hiện điều gì?', '', 'Approved', 1, 3, 5);
+VALUES ('Tỷ suất giá trị thặng dư biểu hiện điều gì?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy mô bóc lột của tư bản đối với người lao động.', 0, @last_question_id);
@@ -6903,7 +6903,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạm vi bóc lột của tư bản đối với lao động.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Về mặt lượng tư bản khả biến trong quá trình sản xuất sẽ như thế nào?', '', 'Approved', 1, 3, 5);
+VALUES ('Về mặt lượng tư bản khả biến trong quá trình sản xuất sẽ như thế nào?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không tăng lên về lượng.', 0, @last_question_id);
@@ -6915,7 +6915,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tăng lên về lượng.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tư bản khả biến là gì ?', '', 'Approved', 1, 3, 5);
+VALUES ('Tư bản khả biến là gì ?', '', 'Active', 1, 3, 5);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận tư bản tồn tại dưới hình thái Sức lao động.', 1, @last_question_id);

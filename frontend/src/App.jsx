@@ -42,18 +42,37 @@ function AppContent() {
   };
 
   // Hiển thị dựa trên Role của người dùng
+  // Hiển thị dựa trên Role của người dùng
   useEffect(() => {
     if (user) {
+      // 1. Kiểm tra xem URL có chứa param ?view=admin không
+      const urlParams = new URLSearchParams(window.location.search);
+      const isTabAdmin = urlParams.get('view') === 'admin';
+
       if (user.role === 'Admin') {
-        setView("admin");
+        if (isTabAdmin) {
+          // Nếu đây là tab mới bật ra có chứa URL chỉ định làm admin
+          setView("admin");
+        } else {
+          // Tab hiện tại (tab vừa nhấn đăng nhập) sẽ hiển thị giao diện user thường
+          setView("profile");
+
+          // 2. Dùng sessionStorage để chỉ tự động mở tab 1 lần khi login
+          // (Tránh việc người dùng F5 tải lại trang làm nhảy ra tab mới liên tục)
+          if (!sessionStorage.getItem('adminTabOpened')) {
+            window.open(window.location.origin + window.location.pathname + '?view=admin', '_blank');
+            sessionStorage.setItem('adminTabOpened', 'true');
+          }
+        }
       } else {
         setView("profile");
       }
     } else {
       setView("home");
+      // Xóa cờ đánh dấu khi người dùng đăng xuất
+      sessionStorage.removeItem('adminTabOpened'); 
     }
   }, [user]);
-
   // Hiệu ứng của welcome
   useEffect(() => {
     if (view !== "home" || typedText === fullText) return;
@@ -101,6 +120,16 @@ function AppContent() {
     return <div className="loading">Loading...</div>;
   }
 
+  const isAdminStandalone = view === "admin" && user && user.role === "Admin";
+
+  if (isAdminStandalone) {
+    return (
+      <div className="admin-standalone-page">
+        <AdminSide />
+      </div>
+    );
+  }
+
   return (
     <div className="container">
       <div 
@@ -134,7 +163,12 @@ function AppContent() {
               <button onClick={() => handleSetView("profile")}>Thông tin</button>
               <button onClick={() => handleSetView("history")}>Lịch sử</button>
               {user.role === 'Admin' && (
-                <button onClick={() => handleSetView("admin")}>Quản lý</button>
+                <button onClick={() => {
+                  setIsMenuOpen(false); // Đóng menu lại
+                  window.open(window.location.origin + window.location.pathname + '?view=admin', '_blank');
+                }}>
+                  Quản lý
+                </button>
               )}
               <button className="logout" onClick={() => { logout(); setIsMenuOpen(false); }}>
                 Đăng xuất
@@ -201,7 +235,6 @@ function AppContent() {
         {view === "login" && !user && <Login />}
         {view === "register" && !user && <Register />}
         {view === "profile" && user && <Profile />}
-        {view === "admin" && user && user.role === 'Admin' && <AdminSide />}
         {view === "subject" && (
           <SubjectView 
             onSelectSubject={(sub) => {
