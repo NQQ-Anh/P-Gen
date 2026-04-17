@@ -7,7 +7,7 @@ import Profile from "./components/Profile";
 import AdminSide from "./components/Admin/AdminSide";
 import {SubjectView} from "./components/SubjectView";
 import {ChapterView} from "./components/ChapterView";
-import QuestionView from "./components/QuestionView";
+import {QuestionView} from "./components/QuestionView";
 import {ResultView} from "./components/ResultView";
 import { HistoryView } from "./components/HistoryView";
 
@@ -19,8 +19,7 @@ import "./styles/Navbar.css";
 
 function AppContent() {
   const { user, logout, loading } = useAuth();
-  const [view, setView] = useState("home"); // Tắt tạm thời
-  // const [view, setView] = useState("subject");
+  const [view, setView] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
   const [typedText, setTypedText] = useState("");
@@ -29,6 +28,7 @@ function AppContent() {
   const [selectedChapters, setSelectedChapters] = useState([]);
   const [quizSettings, setQuizSettings] = useState({});
   const [quizResult, setQuizResult] = useState(null);
+  const [resumeData, setResumeData] = useState(null);
 
   const handleSetView = (newView) => {
     startTransition(() => {
@@ -214,25 +214,26 @@ function AppContent() {
           <ChapterView 
             subject={selectedSubject}
             onBack={() => handleSetView("subject")}
-            onStartQuiz={(chapters, settings) => {
-              // 1. Lưu danh sách các mã chương đã chọn
+            onStartQuiz={(chapters, settings, resume = null) => {
               setSelectedChapters(chapters);
-              
-              // 2. Lưu các cài đặt (xáo trộn, hiện đáp án, v.v.)
               setQuizSettings(settings);
-              
-              // 3. Chuyển sang giao diện làm bài
+              setResumeData(resume);
               handleSetView("question");
             }}
           />
         )}
         {view === "question" && selectedSubject && (
           <QuestionView 
-            subjectId={selectedSubject.id}
+            subject={selectedSubject}
             chapterIds={selectedChapters}
             settings={quizSettings}
-            onBack={() => handleSetView("chapter")}
+            resumeData={resumeData}
+            onBack={() => {
+              setResumeData(null);
+              handleSetView("chapter");
+            }}
             onFinish={(result) => {
+              setResumeData(null);
               setQuizResult(result);
               handleSetView("result");
             }}

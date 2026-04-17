@@ -1,12 +1,5 @@
-/* RESET BOX MODEL - CỰC KỲ QUAN TRỌNG ĐỂ CHỐNG TRÀN */
-.setup-container, 
-.setup-container *, 
-.setup-container *::before, 
-.setup-container *::after {
-  box-sizing: border-box;
-}
+/* ChapterView.css */
 
-/* CONTAINER CHÍNH */
 .setup-container {
   max-width: 1000px;
   width: 95%;
@@ -14,226 +7,241 @@
   background: #ffffff;
   padding: 35px;
   border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
-  color: #1a1a1a;
-  overflow: hidden;
+  color: #1a1a1a; /* Đảm bảo màu chữ mặc định là tối */
 }
 
-.setup-container > .red-btn {
-  width: 100px;
-  margin-bottom: 20px;
-  font-size: var(--fs-body);
+/* HEADER & TABS */
+.setup-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-.setup-container > .red-btn i {margin-left: -6px;}
+.setup-header-flex > .red-btn { width: 100px;}
+.setup-header-flex > .red-btn i { margin-left: -4px;}
 
-/* TIÊU ĐỀ CHÍNH */
-.setup-container h2 {
-  color: #000000;
+.mode-selector-tabs {
+  display: flex;
+  background: #f1f1f1;
+  padding: 5px;
+  border-radius: 16px;
+  width: 220px;
+}
+
+.mode-selector-tabs button {
+  flex: 1;
+  border: none;
+  padding: 10px 0;
+  border-radius: 12px;
+  cursor: pointer;
   font-weight: 600;
-  font-size: var(--fs-h2);
-  margin-bottom: 30px;
-  letter-spacing: -0.5px;
+  font-size: var(--fs-body);
+  transition: 0.3s;
 }
 
-/* BỐ CỤC GRID */
-.setup-grid {
+/* Màu chữ cho nút TAB */
+.mode-selector-tabs button.tab-inactive {
+  background: transparent;
+  color: #555; /* Chữ tối khi không chọn */
+}
+
+.mode-selector-tabs button.tab-active {
+  background: #A4161A;
+  color: #ffffff; /* Chữ trắng khi được chọn */
+}
+
+.subject-title {
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  margin: 0px 0 20px 0;
+}
+
+/* --- LAYOUT GRID --- */
+.setup-content-grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
   gap: 35px;
 }
 
-/* PHẦN CHỌN CHƯƠNG */
-.chapter-selection h3, 
-.mode-settings h3 {
-  font-size: var(--fs-body);
-  color: #000000;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* Chế độ Ôn tập: 2 cột trên màn hình lớn */
+.practice-layout {
+  grid-template-columns: 1fr 350px;
 }
 
-/* THẺ CHƯƠNG (CARD) */
+/* Chế độ Luyện thi: 1 cột căn giữa */
+.exam-layout {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* TIÊU ĐỀ PHÂN ĐOẠN */
+.section-title {
+  font-size: var(--fs-h3);
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* LABELS - Đảm bảo luôn là màu tối */
+.dark-label, .dark-text {
+  color: #1a1a1a !important;
+  font-weight: 600;
+  font-size: var(--fs-body);
+  display: block;
+  margin: 8px 0;
+}
+
+.setting-group-dropbox {
+  display: flex;
+  justify-content: space-between; /* Đẩy label sang trái, control sang phải */
+  align-items: center;
+  padding: 4px 0;
+}
+
+/* DROPBOX */
+.custom-select {
+  width: 150px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 2px solid #eee;
+  margin: 4px 0;
+  background-color: #fff;
+  color: #1a1a1a;
+  font-size: var(--fs-body);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+}
+
+/* CHAPTER CARDS */
 .chapter-item-card {
-  width: 100%;
-  height: 68px;
   background: #f8f9fa;
   border: 2px solid #eeeeee;
-  border-radius: 14px;
-  padding: 0 20px;
+  border-radius: 16px;
+  padding: 15px 20px;
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
   cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.chapter-info {
-  width: 100%;
 }
 
 .chap-name {
+  color: #1a1a1a;
   font-size: var(--fs-body);
-  color: #0f0f0f;
-  margin: 0;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
-  line-height: 1.5;
-}
-
-/* HOVER & SELECTED */
-.chapter-item-card:hover:not(.selected) {
-  border-color: #A4161A;
-  background: #A4161A;
 }
 
 .chapter-item-card.selected {
   background: #A4161A;
   border-color: #A4161A;
-  box-shadow: 0 4px 12px rgba(164, 22, 26, 0.25);
 }
 
-.chapter-item-card:hover .chap-name,
 .chapter-item-card.selected .chap-name {
-  color: #ffffff;
+  color: #ffffff; /* Chỉ trắng khi card đỏ */
 }
 
-/* PHẦN TÙY CHỈNH CHẾ ĐỘ */
-.mode-settings {
-  padding: 25px;
+/* CONFIG PANEL */
+.mode-settings-panel {
   background: #fafafa;
+  padding: 30px;
   border-radius: 20px;
   border: 1px solid #f0f0f0;
-  align-self: start;
 }
 
-.setting-item {
+.setting-item-block {
+  margin-top: 12px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.view-mode-selector {
+  display: flex;
+  background: #eee;
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.view-mode-selector button {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: var(--fs-body);
+  cursor: pointer;
+}
+
+.view-mode-selector button.inactive {
+  background: transparent;
+  color: #666;
+}
+
+.view-mode-selector button.active {
+  background: #A4161A;
+  color: #fff;
+}
+
+/* SWITCHES */
+.exam-inputs,
+.switches-container {
+  padding-top: 12px;
+}
+
+.switch-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid #eeeeee;
+  margin: 6px 0;
 }
 
-.setting-item:last-of-type {
-  border-bottom: none;
-}
-
-.setting-item span {
-  color: #0f0f0f;
-  font-size: var(--fs-body);
-  font-weight: 600; /* Đảm bảo chữ option rõ nét */
-}
-
-/* --- TÙY CHỈNH SWITCH (THAY THẾ CHECKBOX) --- */
-.setting-item input[type="checkbox"] {
-  position: relative;
-  min-width: 44px;
+.switch-row input[type="checkbox"] {
+  appearance: none;
+  width: 44px;
   height: 22px;
-  appearance: none; /* Ẩn checkbox mặc định */
   background: #ccc;
   border-radius: 20px;
+  position: relative;
   cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
-  margin: 0;
 }
 
-/* Màu nền khi Switch ON (Đỏ đô) */
-.setting-item input[type="checkbox"]:checked {
+.switch-row input[type="checkbox"]:checked {
   background: #A4161A;
 }
 
-/* Nút tròn (Thumb) của Switch */
-.setting-item input[type="checkbox"]::after {
+.switch-row input[type="checkbox"]::after {
   content: "";
   position: absolute;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
   background: white;
+  border-radius: 50%;
   top: 2px;
   left: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-/* Di chuyển nút tròn khi ON */
-.setting-item input[type="checkbox"]:checked::after {
+.switch-row input[type="checkbox"]:checked::after {
   left: 24px;
 }
 
-.setting-item input[type="number"] {
-    width: 80px;
-    padding: 8px 12px;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    outline: none;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #A4161A; 
-    text-align: center;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
-    -moz-appearance: textfield;
-}
-
-.setting-item input[type="number"]::-webkit-outer-spin-button,
-.setting-item input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.setting-item input[type="number"]:focus {
-    border-color: #A4161A;
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(164, 22, 26, 0.1);
-}
-
-/* --- NÚT BẮT ĐẦU --- */
-.red-btn:disabled {
-  background: #e9ecef;
-  color: #adb5bd;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.red-btn:hover:disabled {
-  background: #e9ecef;
-  color: #adb5bd;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.red-btn:hover:not(:disabled) {
-  background: #A4161A;
-  transform: translateY(-2px);
-}
-
-/* RESPONSIVE - MOBILE CHỐNG TRÀN */
-@media (max-width: 800px) {
-  .setup-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+  .practice-layout {
+    grid-template-columns: 1fr; /* Stack dọc khi màn hình nhỏ */
   }
-
-  .setup-container {
-    padding: 20px;
-    width: 98%;
+  
+  .setup-header-flex {
+    flex-direction: column;
+    gap: 15px;
   }
-
-  .chapter-item-card {
-    height: auto;
-    min-height: 60px;
-    padding: 12px 15px;
-    transform: none !important; /* Tắt scale trên mobile để tránh tràn */
-  }
-
-  .chap-name {
-    white-space: normal;
-    line-height: 1.4;
+  
+  .mode-selector-tabs {
+    width: 100%;
   }
 }

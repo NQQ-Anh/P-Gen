@@ -3,121 +3,197 @@ import { useAuth } from "../contexts/AuthContext";
 import "../styles/ChapterView.css";
 
 const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
+
 export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
   const { token } = useAuth();
   const [chapters, setChapters] = useState([]);
   const [selectedChapters, setSelectedChapters] = useState([]);
+  const [isExamMode, setIsExamMode] = useState(false);
+  
   const [settings, setSettings] = useState({
+    viewMode: 'list',
+    timePerQuestion: 0, 
+    questionCount: 30,
+    totalTime: 45,
     shuffle: false,
     showAnswerImmediately: true,
-    autoNext: false,
-    time: 15
   });
+
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!subject?.id || !token) {
-      return;
-    }
-
+    if (!subject?.id || !token) return;
     const loadChapters = async () => {
       setLoading(true);
-      setError(null);
-
       try {
         const res = await fetch(`${API_URL}/subjects/${subject.id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
-
-        if (!res.ok) {
-          const body = await res.json().catch(() => ({}));
-          throw new Error(body.message || `Lỗi ${res.status}`);
-        }
-
         const data = await res.json();
         setChapters(data.chapters || []);
-      } catch (err) {
-        console.error("Lỗi lấy chương:", err);
-        setError(err.message);
-        setChapters([]);
-      } finally {
-        setLoading(false);
-      }
+      } catch (err) { console.error(err); } 
+      finally { setLoading(false); }
     };
-
     loadChapters();
   }, [subject?.id, token]);
 
-  const handleSelectChapter = (id) => {
-    setSelectedChapters([id]);
-  };
+  const handleStart = () => {
+    // 1. Kiểm tra xem có phiên làm bài nào đang tồn tại không
+    const savedSession = localStorage.getItem('PTIT_QUIZ_SESSION');
 
-  const handleTimeChange = (e) => {
-    const value = parseInt(e.target.value) || 0;
-    setSettings(prev => ({ ...prev, time: value }));
+    if (savedSession) {
+      const sessionData = JSON.parse(savedSession);
+      const isCurrentSubject = sessionData.subject.id === subject.id;
+
+      // 2. Tạo thông báo đồng bộ
+      const msg = isCurrentSubject 
+        ? `Bạn có bài (${sessionData.isExam ? 'Luyện thi' : 'Ôn tập'}) chưa hoàn thành của môn này.\n\n- Nhấn OK để TIẾP TỤC.\n- Nhấn Cancel để BỎ QUA.`
+        : `Bạn đang có bài chưa hoàn thành thuộc môn: ${sessionData.subject?.subject_name}.\n\n- Nhấn OK để TIẾP TỤC.\n- Nhấn Cancel để BỎ QUA.`;
+
+      // 3. Xử lý lựa chọn của người dùng
+      if (window.confirm(msg)) {
+        // TIẾP TỤC: Truyền dữ liệu cũ sang QuestionView
+        onStartQuiz(sessionData.chapterIds, sessionData.settings, sessionData);
+        return;
+      } else {
+        // LÀM MỚI: Xóa sạch phiên cũ trong LocalStorage
+        localStorage.removeItem('PTIT_QUIZ_SESSION');
+        
+        // Nếu là khác môn, ta dừng lại ở đây để người dùng nhấn "Bắt đầu" lần nữa cho môn mới
+        // Hoặc nếu muốn vào luôn môn mới thì xóa dòng 'if' dưới đây
+        if (!isCurrentSubject) return; 
+      }
+    }
+
+    // 4. Logic Bắt đầu bài mới hoàn toàn
+    const finalSettings = { 
+      ...settings, 
+      isExam: isExamMode,
+      // Nếu thi thử thì ép xáo trộn và tắt hiện đáp án ngay
+      shuffle: isExamMode ? true : settings.shuffle,
+      showAnswerImmediately: isExamMode ? false : settings.showAnswerImmediately
+    };
+
+    onStartQuiz(selectedChapters, finalSettings);
   };
 
   return (
     <div className="setup-container">
-      <button className="red-btn" onClick={onBack}>
-        <i class="fa-solid fa-caret-left"></i> Quay lại
-      </button>
-      <h2>Thiết lập ôn luyện: {subject.subject_name}</h2>
+      <div className="setup-header-flex">
+        <button className="red-btn back-btn" onClick={onBack}>
+          <i className="fa-solid fa-caret-left"></i> Quay lại
+        </button>
+        <div className="mode-selector-tabs">
+          <button 
+            className={!isExamMode ? "tab-active" : "tab-inactive"} 
+            onClick={() => setIsExamMode(false)}
+          >Ôn tập</button>
+          <button 
+            className={isExamMode ? "tab-active" : "tab-inactive"} 
+            onClick={() => setIsExamMode(true)}
+          >Luyện thi</button>
+        </div>
+      </div>
+
+      <h2 className="subject-title">{subject.subject_name}</h2>
       
-      <div className="setup-grid">
-        <div className="chapter-selection">
-          <h3>Chọn chương ôn tập</h3>
-          {loading ? (
-            <div className="loading">Đang tải chương...</div>
-          ) : error ? (
-            <div className="error-message">Không tải được chương: {error}</div>
-          ) : chapters.length === 0 ? (
-            <div className="empty-message">Không có chương nào trong môn này.</div>
-          ) : (
-            chapters.map(chap => (
-              <div 
-                key={chap.id} 
-                className={`chapter-item-card ${selectedChapters[0] === chap.id ? 'selected' : ''}`}
-                onClick={() => handleSelectChapter(chap.id)}
-              >
-                <div className="chapter-info">
+      {/* Container sẽ đổi class để handle layout 2 cột hoặc 1 cột */}
+      <div className={`setup-content-grid ${isExamMode ? 'exam-layout' : 'practice-layout'}`}>
+        
+        {!isExamMode && (
+          <div className="chapter-selection">
+            <h3 className="section-title">Danh sách chương</h3>
+            <div className="chapter-list">
+              {loading ? <p className="dark-text">Đang tải...</p> : chapters.map(chap => (
+                <div 
+                  key={chap.id} 
+                  className={`chapter-item-card ${selectedChapters[0] === chap.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedChapters([chap.id])}
+                >
                   <p className="chap-name">{chap.chapter_name}</p>
                 </div>
-              </div>
-            ))
-          )}
-        </div>
+              ))}
+            </div>
+          </div>
+        )}
 
-        <div className="mode-settings">
-          <h3>Tùy chỉnh chế độ</h3>
-          <div className="setting-item">
-            <span>Xáo trộn câu hỏi</span>
-            <input type="checkbox" onChange={(e) => setSettings({...settings, shuffle: e.target.checked})} />
+        <div className="mode-settings-panel">
+          <h3 className="section-title">Cài đặt</h3>
+          
+          <div className="settings-form">
+
+            <div className="setting-item-block">
+              <label className="dark-label">Kiểu hiển thị</label>
+              <div className="view-mode-selector">
+                <button 
+                  className={settings.viewMode === 'list' ? "active" : "inactive"} 
+                  onClick={() => setSettings({...settings, viewMode: 'list'})}
+                >Danh sách</button>
+                <button 
+                  className={settings.viewMode === 'each' ? "active" : "inactive"} 
+                  onClick={() => setSettings({...settings, viewMode: 'each'})}
+                >Từng câu</button>
+              </div>
+            </div>
+
+            {isExamMode && (
+              <div className="exam-inputs">
+                <div className="setting-group-dropbox">
+                  <label className="dark-label">Số lượng câu hỏi</label>
+                  <select 
+                    className="custom-select"
+                    value={settings.questionCount} 
+                    onChange={(e) => setSettings({...settings, questionCount: parseInt(e.target.value)})}
+                  >
+                    {[10, 20, 30, 40, 50, 60].map(num => <option key={num} value={num}>{num} câu</option>)}
+                  </select>
+                </div>
+                <div className="setting-group-dropbox">
+                  <label className="dark-label">Tổng thời gian (phút)</label>
+                  <select 
+                    className="custom-select"
+                    value={settings.totalTime} 
+                    onChange={(e) => setSettings({...settings, totalTime: parseInt(e.target.value)})}
+                  >
+                    {[15, 30, 45, 60, 90, 120].map(t => <option key={t} value={t}>{t} phút</option>)}
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {!isExamMode && (
+              <div className="switches-container">
+                <div className="switch-row">
+                  <span className="dark-label">Xáo trộn câu hỏi</span>
+                  <input type="checkbox" checked={settings.shuffle} onChange={(e) => setSettings({...settings, shuffle: e.target.checked})} />
+                </div>
+                <div className="switch-row">
+                  <span className="dark-label">Hiện đáp án ngay</span>
+                  <input type="checkbox" checked={settings.showAnswerImmediately} onChange={(e) => setSettings({...settings, showAnswerImmediately: e.target.checked})} />
+                </div>
+              </div>
+            )}
           </div>
-          <div className="setting-item">
-            <span>Hiện đáp án ngay</span>
-            <input type="checkbox" checked={settings.showAnswerImmediately} onChange={(e) => setSettings({...settings, showAnswerImmediately: e.target.checked})} />
-          </div>
-          <div className="setting-item">
-            <span>Thời gian (phút)</span>
-            <input 
-              type="number" 
-              value={settings.time} 
-              onChange={handleTimeChange} 
-              min="0"
-            />
-          </div>
+
+          {settings.viewMode === 'each' && !isExamMode && (
+              <div className="setting-group-dropbox">
+                <label className="dark-label">Thời gian mỗi câu</label>
+                <select 
+                  className="custom-select"
+                  value={settings.timePerQuestion} 
+                  onChange={(e) => setSettings({...settings, timePerQuestion: parseInt(e.target.value)})}
+                >
+                  <option value={0}>Không giới hạn</option>
+                  {[10, 20, 30, 60].map(s => <option key={s} value={s}>{s} giây</option>)}
+                </select>
+              </div>
+            )}
           
           <button 
-            className="red-btn"
-            disabled={selectedChapters.length === 0}
-            onClick={() => onStartQuiz(selectedChapters, settings)}
-          >
-            Bắt đầu làm bài
-          </button>
+            className="red-btn start-action-btn"
+            disabled={!isExamMode && selectedChapters.length === 0}
+            onClick={handleStart}
+          >BẮT ĐẦU LÀM BÀI</button>
         </div>
       </div>
     </div>
