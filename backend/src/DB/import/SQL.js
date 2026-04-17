@@ -10,19 +10,19 @@ async function main() {
   const connection = await mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "123456",
+    password: "",
     database: "p_gen",
-    multipleStatements: true // QUAN TRỌNG
+    multipleStatements: true,
   });
 
   const files = [
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/Subjects_and_Chapters_Input.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/AnToanBaoMatHeThongThongTin.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/CoSoDuLieu.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/KinhTeChinhTriMacLenin.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/MangMayTinh.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/PhapLuatDaiCuong.sql",
-    "D:/CODE/Project/P-Gen/P-Gen/backend/srcDB/TuTuongHoChiMinh.sql",
+    "../../../srcDB/Subjects_and_Chapters_Input.sql",
+    "../../../srcDB/AnToanBaoMatHeThongThongTin.sql",
+    "../../../srcDB/CoSoDuLieu.sql",
+    "../../../srcDB/KinhTeChinhTriMacLenin.sql",
+    "../../../srcDB/MangMayTinh.sql",
+    "../../../srcDB/PhapLuatDaiCuong.sql",
+    "../../../srcDB/TuTuongHoChiMinh.sql",
   ];
 
   for (const file of files) {
