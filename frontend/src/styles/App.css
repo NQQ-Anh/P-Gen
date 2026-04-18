@@ -38,6 +38,11 @@ body {
   flex-direction: column;
 }
 
+.admin-standalone-page {
+  min-height: 100vh;
+  padding: 24px 40px;
+}
+
 /* CONTENT */
 
 .content {
@@ -52,4 +57,10 @@ body {
   text-align: center;
   margin-top: 100px;
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .admin-standalone-page {
+    padding: 16px;
+  }
 }

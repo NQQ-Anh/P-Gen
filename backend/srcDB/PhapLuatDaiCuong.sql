@@ -1,7 +1,7 @@
 SET NAMES 'utf8mb4';
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do có sự phân hóa lao động trong xã hội', 0, @last_question_id);
@@ -13,7 +13,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do các thành viên trong xã hội lập ra', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Công xã nguyên thủy', 0, @last_question_id);
@@ -25,7 +25,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Chiếm hữu nô lệ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một tổ chức kinh tế', 0, @last_question_id);
@@ -37,7 +37,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đơn vị độc lập', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là gia đình trong xã hội Cộng sản nguyên thủy', 0, @last_question_id);
@@ -49,7 +49,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổ chức thị tộc gắn liền với nền kinh tế sản xuất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng tự nhiên', 0, @last_question_id);
@@ -61,7 +61,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xuất hiện và tồn tại cùng với sự xuất hiện, tồn tại của lịch sử xã hộiloài người', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Approved', 1, 1, 3);
+VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo', 0, @last_question_id);
@@ -73,7 +73,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc, hội đồng bộ lạc', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết thần học', 1, @last_question_id);
@@ -85,7 +85,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là đơn vị kinh tế đầu tiên của xã hội cộng sản nguyên thủy', 0, @last_question_id);
@@ -97,7 +97,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc tồn tại gắn liền với nền kinh tế tự nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, pháp luật', 0, @last_question_id);
@@ -109,7 +109,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, tín điều tôn giáo', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết thần học', 0, @last_question_id);
@@ -121,7 +121,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Approved', 1, 1, 3);
+VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hai', 0, @last_question_id);
@@ -133,7 +133,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -145,7 +145,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ ba làm cho những mâu thuẫn trong xã hội ngày càng trở nêngay gắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -157,7 +157,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ tư: Nhà nước ra đời', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhận định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc là tổ chức quyền lực cao nhất của thị tộc', 0, @last_question_id);
@@ -169,7 +169,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy là quyền lực xã hội, chưa mang tính giai cấp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa mang tính giai cấp', 0, @last_question_id);
@@ -181,7 +181,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Aristote', 0, @last_question_id);
@@ -193,7 +193,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mác-Lênin', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước ra đời trong điều kiện xã hội có giai cấp và đấu tranh giai cấp', 0, @last_question_id);
@@ -205,7 +205,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước nào cũng chỉ mang bản chất xã hội', 0, @last_question_id);
@@ -217,7 +217,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bất cứ Nhà nước nào cũng đều mang bản chất giai cấp và bản chất xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ bảo vệ lợi ích của nhân dân lao động', 0, @last_question_id);
@@ -229,7 +229,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ sắc bén để duy trì sự thống trị giai cấp', 0, @last_question_id);
@@ -241,7 +241,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là một bộ máy cưỡng chế đặc biệt nằm trong tay giai cấp cầm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước chủ nô', 0, @last_question_id);
@@ -253,7 +253,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước xã hội chủ nghĩa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước có mấy thuộc tính?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước có mấy thuộc tính?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2', 1, @last_question_id);
@@ -265,7 +265,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước thiết lập một quyền lực xã hội', 0, @last_question_id);
@@ -277,7 +277,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước có quyền quản lý mọi mặt đời sống xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước nào cũng có chức năng?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước nào cũng có chức năng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo đảm an ninh chính trị', 0, @last_question_id);
@@ -289,7 +289,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ký kết điều ước quốc tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội và chức năng đối ngoại không liên quan đến nhau', 1, @last_question_id);
@@ -301,7 +301,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội có vai trò quan trọng hơn chức năng đối ngoại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Approved', 1, 1, 3);
+VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản chất Nhà nước', 0, @last_question_id);
@@ -313,7 +313,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 0, @last_question_id);
@@ -325,7 +325,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mối quan hệ của Nhà nước Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Approved', 1, 1, 3);
+VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội của Nhà nước', 1, @last_question_id);
@@ -337,7 +337,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiệm vụ của Nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do ý chí của giai cấp thống trị xã hội', 0, @last_question_id);
@@ -349,7 +349,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sự vận động, phát triển, thay thế các hình thái kinh tế - xã hội mà nhân tố làm nên sựthay thế đó là các cuộc cách mạng xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tương ứng với mỗi hình thái kinh tế - xã hội trong lịch sử thì có một kiểu Nhà nước', 1, @last_question_id);
@@ -361,7 +361,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểu Nhà nước sau bao giờ cũng tiến bộ hơn kiểu Nhà nước trước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước cộng sản nguyên thủy', 0, @last_question_id);
@@ -373,7 +373,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước tư sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ và cộng hòa dân chủ', 0, @last_question_id);
@@ -385,7 +385,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ tuyệt đối và quân chủ tương đối', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng sản nguyên thủy', 0, @last_question_id);
@@ -397,7 +397,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản chủ nghĩa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa tổng thống', 0, @last_question_id);
@@ -409,7 +409,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa dân chủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức kinh tế; chế độ kinh tế - chính trị; cấu trúc lãnh thổ', 0, @last_question_id);
@@ -421,7 +421,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức cấu trúc; hình thức chính thể; chế độ kinh tế - chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
@@ -433,7 +433,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các tổ chức chính trị - xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Chủ nô - Phong kiến - Tư hữu - XHCN', 0, @last_question_id);
@@ -445,7 +445,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Địa chủ - Nông nô, phong kiến - Tư bản - XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chính thể, hình thức cấu trúc Nhà nước và chế độ KT - XH', 0, @last_question_id);
@@ -457,7 +457,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chuyên chính, hình thức cấu trúc Nhà nước và chế độ chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Approved', 1, 1, 3);
+VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng lập pháp', 0, @last_question_id);
@@ -469,7 +469,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng công tố', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lập pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lập pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -481,7 +481,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền hành pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền hành pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -493,7 +493,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền tổ chức thực hiện pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền tư pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền tư pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền xét xử', 0, @last_question_id);
@@ -505,7 +505,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền bảo vệ pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do có sự phân hóa lao động trong xã hội', 0, @last_question_id);
@@ -517,7 +517,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do các thành viên trong xã hội lập ra', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Công xã nguyên thủy', 0, @last_question_id);
@@ -529,7 +529,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Chiếm hữu nô lệ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một tổ chức kinh tế', 0, @last_question_id);
@@ -541,7 +541,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đơn vị độc lập', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là gia đình trong xã hội Cộng sản nguyên thủy', 0, @last_question_id);
@@ -553,7 +553,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổ chức thị tộc gắn liền với nền kinh tế sản xuất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng tự nhiên', 0, @last_question_id);
@@ -565,7 +565,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xuất hiện và tồn tại cùng với sự xuất hiện, tồn tại của lịch sử xã hộiloài người', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Approved', 1, 1, 3);
+VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo', 0, @last_question_id);
@@ -577,7 +577,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc, hội đồng bộ lạc', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết thần học', 1, @last_question_id);
@@ -589,7 +589,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là đơn vị kinh tế đầu tiên của xã hội cộng sản nguyên thủy', 0, @last_question_id);
@@ -601,7 +601,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc tồn tại gắn liền với nền kinh tế tự nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, pháp luật', 0, @last_question_id);
@@ -613,7 +613,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, tín điều tôn giáo', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết thần học', 0, @last_question_id);
@@ -625,7 +625,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Approved', 1, 1, 3);
+VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hai', 0, @last_question_id);
@@ -637,7 +637,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -649,7 +649,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ ba làm cho những mâu thuẫn trong xã hội ngày càng trở nêngay gắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -661,7 +661,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ tư: Nhà nước ra đời', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhận định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc là tổ chức quyền lực cao nhất của thị tộc', 0, @last_question_id);
@@ -673,7 +673,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy là quyền lực xã hội, chưa mang tính giai cấp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa mang tính giai cấp', 0, @last_question_id);
@@ -685,7 +685,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Aristote', 0, @last_question_id);
@@ -697,7 +697,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mác-Lênin', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước ra đời trong điều kiện xã hội có giai cấp và đấu tranh giai cấp', 0, @last_question_id);
@@ -709,7 +709,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước nào cũng chỉ mang bản chất xã hội', 0, @last_question_id);
@@ -721,7 +721,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bất cứ Nhà nước nào cũng đều mang bản chất giai cấp và bản chất xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ bảo vệ lợi ích của nhân dân lao động', 0, @last_question_id);
@@ -733,7 +733,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ sắc bén để duy trì sự thống trị giai cấp', 0, @last_question_id);
@@ -745,7 +745,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là một bộ máy cưỡng chế đặc biệt nằm trong tay giai cấp cầm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước chủ nô', 0, @last_question_id);
@@ -757,7 +757,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước xã hội chủ nghĩa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước có mấy thuộc tính?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước có mấy thuộc tính?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2', 1, @last_question_id);
@@ -769,7 +769,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước thiết lập một quyền lực xã hội', 0, @last_question_id);
@@ -781,7 +781,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước có quyền quản lý mọi mặt đời sống xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước nào cũng có chức năng?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước nào cũng có chức năng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo đảm an ninh chính trị', 0, @last_question_id);
@@ -793,7 +793,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ký kết điều ước quốc tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội và chức năng đối ngoại không liên quan đến nhau', 1, @last_question_id);
@@ -805,7 +805,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội có vai trò quan trọng hơn chức năng đối ngoại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Approved', 1, 1, 3);
+VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản chất Nhà nước', 0, @last_question_id);
@@ -817,7 +817,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 0, @last_question_id);
@@ -829,7 +829,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mối quan hệ của Nhà nước Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Approved', 1, 1, 3);
+VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội của Nhà nước', 1, @last_question_id);
@@ -841,7 +841,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiệm vụ của Nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do ý chí của giai cấp thống trị xã hội', 0, @last_question_id);
@@ -853,7 +853,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sự vận động, phát triển, thay thế các hình thái kinh tế - xã hội mà nhân tố làm nên sựthay thế đó là các cuộc cách mạng xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tương ứng với mỗi hình thái kinh tế - xã hội trong lịch sử thì có một kiểu Nhà nước', 1, @last_question_id);
@@ -865,7 +865,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểu Nhà nước sau bao giờ cũng tiến bộ hơn kiểu Nhà nước trước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước cộng sản nguyên thủy', 0, @last_question_id);
@@ -877,7 +877,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước tư sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ và cộng hòa dân chủ', 0, @last_question_id);
@@ -889,7 +889,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ tuyệt đối và quân chủ tương đối', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng sản nguyên thủy', 0, @last_question_id);
@@ -901,7 +901,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản chủ nghĩa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa tổng thống', 0, @last_question_id);
@@ -913,7 +913,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa dân chủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức kinh tế; chế độ kinh tế - chính trị; cấu trúc lãnh thổ', 0, @last_question_id);
@@ -925,7 +925,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức cấu trúc; hình thức chính thể; chế độ kinh tế - chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
@@ -937,7 +937,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các tổ chức chính trị - xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Chủ nô - Phong kiến - Tư hữu - XHCN', 0, @last_question_id);
@@ -949,7 +949,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Địa chủ - Nông nô, phong kiến - Tư bản - XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chính thể, hình thức cấu trúc Nhà nước và chế độ KT - XH', 0, @last_question_id);
@@ -961,7 +961,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chuyên chính, hình thức cấu trúc Nhà nước và chế độ chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Approved', 1, 1, 3);
+VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng lập pháp', 0, @last_question_id);
@@ -973,7 +973,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng công tố', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lập pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lập pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -985,7 +985,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền hành pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền hành pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -997,7 +997,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền tổ chức thực hiện pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền tư pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền tư pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền xét xử', 0, @last_question_id);
@@ -1009,7 +1009,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền bảo vệ pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhànước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do có sự phân hóa lao động trong xã hội', 0, @last_question_id);
@@ -1021,7 +1021,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do các thành viên trong xã hội lập ra', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Công xã nguyên thủy', 0, @last_question_id);
@@ -1033,7 +1033,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Chiếm hữu nô lệ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một tổ chức kinh tế', 0, @last_question_id);
@@ -1045,7 +1045,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đơn vị độc lập', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là gia đình trong xã hội Cộng sản nguyên thủy', 0, @last_question_id);
@@ -1057,7 +1057,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổ chức thị tộc gắn liền với nền kinh tế sản xuất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng tự nhiên', 0, @last_question_id);
@@ -1069,7 +1069,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xuất hiện và tồn tại cùng với sự xuất hiện, tồn tại của lịch sử xã hộiloài người', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Approved', 1, 1, 3);
+VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo', 0, @last_question_id);
@@ -1081,7 +1081,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc, hội đồng bộ lạc', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết thần học', 1, @last_question_id);
@@ -1093,7 +1093,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là đơn vị kinh tế đầu tiên của xã hội cộng sản nguyên thủy', 0, @last_question_id);
@@ -1105,7 +1105,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc tồn tại gắn liền với nền kinh tế tự nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, pháp luật', 0, @last_question_id);
@@ -1117,7 +1117,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, tín điều tôn giáo', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết thần học', 0, @last_question_id);
@@ -1129,7 +1129,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Approved', 1, 1, 3);
+VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hai', 0, @last_question_id);
@@ -1141,7 +1141,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -1153,7 +1153,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ ba làm cho những mâu thuẫn trong xã hội ngày càng trở nêngay gắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -1165,7 +1165,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ tư: Nhà nước ra đời', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhận định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc là tổ chức quyền lực cao nhất của thị tộc', 0, @last_question_id);
@@ -1177,7 +1177,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy là quyền lực xã hội, chưa mang tính giai cấp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa mang tính giai cấp', 0, @last_question_id);
@@ -1189,7 +1189,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Aristote', 0, @last_question_id);
@@ -1201,7 +1201,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mác-Lênin', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước ra đời trong điều kiện xã hội có giai cấp và đấu tranh giai cấp', 0, @last_question_id);
@@ -1213,7 +1213,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước nào cũng chỉ mang bản chất xã hội', 0, @last_question_id);
@@ -1225,7 +1225,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bất cứ Nhà nước nào cũng đều mang bản chất giai cấp và bản chất xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ bảo vệ lợi ích của nhân dân lao động', 0, @last_question_id);
@@ -1237,7 +1237,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ sắc bén để duy trì sự thống trị giai cấp', 0, @last_question_id);
@@ -1249,7 +1249,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là một bộ máy cưỡng chế đặc biệt nằm trong tay giai cấp cầm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước chủ nô', 0, @last_question_id);
@@ -1261,7 +1261,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước xã hội chủ nghĩa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước có mấy thuộc tính?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước có mấy thuộc tính?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2', 1, @last_question_id);
@@ -1273,7 +1273,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước thiết lập một quyền lực xã hội', 0, @last_question_id);
@@ -1285,7 +1285,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước có quyền quản lý mọi mặt đời sống xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước nào cũng có chức năng?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước nào cũng có chức năng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo đảm an ninh chính trị', 0, @last_question_id);
@@ -1297,7 +1297,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ký kết điều ước quốc tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội và chức năng đối ngoại không liên quan đến nhau', 1, @last_question_id);
@@ -1309,7 +1309,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội có vai trò quan trọng hơn chức năng đối ngoại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Approved', 1, 1, 3);
+VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản chất Nhà nước', 0, @last_question_id);
@@ -1321,7 +1321,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 0, @last_question_id);
@@ -1333,7 +1333,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mối quan hệ của Nhà nước Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Approved', 1, 1, 3);
+VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội của Nhà nước', 1, @last_question_id);
@@ -1345,7 +1345,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiệm vụ của Nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do ý chí của giai cấp thống trị xã hội', 0, @last_question_id);
@@ -1357,7 +1357,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sự vận động, phát triển, thay thế các hình thái kinh tế - xã hội mà nhân tố làm nên sựthay thế đó là các cuộc cách mạng xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tương ứng với mỗi hình thái kinh tế - xã hội trong lịch sử thì có một kiểu Nhà nước', 1, @last_question_id);
@@ -1369,7 +1369,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểu Nhà nước sau bao giờ cũng tiến bộ hơn kiểu Nhà nước trước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước cộng sản nguyên thủy', 0, @last_question_id);
@@ -1381,7 +1381,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước tư sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ và cộng hòa dân chủ', 0, @last_question_id);
@@ -1393,7 +1393,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ tuyệt đối và quân chủ tương đối', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng sản nguyên thủy', 0, @last_question_id);
@@ -1405,7 +1405,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản chủ nghĩa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa tổng thống', 0, @last_question_id);
@@ -1417,7 +1417,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa dân chủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức kinh tế; chế độ kinh tế - chính trị; cấu trúc lãnh thổ', 0, @last_question_id);
@@ -1429,7 +1429,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức cấu trúc; hình thức chính thể; chế độ kinh tế - chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
@@ -1441,7 +1441,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các tổ chức chính trị - xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Chủ nô - Phong kiến - Tư hữu - XHCN', 0, @last_question_id);
@@ -1453,7 +1453,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Địa chủ - Nông nô, phong kiến - Tư bản - XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chính thể, hình thức cấu trúc Nhà nước và chế độ KT - XH', 0, @last_question_id);
@@ -1465,7 +1465,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chuyên chính, hình thức cấu trúc Nhà nước và chế độ chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Approved', 1, 1, 3);
+VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng lập pháp', 0, @last_question_id);
@@ -1477,7 +1477,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng công tố', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lập pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lập pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -1489,7 +1489,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền hành pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền hành pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -1501,7 +1501,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền tổ chức thực hiện pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền tư pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền tư pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền xét xử', 0, @last_question_id);
@@ -1513,7 +1513,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền bảo vệ pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhà nước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân chủ yếu làm xuất hiện Nhà nước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do có sự phân hóa lao động trong xã hội', 0, @last_question_id);
@@ -1525,7 +1525,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do các thành viên trong xã hội lập ra', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Công xã nguyên thủy', 0, @last_question_id);
@@ -1537,7 +1537,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thái kinh tế - xã hội Chiếm hữu nô lệ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một tổ chức kinh tế', 0, @last_question_id);
@@ -1549,7 +1549,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một đơn vị độc lập', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là gia đình trong xã hội Cộng sản nguyên thủy', 0, @last_question_id);
@@ -1561,7 +1561,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổ chức thị tộc gắn liền với nền kinh tế sản xuất', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Approved', 1, 1, 3);
+VALUES ('Theo quan điểm của chủ nghĩa Mác-Lênin về Nhà nước thì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng tự nhiên', 0, @last_question_id);
@@ -1573,7 +1573,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xuất hiện và tồn tại cùng với sự xuất hiện, tồn tại của lịch sử xã hộiloài người', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Approved', 1, 1, 3);
+VALUES ('Dân cư trong xã hội cộng sản nguyên thủy được phân bố theo?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn giáo', 0, @last_question_id);
@@ -1585,7 +1585,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc, hội đồng bộ lạc', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnhcửu, đó là quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết thần học', 1, @last_question_id);
@@ -1597,7 +1597,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về tổ chức thị tộc thì khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc là đơn vị kinh tế đầu tiên của xã hội cộng sản nguyên thủy', 0, @last_question_id);
@@ -1609,7 +1609,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thị tộc tồn tại gắn liền với nền kinh tế tự nhiên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Approved', 1, 1, 3);
+VALUES ('Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, pháp luật', 0, @last_question_id);
@@ -1621,7 +1621,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạo đức, tập quán, tín điều tôn giáo', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coilà tiến bộ nhất?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết thần học', 0, @last_question_id);
@@ -1633,7 +1633,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan điểm của những nhà nghiên cứu theo thuyết bạo lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Approved', 1, 1, 3);
+VALUES ('C.Mác và Ăngghen đã khái quát hóa quá trình tồn tại, phát triển, thay đổi của xã hộiloài người trải qua..... lần phân công lao động?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hai', 0, @last_question_id);
@@ -1645,7 +1645,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -1657,7 +1657,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ ba làm cho những mâu thuẫn trong xã hội ngày càng trở nêngay gắt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sauđây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời', 0, @last_question_id);
@@ -1669,7 +1669,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lần phân công lao động thứ tư: Nhà nước ra đời', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhận định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhận định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng thị tộc là tổ chức quyền lực cao nhất của thị tộc', 0, @last_question_id);
@@ -1681,7 +1681,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy là quyền lực xã hội, chưa mang tính giai cấp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa mang tính giai cấp', 0, @last_question_id);
@@ -1693,7 +1693,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử, đây là khẳng định về nguồn gốc Nhànước theo quan điểm của?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Aristote', 0, @last_question_id);
@@ -1705,7 +1705,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mác-Lênin', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước ra đời trong điều kiện xã hội có giai cấp và đấu tranh giai cấp', 0, @last_question_id);
@@ -1717,7 +1717,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là hiện tượng xã hội mang tính lịch sử', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước nào cũng chỉ mang bản chất xã hội', 0, @last_question_id);
@@ -1729,7 +1729,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bất cứ Nhà nước nào cũng đều mang bản chất giai cấp và bản chất xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất giai cấp của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ bảo vệ lợi ích của nhân dân lao động', 0, @last_question_id);
@@ -1741,7 +1741,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Bản chất xã hội của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là công cụ sắc bén để duy trì sự thống trị giai cấp', 0, @last_question_id);
@@ -1753,7 +1753,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước là một bộ máy cưỡng chế đặc biệt nằm trong tay giai cấp cầm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Approved', 1, 1, 3);
+VALUES ('Với bản chất là chuyên chính vô sản, “nó” không còn là Nhà nước theo đúng nghĩanữa mà chỉ còn là “một nửa Nhà nước” - “nó” đó là Nhà nước?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước chủ nô', 0, @last_question_id);
@@ -1765,7 +1765,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước xã hội chủ nghĩa', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước có mấy thuộc tính?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước có mấy thuộc tính?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2', 1, @last_question_id);
@@ -1777,7 +1777,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Thuộc tính của Nhà nước được thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước thiết lập một quyền lực xã hội', 0, @last_question_id);
@@ -1789,7 +1789,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước có quyền quản lý mọi mặt đời sống xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước nào cũng có chức năng?', '', 'Approved', 1, 1, 3);
+VALUES ('Nhà nước nào cũng có chức năng?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bảo đảm an ninh chính trị', 0, @last_question_id);
@@ -1801,7 +1801,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ký kết điều ước quốc tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Đề cập về mối quan hệ giữa các chức năng của Nhà nước, thì khẳng định nào sau đâylà sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội và chức năng đối ngoại không liên quan đến nhau', 1, @last_question_id);
@@ -1813,7 +1813,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội có vai trò quan trọng hơn chức năng đối ngoại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Approved', 1, 1, 3);
+VALUES ('Đối nội và đối ngoại là những mặt hoạt động chủ yếu của Nhà nước, đó chính là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản chất Nhà nước', 0, @last_question_id);
@@ -1825,7 +1825,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Approved', 1, 1, 3);
+VALUES ('Việt Nam phối hợp với lực lượng an ninh các quốc gia trong khu vực giải quyết vấnđề tội phạm xuyên quốc gia, đây là hoạt động thể hiện?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng của Nhà nước', 0, @last_question_id);
@@ -1837,7 +1837,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mối quan hệ của Nhà nước Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Approved', 1, 1, 3);
+VALUES ('Đẩy mạnh cải cách thủ tục hành chính, tăng cường hiệu quả hoạt động của bộ máyNhà nước, đặc biệt trong giai đoạn hiện nay là nội dung thuộc về?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng đối nội của Nhà nước', 1, @last_question_id);
@@ -1849,7 +1849,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiệm vụ của Nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Nguyên nhân dẫn đến sự thay thế các kiểu Nhà nước trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do ý chí của giai cấp thống trị xã hội', 0, @last_question_id);
@@ -1861,7 +1861,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do sự vận động, phát triển, thay thế các hình thái kinh tế - xã hội mà nhân tố làm nên sựthay thế đó là các cuộc cách mạng xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Approved', 1, 1, 3);
+VALUES ('Khi nghiên cứu về các kiểu Nhà nước trong lịch sử, khẳng định nào sau đây là sai?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tương ứng với mỗi hình thái kinh tế - xã hội trong lịch sử thì có một kiểu Nhà nước', 1, @last_question_id);
@@ -1873,7 +1873,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểu Nhà nước sau bao giờ cũng tiến bộ hơn kiểu Nhà nước trước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Approved', 1, 1, 3);
+VALUES ('Kiểu Nhà nước đầu tiên trong lịch sử là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước cộng sản nguyên thủy', 0, @last_question_id);
@@ -1885,7 +1885,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước tư sản', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể của Nhà nước bao gồm các loại?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ và cộng hòa dân chủ', 0, @last_question_id);
@@ -1897,7 +1897,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính thể quân chủ tuyệt đối và quân chủ tương đối', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Approved', 1, 1, 3);
+VALUES ('Chính thể quân chủ tuyệt đối thường xuất hiện ở chế độ xã hội nào?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng sản nguyên thủy', 0, @last_question_id);
@@ -1909,7 +1909,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tư bản chủ nghĩa', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức chính thể nào là phổ biến trên thế giới?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa tổng thống', 0, @last_question_id);
@@ -1921,7 +1921,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cộng hòa dân chủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước được tạo thành từ các yếu tố?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức kinh tế; chế độ kinh tế - chính trị; cấu trúc lãnh thổ', 0, @last_question_id);
@@ -1933,7 +1933,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình thức cấu trúc; hình thức chính thể; chế độ kinh tế - chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Approved', 1, 1, 3);
+VALUES ('Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
@@ -1945,7 +1945,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các tổ chức chính trị - xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Approved', 1, 1, 3);
+VALUES ('Lịch sử xã hội loài người đã tồn tại..... kiểu Nhà nước, bao gồm các kiểu Nhà nước là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Chủ nô - Phong kiến - Tư hữu - XHCN', 0, @last_question_id);
@@ -1957,7 +1957,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4: Địa chủ - Nông nô, phong kiến - Tư bản - XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Approved', 1, 1, 3);
+VALUES ('Hình thức Nhà nước là cách tổ chức bộ máy quyền lực Nhà nước và phương phápthực hiện quyền lực Nhà nước. Hình thức Nhà nước được thể hiện chủ yếu ở..... khíacạnh; đó là......?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chính thể, hình thức cấu trúc Nhà nước và chế độ KT - XH', 0, @last_question_id);
@@ -1969,7 +1969,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 - hình thức chuyên chính, hình thức cấu trúc Nhà nước và chế độ chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Approved', 1, 1, 3);
+VALUES ('Chức năng nào dưới đây không phải là chức năng chính của Quốc hội?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng lập pháp', 0, @last_question_id);
@@ -1981,7 +1981,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chức năng công tố', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền lập pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền lập pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -1993,7 +1993,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền hành pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền hành pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền ban hành và triển khai thực hiện pháp luật', 0, @last_question_id);
@@ -2005,7 +2005,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền tổ chức thực hiện pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyền tư pháp được hiểu là?', '', 'Approved', 1, 1, 3);
+VALUES ('Quyền tư pháp được hiểu là?', '', 'Active', 1, 1, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền xét xử', 0, @last_question_id);
@@ -2017,7 +2017,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền bảo vệ pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đạo luật nào dưới đây quy định một cách cơ bản về chế độ chính trị, chế độ kinh tế, văn hóa, xã hội và tổ chức bộ máy nhà nước:', '', 'Approved', 1, 2, 3);
+VALUES ('Đạo luật nào dưới đây quy định một cách cơ bản về chế độ chính trị, chế độ kinh tế, văn hóa, xã hội và tổ chức bộ máy nhà nước:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luật tổ chức Quốc hội', 0, @last_question_id);
@@ -2029,7 +2029,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thuộc tính nào là thuộc tính pháp luật:', '', 'Approved', 1, 2, 3);
+VALUES ('Thuộc tính nào là thuộc tính pháp luật:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tính bắt buộc chung (hay tính quy phạm phổ biến)', 0, @last_question_id);
@@ -2041,7 +2041,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước và pháp luật là hai hiện tượng xã hội thuộc:', '', 'Approved', 1, 2, 3);
+VALUES ('Nhà nước và pháp luật là hai hiện tượng xã hội thuộc:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cơ sở hạ tầng.', 0, @last_question_id);
@@ -2053,7 +2053,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lực lượng sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước và pháp luật là hai hiện tượng xã hội thuộc:', '', 'Approved', 1, 2, 3);
+VALUES ('Nhà nước và pháp luật là hai hiện tượng xã hội thuộc:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cơ sở hạ tầng.', 0, @last_question_id);
@@ -2065,7 +2065,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lực lượng sản xuất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng:', '', 'Approved', 1, 2, 3);
+VALUES ('Khẳng định nào sau đây là đúng:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ có Nhà nước mới có quyền ban hành pháp luật để quản lý xã hội', 0, @last_question_id);
@@ -2077,7 +2077,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào đúng:', '', 'Approved', 1, 2, 3);
+VALUES ('Khẳng định nào đúng:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật có tính bắt buộc chung.', 1, @last_question_id);
@@ -2089,7 +2089,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một Quy phạm pháp luật phải có ít nhất bao nhiêu bộ phận:', '', 'Approved', 1, 2, 3);
+VALUES ('Trong một Quy phạm pháp luật phải có ít nhất bao nhiêu bộ phận:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luôn có đầy đủ cả ba bộ phận', 0, @last_question_id);
@@ -2101,7 +2101,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật là cách xử sự do nhà nước quy định để:', '', 'Approved', 1, 2, 3);
+VALUES ('Quy phạm pháp luật là cách xử sự do nhà nước quy định để:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Áp dụng trong một hoàn cảnh cụ thể', 0, @last_question_id);
@@ -2113,7 +2113,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hoạt động áp dụng tương tự quy phạm là:', '', 'Approved', 1, 2, 3);
+VALUES ('Hoạt động áp dụng tương tự quy phạm là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi không có Quy phạm pháp luật áp dụng cho trường hợp đó', 0, @last_question_id);
@@ -2125,7 +2125,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi không có Quy phạm pháp luật áp dụng cho trường hợp đó nhưng có Quy phạm pháp luật áp dụng cho trường hợp tương tự', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản pháp luật nào do Ủy ban Thường vụ Quốc hội ban hành:', '', 'Approved', 1, 2, 3);
+VALUES ('Văn bản pháp luật nào do Ủy ban Thường vụ Quốc hội ban hành:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luật, nghị quyết', 0, @last_question_id);
@@ -2137,7 +2137,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp lệnh, nghị quyết, nghị định', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('UBND các cấp có quyền ban hành những loại Quy phạm pháp luật nào:', '', 'Approved', 1, 2, 3);
+VALUES ('UBND các cấp có quyền ban hành những loại Quy phạm pháp luật nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định, thông tư', 0, @last_question_id);
@@ -2149,7 +2149,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị định, nghị quyết, quyết định', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan có quyền ban hành Hiến pháp và luật là:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan có quyền ban hành Hiến pháp và luật là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 1, @last_question_id);
@@ -2161,7 +2161,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính phủ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một Văn bản QPPL chấm dứt hiệu lực trong những trường hợp nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Một Văn bản QPPL chấm dứt hiệu lực trong những trường hợp nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ban hành mới Văn bản QPPL', 0, @last_question_id);
@@ -2173,7 +2173,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ban hành mới, sửa đổi, bổ sung các Văn bản QPPL', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hội đồng nhân dân các cấp có quyền ban hành loại Văn bản pháp luật nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Hội đồng nhân dân các cấp có quyền ban hành loại Văn bản pháp luật nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết', 1, @last_question_id);
@@ -2185,7 +2185,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết, nghị định, quyết định', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản nào có hiệu lực cao nhất trong trong số các loại văn bản sau:', '', 'Approved', 1, 2, 3);
+VALUES ('Văn bản nào có hiệu lực cao nhất trong trong số các loại văn bản sau:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định', 0, @last_question_id);
@@ -2197,7 +2197,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ thị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm của Quy phạm pháp luật khác so với quy phạm xã hội.', '', 'Approved', 1, 2, 3);
+VALUES ('Đặc điểm của Quy phạm pháp luật khác so với quy phạm xã hội.', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thể hiện ý chí của giai cấp thống trị', 0, @last_question_id);
@@ -2209,7 +2209,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chế tài của một Quy phạm pháp luật là:', '', 'Approved', 1, 2, 3);
+VALUES ('Chế tài của một Quy phạm pháp luật là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình phạt nghiêm khắc của nhà nước đối với người có hành vi vi phạm pháp luật.', 0, @last_question_id);
@@ -2221,7 +2221,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều sai.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Loại nguồn được công nhận trong Hệ thống pháp luật Việt Nam:', '', 'Approved', 1, 2, 3);
+VALUES ('Loại nguồn được công nhận trong Hệ thống pháp luật Việt Nam:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Văn bản quy phạm pháp luật', 0, @last_question_id);
@@ -2233,7 +2233,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản nào sau đây là văn bản quy phạm pháp luật:', '', 'Approved', 1, 2, 3);
+VALUES ('Văn bản nào sau đây là văn bản quy phạm pháp luật:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định của Tổng kiểm toán Nhà nước', 1, @last_question_id);
@@ -2245,7 +2245,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản Quy phạm pháp luật nào do Bộ trưởng ban hành:', '', 'Approved', 1, 2, 3);
+VALUES ('Văn bản Quy phạm pháp luật nào do Bộ trưởng ban hành:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị định', 0, @last_question_id);
@@ -2257,7 +2257,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thông tư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việc hạn chế Năng lực hành vi của cá nhân do cơ quan nào có thẩm quyết tuyên:', '', 'Approved', 1, 2, 3);
+VALUES ('Việc hạn chế Năng lực hành vi của cá nhân do cơ quan nào có thẩm quyết tuyên:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Viện kiểm sát nhân dân', 0, @last_question_id);
@@ -2269,7 +2269,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những yếu tố nào sau đây là thành phần của Quan hệ pháp luật:', '', 'Approved', 1, 2, 3);
+VALUES ('Những yếu tố nào sau đây là thành phần của Quan hệ pháp luật:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, mặt chủ quan, mặt khách quan', 0, @last_question_id);
@@ -2281,7 +2281,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, nội dung, sự kiện pháp lý', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quy định của Hệ thống Pháp luật Việt nam thì:', '', 'Approved', 1, 2, 3);
+VALUES ('Theo quy định của Hệ thống Pháp luật Việt nam thì:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực pháp luật của cá nhân là giống nhau', 1, @last_question_id);
@@ -2293,7 +2293,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng về Quan hệ pháp luật (QHPL)', '', 'Approved', 1, 2, 3);
+VALUES ('Khẳng định nào sau đây là đúng về Quan hệ pháp luật (QHPL)', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể QHPL là chủ thể có năng lực pháp luật', 1, @last_question_id);
@@ -2305,7 +2305,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Điều kiện để làm phát sinh, thay đổi hay chấm dứt một Quan hệ pháp luật:', '', 'Approved', 1, 2, 3);
+VALUES ('Điều kiện để làm phát sinh, thay đổi hay chấm dứt một Quan hệ pháp luật:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi có Quan hệ pháp luật điều chỉnh QHXH tương ứng', 0, @last_question_id);
@@ -2317,7 +2317,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật hình thành do:', '', 'Approved', 1, 2, 3);
+VALUES ('Quan hệ pháp luật hình thành do:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ý chí của cá nhân kinh doanh', 0, @last_question_id);
@@ -2329,7 +2329,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ý chí của tổ chức xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực pháp luật xuất hiện ở cá nhân khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực pháp luật xuất hiện ở cá nhân khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có khả năng nhận thức', 0, @last_question_id);
@@ -2341,7 +2341,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạt đến độ tuổi nhất định và có khả năng nhận thức, khả năng điều khiển hành vi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực hành vi xuất hiện ở cá nhân khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực hành vi xuất hiện ở cá nhân khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có khả năng nhận thức', 0, @last_question_id);
@@ -2353,7 +2353,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạt đến độ tuổi nhất định và có khả năng nhận thức, khả năng điều khiển hành vi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực hành vi của pháp nhân xuất hiện khi nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực hành vi của pháp nhân xuất hiện khi nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi được cấp con dấu', 0, @last_question_id);
@@ -2365,7 +2365,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Sự biến pháp lý được hiểu là:', '', 'Approved', 1, 2, 3);
+VALUES ('Sự biến pháp lý được hiểu là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không phản ánh ý chí của con người', 0, @last_question_id);
@@ -2377,7 +2377,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự kiện xảy ra không phụ thuộc vào ý chí của con người và đựơc pháp luật quy định', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực hành vi dân sự của cá nhân chưa đầy đủ khi cá nhân đó:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực hành vi dân sự của cá nhân chưa đầy đủ khi cá nhân đó:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không có khả năng nhận thức', 0, @last_question_id);
@@ -2389,7 +2389,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cá nhân không có năng lực hành vi dân sự khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Cá nhân không có năng lực hành vi dân sự khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghiện rượu', 0, @last_question_id);
@@ -2401,7 +2401,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa đủ 6 tuổi', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực hành vi là:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực hành vi là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng của chủ thể có được các quyền chủ thể và mang các nghĩa vụ pháp lý mà nhà nước thừa nhận.', 0, @last_question_id);
@@ -2413,7 +2413,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một quan hệ pháp luật có bao nhiêu yếu tố cấu thành', '', 'Approved', 1, 2, 3);
+VALUES ('Một quan hệ pháp luật có bao nhiêu yếu tố cấu thành', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('3 yếu tố', 1, @last_question_id);
@@ -2423,7 +2423,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('7 yếu tố', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những nội dung nào sau đây là yếu tố cấu thành một quan hệ pháp luật', '', 'Approved', 1, 2, 3);
+VALUES ('Những nội dung nào sau đây là yếu tố cấu thành một quan hệ pháp luật', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, nội dung, sự kiện pháp lý', 1, @last_question_id);
@@ -2435,7 +2435,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, mặt chủ quan', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức trách nhiệm pháp lý nghiêm khắc nhất theo quy định của pháp luật Việt Nam là:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình thức trách nhiệm pháp lý nghiêm khắc nhất theo quy định của pháp luật Việt Nam là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm hành chính', 0, @last_question_id);
@@ -2447,7 +2447,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm kỹ luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu thành của một vi phạm pháp luật bao gồm:', '', 'Approved', 1, 2, 3);
+VALUES ('Cấu thành của một vi phạm pháp luật bao gồm:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, mặt chủ quan, mặt khách quan', 1, @last_question_id);
@@ -2459,7 +2459,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, nội dung, sự kiện pháp lý', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung nào không liên quan đến mối quan hệ nhân quả giữa Vi phạm pháp luật và sự thiệt hại thực tế của xã hội', '', 'Approved', 1, 2, 3);
+VALUES ('Nội dung nào không liên quan đến mối quan hệ nhân quả giữa Vi phạm pháp luật và sự thiệt hại thực tế của xã hội', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi trái pháp luật là nguyên nhân trực tiếp', 0, @last_question_id);
@@ -2471,7 +2471,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi xảy ra trước sự thiệt hại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của trách nhiệm pháp lý thể hiện:', '', 'Approved', 1, 2, 3);
+VALUES ('Nội dung của trách nhiệm pháp lý thể hiện:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền và nghĩa vụ của các chủ thể tham gia.', 0, @last_question_id);
@@ -2483,7 +2483,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việc chủ thể vi phạm pháp luật có nghĩa vụ gánh chịu hậu quả bất lợi', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực pháp luật của pháp nhân chấm dứt khi nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Năng lực pháp luật của pháp nhân chấm dứt khi nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không hoàn thành nghĩa vụ theo hợp đồng', 0, @last_question_id);
@@ -2495,7 +2495,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan thực hiện chức năng thực hành quyền công tố và kiểm sát các hoạt động tư pháp:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan thực hiện chức năng thực hành quyền công tố và kiểm sát các hoạt động tư pháp:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội', 0, @last_question_id);
@@ -2507,7 +2507,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cơ quan Viện kiểm sát', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo Hiến pháp Việt Nam 2013, thì:', '', 'Approved', 1, 2, 3);
+VALUES ('Theo Hiến pháp Việt Nam 2013, thì:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân, tổ chức, hộ gia đình, tổ hợp tác chỉ có quyền sử dụng đối với đất đai', 1, @last_question_id);
@@ -2519,7 +2519,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân, tổ chức, hộ gia đình, tổ hợp tác vừa có quyền sử dụng, vừa có quyền chiếm hữu và định đoạt đối với đất đai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ngành luật nào không phải là ngành luật trong Hệ thống pháp luật Việt Nam:', '', 'Approved', 1, 2, 3);
+VALUES ('Ngành luật nào không phải là ngành luật trong Hệ thống pháp luật Việt Nam:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật đất đai', 0, @last_question_id);
@@ -2531,7 +2531,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật đầu tư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ngành luật nào không phải là ngành luật trong Hệ thống pháp luật Việt Nam:', '', 'Approved', 1, 2, 3);
+VALUES ('Ngành luật nào không phải là ngành luật trong Hệ thống pháp luật Việt Nam:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật kinh tế', 0, @last_question_id);
@@ -2543,7 +2543,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật cạnh tranh', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chế định “Văn hóa, giáo dục, khoa học, công nghệ” do ngành luật nào điều chỉnh:', '', 'Approved', 1, 2, 3);
+VALUES ('Chế định “Văn hóa, giáo dục, khoa học, công nghệ” do ngành luật nào điều chỉnh:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật hành chính', 0, @last_question_id);
@@ -2555,7 +2555,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật nhà nước', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chế định “Giao dịch dân sự” do ngành luật nào điều chỉnh:', '', 'Approved', 1, 2, 3);
+VALUES ('Chế định “Giao dịch dân sự” do ngành luật nào điều chỉnh:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật kinh tế', 0, @last_question_id);
@@ -2567,7 +2567,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật dân sự', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ tịch nước CHXHCN Việt Nam đã tổ chức cuộc họp báo về việc ban hành ……………, công bố các luật đã được thông qua tại kỳ họp thứ 3 Quốc hội khóa XII.', '', 'Approved', 1, 2, 3);
+VALUES ('Chủ tịch nước CHXHCN Việt Nam đã tổ chức cuộc họp báo về việc ban hành ……………, công bố các luật đã được thông qua tại kỳ họp thứ 3 Quốc hội khóa XII.', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lệnh', 0, @last_question_id);
@@ -2579,7 +2579,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công dân có quyền ứng cửa vào Quốc Hội và Hội đồng nhân dân theo quy định của pháp luật khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Công dân có quyền ứng cửa vào Quốc Hội và Hội đồng nhân dân theo quy định của pháp luật khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ 21 tuổi trở lên', 1, @last_question_id);
@@ -2591,7 +2591,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ 18 tuổi trở lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ máy quản lý hành chính của Nhà nước CHXHCN Việt Nam hiện nay có bao nhiêu bộ:', '', 'Approved', 1, 2, 3);
+VALUES ('Bộ máy quản lý hành chính của Nhà nước CHXHCN Việt Nam hiện nay có bao nhiêu bộ:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('16 Bộ', 0, @last_question_id);
@@ -2603,7 +2603,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('15 Bộ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ máy quản lý hành chính của Nhà nước CHXHCN Việt Nam hiện nay có bao nhiêu cơ quan ngang bộ:', '', 'Approved', 1, 2, 3);
+VALUES ('Bộ máy quản lý hành chính của Nhà nước CHXHCN Việt Nam hiện nay có bao nhiêu cơ quan ngang bộ:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2 cơ quan', 0, @last_question_id);
@@ -2615,7 +2615,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5 cơ quan', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan nào sau đây là cơ quan ngang bộ:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan nào sau đây là cơ quan ngang bộ:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ tư pháp', 0, @last_question_id);
@@ -2627,7 +2627,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tập đoàn Than khoáng sản Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan nào sau đây là cơ quan ngang bộ:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan nào sau đây là cơ quan ngang bộ:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ ngoại giao', 0, @last_question_id);
@@ -2639,7 +2639,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tập đoàn Điện lực Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan ngang Bộ là:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan ngang Bộ là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ủy ban thể dục, thể thao', 0, @last_question_id);
@@ -2651,7 +2651,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan hành chính Nhà nước cao nhất của nước CHXNCN Việt Nam:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan hành chính Nhà nước cao nhất của nước CHXNCN Việt Nam:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ tịch nước', 0, @last_question_id);
@@ -2663,7 +2663,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tòa án nhân dân và Viện kiểm sát nhân dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các biện pháp xử phạt chính của tránh nhiệm hành chính là:', '', 'Approved', 1, 2, 3);
+VALUES ('Các biện pháp xử phạt chính của tránh nhiệm hành chính là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạt tiền, tước quyền sử dụng giấy phép', 0, @last_question_id);
@@ -2675,7 +2675,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cảnh cáo, phạt tiền', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các biện pháp xử phạt bổ sung của tránh nhiệm hành chính là:', '', 'Approved', 1, 2, 3);
+VALUES ('Các biện pháp xử phạt bổ sung của tránh nhiệm hành chính là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cảnh cáo, phạt tiền', 0, @last_question_id);
@@ -2687,7 +2687,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạt tiền, tước quyền sử dụng giấy phép', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc xử phạt hành chính:', '', 'Approved', 1, 2, 3);
+VALUES ('Nguyên tắc xử phạt hành chính:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Áp dụng biện pháp xử phạt chính và biện pháp xử phạt bổ sung một cách độc lập', 0, @last_question_id);
@@ -2699,7 +2699,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Áp dụng phụ thuộc cả biện pháp xử phạt chính và cả biện pháp xử phạt bổ sung', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những biện pháp nào sau đây là biện pháp cưỡng chế Hành chính:', '', 'Approved', 1, 2, 3);
+VALUES ('Những biện pháp nào sau đây là biện pháp cưỡng chế Hành chính:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhóm các biện pháp xử phạt vi phạm hành chính', 0, @last_question_id);
@@ -2711,7 +2711,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trách nhiệm Hành chính là:', '', 'Approved', 1, 2, 3);
+VALUES ('Trách nhiệm Hành chính là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là sự áp dụng những biện pháp cưỡng chế hành chính mang tính chất xử phạt hoặc khôi phục lại những quyền lợi bị xâm hại đối với những chủ thể thực hiện hành vi vi phạm Hành chính', 1, @last_question_id);
@@ -2723,7 +2723,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độ tuổi để một cá nhân có thể bị áp dụng các biện pháp cưỡng chế Hành chính là:', '', 'Approved', 1, 2, 3);
+VALUES ('Độ tuổi để một cá nhân có thể bị áp dụng các biện pháp cưỡng chế Hành chính là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ từ 14 tuổi trở lên', 1, @last_question_id);
@@ -2735,7 +2735,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ từ 17 tuổi trở lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức xử phạt bổ sung trong các hình thức xử phạt hành chính:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình thức xử phạt bổ sung trong các hình thức xử phạt hành chính:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cảnh cáo và tịch thu tang vật, phương tiện vi phạm', 0, @last_question_id);
@@ -2747,7 +2747,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tước quyền sử dụng giấy phép và tịch thu tang vật, phương tiện vi phạm', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm nào sau đây của Quan hệ pháp luật Hành chính là đúng:', '', 'Approved', 1, 2, 3);
+VALUES ('Đặc điểm nào sau đây của Quan hệ pháp luật Hành chính là đúng:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát sinh do yêu cầu hợp pháp của bất kỳ bên nào, sự thoả thuận của bên kia không phải là điều kiện bắt buộc phải có.', 0, @last_question_id);
@@ -2759,7 +2759,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm: “Bên vi phạm phải chịu trách nhiệm pháp lý trước nhà nước” là đặc điểm của Quan hệ pháp luật nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Đặc điểm: “Bên vi phạm phải chịu trách nhiệm pháp lý trước nhà nước” là đặc điểm của Quan hệ pháp luật nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật Hành chính', 1, @last_question_id);
@@ -2771,7 +2771,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm: “Quan hệ phát sinh do yêu cầu hợp pháp của bất kỳ bên nào, sự thoả thuận của bên kia không phải là điều kiện bắt buộc phải có” là đặc điểm của Quan hệ pháp luật nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Đặc điểm: “Quan hệ phát sinh do yêu cầu hợp pháp của bất kỳ bên nào, sự thoả thuận của bên kia không phải là điều kiện bắt buộc phải có” là đặc điểm của Quan hệ pháp luật nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật Hành chính', 1, @last_question_id);
@@ -2783,7 +2783,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật lao động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm: “Quyền và nghĩa vụ của các bên tham gia luôn gắn liền với hoạt động chấp hành và điều hành của các cơ quan quản lý nhà nước” là đặc điểm của Quan hệ pháp luật nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Đặc điểm: “Quyền và nghĩa vụ của các bên tham gia luôn gắn liền với hoạt động chấp hành và điều hành của các cơ quan quản lý nhà nước” là đặc điểm của Quan hệ pháp luật nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật Hôn nhân và gia đình', 0, @last_question_id);
@@ -2795,7 +2795,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật Dân sự', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan nào có quyền xét xử tội phạm và tuyên bản án hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan nào có quyền xét xử tội phạm và tuyên bản án hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tòa kinh tế có thẩm quyền', 0, @last_question_id);
@@ -2807,7 +2807,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tòa hình sự có thẩm quyền', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ luật hình sự được ban hành năm nào sau đây là bộ luật đang có hiệu lực:', '', 'Approved', 1, 2, 3);
+VALUES ('Bộ luật hình sự được ban hành năm nào sau đây là bộ luật đang có hiệu lực:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ luật ban hành năm 1999', 0, @last_question_id);
@@ -2819,7 +2819,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ luật ban hành năm 2016', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chế định “Khởi tố bị can và hỏi cung bị can” do ngành luật nào điều chỉnh:', '', 'Approved', 1, 2, 3);
+VALUES ('Chế định “Khởi tố bị can và hỏi cung bị can” do ngành luật nào điều chỉnh:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật dân sự.', 0, @last_question_id);
@@ -2831,7 +2831,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật hành chính', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chế định “Điều tra” do ngành luật nào điều chỉnh:', '', 'Approved', 1, 2, 3);
+VALUES ('Chế định “Điều tra” do ngành luật nào điều chỉnh:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật tố tụng hình sự', 1, @last_question_id);
@@ -2843,7 +2843,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật dân sự', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp chế XHCN', 0, @last_question_id);
@@ -2855,7 +2855,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dân chủ XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp chế XHCN', 0, @last_question_id);
@@ -2867,7 +2867,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dân chủ XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Nguyên tắc nào sau đây là nguyên tắc cơ bản của Luật Hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhân đạo XHCN', 0, @last_question_id);
@@ -2879,7 +2879,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dân chủ XHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc áp dụng hình phạt là:', '', 'Approved', 1, 2, 3);
+VALUES ('Nguyên tắc áp dụng hình phạt là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể áp dụng nhiều hình phạt chính và nhiều hình phạt bổ sung', 0, @last_question_id);
@@ -2891,7 +2891,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ có thể áp dụng một hình phạt chính và một hình phạt bổ sung', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ luật Hình sự quy định, có:', '', 'Approved', 1, 2, 3);
+VALUES ('Bộ luật Hình sự quy định, có:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có 10 hình phạt chính và 10 hình phạt bổ sung', 0, @last_question_id);
@@ -2903,7 +2903,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có 7 hình phạt chính và 7 hình phạt bổ sung', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các hình phạt của trách nhiệm hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Trong các hình phạt của trách nhiệm hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạt tiền là hình phạt chính', 0, @last_question_id);
@@ -2915,7 +2915,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tịch thu tài sản:', '', 'Approved', 1, 2, 3);
+VALUES ('Tịch thu tài sản:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hình phạt chính', 0, @last_question_id);
@@ -2927,7 +2927,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt cấm đảm nhiệm chức vụ, làm những nghề hoặc công việc nhất định:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt cấm đảm nhiệm chức vụ, làm những nghề hoặc công việc nhất định:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hình phạt chính', 0, @last_question_id);
@@ -2939,7 +2939,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các hình phạt của trách nhiệm hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Trong các hình phạt của trách nhiệm hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hình phạt cải tạo không giam giữ chính là án phạt tù treo', 0, @last_question_id);
@@ -2951,7 +2951,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tội phạm theo quy định của Bộ luật Hình sự 2015 bao gồm:', '', 'Approved', 1, 2, 3);
+VALUES ('Tội phạm theo quy định của Bộ luật Hình sự 2015 bao gồm:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân và pháp nhân thương mại', 0, @last_question_id);
@@ -2963,7 +2963,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể của Tội phạm bao gồm:', '', 'Approved', 1, 2, 3);
+VALUES ('Chủ thể của Tội phạm bao gồm:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể,', 0, @last_question_id);
@@ -2975,7 +2975,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ có thể là pháp nhân thương mại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu thành của tội phạm bao gồm:', '', 'Approved', 1, 2, 3);
+VALUES ('Cấu thành của tội phạm bao gồm:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, mặt chủ quan, mặt khách quan', 1, @last_question_id);
@@ -2987,7 +2987,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, khách thể, nội dung, sự kiện pháp lý', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong các vụ án hình sự:', '', 'Approved', 1, 2, 3);
+VALUES ('Trong các vụ án hình sự:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không bao giờ liên quan đến phần Dân sự', 0, @last_question_id);
@@ -2999,7 +2999,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khung hình phạt tù có thời hạn cao nhất được quy định trong Bộ luật Hình sự năm 2015 cho một cá nhân một lúc phạm nhiều tội là:', '', 'Approved', 1, 2, 3);
+VALUES ('Khung hình phạt tù có thời hạn cao nhất được quy định trong Bộ luật Hình sự năm 2015 cho một cá nhân một lúc phạm nhiều tội là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('20 năm', 0, @last_question_id);
@@ -3011,7 +3011,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('50 năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt tù có thời hạn cao nhất đối với cá nhân phạm một tội theo quy định của Bộ luật Hình sự 2015 là:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt tù có thời hạn cao nhất đối với cá nhân phạm một tội theo quy định của Bộ luật Hình sự 2015 là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('20 năm', 1, @last_question_id);
@@ -3023,7 +3023,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('50 năm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('TB>:] Hình phạt đựơc áp dụng khi:', '', 'Approved', 1, 2, 3);
+VALUES ('TB>:] Hình phạt đựơc áp dụng khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bản án có hiệu lực pháp luật', 0, @last_question_id);
@@ -3035,7 +3035,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được hưởng án treo', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trình tự tố tụng Hình sự đựơc sắp xếp theo thứ tự nào sau đây:', '', 'Approved', 1, 2, 3);
+VALUES ('Trình tự tố tụng Hình sự đựơc sắp xếp theo thứ tự nào sau đây:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Điều tra - khởi tố - truy tố - xét xử.', 0, @last_question_id);
@@ -3047,7 +3047,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khởi tố - điều tra – truy tố - xét xử.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan nào là cơ quan hành chính Nhà nước:', '', 'Approved', 1, 2, 3);
+VALUES ('Cơ quan nào là cơ quan hành chính Nhà nước:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hội đồng nhân dân', 0, @last_question_id);
@@ -3059,7 +3059,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ tư pháp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc nhất định đựơc áp dụng khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc nhất định đựơc áp dụng khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chấp hành xong hình phạt chính', 0, @last_question_id);
@@ -3071,7 +3071,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ ngày đựơc hưởng án treo', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt nào là hình phạt chính trong các hình phạt sau đây:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt nào là hình phạt chính trong các hình phạt sau đây:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cải tạo không giam giữ', 1, @last_question_id);
@@ -3083,7 +3083,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tước một số quyền công dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt nào là hình phạt chính trong các hình phạt sau đây:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt nào là hình phạt chính trong các hình phạt sau đây:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cải tạo tại gia', 0, @last_question_id);
@@ -3095,7 +3095,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tước một số quyền công dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt nào là hình phạt bổ sung trong các hình phạt sau đây:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt nào là hình phạt bổ sung trong các hình phạt sau đây:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cảnh cáo', 0, @last_question_id);
@@ -3107,7 +3107,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tước một số quyền công dân', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trục xuất là hình phạt không áp dụng với chủ thể Tội phạm nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Trục xuất là hình phạt không áp dụng với chủ thể Tội phạm nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người không có quốc tịch', 0, @last_question_id);
@@ -3119,7 +3119,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tử hình là hình phạt:', '', 'Approved', 1, 2, 3);
+VALUES ('Tử hình là hình phạt:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hạn chế quyền công dân của tội phạm', 0, @last_question_id);
@@ -3131,7 +3131,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình phạt được quy định trong Bộ luật Hình sự là:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình phạt được quy định trong Bộ luật Hình sự là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giáo dục tại xã, phường, thị trấn', 0, @last_question_id);
@@ -3143,7 +3143,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Biện pháp cưỡng chế nào sau đây là hình phạt:', '', 'Approved', 1, 2, 3);
+VALUES ('Biện pháp cưỡng chế nào sau đây là hình phạt:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phạt tiền', 0, @last_question_id);
@@ -3155,7 +3155,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tòa án có thẩm quyền xét xử chủ thể Vi phạm hình sự là:', '', 'Approved', 1, 2, 3);
+VALUES ('Tòa án có thẩm quyền xét xử chủ thể Vi phạm hình sự là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tòa hình sự có thẩm quyền', 1, @last_question_id);
@@ -3167,7 +3167,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tòa dân sự có thẩm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quy định của Bộ luật Dân sự 2015 thì cá nhân chưa thành niên là người:', '', 'Approved', 1, 2, 3);
+VALUES ('Theo quy định của Bộ luật Dân sự 2015 thì cá nhân chưa thành niên là người:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chưa đủ 18 tuổi', 1, @last_question_id);
@@ -3179,7 +3179,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dưới 21 tuổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người nhận cầm cố tài sản có quyền gì đối với tài sản?', '', 'Approved', 1, 2, 3);
+VALUES ('Người nhận cầm cố tài sản có quyền gì đối với tài sản?', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền sở hữu', 0, @last_question_id);
@@ -3191,7 +3191,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền định đoạt', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi một cá nhân chết thì người thuộc hàng thừa kế thứ nhất là:', '', 'Approved', 1, 2, 3);
+VALUES ('Khi một cá nhân chết thì người thuộc hàng thừa kế thứ nhất là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vợ', 0, @last_question_id);
@@ -3203,7 +3203,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người thừa kế tài sản là:', '', 'Approved', 1, 2, 3);
+VALUES ('Người thừa kế tài sản là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Người đủ 18 tuổi vào thời điểm mở thừa kế', 0, @last_question_id);
@@ -3215,7 +3215,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là công dân Việt Nam', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức chia thừa kế theo pháp luật được áp dụng khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Hình thức chia thừa kế theo pháp luật được áp dụng khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phần tài sản không định đoạt theo di chúc', 0, @last_question_id);
@@ -3227,7 +3227,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Approved', 1, 2, 3);
+VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con chưa thành niên', 1, @last_question_id);
@@ -3239,7 +3239,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con thứ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Approved', 1, 2, 3);
+VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vợ hoặc chồng', 1, @last_question_id);
@@ -3251,7 +3251,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cháu ruột', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Approved', 1, 2, 3);
+VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con đã thành niên', 0, @last_question_id);
@@ -3263,7 +3263,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con thứ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Approved', 1, 2, 3);
+VALUES ('Người được hưởng thừa kế không phụ thuộc vào nội dung của di chúc là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con trưởng', 0, @last_question_id);
@@ -3275,7 +3275,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Con thứ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Di chúc mằng miệng có hiệu lực trong thời gian tối đa …. tháng. Sau thời gian này nếu người để lại di sản vẫn còn sống và minh mẫn thì di chúc này hết hiệu lực:', '', 'Approved', 1, 2, 3);
+VALUES ('Di chúc mằng miệng có hiệu lực trong thời gian tối đa …. tháng. Sau thời gian này nếu người để lại di sản vẫn còn sống và minh mẫn thì di chúc này hết hiệu lực:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('2', 0, @last_question_id);
@@ -3287,7 +3287,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('5', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những người được hưởng thừa kế ở hàng thứ nhất theo quy định của Bộ luật Dân sự bao gồm:', '', 'Approved', 1, 2, 3);
+VALUES ('Những người được hưởng thừa kế ở hàng thứ nhất theo quy định của Bộ luật Dân sự bao gồm:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi', 0, @last_question_id);
@@ -3299,7 +3299,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các đáp án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cá nhân có Năng lực hành vi dân sự đầy đủ khi có khả năng nhận thức, có khả năng điều khiển hành vi và khi:', '', 'Approved', 1, 2, 3);
+VALUES ('Cá nhân có Năng lực hành vi dân sự đầy đủ khi có khả năng nhận thức, có khả năng điều khiển hành vi và khi:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ từ 16 tuổi trở lên', 0, @last_question_id);
@@ -3311,7 +3311,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ từ 25 tuổi trở lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp thống trị trong kiểu nhà nước chủ nô là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp thống trị trong kiểu nhà nước chủ nô là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Nô lệ.', 0, @last_question_id);
@@ -3323,7 +3323,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp thống trị trong kiểu nhà nước phong kiến là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp thống trị trong kiểu nhà nước phong kiến là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Nô lệ.', 0, @last_question_id);
@@ -3335,7 +3335,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Địa chủ.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp thống trị trong kiểu nhà nước Tư bản chủ nghĩa là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp thống trị trong kiểu nhà nước Tư bản chủ nghĩa là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Nô lệ.', 0, @last_question_id);
@@ -3347,7 +3347,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp thống trị trong kiểu nhà nước Chủ nghĩa xã hội là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp thống trị trong kiểu nhà nước Chủ nghĩa xã hội là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Công nhân.', 0, @last_question_id);
@@ -3359,7 +3359,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp bị trị trong kiểu nhà nước Chủ nô là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp bị trị trong kiểu nhà nước Chủ nô là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Nô lệ.', 1, @last_question_id);
@@ -3371,7 +3371,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp bị trị trong kiểu nhà nước Phong kiến là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp bị trị trong kiểu nhà nước Phong kiến là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Công nhân.', 0, @last_question_id);
@@ -3383,7 +3383,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giai cấp bị trị trong kiểu nhà nước Tư bản chủ nghĩa là:', '', 'Approved', 1, 2, 3);
+VALUES ('Giai cấp bị trị trong kiểu nhà nước Tư bản chủ nghĩa là:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Nô lệ.', 0, @last_question_id);
@@ -3395,7 +3395,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Công nhân.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật của kiểu nhà nước Chủ nô là ý chí của giai cấp nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Pháp luật của kiểu nhà nước Chủ nô là ý chí của giai cấp nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Công nhân.', 0, @last_question_id);
@@ -3407,7 +3407,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật của kiểu nhà nước Phong kiến là ý chí của giai cấp nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Pháp luật của kiểu nhà nước Phong kiến là ý chí của giai cấp nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Địa chủ.', 0, @last_question_id);
@@ -3419,7 +3419,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật của kiểu nhà nước Tư bản chủ nghĩa là ý chí của giai cấp nào:', '', 'Approved', 1, 2, 3);
+VALUES ('Pháp luật của kiểu nhà nước Tư bản chủ nghĩa là ý chí của giai cấp nào:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Công nhân.', 1, @last_question_id);
@@ -3431,7 +3431,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp Chủ nô.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chỉ ra đời và tồn tại trong xã hội có:', '', 'Approved', 1, 2, 3);
+VALUES ('Nhà nước chỉ ra đời và tồn tại trong xã hội có:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp và đấu tranh giai cấp.', 1, @last_question_id);
@@ -3443,7 +3443,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phát triển kinh tế hàng hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật chỉ ra đời và tồn tại trong xã hội có:', '', 'Approved', 1, 2, 3);
+VALUES ('Pháp luật chỉ ra đời và tồn tại trong xã hội có:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giai cấp và đấu tranh giai cấp.', 1, @last_question_id);
@@ -3455,7 +3455,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phát triển kinh tế hàng hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nhà nước chỉ diệt vong trong xã hội có:', '', 'Approved', 1, 2, 3);
+VALUES ('Nhà nước chỉ diệt vong trong xã hội có:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiều gia đình bị tan vỡ.', 0, @last_question_id);
@@ -3467,7 +3467,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phát triển kinh tế hàng hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật chỉ diệt vong trong xã hội có:', '', 'Approved', 1, 2, 3);
+VALUES ('Pháp luật chỉ diệt vong trong xã hội có:', '', 'Active', 1, 2, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhiều gia đình bị tan vỡ.', 0, @last_question_id);
@@ -3479,7 +3479,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự phát triển kinh tế hàng hóa.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vùng biển Bắc cực được luật lệ Công pháp quốc tế xác định theo phương án nào sau đây ?', '', 'Approved', 1, 3, 3);
+VALUES ('Vùng biển Bắc cực được luật lệ Công pháp quốc tế xác định theo phương án nào sau đây ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các quốc gia giáp với vùng Bắc cực có được một phần nội thủy và lãnh hải có chiều rộng 12 hải lý tính từ ranh giới quốc gia hướng tới Bắc cực;', 0, @last_question_id);
@@ -3491,7 +3491,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các quốc gia vành đai giáp với vùng Bắc cực có được các vùng nước nội thủy, lãnh hải, tiếp giáp lãnh hải, đặc quyền kinh tế, thềm lục địa như các vùng biển khác.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việt Nam áp dụng quy tắc nào của Công pháp quốc tế để xác định đường cơ sở dùng để tính chiều rộng lãnh hải ?', '', 'Approved', 1, 3, 3);
+VALUES ('Việt Nam áp dụng quy tắc nào của Công pháp quốc tế để xác định đường cơ sở dùng để tính chiều rộng lãnh hải ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dựa vào mực nước biển thấp nhất giáp với bờ biển và chạy dọc theo bờ biển, đường nối những điểm nhô ra nhất của bờ biển và tất cả các đảo ven bờ ở mực nước thấp nhất;', 0, @last_question_id);
@@ -3503,7 +3503,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đường ngấn nước thuỷ triều thấp nhất được chọn dùng để tính chiều rộng lãnh hải của theo tuyên bố của Chính phủ.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('“Nguyên tắc tự do biển cả”trong Công pháp quốc tế được hình thành trong thời kỳ nào sau đây ?', '', 'Approved', 1, 3, 3);
+VALUES ('“Nguyên tắc tự do biển cả”trong Công pháp quốc tế được hình thành trong thời kỳ nào sau đây ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời kỳ Chiếm hữu nô lệ;', 0, @last_question_id);
@@ -3515,7 +3515,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mới được hình thành trong giai đoạn sau Đại chiến thế giới lần thứ nhất.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Công pháp quốc tế hiện đại có các chủ thể chủ yếu nào ?', '', 'Approved', 1, 3, 3);
+VALUES ('Công pháp quốc tế hiện đại có các chủ thể chủ yếu nào ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc gia và dân tộc', 0, @last_question_id);
@@ -3527,7 +3527,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các chủ thể đặc biệt.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đến nay Công pháp quốc tế đã trải qua mấy thời kỳ phát triển ?', '', 'Approved', 1, 3, 3);
+VALUES ('Đến nay Công pháp quốc tế đã trải qua mấy thời kỳ phát triển ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công pháp quốc tế thời kỳ cổ đại và hiện đại', 0, @last_question_id);
@@ -3539,7 +3539,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công pháp quốc tế thời kỳ cổ đại, trung đại, cận đại, hiện đại và hậu hiện đại', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('82. Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Approved', 1, 3, 3);
+VALUES ('82. Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết của Quốc hội', 0, @last_question_id);
@@ -3551,7 +3551,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết của Hội đồng nhân dân', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quốc gia ven biển có các vùng biển nào thuộc chủ quyền quốc gia ?', '', 'Approved', 1, 3, 3);
+VALUES ('Quốc gia ven biển có các vùng biển nào thuộc chủ quyền quốc gia ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A. Vùng nội thủy, vùng lãnh hải, vùng tiếp giáp lãnh hải, vùng đặc quyền kinh tế, thềm lục địa, biển cả (biển quốc tế), và vùng đáy biển và vùng đất dưới đáy biển;', 0, @last_question_id);
@@ -3563,7 +3563,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D. Vùng nội thủy và vùng lãnh hải.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('83. Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Approved', 1, 3, 3);
+VALUES ('83. Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định của Thủ tướng Chính phủ', 0, @last_question_id);
@@ -3575,7 +3575,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết Ủy ban Thường vụ Quốc hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Approved', 1, 3, 3);
+VALUES ('Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết của Hội đồng Thẩm phán Tòa án nhân dân Tối cao', 0, @last_question_id);
@@ -3587,7 +3587,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết Ủy ban Thường vụ Quốc hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật là quy tắc xử sự mang tính..... do..... ban hành và bảo đảm thựchiện, thể hiện ý chí và bảo vệ lợi ích của giai cấp thống trị để điều chỉnh các.....?', '', 'Approved', 1, 3, 3);
+VALUES ('Quy phạm pháp luật là quy tắc xử sự mang tính..... do..... ban hành và bảo đảm thựchiện, thể hiện ý chí và bảo vệ lợi ích của giai cấp thống trị để điều chỉnh các.....?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bắt buộc chung - Nhà nước - quan hệ pháp luật', 0, @last_question_id);
@@ -3599,7 +3599,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bắt buộc chung - Nhà nước - quan hệ xã hội', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quy tắc xử sự chung do Nhà nước ban hành và bảo đảm thực hiện để điềuchỉnh các quan hệ xã hội theo định hướng và nhằm đạt được những mục đích nhất định,các quy tắc đó gọi là?', '', 'Approved', 1, 3, 3);
+VALUES ('Những quy tắc xử sự chung do Nhà nước ban hành và bảo đảm thực hiện để điềuchỉnh các quan hệ xã hội theo định hướng và nhằm đạt được những mục đích nhất định,các quy tắc đó gọi là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm luật pháp', 0, @last_question_id);
@@ -3611,7 +3611,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Văn bản pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật tồn tại trong xã hội nào?', '', 'Approved', 1, 3, 3);
+VALUES ('Quy phạm pháp luật tồn tại trong xã hội nào?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội có giai cấp', 0, @last_question_id);
@@ -3623,7 +3623,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Xã hội có tư hữu', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật là?', '', 'Approved', 1, 3, 3);
+VALUES ('Quy phạm pháp luật là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy tắc xử sự chung tồn tại từ xã hội nguyên thủy đến nay để điều chỉnh các quan hệ xãhội', 0, @last_question_id);
@@ -3635,7 +3635,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Những quy tắc xử sự chung do Nhà nước ban hành và bảo đảm thực hiện để điều chỉnh cácquan hệ xã hội theo định hướng và nhằm đạt được những mục đích nhất định', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật và quy phạm xã hội?', '', 'Approved', 1, 3, 3);
+VALUES ('Quy phạm pháp luật và quy phạm xã hội?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hai khái niệm đồng nhất', 0, @last_question_id);
@@ -3647,7 +3647,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vừa có điểm giống nhau, vừa có điểm khác nhau', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong xã hội có giai cấp, quy phạm nào sau đây có vai trò quan trọng nhất đối vớiviệc duy trì trật tự xã hội?', '', 'Approved', 1, 3, 3);
+VALUES ('Trong xã hội có giai cấp, quy phạm nào sau đây có vai trò quan trọng nhất đối vớiviệc duy trì trật tự xã hội?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm tập quán', 0, @last_question_id);
@@ -3659,7 +3659,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm đạo đức', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm khác biệt nhất của quy phạm pháp luật so với các quy phạm xã hội khác là?', '', 'Approved', 1, 3, 3);
+VALUES ('Đặc điểm khác biệt nhất của quy phạm pháp luật so với các quy phạm xã hội khác là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật là quy tắc xử sự chung', 0, @last_question_id);
@@ -3671,7 +3671,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nội dung của quy phạm pháp luật quy định quyền và nghĩa vụ pháp lý của các bên thamgia quan hệ xã hội mà nó điều chỉnh', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu trúc pháp lý của một quy phạm pháp luật thông thường gồm có các bộ phận?', '', 'Approved', 1, 3, 3);
+VALUES ('Cấu trúc pháp lý của một quy phạm pháp luật thông thường gồm có các bộ phận?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định', 0, @last_question_id);
@@ -3683,7 +3683,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....của quy phạm pháp luật chứađựng mệnh lệnh của Nhà nước?', '', 'Approved', 1, 3, 3);
+VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....của quy phạm pháp luật chứađựng mệnh lệnh của Nhà nước?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận giả định', 0, @last_question_id);
@@ -3695,7 +3695,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận quy định và bộ phận chế tài', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những điều kiện, hoàn cảnh có thể xảy ra trong thực tế cuộc sống mà Nhà nước dựliệu và dùng pháp luật tác động, được ghi nhận tại bộ phận..... của quy phạm pháp luật?', '', 'Approved', 1, 3, 3);
+VALUES ('Những điều kiện, hoàn cảnh có thể xảy ra trong thực tế cuộc sống mà Nhà nước dựliệu và dùng pháp luật tác động, được ghi nhận tại bộ phận..... của quy phạm pháp luật?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định', 1, @last_question_id);
@@ -3707,7 +3707,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định và quy định', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ phận nào sau đây không thể thiếu trong một quy phạm pháp luật?', '', 'Approved', 1, 3, 3);
+VALUES ('Bộ phận nào sau đây không thể thiếu trong một quy phạm pháp luật?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận giả định và bộ phận chế tài', 1, @last_question_id);
@@ -3719,7 +3719,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận chế tài', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trong một quy phạm pháp luật, bộ phận quan trọng nhất là?', '', 'Approved', 1, 3, 3);
+VALUES ('Trong một quy phạm pháp luật, bộ phận quan trọng nhất là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận quy định và bộ phận chế tài', 1, @last_question_id);
@@ -3731,7 +3731,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ phận chế tài', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ phận nào của quy phạm pháp luật nhằm bảo đảm cho pháp luật được thực hiệnnghiêm chỉnh?', '', 'Approved', 1, 3, 3);
+VALUES ('Bộ phận nào của quy phạm pháp luật nhằm bảo đảm cho pháp luật được thực hiệnnghiêm chỉnh?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định', 0, @last_question_id);
@@ -3743,7 +3743,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giới hạn Nhà nước đưa ra cho phép, cấm đoán, bắt buộc các chủ thể thực hiện hànhvi hoặc tiến hành một công việc nhất định được ghi nhận tại bộ phận..... của quy phạmpháp luật?', '', 'Approved', 1, 3, 3);
+VALUES ('Giới hạn Nhà nước đưa ra cho phép, cấm đoán, bắt buộc các chủ thể thực hiện hànhvi hoặc tiến hành một công việc nhất định được ghi nhận tại bộ phận..... của quy phạmpháp luật?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định', 0, @last_question_id);
@@ -3755,7 +3755,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chế tài', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Giả định nêu lên nhiều điều kiện, hoàn cảnh và giữa chúng có mối liên hệ với nhau,gọi là?', '', 'Approved', 1, 3, 3);
+VALUES ('Giả định nêu lên nhiều điều kiện, hoàn cảnh và giữa chúng có mối liên hệ với nhau,gọi là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định đơn giản', 0, @last_question_id);
@@ -3767,7 +3767,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả thuyết phức tạp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những biện pháp cưỡng chế Nhà nước dự liệu áp dụng đối với chủ thể không thựchiện đúng pháp luật được ghi nhận tại bộ phận..... của quy phạm pháp luật?', '', 'Approved', 1, 3, 3);
+VALUES ('Những biện pháp cưỡng chế Nhà nước dự liệu áp dụng đối với chủ thể không thựchiện đúng pháp luật được ghi nhận tại bộ phận..... của quy phạm pháp luật?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định', 0, @last_question_id);
@@ -3779,7 +3779,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chế tài', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một quy phạm pháp luật thông thường cấu trúc gồm có các bộ phận?', '', 'Approved', 1, 3, 3);
+VALUES ('Một quy phạm pháp luật thông thường cấu trúc gồm có các bộ phận?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định, chế định, chế tài', 0, @last_question_id);
@@ -3791,7 +3791,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định, quy định, chế tài', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là tổng thể các quy phạm phápluật có mối liên hệ nội tại thống nhất với nhau, được phân thành các chế định pháp luật,các ngành luật và được thể hiện trong các văn bản quy phạm pháp luật do Nhà nước banhành?', '', 'Approved', 1, 3, 3);
+VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là tổng thể các quy phạm phápluật có mối liên hệ nội tại thống nhất với nhau, được phân thành các chế định pháp luật,các ngành luật và được thể hiện trong các văn bản quy phạm pháp luật do Nhà nước banhành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật', 0, @last_question_id);
@@ -3803,7 +3803,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu trúc của hệ thống pháp luật được thể hiện?', '', 'Approved', 1, 3, 3);
+VALUES ('Cấu trúc của hệ thống pháp luật được thể hiện?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cấu trúc bên trong gồm: quy phạm pháp luật, chế định pháp luật và ngành luật', 0, @last_question_id);
@@ -3815,7 +3815,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu trúc bên trong của hệ thống pháp luật được hợp thành từ những yếu tố nào?', '', 'Approved', 1, 3, 3);
+VALUES ('Cấu trúc bên trong của hệ thống pháp luật được hợp thành từ những yếu tố nào?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 0, @last_question_id);
@@ -3827,7 +3827,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm cả a, b, c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hình thức biểu hiện bên ngoài của hệ thống pháp luật là?', '', 'Approved', 1, 3, 3);
+VALUES ('Hình thức biểu hiện bên ngoài của hệ thống pháp luật là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các quy phạm pháp luật', 0, @last_question_id);
@@ -3839,7 +3839,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các ngành luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là đơn vị nhỏ nhất cấu thành nênhệ thống pháp luật', '', 'Approved', 1, 3, 3);
+VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là đơn vị nhỏ nhất cấu thành nênhệ thống pháp luật', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật', 0, @last_question_id);
@@ -3851,7 +3851,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là một nhóm các quy phạm phápluật có đặc điểm chung, cùng điều chỉnh một nhóm quan hệ xã hội có cùng tính chất?', '', 'Approved', 1, 3, 3);
+VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là một nhóm các quy phạm phápluật có đặc điểm chung, cùng điều chỉnh một nhóm quan hệ xã hội có cùng tính chất?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật', 0, @last_question_id);
@@ -3863,7 +3863,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là hệ thống các quy phạm phápluật điều chỉnh các quan hệ cùng loại trong một lĩnh vực nhất định của đời sống xã hội?', '', 'Approved', 1, 3, 3);
+VALUES ('Chọn phương án đúng nhất điền vào chỗ trống: .....là hệ thống các quy phạm phápluật điều chỉnh các quan hệ cùng loại trong một lĩnh vực nhất định của đời sống xã hội?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hệ thống pháp luật', 0, @last_question_id);
@@ -3875,7 +3875,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngành luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản quy phạm pháp luật là văn bản do?', '', 'Approved', 1, 3, 3);
+VALUES ('Văn bản quy phạm pháp luật là văn bản do?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội ban hành', 0, @last_question_id);
@@ -3887,7 +3887,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cơ quan Nhà nước có thẩm quyền ban hành', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tính thứ bậc của các loại văn bản pháp luật được xác định theo thứ tự?', '', 'Approved', 1, 3, 3);
+VALUES ('Tính thứ bậc của các loại văn bản pháp luật được xác định theo thứ tự?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp - Pháp lệnh - Các bộ luật, đạo luật - Các văn bản dưới luật', 0, @last_question_id);
@@ -3899,7 +3899,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp lệnh - Hiến pháp - Các bộ luật, đạo luật - Các văn bản dưới luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiêu chuẩn xác định một hệ thống pháp luật hoàn thiện là?', '', 'Approved', 1, 3, 3);
+VALUES ('Tiêu chuẩn xác định một hệ thống pháp luật hoàn thiện là?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tính toàn diện, tính đồng bộ', 0, @last_question_id);
@@ -3911,7 +3911,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trình tự trình bày các bộ phận giả định, quy định, chế tài của quy phạm pháp luậtlà?', '', 'Approved', 1, 3, 3);
+VALUES ('Trình tự trình bày các bộ phận giả định, quy định, chế tài của quy phạm pháp luậtlà?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giả định - Quy định - Chế tài', 0, @last_question_id);
@@ -3923,7 +3923,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không nhất thiết phải như a, b, c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các cơ quan được phép ban hành Nghị quyết?', '', 'Approved', 1, 3, 3);
+VALUES ('Các cơ quan được phép ban hành Nghị quyết?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội; Ủy ban Thường vụ Quốc hội', 0, @last_question_id);
@@ -3935,7 +3935,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ tịch nước được quyền ban hành?', '', 'Approved', 1, 3, 3);
+VALUES ('Chủ tịch nước được quyền ban hành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lệnh, Quyết định', 1, @last_question_id);
@@ -3947,7 +3947,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định; Chỉ thị; Thông tư', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Bộ trưởng có quyền ban hành?', '', 'Approved', 1, 3, 3);
+VALUES ('Bộ trưởng có quyền ban hành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định; Nghị quyết; Chỉ thị', 0, @last_question_id);
@@ -3959,7 +3959,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thông tư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản quy phạm pháp luật do Hội đồng nhân dân ban hành?', '', 'Approved', 1, 3, 3);
+VALUES ('Văn bản quy phạm pháp luật do Hội đồng nhân dân ban hành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyết định; Nghị quyết', 0, @last_question_id);
@@ -3969,7 +3969,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyếtd) Quyết định; Thông tư', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Viện trưởng Viện Kiểm sát nhân dân tối cao không có quyền ban hành?', '', 'Approved', 1, 3, 3);
+VALUES ('Viện trưởng Viện Kiểm sát nhân dân tối cao không có quyền ban hành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết', 1, @last_question_id);
@@ -3981,7 +3981,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết; thông tư', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thủ tướng Chính phủ không có quyền ban hành?', '', 'Approved', 1, 3, 3);
+VALUES ('Thủ tướng Chính phủ không có quyền ban hành?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết; Quyết định; Chỉ thị', 0, @last_question_id);
@@ -3993,7 +3993,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Theo quy định pháp luật, văn bản quy phạm pháp luật chỉ có hiệu lực thi hành khi?', '', 'Approved', 1, 3, 3);
+VALUES ('Theo quy định pháp luật, văn bản quy phạm pháp luật chỉ có hiệu lực thi hành khi?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Văn bản quy phạm pháp luật đã được đăng công báo, trừ một số trường hợp đặc biệt đượcpháp luật quy định', 0, @last_question_id);
@@ -4005,7 +4005,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sau khi văn bản quy phạm pháp luật được thông qua', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Thời điểm có hiệu lực của văn bản quy phạm pháp luật?', '', 'Approved', 1, 3, 3);
+VALUES ('Thời điểm có hiệu lực của văn bản quy phạm pháp luật?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được quy định trong văn bản quy phạm pháp luật', 0, @last_question_id);
@@ -4017,7 +4017,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kể từ ngày ký ban hành văn bản quy phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trường hợp Chính phủ ban hành một Nghị định mới thay thế cho một Nghị định đãđược ban hành trước đó thì Nghị định đã ban hành trước đây sẽ?', '', 'Approved', 1, 3, 3);
+VALUES ('Trường hợp Chính phủ ban hành một Nghị định mới thay thế cho một Nghị định đãđược ban hành trước đó thì Nghị định đã ban hành trước đây sẽ?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phát sinh hiệu lực', 0, @last_question_id);
@@ -4029,7 +4029,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ngưng hiệu lực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng?', '', 'Approved', 1, 3, 3);
+VALUES ('Khẳng định nào sau đây là đúng?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiệu lực hồi tố của văn bản quy phạm pháp luật được Nhà nước thừa nhận và áp dụng phổbiến', 0, @last_question_id);
@@ -4041,7 +4041,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trong những trường hợp thật cần thiết, phù hợp với nguyên tắc nhân đạo XHCN, Nhà nướccho phép sử dụng hiệu lực hồi tố trong một số quy phạm cụ thể.', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một hệ thống pháp luật hoàn thiện được xác định dựa trên các tiêu chí nào?', '', 'Approved', 1, 3, 3);
+VALUES ('Một hệ thống pháp luật hoàn thiện được xác định dựa trên các tiêu chí nào?', '', 'Active', 1, 3, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tính thống nhất, tính toàn diện, tính phù hợp', 0, @last_question_id);
@@ -4053,7 +4053,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tên gọi Liên minh châu Âu (EU) có từ năm nào sau đây?</p>', '', 'Approved', 1, 4, 3);
+VALUES ('Tên gọi Liên minh châu Âu (EU) có từ năm nào sau đây?</p>', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('1963.', 1, @last_question_id);
@@ -4065,7 +4065,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('D. 28.', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quan hệ nảy sinh trong đời sống xã hội, được các quy phạm pháp luật điềuchỉnh trong đó các chủ thể có những quyền và nghĩa vụ pháp lý nhất định, các quan hệnày là?', '', 'Approved', 1, 4, 3);
+VALUES ('Những quan hệ nảy sinh trong đời sống xã hội, được các quy phạm pháp luật điềuchỉnh trong đó các chủ thể có những quyền và nghĩa vụ pháp lý nhất định, các quan hệnày là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật', 1, @last_question_id);
@@ -4077,7 +4077,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ kinh tế', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật là?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ pháp luật là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ nảy sinh trong xã hội được các quy phạm pháp luật điều chỉnh', 0, @last_question_id);
@@ -4089,7 +4089,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ kinh tế, quan hệ chính trị, quan hệ gia đình', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật là hình thức đặc biệt của?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ pháp luật là hình thức đặc biệt của?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ lao động', 0, @last_question_id);
@@ -4101,7 +4101,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ chính trị', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ xã hội và quan hệ pháp luật có điểm giống nhau là?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ xã hội và quan hệ pháp luật có điểm giống nhau là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đều là những quan hệ được pháp luật điều chỉnh', 0, @last_question_id);
@@ -4113,7 +4113,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để quan hệ xã hội trở thành quan hệ pháp luật cần phải có?', '', 'Approved', 1, 4, 3);
+VALUES ('Để quan hệ xã hội trở thành quan hệ pháp luật cần phải có?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật và sự kiện pháp lý', 0, @last_question_id);
@@ -4125,7 +4125,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sự điều chỉnh của pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ nào sau đây là quan hệ pháp luật?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ nào sau đây là quan hệ pháp luật?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ tình yêu nam nữ', 0, @last_question_id);
@@ -4137,7 +4137,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm của quan hệ pháp luật là?', '', 'Approved', 1, 4, 3);
+VALUES ('Đặc điểm của quan hệ pháp luật là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các quan hệ trong cuộc sống', 0, @last_question_id);
@@ -4149,7 +4149,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ do Nhà nước quy định', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật là quan hệ xã hội có ý chí, ý chí đó là của?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ pháp luật là quan hệ xã hội có ý chí, ý chí đó là của?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước', 0, @last_question_id);
@@ -4161,7 +4161,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các đáp án đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật là quan hệ xã hội được điều chỉnh bởi?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ pháp luật là quan hệ xã hội được điều chỉnh bởi?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước', 0, @last_question_id);
@@ -4173,7 +4173,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nghị quyết của Đảng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quy phạm pháp luật chỉ có thể làm nảy sinh quan hệ pháp luật giữa các chủ thể khigắn liền với?', '', 'Approved', 1, 4, 3);
+VALUES ('Quy phạm pháp luật chỉ có thể làm nảy sinh quan hệ pháp luật giữa các chủ thể khigắn liền với?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước', 0, @last_question_id);
@@ -4185,7 +4185,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ pháp luật phát sinh, thay đổi, chấm dứt dưới tác động của?', '', 'Approved', 1, 4, 3);
+VALUES ('Quan hệ pháp luật phát sinh, thay đổi, chấm dứt dưới tác động của?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 0, @last_question_id);
@@ -4197,7 +4197,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nội dung của quan hệ pháp luật được thể hiện?', '', 'Approved', 1, 4, 3);
+VALUES ('Nội dung của quan hệ pháp luật được thể hiện?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể tham gia thực hiện quyền theo quy định của pháp luật', 0, @last_question_id);
@@ -4209,7 +4209,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể tham gia phải thực hiện nghĩa vụ theo quy định của pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một cá nhân trở thành chủ thể của quan hệ pháp luật cần phải?', '', 'Approved', 1, 4, 3);
+VALUES ('Một cá nhân trở thành chủ thể của quan hệ pháp luật cần phải?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thực hiện nghĩa vụ pháp lý do pháp luật quy định', 0, @last_question_id);
@@ -4221,7 +4221,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cấu trúc pháp lý của một quan hệ pháp luật gồm các yếu tố cơ bản như sau?', '', 'Approved', 1, 4, 3);
+VALUES ('Cấu trúc pháp lý của một quan hệ pháp luật gồm các yếu tố cơ bản như sau?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền và nghĩa vụ của các bên', 0, @last_question_id);
@@ -4233,7 +4233,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm cả a, b, c', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể của quan hệ pháp luật là?', '', 'Approved', 1, 4, 3);
+VALUES ('Chủ thể của quan hệ pháp luật là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước, tất cả mọi cá nhân và tổ chức trong xã hội', 0, @last_question_id);
@@ -4245,7 +4245,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Những cá nhân từ đủ 18 tuổi trở lên và có trí óc bình thường', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực pháp luật của cá nhân xuất hiện từ khi?', '', 'Approved', 1, 4, 3);
+VALUES ('Năng lực pháp luật của cá nhân xuất hiện từ khi?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân đủ 18 tuổi', 0, @last_question_id);
@@ -4257,7 +4257,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân có khả năng nhận thức và điều khiển hành vi của mình', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về năng lực chủ thể quan hệ pháp luật, thì khẳng định nào sau đây là sai?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về năng lực chủ thể quan hệ pháp luật, thì khẳng định nào sau đây là sai?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực pháp luật là tiền đề cho năng lực hành vi', 0, @last_question_id);
@@ -4269,7 +4269,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực pháp luật của cá nhân chỉ được quy định trong các văn bản luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về năng lực chủ thể của quan hệ pháp luật, thì khẳng định nào sauđây là đúng?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về năng lực chủ thể của quan hệ pháp luật, thì khẳng định nào sauđây là đúng?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân có năng lực pháp luật thì cũng có năng lực hành vi', 0, @last_question_id);
@@ -4281,7 +4281,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực hành vi của cá nhân chỉ xuất hiện khi?', '', 'Approved', 1, 4, 3);
+VALUES ('Năng lực hành vi của cá nhân chỉ xuất hiện khi?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân đủ 18 tuổi, không mắc bệnh tâm thần', 0, @last_question_id);
@@ -4293,7 +4293,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được Nhà nước quy định', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Một tổ chức có tư cách pháp nhân khi có điều kiện?', '', 'Approved', 1, 4, 3);
+VALUES ('Một tổ chức có tư cách pháp nhân khi có điều kiện?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Được thành lập hợp pháp, có cơ cấu tổ chức chặt chẽ', 0, @last_question_id);
@@ -4305,7 +4305,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả mọi cá nhân đều có thể trở thành chủ thể của quan hệ pháp luật', 0, @last_question_id);
@@ -4317,7 +4317,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các cơ quan, đơn vị, tổ chức và cá nhân trong xã hội đều có thể trở thành chủ thể củaquan hệ pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về quyền chủ thể trong quan hệ pháp luật, thì khẳng định nào sau đâylà đúng?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về quyền chủ thể trong quan hệ pháp luật, thì khẳng định nào sau đâylà đúng?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng được lựa chọn những xử sự theo ý muốn chủ quan của mình', 0, @last_question_id);
@@ -4329,7 +4329,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nghĩa vụ pháp lý của chủ thể gồm có?', '', 'Approved', 1, 4, 3);
+VALUES ('Nghĩa vụ pháp lý của chủ thể gồm có?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể phải tiến hành một số hành vi nhất định do pháp luật quy định', 0, @last_question_id);
@@ -4341,7 +4341,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khách thể của quan hệ pháp luật là?', '', 'Approved', 1, 4, 3);
+VALUES ('Khách thể của quan hệ pháp luật là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các lợi ích vật chất hoặc tinh thần', 0, @last_question_id);
@@ -4353,7 +4353,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Yếu tố thúc đẩy chủ thể tham gia quan hệ pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Sự kiện pháp lý là những sự kiện xảy ra?', '', 'Approved', 1, 4, 3);
+VALUES ('Sự kiện pháp lý là những sự kiện xảy ra?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ hành vi xử sự của con người', 0, @last_question_id);
@@ -4365,7 +4365,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mọi cá nhân đều có năng lực hành vi như nhau', 0, @last_question_id);
@@ -4377,7 +4377,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mọi chủ thể tham gia vào quan hệ pháp luật đều có quyền và nghĩa vụ nhất định', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về đặc điểm của quan hệ pháp luật thì khẳng định nào sau đây làsai?', '', 'Approved', 1, 4, 3);
+VALUES ('Khi nghiên cứu về đặc điểm của quan hệ pháp luật thì khẳng định nào sau đây làsai?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật là loại quan hệ có ý chí', 0, @last_question_id);
@@ -4389,7 +4389,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật luôn gắn liền với sự kiện pháp lý', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khả năng chủ thể có quyền hoặc có nghĩa vụ pháp lý do Nhà nước quy định, gọi là?', '', 'Approved', 1, 4, 3);
+VALUES ('Khả năng chủ thể có quyền hoặc có nghĩa vụ pháp lý do Nhà nước quy định, gọi là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng pháp lý', 0, @last_question_id);
@@ -4401,7 +4401,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khả năng Nhà nước thừa nhận cho chủ thể bằng hành vi của mình có thể xác lập vàthực hiện quyền hoặc nghĩa vụ pháp lý, gọi là?', '', 'Approved', 1, 4, 3);
+VALUES ('Khả năng Nhà nước thừa nhận cho chủ thể bằng hành vi của mình có thể xác lập vàthực hiện quyền hoặc nghĩa vụ pháp lý, gọi là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng hành vi', 0, @last_question_id);
@@ -4413,7 +4413,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực pháp lý', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Năng lực pháp luật và năng lực hành vi là những thuộc tính không tách rời của mỗicá nhân, đều do Nhà nước thừa nhận cho họ nên gọi là?', '', 'Approved', 1, 4, 3);
+VALUES ('Năng lực pháp luật và năng lực hành vi là những thuộc tính không tách rời của mỗicá nhân, đều do Nhà nước thừa nhận cho họ nên gọi là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuộc tính tự nhiên', 0, @last_question_id);
@@ -4425,7 +4425,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là sai?', '', 'Approved', 1, 4, 3);
+VALUES ('Khẳng định nào sau đây là sai?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực pháp luật là tiền đề của năng lực hành vi', 0, @last_question_id);
@@ -4437,7 +4437,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực chủ thể pháp luật luôn mang tính giai cấp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể phổ biến nhất tham gia vào quan hệ pháp luật là?', '', 'Approved', 1, 4, 3);
+VALUES ('Chủ thể phổ biến nhất tham gia vào quan hệ pháp luật là?', '', 'Active', 1, 4, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cá nhân', 1, @last_question_id);
@@ -4449,7 +4449,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hộ gia đình', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quá trình hoạt động có mục đích nhằm đưa pháp luật vào cuộc sống, trở thànhhành vi thực tế hợp pháp của các chủ thể pháp luật, gọi là?', '', 'Approved', 1, 5, 3);
+VALUES ('Quá trình hoạt động có mục đích nhằm đưa pháp luật vào cuộc sống, trở thànhhành vi thực tế hợp pháp của các chủ thể pháp luật, gọi là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Áp dụng pháp luật', 0, @last_question_id);
@@ -4461,7 +4461,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thi hành pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy xác định khẳng định nào sau đây là sai?', '', 'Approved', 1, 5, 3);
+VALUES ('Hãy xác định khẳng định nào sau đây là sai?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi thực hiện pháp luật của chủ thể rất phong phú, đa dạng', 0, @last_question_id);
@@ -4473,7 +4473,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quá trình thực hiện pháp luật thể hiện nhận thức và thái độ của chủ thể trước pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hoạt động áp dụng pháp luật được tiến hành trong các trường hợp?', '', 'Approved', 1, 5, 3);
+VALUES ('Hoạt động áp dụng pháp luật được tiến hành trong các trường hợp?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khi cần áp dụng các biện pháp cưỡng chế Nhà nước đối với những chủ thể có hành vi viphạm pháp luật.', 0, @last_question_id);
@@ -4485,7 +4485,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Có...... hình thức thực hiện pháp luật, bao gồm?', '', 'Approved', 1, 5, 3);
+VALUES ('Có...... hình thức thực hiện pháp luật, bao gồm?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4 - Tuân thủ pháp luật, thực thi pháp luật, thi hành pháp luật, áp dụng pháp luật', 0, @last_question_id);
@@ -4497,7 +4497,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('4- Tuân theo pháp luật, thi hành pháp luật, sử dụng pháp luật, áp dụng pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các chủ thể pháp luật kiềm chế không tiến hành những hành vi mà pháp luật ngăncấm, đây là hình thức thực hiện pháp luật nào?', '', 'Approved', 1, 5, 3);
+VALUES ('Các chủ thể pháp luật kiềm chế không tiến hành những hành vi mà pháp luật ngăncấm, đây là hình thức thực hiện pháp luật nào?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tuân theo pháp luật', 0, @last_question_id);
@@ -4509,7 +4509,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tuân thủ và chấp hành pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Loại quy phạm pháp luật nào được thực hiện trong hình thức tuân thủ pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Loại quy phạm pháp luật nào được thực hiện trong hình thức tuân thủ pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cho phép', 0, @last_question_id);
@@ -4521,7 +4521,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bắt buộc', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tuân thủ pháp luật là hình thức thực hiện pháp luật mang tính?', '', 'Approved', 1, 5, 3);
+VALUES ('Tuân thủ pháp luật là hình thức thực hiện pháp luật mang tính?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ động', 0, @last_question_id);
@@ -4533,7 +4533,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('So với tuân thủ pháp luật, thi hành pháp luật là hình thức thực hiện pháp luật mangtính?', '', 'Approved', 1, 5, 3);
+VALUES ('So với tuân thủ pháp luật, thi hành pháp luật là hình thức thực hiện pháp luật mangtính?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Biến động', 0, @last_question_id);
@@ -4545,7 +4545,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bị động', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức thi hành pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức thi hành pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việc thi hành pháp luật phụ thuộc chủ thể muốn hay không mong muốn thực hiện', 0, @last_question_id);
@@ -4557,7 +4557,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thi hành pháp luật là chủ thể pháp luật phải thực hiện nghĩa vụ pháp lý của mình bằnghành động tích cực', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức sử dụng pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức sử dụng pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể pháp luật có thể thực hiện hoặc không thực hiện quyền pháp luật quy định', 0, @last_question_id);
@@ -4569,7 +4569,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể sử dụng pháp luật để hiện thực hóa các quyền và lợi ích của mình được pháp luậtcho phép', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hoạt động áp dụng pháp luật được tiến hành bởi?', '', 'Approved', 1, 5, 3);
+VALUES ('Hoạt động áp dụng pháp luật được tiến hành bởi?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các chủ thể', 1, @last_question_id);
@@ -4581,7 +4581,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các tổ chức tôn giáo', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quyết định áp dụng pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Quyết định áp dụng pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nội dung phải đúng thẩm quyền cơ quan và người ký (ban hành) phải là người có thẩmquyền ký', 0, @last_question_id);
@@ -4593,7 +4593,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hoạt động áp dụng pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Hoạt động áp dụng pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là hoạt động mang tính cá biệt - cụ thể và không thể hiện quyền lực Nhà nước', 0, @last_question_id);
@@ -4605,7 +4605,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản áp dụng pháp luật được ban hành trong hoạt động?', '', 'Approved', 1, 5, 3);
+VALUES ('Văn bản áp dụng pháp luật được ban hành trong hoạt động?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thi hành pháp luật', 0, @last_question_id);
@@ -4617,7 +4617,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức áp dụng pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sai khi nghiên cứu về hình thức áp dụng pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Áp dụng pháp luật là hình thức thực hiện pháp luật đồng thời còn là hoạt động của cơ quanNhà nước', 1, @last_question_id);
@@ -4629,7 +4629,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Văn bản áp dụng pháp luật có tính chất cá biệt, áp dụng một lần đối với cá nhân, tổ chức cụthể trong những trường hợp cụ thể', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng điền vào chỗ trống trong câu sau: .....là hành vi trái pháp luật, cólỗi, do chủ thể có năng lực trách nhiệm pháp lí thực hiện, xâm hại đến các quan hệ xã hộiđược pháp luật bảo vệ?', '', 'Approved', 1, 5, 3);
+VALUES ('Tìm đáp án đúng điền vào chỗ trống trong câu sau: .....là hành vi trái pháp luật, cólỗi, do chủ thể có năng lực trách nhiệm pháp lí thực hiện, xâm hại đến các quan hệ xã hộiđược pháp luật bảo vệ?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 0, @last_question_id);
@@ -4641,7 +4641,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vi phạm pháp luật', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi nào sau đây là hành vi trái pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi nào sau đây là hành vi trái pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi vi phạm Nghị quyết Đảng', 1, @last_question_id);
@@ -4653,7 +4653,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vi phạm pháp luật là?', '', 'Approved', 1, 5, 3);
+VALUES ('Vi phạm pháp luật là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tàn dư của xã hội cũ', 0, @last_question_id);
@@ -4665,7 +4665,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiện tượng nhất thời', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi trái pháp luật nào sau đây là dạng hành vi không hành động?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi trái pháp luật nào sau đây là dạng hành vi không hành động?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Giúp người khác tự sát', 0, @last_question_id);
@@ -4677,7 +4677,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Môi giới mại dâm', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Ông A vận chuyển gia cầm bị bệnh, bị cơ quan có thẩm quyền phát hiện và buộcphải tiêu hủy hết số gia cầm bị bệnh này. Đây là biện pháp chế tài?', '', 'Approved', 1, 5, 3);
+VALUES ('Ông A vận chuyển gia cầm bị bệnh, bị cơ quan có thẩm quyền phát hiện và buộcphải tiêu hủy hết số gia cầm bị bệnh này. Đây là biện pháp chế tài?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dân sự', 0, @last_question_id);
@@ -4689,7 +4689,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kỷ luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy xác định câu sai ?', '', 'Approved', 1, 5, 3);
+VALUES ('Hãy xác định câu sai ?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vi phạm pháp luật là hành vi xác định của con người, hành vi đó đã thể hiện ra thực tếkhách quan', 1, @last_question_id);
@@ -4701,7 +4701,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể thực hiện hành vi trái pháp luật phải có lỗi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy xác định câu sai?', '', 'Approved', 1, 5, 3);
+VALUES ('Hãy xác định câu sai?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật là hành vi xác định của con người, hành vi đó đã thể hiện ra thực tếkhách quan', 1, @last_question_id);
@@ -4713,7 +4713,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể thực hiện hành vi trái pháp luật phải có lỗi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể có năng lực trách nhiệm pháp lý khi có đủ điều kiện sau?', '', 'Approved', 1, 5, 3);
+VALUES ('Chủ thể có năng lực trách nhiệm pháp lý khi có đủ điều kiện sau?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đạt độ tuổi do pháp luật quy định, có khả năng nhận thức và điều khiển hành vi', 1, @last_question_id);
@@ -4725,7 +4725,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Từ 18 tuổi trở lên và có trí óc bình thường', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các hành vi sau đều trái pháp luật, ngoại trừ?', '', 'Approved', 1, 5, 3);
+VALUES ('Các hành vi sau đều trái pháp luật, ngoại trừ?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tổ chức đánh bạc', 0, @last_question_id);
@@ -4737,7 +4737,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không cho bạn mượn xe đạp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hãy xác định câu sai?', '', 'Approved', 1, 5, 3);
+VALUES ('Hãy xác định câu sai?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vi phạm pháp luật là hành vi xác định của con người, hành vi đó đã thể hiện ra thực tếkhách quan', 1, @last_question_id);
@@ -4749,7 +4749,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể thực hiện hành vi trái pháp luật phải có lỗi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi nào sau đây không là hành vi vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi nào sau đây không là hành vi vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Anh A chia tay người yêu', 1, @last_question_id);
@@ -4761,7 +4761,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A hành hung vợ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những biểu hiện ra bên ngoài của vi phạm pháp luật gọi là?', '', 'Approved', 1, 5, 3);
+VALUES ('Những biểu hiện ra bên ngoài của vi phạm pháp luật gọi là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt khách quan của vi phạm pháp luật', 1, @last_question_id);
@@ -4773,7 +4773,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hậu quả của hành vi vi phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các yếu tố cấu thành vi phạm pháp luật bao gồm?', '', 'Approved', 1, 5, 3);
+VALUES ('Các yếu tố cấu thành vi phạm pháp luật bao gồm?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, mặt khách thể, mặt khách quan, chủ quan', 0, @last_question_id);
@@ -4785,7 +4785,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể, mặt chủ quan, khách thể, khách quan', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mặt khách quan của hành vi vi phạm pháp luật bao gồm?', '', 'Approved', 1, 5, 3);
+VALUES ('Mặt khách quan của hành vi vi phạm pháp luật bao gồm?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi trái pháp luật và hậu quả do hành vi trái pháp luật gây ra', 0, @last_question_id);
@@ -4797,7 +4797,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những biểu hiện, diễn biến tâm lý bên trong của chủ thể vi phạm pháp luật gọi là?', '', 'Approved', 1, 5, 3);
+VALUES ('Những biểu hiện, diễn biến tâm lý bên trong của chủ thể vi phạm pháp luật gọi là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mặt chủ quan của vi phạm pháp luật', 1, @last_question_id);
@@ -4809,7 +4809,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm các đáp án', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các yếu tố thuộc mặt chủ quan của vi phạm pháp luật bao gồm?', '', 'Approved', 1, 5, 3);
+VALUES ('Các yếu tố thuộc mặt chủ quan của vi phạm pháp luật bao gồm?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lỗi, động cơ, mục đích', 1, @last_question_id);
@@ -4821,7 +4821,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các đáp án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sai khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sai khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ khi nào hành vi trái pháp luật được chủ thể thực hiện một cách cố ý thì mới có thể làhành vi vi phạm pháp luật', 1, @last_question_id);
@@ -4833,7 +4833,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Động cơ là cái thúc đẩy chủ thể thực hiện hành vi vi phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào đúng khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào đúng khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tùy thuộc vào trách nhiệm pháp lý áp dụng đối với chủ thể để xác định lỗi của chủ thể viphạm pháp luật', 1, @last_question_id);
@@ -4845,7 +4845,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lỗi là thái độ tâm lý của chủ thể đối với hành vi trái pháp luật mà mình đã thực hiện', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án phù hợp: Chủ thể vi phạm pháp luật là cá nhân hoặc tổ chức có...... đãthực hiện hành vi vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án phù hợp: Chủ thể vi phạm pháp luật là cá nhân hoặc tổ chức có...... đãthực hiện hành vi vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khả năng', 0, @last_question_id);
@@ -4857,7 +4857,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năng lực hành vi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án phù hợp: Khách thể của vi phạm pháp luật là những...... được phápluật xác lập, bảo vệ nhưng đã bị xâm hại bởi hành vi vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án phù hợp: Khách thể của vi phạm pháp luật là những...... được phápluật xác lập, bảo vệ nhưng đã bị xâm hại bởi hành vi vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ pháp luật', 1, @last_question_id);
@@ -4869,7 +4869,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đối tượng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Xác định đáp án sai trong các khẳng định sau?', '', 'Approved', 1, 5, 3);
+VALUES ('Xác định đáp án sai trong các khẳng định sau?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khách thể của vi phạm pháp luật là những quan hệ xã hội được pháp luật xác lập, bảo vệnhưng đã bị xâm hại bởi hành vi vi phạm pháp luật', 1, @last_question_id);
@@ -4881,7 +4881,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khách thể của vi phạm pháp luật là yếu tố bắt buộc trong mọi cấu thành vi phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên nhân của vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Nguyên nhân của vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mâu thuẫn giữa quan hệ sản xuất và lực lượng sản xuất', 0, @last_question_id);
@@ -4893,7 +4893,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sau đây là đúng?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm hình sự là trách nhiệm thuộc về cá nhân người phạm tội, phải do chính họgánh chịu một cách trực tiếp, chứ không thể chuyển hay ủy thác cho người khác', 1, @last_question_id);
@@ -4905,7 +4905,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sau đây là đúng?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chỉ có vi phạm pháp luật mới phải chịu trách nhiệm pháp lý', 1, @last_question_id);
@@ -4917,7 +4917,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a và b đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khẳng định nào sau đây là đúng?', '', 'Approved', 1, 5, 3);
+VALUES ('Khẳng định nào sau đây là đúng?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm hình sự chỉ áp dụng đối với cá nhân thực hiện hành vi phạm tội', 0, @last_question_id);
@@ -4929,7 +4929,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả các phương án đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vi phạm pháp luật hình sự là hành vi vi phạm nguy hiểm cho xã hội được quy địnhtrong?', '', 'Approved', 1, 5, 3);
+VALUES ('Vi phạm pháp luật hình sự là hành vi vi phạm nguy hiểm cho xã hội được quy địnhtrong?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp luật của Nhà nước', 0, @last_question_id);
@@ -4941,7 +4941,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vi phạm pháp luật hình sự còn được gọi là?', '', 'Approved', 1, 5, 3);
+VALUES ('Vi phạm pháp luật hình sự còn được gọi là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tội trạng', 0, @last_question_id);
@@ -4953,7 +4953,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các đáp án đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vi phạm pháp luật hành chính là hành vi do cá nhân, tổ chức thực hiện một cách cốý hoặc vô ý, xâm phạm đến các?', '', 'Approved', 1, 5, 3);
+VALUES ('Vi phạm pháp luật hành chính là hành vi do cá nhân, tổ chức thực hiện một cách cốý hoặc vô ý, xâm phạm đến các?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy tắc xử sự', 0, @last_question_id);
@@ -4965,7 +4965,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quy định pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án phù hợp: Vi phạm pháp luật dân sự là hành vi trái pháp luật, có lỗi, docá nhân, tổ chức thực hiện, xâm phạm đến các..... được pháp luật..... điều chỉnh?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án phù hợp: Vi phạm pháp luật dân sự là hành vi trái pháp luật, có lỗi, docá nhân, tổ chức thực hiện, xâm phạm đến các..... được pháp luật..... điều chỉnh?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ xã hội - pháp luật', 0, @last_question_id);
@@ -4977,7 +4977,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ tài sản và quan hệ thân nhân - dân sự', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Yếu tố không thuộc mặt chủ quan của vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Yếu tố không thuộc mặt chủ quan của vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đối tượng của hành vi vi phạm pháp luật', 1, @last_question_id);
@@ -4989,7 +4989,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mục đích', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án đúng: .....là loại trách nhiệm pháp lí nghiêm khắc nhất, do..... áp dụngcho chủ thể đã thực hiện hành vi phạm tội?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án đúng: .....là loại trách nhiệm pháp lí nghiêm khắc nhất, do..... áp dụngcho chủ thể đã thực hiện hành vi phạm tội?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lý hình sự - Tòa án', 1, @last_question_id);
@@ -5001,7 +5001,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lý hình sự - Cơ quan Nhà nước có thẩm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân,tổ chức đã vi phạm pháp luật dân sự?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân,tổ chức đã vi phạm pháp luật dân sự?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lý dân sự - Tòa án', 1, @last_question_id);
@@ -5013,7 +5013,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lý dân sự - Cơ quan Nhà nước có thẩm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân,tổ chức đã vi phạm pháp luật hành chính?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân,tổ chức đã vi phạm pháp luật hành chính?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lí hành chính - Tòa án', 0, @last_question_id);
@@ -5025,7 +5025,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm pháp lí hành chính - Cơ quan quản lí Nhà nước có thẩm quyền', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với học sinh,sinh viên, cán bộ của nhà trường đã vi phạm nội quy, quy chế của nhà trường?', '', 'Approved', 1, 5, 3);
+VALUES ('Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với học sinh,sinh viên, cán bộ của nhà trường đã vi phạm nội quy, quy chế của nhà trường?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm kỷ luật - Bộ trưởng', 0, @last_question_id);
@@ -5037,7 +5037,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trách nhiệm kỷ luật - Giám đốc xí nghiệp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi vi phạm pháp luật?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi vi phạm pháp luật?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không bao giờ vi phạm đạo đức', 0, @last_question_id);
@@ -5049,7 +5049,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a và b đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể phải chịu trách nhiệm pháp lý về hành vi vi phạm pháp luật của mình khi?', '', 'Approved', 1, 5, 3);
+VALUES ('Chủ thể phải chịu trách nhiệm pháp lý về hành vi vi phạm pháp luật của mình khi?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ thể đó đủ 18 tuổi và không mắc bệnh tâm thần', 0, @last_question_id);
@@ -5061,7 +5061,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thông thường là 18 tuổi và không mắc bệnh tâm thần', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Khi nghiên cứu về đặc điểm của trách nhiệm pháp lý thì khẳng định nào sau đây làsai?', '', 'Approved', 1, 5, 3);
+VALUES ('Khi nghiên cứu về đặc điểm của trách nhiệm pháp lý thì khẳng định nào sau đây làsai?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cơ sở của trách nhiệm pháp lý là vi phạm pháp luật', 0, @last_question_id);
@@ -5073,7 +5073,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Truy cứu trách nhiệm pháp lý là một quá trình hoạt động phức tạp của các cơ quan Nhànước, nhà chức trách có thẩm quyền', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Mặt chủ quan của vi phạm pháp luật gồm?', '', 'Approved', 1, 5, 3);
+VALUES ('Mặt chủ quan của vi phạm pháp luật gồm?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lỗi cố ý và lỗi vô ý', 0, @last_question_id);
@@ -5085,7 +5085,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi trái pháp luật và hậu quả nguy hiểm cho xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chủ thể thực hiện hành vi trái pháp luật bị coi là có lỗi khi?', '', 'Approved', 1, 5, 3);
+VALUES ('Chủ thể thực hiện hành vi trái pháp luật bị coi là có lỗi khi?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhận thức rất rõ về hành vi mình thực hiện là trái pháp luật và có thể gây ra hậu quảnghiêm trọng cho xã hội', 0, @last_question_id);
@@ -5097,7 +5097,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cố ý thực hiện hành vi trái pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi nào sau đây là vi phạm pháp luật hành chính?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi nào sau đây là vi phạm pháp luật hành chính?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Vượt đèn đỏ gây chết người', 0, @last_question_id);
@@ -5109,7 +5109,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Sử dụng tài liệu khi làm bài thi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi nào sau đây là vi phạm pháp luật hình sự?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi nào sau đây là vi phạm pháp luật hình sự?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Điều khiển xe máy chạy lấn tuyến', 0, @last_question_id);
@@ -5121,7 +5121,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Điều khiển xe gắn máy không có bằng lái xe', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hành vi nào sau đây là vi phạm pháp luật dân sự?', '', 'Approved', 1, 5, 3);
+VALUES ('Hành vi nào sau đây là vi phạm pháp luật dân sự?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kinh doanh sai ngành nghề đã đăng ký', 0, @last_question_id);
@@ -5133,7 +5133,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Không trả tiền thuê nhà', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Để truy cứu trách nhiệm pháp lý cần xác định?', '', 'Approved', 1, 5, 3);
+VALUES ('Để truy cứu trách nhiệm pháp lý cần xác định?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có hành vi vi phạm pháp luật xảy ra, còn thời hiệu truy cứu trách nhiệm pháp lý', 1, @last_question_id);
@@ -5145,7 +5145,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hậu quả gây thiệt hại cho xã hội', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Nguyên tắc truy cứu trách nhiệm pháp lý là?', '', 'Approved', 1, 5, 3);
+VALUES ('Nguyên tắc truy cứu trách nhiệm pháp lý là?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việc truy cứu trách nhiệm pháp lý luôn cần phải áp dụng biện pháp cưỡng chế Nhà nước', 0, @last_question_id);
@@ -5157,7 +5157,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Việc truy cứu trách nhiệm pháp lý chỉ được áp dụng đối với tổ chức vi phạm pháp luật', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối với các trường hợp áp dụng thời hiệu truy cứu trách nhiệm pháp lý, thời hiệu đóđược tính từ thời điểm nào sau đây?', '', 'Approved', 1, 5, 3);
+VALUES ('Đối với các trường hợp áp dụng thời hiệu truy cứu trách nhiệm pháp lý, thời hiệu đóđược tính từ thời điểm nào sau đây?', '', 'Active', 1, 5, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thời điểm cơ quan Nhà nước có thẩm quyền phát hiện hành vi vi phạm', 0, @last_question_id);
@@ -5169,7 +5169,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các đáp án đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án sai trong các nhận định sau?', '', 'Approved', 1, 6, 3);
+VALUES ('Tìm đáp án sai trong các nhận định sau?', '', 'Active', 1, 6, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Pháp luật và pháp chế có mối quan hệ mật thiết với nhau', 0, @last_question_id);
@@ -5181,7 +5181,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tôn trọng tính tối cao của Hiến pháp và pháp luật là một trong những yêu cầu của pháp chếXHCN', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('“Quyền lực Nhà nước là thống nhất, có sự phân công và phối hợp chặt chẽ giữa cáccơ quan Nhà nước trong việc thực hiện các quyền lập pháp, hành pháp và tư pháp” làmột trong những đặc trưng của?', '', 'Approved', 1, 6, 3);
+VALUES ('“Quyền lực Nhà nước là thống nhất, có sự phân công và phối hợp chặt chẽ giữa cáccơ quan Nhà nước trong việc thực hiện các quyền lập pháp, hành pháp và tư pháp” làmột trong những đặc trưng của?', '', 'Active', 1, 6, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Nhà nước pháp quyền TBCN', 0, @last_question_id);
@@ -5193,7 +5193,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả 3 Nhà nước trên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Luật Hiến pháp là một ngành luật chủ đạo trong hệ thống pháp luật Việt Nam vì?', '', 'Approved', 1, 7, 3);
+VALUES ('Luật Hiến pháp là một ngành luật chủ đạo trong hệ thống pháp luật Việt Nam vì?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Do Quốc hội - cơ quan quyền lực Nhà nước cao nhất ban hành', 0, @last_question_id);
@@ -5205,7 +5205,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độ tuổi được ứng cử vào Quốc hội và Hội đồng nhân dân các cấp theo quy định củapháp luật ở nước ta là?', '', 'Approved', 1, 7, 3);
+VALUES ('Độ tuổi được ứng cử vào Quốc hội và Hội đồng nhân dân các cấp theo quy định củapháp luật ở nước ta là?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ 18 tuổi trở lên', 0, @last_question_id);
@@ -5217,7 +5217,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Đủ 21 tuổi trở lên', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiến pháp có những đặc trưng, khác với các văn bản pháp luật khác ở chỗ?', '', 'Approved', 1, 7, 3);
+VALUES ('Hiến pháp có những đặc trưng, khác với các văn bản pháp luật khác ở chỗ?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp chỉ quy định những vấn đề cơ bản nhất, quan trọng nhất của một Nhà nước, mộtxã hội làm cơ sở nền tảng cho hệ thống pháp luật', 0, @last_question_id);
@@ -5229,7 +5229,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bao gồm cả a, b, c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Pháp luật nước ta quy định người nào có quyền bầu cử ra cơ quan Quốc hội và Hộiđồng nhân dân các cấp?', '', 'Approved', 1, 7, 3);
+VALUES ('Pháp luật nước ta quy định người nào có quyền bầu cử ra cơ quan Quốc hội và Hộiđồng nhân dân các cấp?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả công dân Việt Nam', 0, @last_question_id);
@@ -5241,7 +5241,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công dân Việt Nam 21 từ tuổi trở lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Văn bản pháp luật nào quy định về quyền và nghĩa vụ cơ bản của công dân?', '', 'Approved', 1, 7, 3);
+VALUES ('Văn bản pháp luật nào quy định về quyền và nghĩa vụ cơ bản của công dân?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luật Hành chính', 0, @last_question_id);
@@ -5253,7 +5253,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Luật Hiến pháp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những quyền và nghĩa vụ của công dân được quy định trong?', '', 'Approved', 1, 7, 3);
+VALUES ('Những quyền và nghĩa vụ của công dân được quy định trong?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Rất nhiều văn bản pháp luật khác nhau', 1, @last_question_id);
@@ -5265,7 +5265,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiến pháp Nhà nước ta quy định: Công dân đủ 21 tuổi trở lên có quyền ứng cử vàocơ quan nào sau đây?', '', 'Approved', 1, 7, 3);
+VALUES ('Hiến pháp Nhà nước ta quy định: Công dân đủ 21 tuổi trở lên có quyền ứng cử vàocơ quan nào sau đây?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính phủ', 0, @last_question_id);
@@ -5277,7 +5277,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ủy ban nhân dân cấp tỉnh và tương đương', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Lịch sử lập hiến Việt Nam đã có những bản Hiến pháp nào?', '', 'Approved', 1, 7, 3);
+VALUES ('Lịch sử lập hiến Việt Nam đã có những bản Hiến pháp nào?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp 1946 - Hiến pháp 1959 - Hiến pháp 1980 - Hiến pháp 1992 – Hiến pháp 2013', 0, @last_question_id);
@@ -5289,7 +5289,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hiến pháp 1946 - Hiến pháp 1980 - Hiến pháp 1992', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiến pháp đang có hiệu lực thi hành ở Việt Nam hiện nay được ban hành năm nào?', '', 'Approved', 1, 7, 3);
+VALUES ('Hiến pháp đang có hiệu lực thi hành ở Việt Nam hiện nay được ban hành năm nào?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm 1980', 0, @last_question_id);
@@ -5301,7 +5301,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm 2013', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các quan hệ xã hội cơ bản được Luật Hiến pháp điều chỉnh là?', '', 'Approved', 1, 7, 3);
+VALUES ('Các quan hệ xã hội cơ bản được Luật Hiến pháp điều chỉnh là?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chế độ chính trị', 0, @last_question_id);
@@ -5313,7 +5313,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiến pháp 1992 đã được thay thế bằng hiến pháp năm nào?', '', 'Approved', 1, 7, 3);
+VALUES ('Hiến pháp 1992 đã được thay thế bằng hiến pháp năm nào?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm 1996', 0, @last_question_id);
@@ -5325,7 +5325,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Năm 2013', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hiến pháp được thông qua khi ít nhất có?', '', 'Approved', 1, 7, 3);
+VALUES ('Hiến pháp được thông qua khi ít nhất có?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một phần hai tổng số đại biểu Quốc hội biểu quyết tán thành', 0, @last_question_id);
@@ -5337,7 +5337,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một trăm phần trăm tổng số đại biểu Quốc hội biểu quyết tán thành', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Những chức danh nào sau đây bắt buộc phải là đại biểu Quốc hội?', '', 'Approved', 1, 7, 3);
+VALUES ('Những chức danh nào sau đây bắt buộc phải là đại biểu Quốc hội?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phó Thủ tướng Chính phủ', 0, @last_question_id);
@@ -5349,7 +5349,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chủ tịch UBND tỉnh, thành phố trực thuộc Trung ương', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ cấu bộ máy Nhà nước Cộng hòa XHCN Việt Nam bao gồm?', '', 'Approved', 1, 7, 3);
+VALUES ('Cơ cấu bộ máy Nhà nước Cộng hòa XHCN Việt Nam bao gồm?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội, Chính phủ, Ủy ban nhân dân các cấp', 0, @last_question_id);
@@ -5361,7 +5361,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hệ thống cơ quan quyền lực Nhà nước bao gồm?', '', 'Approved', 1, 7, 3);
+VALUES ('Hệ thống cơ quan quyền lực Nhà nước bao gồm?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội, Chính phủ', 0, @last_question_id);
@@ -5373,7 +5373,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quốc hội, Hội đồng nhân dân các cấp', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Vị trí của Chủ tịch nước Cộng hòa XHCN Việt Nam?', '', 'Approved', 1, 7, 3);
+VALUES ('Vị trí của Chủ tịch nước Cộng hòa XHCN Việt Nam?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là nguyên thủ quốc gia, có quyền quyết định những vấn đề quan trọng nhất của đất nước', 0, @last_question_id);
@@ -5385,7 +5385,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả b và c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chính phủ nước Cộng hòa XHCN Việt Nam?', '', 'Approved', 1, 7, 3);
+VALUES ('Chính phủ nước Cộng hòa XHCN Việt Nam?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Là cơ quan trung tâm của Nhà nước, có thẩm quyền trong cả 3 lĩnh vực lập pháp, hànhpháp, tư pháp', 0, @last_question_id);
@@ -5397,7 +5397,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Chức năng của Viện Kiểm sát nhân dân các cấp?', '', 'Approved', 1, 7, 3);
+VALUES ('Chức năng của Viện Kiểm sát nhân dân các cấp?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Kiểm sát hoạt động của tất cả các cơ quan Nhà nước', 0, @last_question_id);
@@ -5409,7 +5409,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Gồm b và c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án sai trong nhận định sau: Quan hệ xã hội mà Luật Hành chính điềuchỉnh có đặc trưng?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án sai trong nhận định sau: Quan hệ xã hội mà Luật Hành chính điềuchỉnh có đặc trưng?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quyền lực phục tùng', 0, @last_question_id);
@@ -5421,7 +5421,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Một bên có quyền nhân danh Nhà nước đơn phương đưa ra quyết định quản lý và phía bênkia có nghĩa vụ chấp hành các quyết định đơn phương đó', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Phương pháp điều chỉnh của Luật Hành chính là?', '', 'Approved', 1, 7, 3);
+VALUES ('Phương pháp điều chỉnh của Luật Hành chính là?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phương pháp bình đẳng, thỏa thuận', 0, @last_question_id);
@@ -5433,7 +5433,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phương pháp quyền uy và phương pháp thông qua hoạt động của tổ chức công đoàn', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án sai trong nhận định sau: Các cơ quan Hành chính Nhà nước ở Trungương bao gồm?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án sai trong nhận định sau: Các cơ quan Hành chính Nhà nước ở Trungương bao gồm?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Chính phủ', 0, @last_question_id);
@@ -5445,7 +5445,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Bộ', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Cơ quan Hành chính Nhà nước cấp tỉnh bao gồm?', '', 'Approved', 1, 7, 3);
+VALUES ('Cơ quan Hành chính Nhà nước cấp tỉnh bao gồm?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ủy ban nhân dân tỉnh, các Sở, phòng, ban thuộc Ủy ban nhân dân tỉnh', 1, @last_question_id);
@@ -5457,7 +5457,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Ủy ban nhân dân, Hội đồng nhân dân, các tổ chức Đảng, đoàn thể cấp tỉnh', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đảng lãnh đạo cơ quan Hành chính Nhà nước bằng phương pháp?', '', 'Approved', 1, 7, 3);
+VALUES ('Đảng lãnh đạo cơ quan Hành chính Nhà nước bằng phương pháp?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Thuyết phục', 0, @last_question_id);
@@ -5469,7 +5469,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Tất cả đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng trong nhận định sau: Một trong những đặc trưng cơ bản của quanhệ pháp luật hành chính?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án đúng trong nhận định sau: Một trong những đặc trưng cơ bản của quanhệ pháp luật hành chính?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các bên tham gia quan hệ pháp luật hành chính luôn luôn lệ thuộc nhau về mặt tổ chức', 0, @last_question_id);
@@ -5481,7 +5481,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Các bên tham gia quan hệ pháp luật hành chính không bắt buộc phải là chủ thể được sửdụng quyền lực Nhà nước', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đặc điểm cơ bản của vi phạm hành chính?', '', 'Approved', 1, 7, 3);
+VALUES ('Đặc điểm cơ bản của vi phạm hành chính?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Hành vi trái pháp luật xâm phạm các quy tắc quản lý Nhà nước', 0, @last_question_id);
@@ -5493,7 +5493,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Trường hợp nào sau đây không bị xử lý vi phạm hành chính?', '', 'Approved', 1, 7, 3);
+VALUES ('Trường hợp nào sau đây không bị xử lý vi phạm hành chính?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Phòng vệ chính đáng, tình thế cấp thiết', 0, @last_question_id);
@@ -5505,7 +5505,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng trong nhận định sau: Hình thức xử phạt chính vi phạm hành chínhlà?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án đúng trong nhận định sau: Hình thức xử phạt chính vi phạm hành chínhlà?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Khiển trách', 0, @last_question_id);
@@ -5517,7 +5517,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cảnh cáo và phạt tiền', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Độ tuổi bắt đầu chịu trách nhiệm hành chính?', '', 'Approved', 1, 7, 3);
+VALUES ('Độ tuổi bắt đầu chịu trách nhiệm hành chính?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('14 tuổi', 1, @last_question_id);
@@ -5529,7 +5529,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('18 tuổi', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('A 15 tuổi thực hiện hành vi vi phạm hành chính với lỗi cố ý. Trách nhiệm hành chínhđối với A như thế nào?', '', 'Approved', 1, 7, 3);
+VALUES ('A 15 tuổi thực hiện hành vi vi phạm hành chính với lỗi cố ý. Trách nhiệm hành chínhđối với A như thế nào?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Có thể phạt cảnh cáo hoặc phạt tiền theo quy định của pháp luật', 0, @last_question_id);
@@ -5541,7 +5541,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('A dưới 16 tuổi nên chưa phải chịu trách nhiệm hành chính', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng trong nhận định sau: C là người chưa thành niên thực hiện hànhvi vi phạm hành chính?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án đúng trong nhận định sau: C là người chưa thành niên thực hiện hànhvi vi phạm hành chính?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('C sẽ phải chịu trách nhiệm hành chính do lỗi cố ý nếu tuổi C từ đủ 14 đến dưới 16. Nếu Ctừ đủ 16 tuổi trở lên, có thể phải chịu trách nhiệm hành chính trong mọi trường hợp vi phạm', 1, @last_question_id);
@@ -5553,7 +5553,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('C chỉ phải chịu trách nhiệm hành chính khi C đủ 16 tuổi trở lên', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tìm đáp án đúng trong nhận định sau: T 17 tuổi thực hiện hành vi vi phạm hànhchính và bị xử phạt tiền?', '', 'Approved', 1, 7, 3);
+VALUES ('Tìm đáp án đúng trong nhận định sau: T 17 tuổi thực hiện hành vi vi phạm hànhchính và bị xử phạt tiền?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mức tiền phạt đối với T giống như mức phạt đối với người thành niên', 0, @last_question_id);
@@ -5565,7 +5565,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Trường hợp T không có tiền nộp phạt thì áp dụng hình thức phạt cảnh cáo với T', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Đối tượng điều chỉnh của Luật Lao động?', '', 'Approved', 1, 7, 3);
+VALUES ('Đối tượng điều chỉnh của Luật Lao động?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ lao động', 0, @last_question_id);
@@ -5577,7 +5577,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a và c', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Quan hệ học nghề là?', '', 'Approved', 1, 7, 3);
+VALUES ('Quan hệ học nghề là?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ lao động', 0, @last_question_id);
@@ -5589,7 +5589,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều sai', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Việc làm là?', '', 'Approved', 1, 7, 3);
+VALUES ('Việc làm là?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Mọi hoạt động lao động trong cơ quan Nhà nước', 0, @last_question_id);
@@ -5601,7 +5601,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a, b, c đều đúng', 0, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Các chế định của Bộ luật Lao động điều chỉnh?', '', 'Approved', 1, 7, 3);
+VALUES ('Các chế định của Bộ luật Lao động điều chỉnh?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Quan hệ lao động giữa người làm công ăn lương với người sử dụng lao động', 0, @last_question_id);
@@ -5613,7 +5613,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Cả a và b đều sai', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Tiền lương là một chế định của ngành luật?', '', 'Approved', 1, 7, 3);
+VALUES ('Tiền lương là một chế định của ngành luật?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Dân sự', 0, @last_question_id);
@@ -5625,7 +5625,7 @@ INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Lao động', 1, @last_question_id);
 
 INSERT INTO Questions (content, explanation, status, author_id, chapter_id, subject_id)
-VALUES ('Hợp đồng lao động phải có nội dung chủ yếu nào sau đây?', '', 'Approved', 1, 7, 3);
+VALUES ('Hợp đồng lao động phải có nội dung chủ yếu nào sau đây?', '', 'Active', 1, 7, 3);
 SET @last_question_id = LAST_INSERT_ID();
 INSERT INTO Answers (content, is_correct, question_id)
 VALUES ('Công việc phải làm, thời giờ làm việc, nghỉ ngơi', 0, @last_question_id);
