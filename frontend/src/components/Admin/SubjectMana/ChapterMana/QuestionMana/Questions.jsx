@@ -1,10 +1,8 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useAuth } from "../../../../../contexts/AuthContext";
-
-// Import các component con
 import CreateQuestion from "./CreateQuestion";
 import UpdateQuestion from "./UpdateQuestion";
-import '../../../../../styles/AdminSide.css';
+import "../../../../../styles/AdminSide.css";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
@@ -13,36 +11,27 @@ const API_URL =
 
 const DEFAULT_PAGE_SIZE = 10;
 const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
+const toStatusLabel = (status) => (status === "Inactive" ? "Tạm khóa" : "Hoạt động");
 
 const Questions = ({ subject, chapter, onBackToChapters }) => {
   const { token } = useAuth();
-
-  // State điều hướng component con
-  const [currentView] = useState("list");
-  const [selectedQuestion, setSelectedQuestion] = useState(null);
-
-  // State đồng bộ cấu trúc hiển thị dữ liệu
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
-  
-  // State mở Modal tạo mới
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
 
-  // Hàm fetch dữ liệu từ API dựa theo chương đang chọn
   const fetchQuestions = useCallback(async () => {
-    // 1. Kiểm tra token
     if (!token) {
       setError("Phiên đăng nhập đã hết hạn.");
       setLoading(false);
       return;
     }
 
-    // 2. Chặn lỗi undefined làm sập trang
-    if (!subject || !chapter || !subject.id || !chapter.id) {
+    if (!subject?.id || !chapter?.id) {
       setError("Không tìm thấy thông tin môn học hoặc chương học.");
       setLoading(false);
       return;
@@ -51,44 +40,40 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
     try {
       setLoading(true);
       setError("");
-      
-      const response = await fetch(`${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+
+      const response = await fetch(
+        `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
-      
+      );
+
       const payload = await response.json().catch(() => null);
-      
       if (!response.ok) {
         throw new Error(payload?.message || "Không thể tải danh sách câu hỏi.");
       }
-      
+
       const fetchedQuestions = Array.isArray(payload)
         ? payload
         : Array.isArray(payload?.questions)
           ? payload.questions
           : [];
-          
-      // Sắp xếp lại theo ID
+
       const sortedQuestions = [...fetchedQuestions].sort((a, b) => Number(a.id) - Number(b.id));
       setQuestions(sortedQuestions);
-      
     } catch (err) {
       setError(err.message || "Có lỗi xảy ra khi tải danh sách câu hỏi.");
     } finally {
       setLoading(false);
     }
-  }, [token, subject, chapter]);
+  }, [token, subject?.id, chapter?.id]);
 
-  // Chỉ tải lại dữ liệu khi quay về màn hình "list"
   useEffect(() => {
-    if (currentView === "list") {
-      fetchQuestions();
-    }
-  }, [fetchQuestions, currentView]);
+    fetchQuestions();
+  }, [fetchQuestions]);
 
-  // --- LOGIC PHÂN TRANG ---
   const totalQuestions = questions.length;
   const totalPages = Math.max(1, Math.ceil(totalQuestions / pageSize));
 
@@ -133,72 +118,81 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
     setCurrentPage(1);
   };
 
-  // --- CÁC HÀM XỬ LÝ ĐIỀU HƯỚNG ---
-  const handleGoToCreate = () => setIsCreateModalOpen(true);
-  
   const handleGoToUpdate = (question) => {
     setSelectedQuestion(question);
-    setIsUpdateModalOpen(true); // Bật Modal
+    setIsUpdateModalOpen(true);
   };
 
-  // const handleBackToList = () => {
-  //   setSelectedQuestion(null);
-  //   setCurrentView("list");
-  // };
+  const handleDeleteQuestion = async (question) => {
+    if (!token) {
+      setError("Phiên đăng nhập đã hết hạn.");
+      return;
+    }
 
-  // --- RENDER CÁC COMPONENT CON ---
-  // if (currentView === "update") {
-  //   return (
-  //     <UpdateQuestion 
-  //       subject={subject}
-  //       chapter={chapter}
-  //       questionData={selectedQuestion} 
-  //       onBack={handleBackToList} 
-  //     />
-  //   );
-  // }
+    const confirmed = window.confirm(
+      `Bạn có chắc chắn muốn xóa câu hỏi ID ${question.id}? Hành động này không thể hoàn tác.`,
+    );
+    if (!confirmed) return;
 
-  // --- RENDER GIAO DIỆN CHÍNH ---
+    try {
+      const response = await fetch(
+        `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${question.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      const payload = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(payload?.message || "Không thể xóa câu hỏi.");
+      }
+
+      await fetchQuestions();
+    } catch (err) {
+      window.alert(err.message || "Có lỗi xảy ra khi xóa câu hỏi.");
+    }
+  };
+
   return (
     <section className="user-list">
-      
-      {/* Hiển thị Dialog tạo mới nếu state bật */}
       {isCreateModalOpen && (
-        <CreateQuestion 
-          subject={subject} // Truyền thêm subject xuống
-          chapter={chapter} 
-          onClose={() => setIsCreateModalOpen(false)} 
-          onRefresh={fetchQuestions} 
-        />
-      )}
-      {isUpdateModalOpen && selectedQuestion && (
-        <UpdateQuestion 
+        <CreateQuestion
           subject={subject}
           chapter={chapter}
-          questionData={selectedQuestion} 
-          onClose={() => setIsUpdateModalOpen(false)} 
-          onRefresh={fetchQuestions} 
+          onClose={() => setIsCreateModalOpen(false)}
+          onRefresh={fetchQuestions}
         />
       )}
 
-      {/* Nút lùi về danh sách Chương */}
-      <button 
-        onClick={onBackToChapters} 
-        style={{ marginBottom: '15px', background: "transparent", color: "#007bff", border: "none", cursor: "pointer", fontWeight: "bold", fontSize: "15px" }}
-      >
-        <i className="fa-solid fa-arrow-left" style={{ marginRight: '8px' }}></i>
-        Trở về danh sách Chương
+      {isUpdateModalOpen && selectedQuestion && (
+        <UpdateQuestion
+          subject={subject}
+          chapter={chapter}
+          questionData={selectedQuestion}
+          onClose={() => {
+            setIsUpdateModalOpen(false);
+            setSelectedQuestion(null);
+          }}
+          onRefresh={fetchQuestions}
+        />
+      )}
+
+      <button type="button" className="admin-back-btn" onClick={onBackToChapters}>
+        <i className="fa-solid fa-arrow-left" /> Trở về danh sách chương
       </button>
 
       <div className="user-list-header">
-        <h3>Danh sách Câu hỏi {chapter ? `- ${chapter.chapter_name}` : ""}</h3>
+        <h3>Danh sách câu hỏi {chapter ? `- ${chapter.chapter_name}` : ""}</h3>
         <div style={{ display: "flex", gap: "10px" }}>
-          <button 
-            type="button" 
-            onClick={handleGoToCreate} 
-            style={{ padding: "8px 16px", background: "#28a745", color: "white", border: "none", borderRadius: "4px", cursor: "pointer", fontWeight: "bold" }}
+          <button
+            type="button"
+            className="admin-action-btn success"
+            onClick={() => setIsCreateModalOpen(true)}
           >
-            + Thêm Câu hỏi
+            + Thêm câu hỏi
           </button>
           <button className="red-btn" type="button" onClick={fetchQuestions} disabled={loading}>
             Tải lại
@@ -207,10 +201,10 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
       </div>
 
       <div className="user-list-controls">
-        <span>Tổng số câu hỏi : {totalQuestions}</span>
+        <span>Tổng câu hỏi: {totalQuestions}</span>
         <label htmlFor="questions-page-size">
           Hiển thị
-          <select id="questions-page-size" value={pageSize} onChange={handlePageSizeChange} style={{ marginLeft: "8px" }}>
+          <select id="questions-page-size" value={pageSize} onChange={handlePageSizeChange}>
             {PAGE_SIZE_OPTIONS.map((size) => (
               <option key={size} value={size}>
                 {size} / trang
@@ -221,7 +215,6 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
       </div>
 
       {loading && <p>Đang tải danh sách câu hỏi...</p>}
-
       {!loading && error && <p className="user-error">{error}</p>}
 
       {!loading && !error && (
@@ -230,46 +223,74 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
             <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
               <thead style={{ backgroundColor: "#f0f0f0" }}>
                 <tr style={{ color: "black", textAlign: "left" }}>
-                  {/* Cân đối lại tổng % width cho đủ 100% */}
-                  <th className="col-id" style={{ padding: "10px", width: "10%" }}>ID</th>
-                  <th className="col-content" style={{ padding: "10px", width: "50%" }}>Nội dung</th>
-                  <th className="col-status" style={{ padding: "10px", width: "20%" }}>Trạng thái</th>
-                  <th className="col-actions" style={{ padding: "10px", width: "20%" }}>Hành động</th>
+                  <th style={{ padding: "10px", width: "8%" }}>ID</th>
+                  <th style={{ padding: "10px", width: "36%" }}>Nội dung</th>
+                  <th style={{ padding: "10px", width: "20%" }}>Giải thích</th>
+                  <th style={{ padding: "10px", width: "12%" }}>Số đáp án</th>
+                  <th style={{ padding: "10px", width: "10%" }}>Trạng thái</th>
+                  <th style={{ padding: "10px", width: "20%" }}>Hành động</th>
                 </tr>
               </thead>
               <tbody style={{ color: "#080000" }}>
                 {paginatedQuestions.length > 0 ? (
-                  paginatedQuestions.map((q) => (
-                    <tr key={q.id} style={{ borderBottom: "1px solid #ddd" }}>
-                      <td style={{ padding: "10px" }}>{q.id}</td>
-                      <td style={{ padding: "10px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }} title={q.content}>
-                        {q.content}
+                  paginatedQuestions.map((question) => (
+                    <tr key={question.id} style={{ borderBottom: "1px solid #ddd" }}>
+                      <td style={{ padding: "10px" }}>{question.id}</td>
+                      <td
+                        style={{
+                          padding: "10px",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                        title={question.content}
+                      >
+                        {question.content}
                       </td>
-                      <td style={{ padding: "10px" }}>{q.status}</td>
-                      <td style={{ padding: "10px", display: "flex", gap: "8px" }}>
-                        
-                        {/* NÚT SỬA */}
-                        <button 
-                          type="button" 
-                          onClick={() => handleGoToUpdate(q)}
-                          style={{ padding: "5px 10px", cursor: "pointer", background: "#ffc107", color: "black", border: "none", borderRadius: "4px" }}
-                        >
-                          Sửa
-                        </button>
-                        
+                      <td
+                        style={{
+                          padding: "10px",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                        title={question.explanation || ""}
+                      >
+                        {question.explanation || "-"}
+                      </td>
+                      <td style={{ padding: "10px" }}>{question.answers?.length || 0}</td>
+                      <td style={{ padding: "10px" }}>{toStatusLabel(question.status)}</td>
+                      <td style={{ padding: "10px" }}>
+                        <div className="table-actions">
+                          <button
+                            type="button"
+                            className="admin-action-btn warning"
+                            onClick={() => handleGoToUpdate(question)}
+                          >
+                            Sửa
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-action-btn danger"
+                            onClick={() => handleDeleteQuestion(question)}
+                          >
+                            Xóa
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={4} style={{ padding: "10px", textAlign: "center" }}>Không có câu hỏi nào.</td>
+                    <td colSpan={6} style={{ padding: "10px", textAlign: "center" }}>
+                      Không có câu hỏi nào.
+                    </td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
 
-          {/* THANH PHÂN TRANG */}
           {totalQuestions > 0 && (
             <>
               <p className="pagination-meta">
@@ -299,7 +320,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
                     >
                       {item}
                     </button>
-                  )
+                  ),
                 )}
 
                 <button
