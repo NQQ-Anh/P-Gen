@@ -10,6 +10,8 @@ import {ChapterView} from "./components/ChapterView";
 import {QuestionView} from "./components/QuestionView";
 import {ResultView} from "./components/ResultView";
 import { HistoryView } from "./components/HistoryView";
+import ReviewDashboard from "./components/ReviewDashboard";
+import ReviewSubjectView from "./components/ReviewSubjectView";
 
 import "./styles/App.css";
 import "./styles/Common.css";
@@ -29,6 +31,8 @@ function AppContent() {
   const [quizSettings, setQuizSettings] = useState({});
   const [quizResult, setQuizResult] = useState(null);
   const [resumeData, setResumeData] = useState(null);
+  const [reviewSubject, setReviewSubject] = useState(null);
+  const [questionsForReview, setQuestionsForReview] = useState([]);
 
   const handleSetView = (newView) => {
     startTransition(() => {
@@ -38,6 +42,44 @@ function AppContent() {
 
     if (newView === "home") {
       setTypedText(""); 
+    }
+  };
+
+  const handleStartReviewSession = async (selectedIds, settings) => {
+    try {
+      const token = localStorage.getItem('accessToken');
+    const idsParam = selectedIds.join(',');
+      
+      const response = await fetch(`http://localhost:5001/review/get-by-ids?ids=${idsParam}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Server trả về lỗi ${response.status}`);
+      }
+
+      let questionsData = await response.json();
+
+      if (questionsData && questionsData.length > 0) {
+
+        if (settings.isShuffle) {
+          questionsData = [...questionsData].sort(() => Math.random() - 0.5);
+        }
+
+        setQuestionsForReview(questionsData);
+
+        setQuizSettings({
+          showAnswerImmediately: settings.showAnswers,
+          isRandom: settings.isShuffle,
+          timePerQuestion: settings.timePerQuestion,
+          viewMode: settings.viewMode
+        });
+
+        handleSetView("question-review");
+      }
+    } catch (error) {
+        console.error("Lỗi chuẩn bị phiên ôn tập:", error);
+        alert("Không thể tải nội dung câu hỏi. Vui lòng thử lại!");
     }
   };
 
@@ -160,6 +202,7 @@ function AppContent() {
           {user && (
             <>
               <button onClick={() => handleSetView("subject")}>Ôn luyện</button>
+              <button onClick={() => handleSetView("review-dashboard")}>Củng cố</button>
               <button onClick={() => handleSetView("profile")}>Thông tin</button>
               <button onClick={() => handleSetView("history")}>Lịch sử</button>
               {user.role === 'Admin' && (
@@ -238,9 +281,35 @@ function AppContent() {
         {view === "subject" && (
           <SubjectView 
             onSelectSubject={(sub) => {
+              const savedSession = localStorage.getItem('PTIT_QUIZ_SESSION');
+              if (savedSession) {
+                const session = JSON.parse(savedSession);
+                const sessionSubId = session.subject?.id || session.subjectId;
+                // Nếu session cũ ĐÚNG là của môn vừa chọn
+                if (sessionSubId) {
+                  const confirmResume = window.confirm(
+                    `Bạn đang có bài [ ${session.isExam ? 'Luyện thi' : 'Ôn tập'} ] chưa hoàn thành ở môn [ ${session.subject?.subject_name} ].\n\nBạn có muốn tiếp tục không?\n- Chọn OK để TIẾP TỤC. \n- Chọn CANCEL để BỎ QUA.`
+                  );
+
+                  if (confirmResume) {
+                    // A. NẾU ĐỒNG Ý: Khôi phục toàn bộ trạng thái và nhảy thẳng vào QuestionView
+                    setSelectedSubject(sub);
+                    setSelectedChapters(session.chapterIds || []);
+                    setQuizSettings(session.settings || {});
+                    setResumeData(session); // Đổ dữ liệu cũ vào đây
+                    handleSetView("question"); // Bỏ qua bước chọn Chapter
+                    return; // Kết thúc hàm tại đây
+                  } else {
+                    // B. NẾU KHÔNG: Xóa session cũ để bắt đầu bài mới hoàn toàn
+                    localStorage.removeItem('PTIT_QUIZ_SESSION');
+                  }
+                }
+              }
+              // 2. Nếu không có session hoặc người dùng từ chối khôi phục
               setSelectedSubject(sub);
-              handleSetView("chapter"); // Chuyển sang view chapter
-            }} 
+              handleSetView("chapter");
+            }}
+            onNavigate={(v) => setView(v)}
           />
         )}
         {view === "chapter" && selectedSubject && (
@@ -284,6 +353,34 @@ function AppContent() {
         )}
         {view === "history" && (
           <HistoryView onBack={() => setView("home")} />
+        )}
+        {view === "review-dashboard" && (
+          <ReviewDashboard 
+            onSelectSubject={(sub) => {
+              setReviewSubject(sub);
+              handleSetView("review-subject-detail");
+            }} 
+          />
+        )}
+        {view === "review-subject-detail" && reviewSubject && (
+          <ReviewSubjectView 
+            subject={reviewSubject}
+            onBack={() => handleSetView("review-dashboard")}
+            onStart={handleStartReviewSession}
+          />
+        )}
+        {view === "question-review" && (
+          <QuestionView 
+            subject={{ name: `Ôn tập: ${reviewSubject?.name || ''}` }}
+            initialQuestions={questionsForReview}
+            settings={quizSettings}
+            mode="review"
+            onBack={() => handleSetView("review-subject-detail")}
+            onFinish={(result) => {
+              setQuizResult(result);
+              handleSetView("result");
+            }}
+          />
         )}
       </main>
 

@@ -20,5 +20,8 @@
     "authentication"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
 }

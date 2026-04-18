@@ -9,7 +9,7 @@
 
 .subject-view-container .view-title {
   color: #A4161A; 
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: var(--fs-h1);
   font-weight: 700;
   text-transform: uppercase;
@@ -121,4 +121,85 @@
   max-height: 200px;
   opacity: 1;
   margin-top: 15px;
+}
+
+/* --- REVIEW PROMO BANNER --- */
+.review-promo-banner {
+  background: linear-gradient(135deg, #ff3f3f 0%, #A4161A 100%); /* Màu cam đào chuyên cho ôn tập */
+  color: white;
+  padding: 16px 32px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 126, 95, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hiệu ứng trang trí nhẹ phía sau banner */
+.review-promo-banner::after {
+  content: '⚡';
+  position: absolute;
+  right: -10px;
+  font-size: 80px;
+  opacity: 0.15;
+  transform: rotate(15deg);
+}
+
+.review-promo-banner:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 126, 95, 0.4);
+}
+
+.promo-text h3 {
+  margin-bottom: 4px;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.promo-text p {
+  margin: 0;
+  font-size: var(--fs-small);
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.btn-open-review {
+  background: white;
+  color: #A4161A;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+}
+
+.review-promo-banner:hover .btn-open-review {
+  transform: scale(1.05);
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+  .review-promo-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+    gap: 20px;
+  }
+  
+  .btn-open-review {
+    margin-left: 0;
+    width: 100%;
+  }
 }

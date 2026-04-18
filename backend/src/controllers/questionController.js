@@ -80,5 +80,38 @@ export const deleteQuestion = async (req, res) => {
     res.json({ message: "Question deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  } 
+};
+
+export const getQuestionsByIds = async (req, res) => {
+  try {
+    const { ids } = req.query;
+    if (!ids) {
+      return res.status(400).json({ message: "Danh sách ID không được để trống" });
+    }
+
+    const idArray = ids.split(',');
+    const placeholders = idArray.map(() => '?').join(',');
+
+    const [questions] = await db.query(
+      `SELECT * FROM questions WHERE id IN (${placeholders})`,
+      idArray
+    );
+
+    const [answers] = await db.query(
+      `SELECT * FROM answers WHERE question_id IN (${placeholders})`,
+      idArray
+    );
+
+    const questionsWithAnswers = questions.map(q => {
+      return {
+        ...q,
+        answers: answers.filter(a => a.question_id === q.id)
+      };
+    });
+
+    res.status(200).json(questionsWithAnswers);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };

@@ -38,34 +38,7 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
   }, [subject?.id, token]);
 
   const handleStart = () => {
-    // 1. Kiểm tra xem có phiên làm bài nào đang tồn tại không
-    const savedSession = localStorage.getItem('PTIT_QUIZ_SESSION');
-
-    if (savedSession) {
-      const sessionData = JSON.parse(savedSession);
-      const isCurrentSubject = sessionData.subject.id === subject.id;
-
-      // 2. Tạo thông báo đồng bộ
-      const msg = isCurrentSubject 
-        ? `Bạn có bài (${sessionData.isExam ? 'Luyện thi' : 'Ôn tập'}) chưa hoàn thành của môn này.\n\n- Nhấn OK để TIẾP TỤC.\n- Nhấn Cancel để BỎ QUA.`
-        : `Bạn đang có bài chưa hoàn thành thuộc môn: ${sessionData.subject?.subject_name}.\n\n- Nhấn OK để TIẾP TỤC.\n- Nhấn Cancel để BỎ QUA.`;
-
-      // 3. Xử lý lựa chọn của người dùng
-      if (window.confirm(msg)) {
-        // TIẾP TỤC: Truyền dữ liệu cũ sang QuestionView
-        onStartQuiz(sessionData.chapterIds, sessionData.settings, sessionData);
-        return;
-      } else {
-        // LÀM MỚI: Xóa sạch phiên cũ trong LocalStorage
-        localStorage.removeItem('PTIT_QUIZ_SESSION');
-        
-        // Nếu là khác môn, ta dừng lại ở đây để người dùng nhấn "Bắt đầu" lần nữa cho môn mới
-        // Hoặc nếu muốn vào luôn môn mới thì xóa dòng 'if' dưới đây
-        if (!isCurrentSubject) return; 
-      }
-    }
-
-    // 4. Logic Bắt đầu bài mới hoàn toàn
+    
     const finalSettings = { 
       ...settings, 
       isExam: isExamMode,

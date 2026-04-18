@@ -3,7 +3,7 @@ import '../styles/QuestionView.css';
 
 const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
 
-export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, resumeData }) => {
+export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, resumeData, initialQuestions, mode }) => {
     const isExam = settings?.isExam;
     const subjectId = subject?.id;
 
@@ -34,7 +34,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
 
     // 3. LƯU PHIÊN
     useEffect(() => {
-        if (questions.length === 0) return;
+        if (questions.length === 0 || mode === 'review') return;
 
         const session = {
             subject: subject,
@@ -55,7 +55,13 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
 
     // 4. FETCH DỮ LIỆU
     const fetchQuestions = useCallback(async () => {
-        if (resumeData) return;
+        if (resumeData || (initialQuestions && initialQuestions.length > 0)) {
+            if (initialQuestions) {
+                setQuestions(initialQuestions);
+                setLoading(false);
+            }
+            return;
+        };
 
         try {
             setLoading(true);
@@ -68,7 +74,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                 });
                 const subjectData = await resSubject.json();
                 chaptersToFetch = (subjectData.chapters || []).map(c => c.id);
-            }
+            };
 
             let allQuestions = [];
             for (const chapterId of chaptersToFetch) {
@@ -81,28 +87,28 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                     alert("Phiên đăng nhập hết hạn!");
                     onBack();
                     return;
-                }
+                };
 
                 const data = await response.json();
                 const questionsBatch = Array.isArray(data) ? data : (data.questions || data.result || []);
                 allQuestions = [...allQuestions, ...questionsBatch];
-            }
+            };
 
             if (settings.shuffle || isExam) {
                 allQuestions = allQuestions.sort(() => Math.random() - 0.5);
-            }
+            };
 
             if (isExam && settings.questionCount) {
                 allQuestions = allQuestions.slice(0, settings.questionCount);
-            }
+            };
 
             setQuestions(allQuestions);
         } catch (error) {
             console.error("Lỗi fetch:", error);
         } finally {
             setLoading(false);
-        }
-    }, [subjectId, chapterIds, settings.shuffle, settings.questionCount, isExam, onBack, resumeData]);
+        };
+    }, [subjectId, chapterIds, settings.shuffle, settings.questionCount, isExam, onBack, resumeData, initialQuestions]);
 
     useEffect(() => { fetchQuestions(); }, [fetchQuestions]);
 
@@ -220,7 +226,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
     };
 
     const handleSubmit = async () => {
-        if (!isExam && timeLeft === 0) {} // Tránh trigger confirm khi ép nộp bài do hết giờ
+        if (!isExam && timeLeft === 0) {}
         else if (!window.confirm("Bạn có muốn nộp bài tập không?")) return;
 
         const totalTimeSet = isExam ? (settings?.totalTime || 15) * 60 : 0;
@@ -233,38 +239,71 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             const correctAns = options.find(o => o.is_correct === 1 || o.is_correct === true);
             const isCorrect = selectedId === correctAns?.id;
             if (isCorrect) correctCount++;
-            return { questionId: q.id, selectedAnswerId: selectedId, isCorrect };
+            return { 
+                questionId: q.id,
+                selectedAnswerId: selectedId,
+                isCorrect: isCorrect ? 1 : 0
+            };
         });
 
         const payload = {
-            subjectId,
-            chapterId: chapterIds.length === 1 ? chapterIds[0] : null, 
+            subjectId: subjectId,
+            chapterId: (chapterIds && chapterIds.length === 1) ? chapterIds[0] : null,
             score: ((correctCount / questions.length) * 10).toFixed(2),
             correct: correctCount,
             total: questions.length,
             timeSpent,
-            details,
+            details: details,
             questions,
             userAnswers
         };
 
         try {
-            const response = await fetch(`${API_URL}/history/save`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(payload)
-            });
+            const token = localStorage.getItem('accessToken');
+            
+            if (mode === "review") {
+                // A. CHẾ ĐỘ CỦNG CỐ: Cập nhật trí nhớ
+                const reviewPayload = {
+                    results: details.map(d => ({
+                        questionId: d.questionId,
+                        isCorrect: d.isCorrect === 1
+                    }))
+                };
 
-            if (response.ok) {
-                localStorage.removeItem('PTIT_QUIZ_SESSION'); // Xóa phiên khi nộp thành công
-                const savedResult = await response.json();
-                onFinish({ ...payload, attemptId: savedResult.attemptId });
+                const response = await fetch('http://localhost:5001/review/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(reviewPayload)
+                });
+
+                if (response.ok) {
+                    onFinish({ ...payload, isReview: true });
+                } else {
+                    throw new Error("Lỗi cập nhật trí nhớ");
+                }
+
+            } else {
+                // B. CHẾ ĐỘ LUYỆN THI/LÀM BÀI: Lưu lịch sử
+                const response = await fetch(`${API_URL}/history/save`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    localStorage.removeItem('PTIT_QUIZ_SESSION'); 
+                    const savedResult = await response.json();
+                    onFinish({ ...payload, attemptId: savedResult.attemptId });
+                }
             }
         } catch (error) {
-            console.error("Lỗi lưu kết quả:", error);
+            console.error("Lỗi nộp bài:", error);
             onFinish(payload);
         }
     };

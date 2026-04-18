@@ -8,6 +8,7 @@ import authRoutes from "./routes/authRoute.js";
 import questionRoutes from "./routes/questionRoutes.js";
 import subjectRoutes from "./routes/subjectRoutes.js";
 import historyRoutes from "./routes/historyRoute.js";
+import reviewRoutes from "./routes/reviewRoute.js";
 const app = express();
 
 // Middleware
@@ -22,6 +23,7 @@ app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 app.use("/subjects", subjectRoutes);
 app.use("/history", historyRoutes);
+app.use("/review", reviewRoutes);
 // Question and chapter routes are now nested under /subjects
 
 // Health check

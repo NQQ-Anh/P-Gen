@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import "../styles/SubjectView.css";
 
 const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
-export const SubjectView = ({ onSelectSubject }) => {
+export const SubjectView = ({ onSelectSubject, onNavigate }) => {
   const { token } = useAuth();
   const [subjects, setSubjects] = useState([]);
   const [error, setError] = useState(null);
@@ -42,17 +42,19 @@ export const SubjectView = ({ onSelectSubject }) => {
 
     loadSubjects();
   }, [token]);
-  // useEffect(() => {
-  //   const mockData = [
-  //     { id: 1, subject_name: "Cấu trúc dữ liệu", description: "Môn học cơ sở ngành", total_chapters: 5, total_questions: 150 },
-  //     { id: 2, subject_name: "Mạng máy tính", description: "Kiến thức về Network", total_chapters: 8, total_questions: 200 }
-  //   ];
-  //   setSubjects(mockData); // Gán trực tiếp không qua fetch
-  // }, []);
 
   return (
     <div className="subject-view-container">
       <h1 className="view-title">Kho tàng kiến thức</h1>
+
+      <div className="review-promo-banner" onClick={() => onNavigate("review-dashboard")}>
+        <div className="promo-text">
+          <h3>Hôm nay bạn chưa ôn tập?</h3>
+          <p>Kiểm tra các câu hỏi đến hạn để không bị quên kiến thức nhé!</p>
+        </div>
+        <button className="btn-open-review">Truy cập</button>
+      </div>
+
       {loading ? (
         <div className="loading">Đang tải môn học...</div>
       ) : error ? (

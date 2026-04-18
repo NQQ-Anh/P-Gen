@@ -9,7 +9,7 @@ async function setupDatabase() {
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "", // Thay bằng pass db local
+      password: "123456", // Thay bằng pass db local
     });
 
     // Tạo database
@@ -112,19 +112,26 @@ async function setupDatabase() {
     `);
 
     // =====================
-    // Learning_Process
+    // user_question_memory
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Learning_process (
+      CREATE TABLE IF NOT EXISTS user_question_memory (
+        id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
         question_id INT NOT NULL,
-        interval_days INT DEFAULT 0,
-        easiness_factor FLOAT DEFAULT 2.5,
-        repetition INT DEFAULT 0,
-        next_review DATETIME NOT NULL,
-        PRIMARY KEY (user_id, question_id),
-        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        correct_streak INT DEFAULT 0,
+        wrong_streak INT DEFAULT 0,
+        review_count INT DEFAULT 0,
+        memory_score DECIMAL(5, 4) DEFAULT 0.1,
+        last_result BOOLEAN,
+        last_reviewed_at DATETIME,
+        next_review_at DATETIME NOT NULL, 
+        
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE,
+        
+        UNIQUE INDEX idx_user_question (user_id, question_id),
+        INDEX idx_user_next_review (user_id, next_review_at)
       ) ENGINE=InnoDB;
     `);
 
