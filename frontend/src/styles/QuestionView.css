@@ -1,7 +1,3 @@
-/* ==========================================================================
-   QUESTIONVIEW.CSS - BẢN NÂNG CẤP PRO
-   ========================================================================== */
-
 /* 1. Biến màu sắc & Font size */
 :root {
   --primary-red: #A4161A;
@@ -14,9 +10,6 @@
   --incorrect: #e74c3c;
   --pending: #f1c40f;
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  
-  /* Đồng bộ hệ font size nếu Nam đã định nghĩa toàn cục */
-  /* --fs-h2: 1.5rem; --fs-body: 1rem; --fs-small: 0.85rem; */
 }
 
 /* 2. Container chính - Layout chia 2 cột trên Desktop */
@@ -236,9 +229,9 @@
 
 .question-map-card h4 {
   color: #1a1a1a; /* Chữ màu tối */
-  margin: 0 0 15px 0;
   font-size: var(--fs-body);
-  font-weight: 700;
+  padding: 6px 0;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -250,7 +243,7 @@
 
 .map-node {
   width: 36px;
-  height: 36px;
+  height: 32px;
   border-radius: 10px;
   background: #ffffff; /* Nền trắng sạch */
   border: 2px solid #eeeeee; /* Viền xám nhạt */
@@ -258,7 +251,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--fs-small);
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   color: #555555; /* Chữ xám đậm */
@@ -310,19 +303,19 @@
 }
 
 .map-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-h3);
 }
 
 .map-pagination-info {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: var(--fs-small);
+    font-weight: 600;
     color: #3498db;
-    background: #e3f2fd; /* Xanh dương Pastel */
-    padding: 2px 8px;
-    border-radius: 6px;
+    background: #e3f2fd;
+    padding: 4px 12px;
+    border-radius: 8px;
 }
 
 /* Bộ điều khiển trang */
@@ -330,9 +323,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px dashed #eee;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-bottom: 1px dashed #eee;
 }
 
 .map-page-btn {
@@ -416,7 +409,7 @@
   }
   .map-node {
     width: 42px;
-    height: 42px;
+    height: 38px;
   }
   .map-grid {
     grid-template-columns: repeat(10, 1fr);
@@ -439,7 +432,7 @@
   }
   .map-node {
     width: 46x;
-    height: 46px;
+    height: 42px;
   }
   .map-grid {
     grid-template-columns: repeat(10, 1fr);

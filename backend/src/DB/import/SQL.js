@@ -10,19 +10,19 @@ async function main() {
   const connection = await mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "123456",
     database: "p_gen",
     multipleStatements: true,
   });
 
   const files = [
-    "../../../srcDB/Subjects_and_Chapters_Input.sql",
-    "../../../srcDB/AnToanBaoMatHeThongThongTin.sql",
-    "../../../srcDB/CoSoDuLieu.sql",
-    "../../../srcDB/KinhTeChinhTriMacLenin.sql",
-    "../../../srcDB/MangMayTinh.sql",
-    "../../../srcDB/PhapLuatDaiCuong.sql",
-    "../../../srcDB/TuTuongHoChiMinh.sql",
+    "./backend/srcDB/Subjects_and_Chapters_Input.sql",
+    "./backend/srcDB/AnToanBaoMatHeThongThongTin.sql",
+    "./backend/srcDB/CoSoDuLieu.sql",
+    "./backend/srcDB/KinhTeChinhTriMacLenin.sql",
+    "./backend/srcDB/MangMayTinh.sql",
+    "./backend/srcDB/PhapLuatDaiCuong.sql",
+    "./backend/srcDB/TuTuongHoChiMinh.sql",
   ];
 
   for (const file of files) {

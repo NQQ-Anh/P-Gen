@@ -1,4 +1,5 @@
 import db from '../config/db.js';
+import reviewController from './reviewController.js';
 
 export const saveQuizAttempt = async (req, res) => {
   const connection = await db.getConnection();
@@ -9,7 +10,7 @@ export const saveQuizAttempt = async (req, res) => {
     const userId = req.user.id;
 
     // 1. Lưu vào bảng QuizAttempts
-    const [attemptResult] = await db.execute(
+    const [attemptResult] = await connection.execute( 
         `INSERT INTO QuizAttempts (user_id, subject_id, chapter_id, score, correct_count, total_questions, time_spent) 
         VALUES (?, ?, ?, ?, ?, ?, ?)`,
         [userId, subjectId, chapterId || null, score, correct, total, timeSpent]
@@ -31,6 +32,9 @@ export const saveQuizAttempt = async (req, res) => {
         [detailValues]
       );
     }
+
+    // 3. Cập nhật trí nhớ (Spaced Repetition)
+    await reviewController.syncQuizResultsToMemory(userId, details, connection);
 
     await connection.commit();
     res.status(201).json({ message: "Lưu kết quả thành công", attemptId });
