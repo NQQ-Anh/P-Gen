@@ -6,47 +6,128 @@ const API_URL =
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
 
+const DEFAULT_ANSWERS = [
+  { content: "", is_correct: true },
+  { content: "", is_correct: false },
+  { content: "", is_correct: false },
+  { content: "", is_correct: false },
+];
+
+const normalizeAnswersForForm = (questionAnswers) => {
+  const normalized = DEFAULT_ANSWERS.map((answer) => ({ ...answer }));
+
+  if (Array.isArray(questionAnswers)) {
+    questionAnswers.slice(0, 4).forEach((answer, index) => {
+      normalized[index] = {
+        content: typeof answer?.content === "string" ? answer.content : "",
+        is_correct: Boolean(answer?.is_correct),
+      };
+    });
+  }
+
+  const hasCorrect = normalized.some((answer) => answer.is_correct);
+  if (!hasCorrect) {
+    normalized[0].is_correct = true;
+  }
+
+  return normalized;
+};
+
 const UpdateQuestion = ({ subject, chapter, questionData, onClose, onRefresh }) => {
   const { token } = useAuth();
-  
   const [formData, setFormData] = useState({
     content: questionData?.content || "",
-    type: questionData?.type || "Trắc nghiệm",
-    difficulty: questionData?.difficulty || "Dễ",
+    explanation: questionData?.explanation || "",
     status: questionData?.status || "Active",
   });
-  
+  const [answers, setAnswers] = useState(normalizeAnswersForForm(questionData?.answers));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!token) return setError("Phiên đăng nhập đã hết hạn.");
-    if (!subject || !chapter || !questionData) return setError("Dữ liệu không hợp lệ.");
+  const handleAnswerContentChange = (index, value) => {
+    setAnswers((prev) =>
+      prev.map((answer, answerIndex) =>
+        answerIndex === index ? { ...answer, content: value } : answer,
+      ),
+    );
+  };
+
+  const handleCorrectAnswerChange = (index) => {
+    setAnswers((prev) =>
+      prev.map((answer, answerIndex) => ({
+        ...answer,
+        is_correct: answerIndex === index,
+      })),
+    );
+  };
+
+  const validatePayload = () => {
+    const normalizedAnswers = answers.map((answer) => ({
+      content: answer.content.trim(),
+      is_correct: Boolean(answer.is_correct),
+    }));
+
+    if (normalizedAnswers.some((answer) => !answer.content)) {
+      return { isValid: false, message: "Vui lòng nhập đầy đủ nội dung 4 đáp án." };
+    }
+
+    const correctCount = normalizedAnswers.filter((answer) => answer.is_correct).length;
+    if (correctCount !== 1) {
+      return { isValid: false, message: "Cần chọn đúng 1 đáp án chính xác." };
+    }
+
+    return { isValid: true, answers: normalizedAnswers };
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!token) {
+      setError("Phiên đăng nhập đã hết hạn.");
+      return;
+    }
+
+    if (!subject?.id || !chapter?.id || !questionData?.id) {
+      setError("Dữ liệu không hợp lệ.");
+      return;
+    }
+
+    const validated = validatePayload();
+    if (!validated.isValid) {
+      setError(validated.message);
+      return;
+    }
 
     setLoading(true);
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${questionData.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${questionData.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            ...formData,
+            answers: validated.answers,
+          }),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const payload = await response.json().catch(() => null);
-      if (!response.ok) throw new Error(payload?.message || "Không thể cập nhật câu hỏi.");
+      if (!response.ok) {
+        throw new Error(payload?.message || "Không thể cập nhật câu hỏi.");
+      }
 
-      alert("Cập nhật câu hỏi thành công!");
-      if (onRefresh) onRefresh();
+      if (onRefresh) await onRefresh();
       onClose();
     } catch (err) {
       setError(err.message || "Có lỗi xảy ra, vui lòng thử lại.");
@@ -56,53 +137,101 @@ const UpdateQuestion = ({ subject, chapter, questionData, onClose, onRefresh }) 
   };
 
   return (
-    <div className="modal-overlay" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.5)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000 }}>
-      <div className="modal-container" style={{ background: "#fff", padding: "20px 30px", borderRadius: "8px", width: "100%", maxWidth: "550px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #ddd", paddingBottom: "10px", marginBottom: "20px" }}>
-          <h3 style={{ margin: 0, color: '#333' }}>Cập nhật Câu hỏi</h3>
-          <button onClick={onClose} disabled={loading} style={{ background: "transparent", border: "none", fontSize: "20px", cursor: "pointer", color: "#666" }}>&times;</button>
+    <div className="modal-overlay">
+      <div className="modal-container modal-container-lg">
+        <div className="modal-header">
+          <h3>Cập nhật câu hỏi</h3>
+          <button
+            className="modal-close-btn"
+            type="button"
+            onClick={onClose}
+            disabled={loading}
+          >
+            &times;
+          </button>
         </div>
 
-        {error && <p style={{ color: "#dc3545", marginBottom: "15px", fontSize: "14px" }}>{error}</p>}
+        {error && <p className="modal-error">{error}</p>}
 
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-          
-          <div style={{ display: "flex", gap: "10px" }}>
-            <div style={{ flex: 1 }}>
-              <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: '#333' }}>Loại câu hỏi</label>
-              <select name="type" value={formData.type} onChange={handleChange} disabled={loading} style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", boxSizing: "border-box" }}>
-                <option value="Trắc nghiệm">Trắc nghiệm</option>
-                <option value="Tự luận">Tự luận</option>
-              </select>
-            </div>
-            
-            <div style={{ flex: 1 }}>
-              <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: '#333' }}>Độ khó</label>
-              <select name="difficulty" value={formData.difficulty} onChange={handleChange} disabled={loading} style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", boxSizing: "border-box" }}>
-                <option value="Dễ">Dễ</option>
-                <option value="Trung bình">Trung bình</option>
-                <option value="Khó">Khó</option>
-              </select>
-            </div>
+        <form className="admin-form" onSubmit={handleSubmit}>
+          <div className="admin-field">
+            <label htmlFor="update-question-content">Nội dung câu hỏi *</label>
+            <textarea
+              id="update-question-content"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+              rows={4}
+              required
+              disabled={loading}
+            />
+          </div>
 
-            <div style={{ flex: 1 }}>
-              <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: '#333' }}>Trạng thái</label>
-              <select name="status" value={formData.status} onChange={handleChange} disabled={loading} style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", boxSizing: "border-box" }}>
-                <option value="Active">Hoạt động</option>
-                <option value="Inactive">Khóa</option>
-              </select>
+          <div className="admin-field">
+            <label htmlFor="update-question-explanation">Giải thích</label>
+            <textarea
+              id="update-question-explanation"
+              name="explanation"
+              value={formData.explanation}
+              onChange={handleChange}
+              rows={4}
+              disabled={loading}
+            />
+          </div>
+
+          <div className="admin-field">
+            <label htmlFor="update-question-status">Trạng thái</label>
+            <select
+              id="update-question-status"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              disabled={loading}
+            >
+              <option value="Active">Hoạt động</option>
+              <option value="Inactive">Tạm khóa</option>
+            </select>
+          </div>
+
+          <div className="admin-field">
+            <label>Đáp án (4 lựa chọn)</label>
+            <div className="question-answer-list">
+              {answers.map((answer, index) => (
+                <div key={index} className="question-answer-row">
+                  <span className="question-answer-label">{String.fromCharCode(65 + index)}.</span>
+                  <input
+                    type="text"
+                    value={answer.content}
+                    onChange={(event) => handleAnswerContentChange(index, event.target.value)}
+                    placeholder={`Nhập đáp án ${String.fromCharCode(65 + index)}`}
+                    disabled={loading}
+                  />
+                  <label className="question-answer-correct">
+                    <input
+                      type="radio"
+                      name="update-correct-answer"
+                      checked={answer.is_correct}
+                      onChange={() => handleCorrectAnswerChange(index)}
+                      disabled={loading}
+                    />
+                    Đúng
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div>
-            <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: '#333' }}>Nội dung câu hỏi <span style={{ color: "red" }}>*</span></label>
-            <textarea name="content" value={formData.content} onChange={handleChange} rows="5" required disabled={loading} style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", resize: "vertical", boxSizing: "border-box" }}></textarea>
-          </div>
-
-          <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px", marginTop: "10px" }}>
-            <button type="button" onClick={onClose} disabled={loading} style={{ padding: "8px 16px", background: "#6c757d", color: "white", border: "none", borderRadius: "4px", cursor: "pointer" }}>Hủy</button>
-            <button type="submit" disabled={loading} style={{ padding: "8px 16px", background: "#ffc107", color: "black", border: "none", borderRadius: "4px", cursor: loading ? "not-allowed" : "pointer", fontWeight: "bold" }}>
-              {loading ? "Đang xử lý..." : "Cập nhật"}
+          <div className="admin-form-actions">
+            <button
+              type="button"
+              className="admin-action-btn secondary"
+              onClick={onClose}
+              disabled={loading}
+            >
+              Hủy
+            </button>
+            <button type="submit" className="admin-action-btn warning" disabled={loading}>
+              {loading ? "Đang cập nhật..." : "Cập nhật"}
             </button>
           </div>
         </form>
