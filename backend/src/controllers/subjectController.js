@@ -1,5 +1,7 @@
 import db from '../config/db.js';
 
+const normalizeStatus = (status) => (status === 'Inactive' ? 'Inactive' : 'Active');
+
 export const getAllSubjects = async (req, res) => {
   try {
     const [rows] = await db.execute(`
@@ -35,7 +37,11 @@ export const getSubjectById = async (req, res) => {
 export const createSubject = async (req, res) => {
   try {
     const { subject_name, description } = req.body;
-    const [result] = await db.execute('INSERT INTO Subjects (subject_name, description) VALUES (?, ?)', [subject_name, description]);
+    const status = normalizeStatus(req.body?.status);
+    const [result] = await db.execute(
+      'INSERT INTO Subjects (subject_name, description, status) VALUES (?, ?, ?)',
+      [subject_name, description, status],
+    );
     res.status(201).json({ message: 'Subject created successfully', subjectId: result.insertId });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -46,7 +52,11 @@ export const updateSubject = async (req, res) => {
   try {
     const { id } = req.params;
     const { subject_name, description } = req.body;
-    await db.execute('UPDATE Subjects SET subject_name = ?, description = ? WHERE id = ?', [subject_name, description, id]);
+    const status = normalizeStatus(req.body?.status);
+    await db.execute(
+      'UPDATE Subjects SET subject_name = ?, description = ?, status = ? WHERE id = ?',
+      [subject_name, description, status, id],
+    );
     res.json({ message: 'Subject updated successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
