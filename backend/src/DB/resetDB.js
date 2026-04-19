@@ -3,12 +3,12 @@ import mysql from "mysql2/promise";
 async function resetDatabase() {
   try {
     console.log("⚠ Resetting database...");
-
+    const password = process.env.SQL_PASS;
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "123456",
-      database: "p_gen"
+      password: password,
+      database: "p_gen",
     });
 
     // lấy danh sách bảng

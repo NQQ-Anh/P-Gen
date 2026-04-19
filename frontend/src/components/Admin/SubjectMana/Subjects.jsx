@@ -23,12 +23,14 @@ const Subjects = () => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
   const fetchSubjects = useCallback(async () => {
     if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
+      setError("Phiên đăng nhập đã hết hạn");
       setLoading(false);
       return;
     }
@@ -45,7 +47,7 @@ const Subjects = () => {
 
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(payload?.message || "Không thể tải danh sách môn học.");
+        throw new Error(payload?.message || "Không thể tải danh sách môn học");
       }
 
       const fetchedSubjects = Array.isArray(payload)
@@ -57,7 +59,7 @@ const Subjects = () => {
       const sortedSubjects = [...fetchedSubjects].sort((a, b) => Number(a.id) - Number(b.id));
       setSubjects(sortedSubjects);
     } catch (err) {
-      setError(err.message || "Có lỗi xảy ra.");
+      setError(err.message || "Có lỗi xảy ra");
     } finally {
       setLoading(false);
     }
@@ -69,7 +71,22 @@ const Subjects = () => {
     }
   }, [fetchSubjects, currentView]);
 
-  const totalSubjects = subjects.length;
+  const filteredSubjects = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return subjects.filter((subject) => {
+      const statusMatched = selectedStatus === "all" || subject.status === selectedStatus;
+      if (!statusMatched) return false;
+
+      if (!normalizedSearch) return true;
+
+      const searchableText = `${subject.id} ${subject.subject_name} ${subject.description || ""}`
+        .toLowerCase();
+      return searchableText.includes(normalizedSearch);
+    });
+  }, [subjects, searchTerm, selectedStatus]);
+
+  const totalSubjects = filteredSubjects.length;
   const totalPages = Math.max(1, Math.ceil(totalSubjects / pageSize));
 
   useEffect(() => {
@@ -78,10 +95,14 @@ const Subjects = () => {
     }
   }, [currentPage, totalPages]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedStatus]);
+
   const paginatedSubjects = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
-    return subjects.slice(start, start + pageSize);
-  }, [subjects, currentPage, pageSize]);
+    return filteredSubjects.slice(start, start + pageSize);
+  }, [filteredSubjects, currentPage, pageSize]);
 
   const visiblePageItems = useMemo(() => {
     if (totalPages <= 1) return [1];
@@ -113,6 +134,11 @@ const Subjects = () => {
     setCurrentPage(1);
   };
 
+  const handleClearFilters = () => {
+    setSearchTerm("");
+    setSelectedStatus("all");
+  };
+
   const handleGoToCreate = () => setIsCreateModalOpen(true);
 
   const handleGoToUpdate = (subject) => {
@@ -125,35 +151,35 @@ const Subjects = () => {
     setCurrentView("chapters");
   };
 
-  const handleDeleteSubject = async (subject) => {
-    if (!token) {
-      setError("Phien dang nhap da het han.");
-      return;
-    }
+  // const handleDeleteSubject = async (subject) => {
+  //   if (!token) {
+  //     setError("Phien dang nhap da het han.");
+  //     return;
+  //   }
 
-    const confirmed = window.confirm(
-      `Bạn có chắc chắn muốn xóa môn "${subject.subject_name}"? Tất cả chương/câu hỏi liên quan sẽ bị xóa.`,
-    );
-    if (!confirmed) return;
+  //   const confirmed = window.confirm(
+  //     `Ban co chac chan muon xoa mon "${subject.subject_name}"? Tat ca chuong/cau hoi lien quan se bi xoa.`,
+  //   );
+  //   if (!confirmed) return;
 
-    try {
-      const response = await fetch(`${API_URL}/subjects/${subject.id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  //   try {
+  //     const response = await fetch(`${API_URL}/subjects/${subject.id}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
 
-      const payload = await response.json().catch(() => null);
-      if (!response.ok) {
-        throw new Error(payload?.message || "Không thể xóa môn học.");
-      }
+  //     const payload = await response.json().catch(() => null);
+  //     if (!response.ok) {
+  //       throw new Error(payload?.message || "Khong the xoa mon hoc.");
+  //     }
 
-      await fetchSubjects();
-    } catch (err) {
-      window.alert(err.message || "Có lỗi xảy ra khi xóa môn học.");
-    }
-  };
+  //     await fetchSubjects();
+  //   } catch (err) {
+  //     window.alert(err.message || "Co loi xay ra khi xoa mon hoc.");
+  //   }
+  // };
 
   const handleBackToList = () => {
     setSelectedSubject(null);
@@ -194,7 +220,7 @@ const Subjects = () => {
       </div>
 
       <div className="user-list-controls">
-        <span>Tổng môn học: {totalSubjects}</span>
+        <span>Tổng số môn học : {totalSubjects}/{subjects.length}</span>
         <label htmlFor="subjects-page-size">
           Hiển thị
           <select id="subjects-page-size" value={pageSize} onChange={handlePageSizeChange}>
@@ -205,6 +231,41 @@ const Subjects = () => {
             ))}
           </select>
         </label>
+      </div>
+
+      <div className="table-filters">
+        <label htmlFor="subjects-search" className="table-filter-search">
+          Tìm kiếm
+          <input
+            id="subjects-search"
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="ID, tên môn, mô tả"
+          />
+        </label>
+
+        <label htmlFor="subjects-status-filter">
+          Trạng thái
+          <select
+            id="subjects-status-filter"
+            value={selectedStatus}
+            onChange={(event) => setSelectedStatus(event.target.value)}
+          >
+            <option value="all">Tất cả</option>
+            <option value="Active">Hoạt động</option>
+            <option value="Inactive">Tạm khóa</option>
+          </select>
+        </label>
+
+        <button
+          type="button"
+          className="admin-action-btn secondary filter-reset-btn"
+          onClick={handleClearFilters}
+          disabled={!searchTerm && selectedStatus === "all"}
+        >
+          Xoa loc
+        </button>
       </div>
 
       {loading && <p>Đang tải danh sách môn học...</p>}
@@ -239,25 +300,31 @@ const Subjects = () => {
                         <div className="table-actions">
                           <button
                             type="button"
-                            className="admin-action-btn info"
+                            className="admin-action-btn info table-action-icon"
                             onClick={() => handleGoToChapters(subject)}
+                            title="Quan ly chuong"
+                            aria-label="Quan ly chuong"
                           >
-                            Quản lý chương
+                            <i className="fa-solid fa-list" />
                           </button>
                           <button
                             type="button"
-                            className="admin-action-btn warning"
+                            className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(subject)}
+                            title="Sua"
+                            aria-label="Sua mon hoc"
                           >
-                            Sửa
+                            <i className="fa-solid fa-pen-to-square" />
                           </button>
-                          <button
+                          {/* <button
                             type="button"
-                            className="admin-action-btn danger"
+                            className="admin-action-btn danger table-action-icon"
                             onClick={() => handleDeleteSubject(subject)}
+                            title="Xoa"
+                            aria-label="Xoa mon hoc"
                           >
-                            Xóa
-                          </button>
+                            <i className="fa-solid fa-trash" />
+                          </button> */}
                         </div>
                       </td>
                     </tr>
@@ -265,7 +332,7 @@ const Subjects = () => {
                 ) : (
                   <tr>
                     <td colSpan={5} style={{ padding: "10px", textAlign: "center" }}>
-                      Không có môn học nào.
+                      Khong co mon hoc phu hop.
                     </td>
                   </tr>
                 )}
@@ -285,7 +352,7 @@ const Subjects = () => {
                   onClick={() => goToPage(currentPage - 1)}
                   disabled={currentPage === 1}
                 >
-                  Trước
+                  Trước 
                 </button>
 
                 {visiblePageItems.map((item, index) =>

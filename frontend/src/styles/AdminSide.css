@@ -283,6 +283,42 @@
   background-color: var(--second-color);
 }
 
+.table-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #080000;
+  flex-wrap: wrap;
+}
+
+.table-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  min-width: 180px;
+}
+
+.table-filter-search {
+  flex: 1 1 320px;
+  min-width: 220px;
+}
+
+.table-filters input,
+.table-filters select {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #080000;
+  background-color: var(--second-color);
+}
+
+.filter-reset-btn {
+  height: 38px;
+  align-self: flex-end;
+}
+
 .user-error {
   color: #a4161a;
   font-weight: 600;
@@ -339,8 +375,25 @@
 
 .table-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
+  align-items: center;
+}
+
+.table-action-icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 15px;
+  flex: 0 0 auto;
+}
+
+.table-action-icon i {
+  pointer-events: none;
 }
 
 .admin-action-btn {
@@ -546,6 +599,18 @@
 
   .admin-header {
     margin-bottom: 16px;
+  }
+
+  .table-filters {
+    align-items: stretch;
+  }
+
+  .table-filters label {
+    min-width: 100%;
+  }
+
+  .filter-reset-btn {
+    width: fit-content;
   }
 
   .pagination-meta {

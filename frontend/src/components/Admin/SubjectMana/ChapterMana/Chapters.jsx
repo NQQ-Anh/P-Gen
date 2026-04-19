@@ -23,18 +23,20 @@ const Chapters = ({ subject, onBackToSubjects }) => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
   const fetchChapters = useCallback(async () => {
     if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
+      setError("Phiên đăng nhập đã hết hạn");
       setLoading(false);
       return;
     }
 
     if (!subject?.id) {
-      setError("Không tìm thấy thông tin môn học.");
+      setError("Không tìm thấy thông tin môn học");
       setLoading(false);
       return;
     }
@@ -51,7 +53,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
 
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(payload?.message || "Không thể tải danh sách chương.");
+        throw new Error(payload?.message || "Không thể tải danh sách chương");
       }
 
       const fetchedChapters = Array.isArray(payload)
@@ -68,7 +70,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
       });
       setChapters(sortedChapters);
     } catch (err) {
-      setError(err.message || "Có lỗi xảy ra khi tải danh sách chương.");
+      setError(err.message || "Có lỗi khi tải danh sách chương");
     } finally {
       setLoading(false);
     }
@@ -80,7 +82,22 @@ const Chapters = ({ subject, onBackToSubjects }) => {
     }
   }, [fetchChapters, currentView]);
 
-  const totalChapters = chapters.length;
+  const filteredChapters = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return chapters.filter((chapter) => {
+      const statusMatched = selectedStatus === "all" || chapter.status === selectedStatus;
+      if (!statusMatched) return false;
+
+      if (!normalizedSearch) return true;
+
+      const searchableText = `${chapter.id} ${chapter.order_index} ${chapter.chapter_name}`
+        .toLowerCase();
+      return searchableText.includes(normalizedSearch);
+    });
+  }, [chapters, searchTerm, selectedStatus]);
+
+  const totalChapters = filteredChapters.length;
   const totalPages = Math.max(1, Math.ceil(totalChapters / pageSize));
 
   useEffect(() => {
@@ -89,10 +106,14 @@ const Chapters = ({ subject, onBackToSubjects }) => {
     }
   }, [currentPage, totalPages]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedStatus]);
+
   const paginatedChapters = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
-    return chapters.slice(start, start + pageSize);
-  }, [chapters, currentPage, pageSize]);
+    return filteredChapters.slice(start, start + pageSize);
+  }, [filteredChapters, currentPage, pageSize]);
 
   const visiblePageItems = useMemo(() => {
     if (totalPages <= 1) return [1];
@@ -124,6 +145,11 @@ const Chapters = ({ subject, onBackToSubjects }) => {
     setCurrentPage(1);
   };
 
+  const handleClearFilters = () => {
+    setSearchTerm("");
+    setSelectedStatus("all");
+  };
+
   const handleGoToUpdate = (chapter) => {
     setSelectedChapter(chapter);
     setIsUpdateModalOpen(true);
@@ -134,35 +160,35 @@ const Chapters = ({ subject, onBackToSubjects }) => {
     setCurrentView("questions");
   };
 
-  const handleDeleteChapter = async (chapter) => {
-    if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
-      return;
-    }
+  // const handleDeleteChapter = async (chapter) => {
+  //   if (!token) {
+  //     setError("Phien dang nhap da het han.");
+  //     return;
+  //   }
 
-    const confirmed = window.confirm(
-      `Bạn có chắc chắn muốn xóa chương "${chapter.chapter_name}"? Tất cả câu hỏi liên quan sẽ bị xóa.`,
-    );
-    if (!confirmed) return;
+  //   const confirmed = window.confirm(
+  //     `Ban co chac chan muon xoa chuong "${chapter.chapter_name}"? Tat ca cau hoi lien quan se bi xoa.`,
+  //   );
+  //   if (!confirmed) return;
 
-    try {
-      const response = await fetch(`${API_URL}/subjects/${subject.id}/chapters/${chapter.id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  //   try {
+  //     const response = await fetch(`${API_URL}/subjects/${subject.id}/chapters/${chapter.id}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
 
-      const payload = await response.json().catch(() => null);
-      if (!response.ok) {
-        throw new Error(payload?.message || "Không thể xóa chương.");
-      }
+  //     const payload = await response.json().catch(() => null);
+  //     if (!response.ok) {
+  //       throw new Error(payload?.message || "Khong the xoa chuong.");
+  //     }
 
-      await fetchChapters();
-    } catch (err) {
-      window.alert(err.message || "Có lỗi xảy ra khi xóa chương.");
-    }
-  };
+  //     await fetchChapters();
+  //   } catch (err) {
+  //     window.alert(err.message || "Co loi xay ra khi xoa chuong.");
+  //   }
+  // };
 
   const handleBackToList = () => {
     setSelectedChapter(null);
@@ -196,7 +222,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
       )}
 
       <button type="button" className="admin-back-btn" onClick={onBackToSubjects}>
-        <i className="fa-solid fa-arrow-left" /> Trở về danh sách môn học
+        <i className="fa-solid fa-arrow-left" /> trở về danh sách môn học
       </button>
 
       <div className="user-list-header">
@@ -216,7 +242,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
       </div>
 
       <div className="user-list-controls">
-        <span>Tổng chương: {totalChapters}</span>
+        <span>Tổng số chương : {totalChapters}/{chapters.length}</span>
         <label htmlFor="chapters-page-size">
           Hiển thị
           <select id="chapters-page-size" value={pageSize} onChange={handlePageSizeChange}>
@@ -227,6 +253,41 @@ const Chapters = ({ subject, onBackToSubjects }) => {
             ))}
           </select>
         </label>
+      </div>
+
+      <div className="table-filters">
+        <label htmlFor="chapters-search" className="table-filter-search">
+          Tìm kiếm
+          <input
+            id="chapters-search"
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="ID, tên chương"
+          />
+        </label>
+
+        <label htmlFor="chapters-status-filter">
+          Trạng thái
+          <select
+            id="chapters-status-filter"
+            value={selectedStatus}
+            onChange={(event) => setSelectedStatus(event.target.value)}
+          >
+            <option value="all">Tất cả</option>
+            <option value="Active">Hoạt động</option>
+            <option value="Inactive">Tạm khóa</option>
+          </select>
+        </label>
+
+        <button
+          type="button"
+          className="admin-action-btn secondary filter-reset-btn"
+          onClick={handleClearFilters}
+          disabled={!searchTerm && selectedStatus === "all"}
+        >
+          Hủy
+        </button>
       </div>
 
       {loading && <p>Đang tải danh sách chương...</p>}
@@ -259,25 +320,31 @@ const Chapters = ({ subject, onBackToSubjects }) => {
                         <div className="table-actions">
                           <button
                             type="button"
-                            className="admin-action-btn info"
+                            className="admin-action-btn info table-action-icon"
                             onClick={() => handleGoToQuestions(chapter)}
+                            title="Quan ly cau hoi"
+                            aria-label="Quan ly cau hoi"
                           >
-                            Quản lý câu hỏi
+                            <i className="fa-solid fa-circle-question" />
                           </button>
                           <button
                             type="button"
-                            className="admin-action-btn warning"
+                            className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(chapter)}
+                            title="Sua"
+                            aria-label="Sua chuong"
                           >
-                            Sửa
+                            <i className="fa-solid fa-pen-to-square" />
                           </button>
-                          <button
+                          {/* <button
                             type="button"
-                            className="admin-action-btn danger"
+                            className="admin-action-btn danger table-action-icon"
                             onClick={() => handleDeleteChapter(chapter)}
+                            title="Xoa"
+                            aria-label="Xoa chuong"
                           >
-                            Xóa
-                          </button>
+                            <i className="fa-solid fa-trash" />
+                          </button> */}
                         </div>
                       </td>
                     </tr>
@@ -285,7 +352,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
                 ) : (
                   <tr>
                     <td colSpan={5} style={{ padding: "10px", textAlign: "center" }}>
-                      Không có chương nào.
+                      Không có chương phù hợp
                     </td>
                   </tr>
                 )}
@@ -305,7 +372,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
                   onClick={() => goToPage(currentPage - 1)}
                   disabled={currentPage === 1}
                 >
-                  Trước
+                  Trước 
                 </button>
 
                 {visiblePageItems.map((item, index) =>
