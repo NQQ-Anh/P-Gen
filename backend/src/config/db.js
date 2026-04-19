@@ -1,9 +1,11 @@
 import mysql from "mysql2/promise";
 
+const password = process.env.SQL_PASS;
+
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "123456", // Thay bằng pass db local
+  password: password, // Thay bằng pass db local
   database: "p_gen",
   waitForConnections: true,
   connectionLimit: 10,

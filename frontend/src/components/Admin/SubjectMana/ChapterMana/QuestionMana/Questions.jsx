@@ -20,19 +20,21 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 
   const fetchQuestions = useCallback(async () => {
     if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
+      setError("Phiên đăng nhập đã hết hạn");
       setLoading(false);
       return;
     }
 
     if (!subject?.id || !chapter?.id) {
-      setError("Không tìm thấy thông tin môn học hoặc chương học.");
+      setError("Không tìm thấy thông tin môn và chương.");
       setLoading(false);
       return;
     }
@@ -52,7 +54,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
 
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(payload?.message || "Không thể tải danh sách câu hỏi.");
+        throw new Error(payload?.message || "Không thể tải danh sách câu hỏi");
       }
 
       const fetchedQuestions = Array.isArray(payload)
@@ -64,7 +66,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
       const sortedQuestions = [...fetchedQuestions].sort((a, b) => Number(a.id) - Number(b.id));
       setQuestions(sortedQuestions);
     } catch (err) {
-      setError(err.message || "Có lỗi xảy ra khi tải danh sách câu hỏi.");
+      setError(err.message || "Có lỗi xảy ra khi tải câu hỏi");
     } finally {
       setLoading(false);
     }
@@ -74,7 +76,22 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
     fetchQuestions();
   }, [fetchQuestions]);
 
-  const totalQuestions = questions.length;
+  const filteredQuestions = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return questions.filter((question) => {
+      const statusMatched = selectedStatus === "all" || question.status === selectedStatus;
+      if (!statusMatched) return false;
+
+      if (!normalizedSearch) return true;
+
+      const searchableText = `${question.id} ${question.content} ${question.explanation || ""}`
+        .toLowerCase();
+      return searchableText.includes(normalizedSearch);
+    });
+  }, [questions, searchTerm, selectedStatus]);
+
+  const totalQuestions = filteredQuestions.length;
   const totalPages = Math.max(1, Math.ceil(totalQuestions / pageSize));
 
   useEffect(() => {
@@ -83,10 +100,14 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
     }
   }, [currentPage, totalPages]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedStatus]);
+
   const paginatedQuestions = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
-    return questions.slice(start, start + pageSize);
-  }, [questions, currentPage, pageSize]);
+    return filteredQuestions.slice(start, start + pageSize);
+  }, [filteredQuestions, currentPage, pageSize]);
 
   const visiblePageItems = useMemo(() => {
     if (totalPages <= 1) return [1];
@@ -118,43 +139,48 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
     setCurrentPage(1);
   };
 
+  const handleClearFilters = () => {
+    setSearchTerm("");
+    setSelectedStatus("all");
+  };
+
   const handleGoToUpdate = (question) => {
     setSelectedQuestion(question);
     setIsUpdateModalOpen(true);
   };
 
-  const handleDeleteQuestion = async (question) => {
-    if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
-      return;
-    }
+  // const handleDeleteQuestion = async (question) => {
+  //   if (!token) {
+  //     setError("Phien dang nhap da het han.");
+  //     return;
+  //   }
 
-    const confirmed = window.confirm(
-      `Bạn có chắc chắn muốn xóa câu hỏi ID ${question.id}? Hành động này không thể hoàn tác.`,
-    );
-    if (!confirmed) return;
+  //   const confirmed = window.confirm(
+  //     `Ban co chac chan muon xoa cau hoi ID ${question.id}? Hanh dong nay khong the hoan tac.`,
+  //   );
+  //   if (!confirmed) return;
 
-    try {
-      const response = await fetch(
-        `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${question.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
+  //   try {
+  //     const response = await fetch(
+  //       `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${question.id}`,
+  //       {
+  //         method: "DELETE",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       },
+  //     );
 
-      const payload = await response.json().catch(() => null);
-      if (!response.ok) {
-        throw new Error(payload?.message || "Không thể xóa câu hỏi.");
-      }
+  //     const payload = await response.json().catch(() => null);
+  //     if (!response.ok) {
+  //       throw new Error(payload?.message || "Khong the xoa cau hoi.");
+  //     }
 
-      await fetchQuestions();
-    } catch (err) {
-      window.alert(err.message || "Có lỗi xảy ra khi xóa câu hỏi.");
-    }
-  };
+  //     await fetchQuestions();
+  //   } catch (err) {
+  //     window.alert(err.message || "Co loi xay ra khi xoa cau hoi.");
+  //   }
+  // };
 
   return (
     <section className="user-list">
@@ -201,7 +227,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
       </div>
 
       <div className="user-list-controls">
-        <span>Tổng câu hỏi: {totalQuestions}</span>
+        <span>Tổng số câu hỏi : {totalQuestions}/{questions.length}</span>
         <label htmlFor="questions-page-size">
           Hiển thị
           <select id="questions-page-size" value={pageSize} onChange={handlePageSizeChange}>
@@ -212,6 +238,41 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
             ))}
           </select>
         </label>
+      </div>
+
+      <div className="table-filters">
+        <label htmlFor="questions-search" className="table-filter-search">
+          Tìm kiếm
+          <input
+            id="questions-search"
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="ID, nội dung, giải thích"
+          />
+        </label>
+
+        <label htmlFor="questions-status-filter">
+          Trạng thái
+          <select
+            id="questions-status-filter"
+            value={selectedStatus}
+            onChange={(event) => setSelectedStatus(event.target.value)}
+          >
+            <option value="all">Tất cả</option>
+            <option value="Active">Hoạt động</option>
+            <option value="Inactive">Tạm khóa</option>
+          </select>
+        </label>
+
+        <button
+          type="button"
+          className="admin-action-btn secondary filter-reset-btn"
+          onClick={handleClearFilters}
+          disabled={!searchTerm && selectedStatus === "all"}
+        >
+          Hủy
+        </button>
       </div>
 
       {loading && <p>Đang tải danh sách câu hỏi...</p>}
@@ -264,18 +325,22 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
                         <div className="table-actions">
                           <button
                             type="button"
-                            className="admin-action-btn warning"
+                            className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(question)}
+                            title="Sua"
+                            aria-label="Sua cau hoi"
                           >
-                            Sửa
+                            <i className="fa-solid fa-pen-to-square" />
                           </button>
-                          <button
+                          {/* <button
                             type="button"
-                            className="admin-action-btn danger"
+                            className="admin-action-btn danger table-action-icon"
                             onClick={() => handleDeleteQuestion(question)}
+                            title="Xoa"
+                            aria-label="Xoa cau hoi"
                           >
-                            Xóa
-                          </button>
+                            <i className="fa-solid fa-trash" />
+                          </button> */}
                         </div>
                       </td>
                     </tr>
@@ -283,7 +348,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
                 ) : (
                   <tr>
                     <td colSpan={6} style={{ padding: "10px", textAlign: "center" }}>
-                      Không có câu hỏi nào.
+                      Không có câu hỏi phù hợp
                     </td>
                   </tr>
                 )}
