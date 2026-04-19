@@ -4,12 +4,12 @@ import bcrypt from "bcrypt";
 async function setupDatabase() {
   try {
     console.log("🚀 Setting up database...");
-
+    const password = process.env.SQL_PASS;
     // Kết nối MySQL (không chọn database trước)
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "123456", // Thay bằng pass db local
+      password: password, // Thay bằng pass db local
     });
 
     // Tạo database

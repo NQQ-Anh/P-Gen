@@ -20,6 +20,8 @@ const Users = () => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedRole, setSelectedRole] = useState("all");
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
@@ -27,7 +29,7 @@ const Users = () => {
 
   const fetchUsers = useCallback(async () => {
     if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
+      setError("Phiên đăng nhập đã hết hạn");
       setLoading(false);
       return;
     }
@@ -44,7 +46,7 @@ const Users = () => {
 
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(payload?.message || "Không thể tải danh sách user.");
+        throw new Error(payload?.message || "Không thể tải danh sách user");
       }
 
       const fetchedUsers = Array.isArray(payload)
@@ -56,7 +58,7 @@ const Users = () => {
       const sortedUsers = [...fetchedUsers].sort((a, b) => Number(a.id) - Number(b.id));
       setUsers(sortedUsers);
     } catch (err) {
-      setError(err.message || "Có lỗi xảy ra.");
+      setError(err.message || "Có lỗi xảy ra");
     } finally {
       setLoading(false);
     }
@@ -66,7 +68,26 @@ const Users = () => {
     fetchUsers();
   }, [fetchUsers]);
 
-  const totalUsers = users.length;
+  const roleOptions = useMemo(() => {
+    const roleSet = new Set(users.map((user) => user.role).filter(Boolean));
+    return Array.from(roleSet).sort((a, b) => a.localeCompare(b));
+  }, [users]);
+
+  const filteredUsers = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return users.filter((user) => {
+      const roleMatched = selectedRole === "all" || user.role === selectedRole;
+      if (!roleMatched) return false;
+
+      if (!normalizedSearch) return true;
+
+      const searchableText = `${user.id} ${user.username} ${user.email}`.toLowerCase();
+      return searchableText.includes(normalizedSearch);
+    });
+  }, [users, searchTerm, selectedRole]);
+
+  const totalUsers = filteredUsers.length;
   const totalPages = Math.max(1, Math.ceil(totalUsers / pageSize));
 
   useEffect(() => {
@@ -75,10 +96,14 @@ const Users = () => {
     }
   }, [currentPage, totalPages]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedRole]);
+
   const paginatedUsers = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
-    return users.slice(start, start + pageSize);
-  }, [users, currentPage, pageSize]);
+    return filteredUsers.slice(start, start + pageSize);
+  }, [filteredUsers, currentPage, pageSize]);
 
   const visiblePageItems = useMemo(() => {
     if (totalPages <= 1) return [1];
@@ -110,6 +135,11 @@ const Users = () => {
     setCurrentPage(1);
   };
 
+  const handleClearFilters = () => {
+    setSearchTerm("");
+    setSelectedRole("all");
+  };
+
   const handleViewProfile = (user) => {
     setSelectedUser(user);
     setIsProfileModalOpen(true);
@@ -122,12 +152,12 @@ const Users = () => {
 
   const handleDeleteUser = async (user) => {
     if (!token) {
-      setError("Phiên đăng nhập đã hết hạn.");
+      setError("Phien dang nhap da het han.");
       return;
     }
 
     const confirmed = window.confirm(
-      `Bạn có chắc chắn muốn xóa user "${user.username}"? Hành động này không thể hoàn tác.`,
+      `Chắc chắn xóa user : "${user.username}"? `,
     );
     if (!confirmed) return;
 
@@ -141,12 +171,12 @@ const Users = () => {
 
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(payload?.message || "Không thể xóa user.");
+        throw new Error(payload?.message || "Không thể  xóa user");
       }
 
       await fetchUsers();
     } catch (err) {
-      window.alert(err.message || "Có lỗi xảy ra khi xóa user.");
+      window.alert(err.message || "Có lỗi khi xóa user");
     }
   };
 
@@ -178,14 +208,14 @@ const Users = () => {
       )}
 
       <div className="user-list-header">
-        <h3>Danh sách User</h3>
+        <h3>Danh sách user</h3>
         <div style={{ display: "flex", gap: "10px" }}>
           <button
             type="button"
             className="admin-action-btn success"
             onClick={() => setIsCreateModalOpen(true)}
           >
-            + Thêm User
+            + Thêm user
           </button>
           <button className="red-btn" type="button" onClick={fetchUsers} disabled={loading}>
             Tải lại
@@ -194,7 +224,7 @@ const Users = () => {
       </div>
 
       <div className="user-list-controls">
-        <span>Tổng số user: {totalUsers}</span>
+        <span>Tổng số user: {totalUsers}/{users.length}</span>
         <label htmlFor="users-page-size">
           Hiển thị
           <select id="users-page-size" value={pageSize} onChange={handlePageSizeChange}>
@@ -205,6 +235,44 @@ const Users = () => {
             ))}
           </select>
         </label>
+      </div>
+
+      <div className="table-filters">
+        <label htmlFor="users-search" className="table-filter-search">
+          Tìm kiếm
+          <input
+            id="users-search"
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="ID, tên đăng nhập, email"
+          />
+        </label>
+
+        <label htmlFor="users-role-filter">
+          Vai trò
+          <select
+            id="users-role-filter"
+            value={selectedRole}
+            onChange={(event) => setSelectedRole(event.target.value)}
+          >
+            <option value="all">Tat ca</option>
+            {roleOptions.map((role) => (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <button
+          type="button"
+          className="admin-action-btn secondary filter-reset-btn"
+          onClick={handleClearFilters}
+          disabled={!searchTerm && selectedRole === "all"}
+        >
+          Hủy
+        </button>
       </div>
 
       {loading && <p>Đang tải danh sách user...</p>}
@@ -243,30 +311,35 @@ const Users = () => {
                         <div className="table-actions">
                           <button
                             type="button"
-                            className="admin-action-btn info"
+                            className="admin-action-btn info table-action-icon"
                             onClick={() => handleViewProfile(user)}
+                            title="Chi tiet"
+                            aria-label="Chi tiet user"
                           >
-                            Chi tiết
+                            <i className="fa-solid fa-circle-info" />
                           </button>
                           <button
                             type="button"
-                            className="admin-action-btn warning"
+                            className="admin-action-btn warning table-action-icon"
                             onClick={() => handleUpdateUser(user)}
+                            title="Sua"
+                            aria-label="Sua user"
                           >
-                            Sửa
+                            <i className="fa-solid fa-pen-to-square" />
                           </button>
                           <button
                             type="button"
-                            className="admin-action-btn danger"
+                            className="admin-action-btn danger table-action-icon"
                             onClick={() => handleDeleteUser(user)}
                             disabled={user.role === "Admin"}
                             title={
                               user.role === "Admin"
-                                ? "Backend không cho phép xóa tài khoản Admin"
-                                : "Xóa user"
+                                ? "Backend khong cho phep xoa tai khoan Admin"
+                                : "Xoa user"
                             }
+                            aria-label="Xoa user"
                           >
-                            Xóa
+                            <i className="fa-solid fa-trash" />
                           </button>
                         </div>
                       </td>
@@ -275,7 +348,7 @@ const Users = () => {
                 ) : (
                   <tr>
                     <td colSpan={5} style={{ padding: "10px", textAlign: "center" }}>
-                      Không có user nào.
+                      Không có user phù hợp
                     </td>
                   </tr>
                 )}

@@ -5,7 +5,7 @@ import Subjects from "./SubjectMana/Subjects";
 import "../../styles/AdminSide.css";
 
 const MENU_ITEMS = [
-  { id: "dashboard", label: "Bảng điều khiển", icon: "fa-solid fa-table-columns" },
+  { id: "dashboard", label: "Dashboard", icon: "fa-solid fa-table-columns" },
   { id: "users", label: "Quản lý user", icon: "fa-solid fa-users" },
   { id: "subjects", label: "Quản lý môn học", icon: "fa-solid fa-book-open" },
 ];
@@ -20,7 +20,7 @@ const FEATURES = [
   {
     id: "subjects",
     title: "Quản lý môn học",
-    desc: "Quản lý subject, chapter và question theo đúng luồng admin.",
+    desc: "Quản lý subject, chapter và question",
     available: true,
   },
 ];
@@ -32,7 +32,7 @@ const AdminSide = () => {
   const getHeaderInfo = () => {
     if (activeView === "dashboard") {
       return {
-        title: "Bảng điều khiển Admin",
+        title: "Admin Dashboard",
         sub: "Chọn chức năng quản trị hệ thống.",
       };
     }
