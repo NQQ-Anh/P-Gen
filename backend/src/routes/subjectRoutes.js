@@ -11,12 +11,10 @@ import { authenticateToken, authorize } from "../middleware/auth.js";
 
 const router = express.Router();
 
-const normalizeStatus = (status) =>
-  status === "Inactive" ? "Inactive" : "Active";
+const normalizeStatus = (status) => (status === "Inactive" ? "Inactive" : "Active");
 
 const validateQuestionPayload = (payload) => {
-  const content =
-    typeof payload?.content === "string" ? payload.content.trim() : "";
+  const content = typeof payload?.content === "string" ? payload.content.trim() : "";
   const explanation =
     typeof payload?.explanation === "string" ? payload.explanation.trim() : "";
   const status = normalizeStatus(payload?.status);
@@ -36,10 +34,7 @@ const validateQuestionPayload = (payload) => {
   }));
 
   if (answers.some((answer) => !answer.content)) {
-    return {
-      isValid: false,
-      message: "Vui lòng nhập nội dung cho đầy đủ 4 đáp án",
-    };
+    return { isValid: false, message: "Vui lòng nhập nội dung cho đầy đủ 4 đáp án" };
   }
 
   const correctCount = answers.filter((answer) => answer.is_correct).length;
@@ -119,37 +114,30 @@ router.get("/:id/chapters", authenticateToken, async (req, res) => {
   }
 });
 
-router.post(
-  "/:id/chapters",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
-    try {
-      const { id: subjectId } = req.params;
-      const chapterName =
-        typeof req.body?.chapter_name === "string"
-          ? req.body.chapter_name.trim()
-          : "";
-      const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
-      const status = normalizeStatus(req.body?.status);
+router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, res) => {
+  try {
+    const { id: subjectId } = req.params;
+    const chapterName =
+      typeof req.body?.chapter_name === "string" ? req.body.chapter_name.trim() : "";
+    const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
+    const status = normalizeStatus(req.body?.status);
 
-      if (!chapterName) {
-        return res.status(400).json({ message: "chapter_name is required" });
-      }
-
-      const [result] = await db.execute(
-        "INSERT INTO Chapters (chapter_name, order_index, subject_id, status) VALUES (?, ?, ?, ?)",
-        [chapterName, orderIndex, subjectId, status],
-      );
-      res.status(201).json({
-        message: "Chapter created successfully",
-        chapterId: result.insertId,
-      });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+    if (!chapterName) {
+      return res.status(400).json({ message: "chapter_name is required" });
     }
-  },
-);
+
+    const [result] = await db.execute(
+      "INSERT INTO Chapters (chapter_name, order_index, subject_id, status) VALUES (?, ?, ?, ?)",
+      [chapterName, orderIndex, subjectId, status],
+    );
+    res.status(201).json({
+      message: "Chapter created successfully",
+      chapterId: result.insertId,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 router.put(
   "/:id/chapters/:chapterId",
@@ -159,9 +147,7 @@ router.put(
     try {
       const { id: subjectId, chapterId } = req.params;
       const chapterName =
-        typeof req.body?.chapter_name === "string"
-          ? req.body.chapter_name.trim()
-          : "";
+        typeof req.body?.chapter_name === "string" ? req.body.chapter_name.trim() : "";
       const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
       const status = normalizeStatus(req.body?.status);
 
@@ -209,58 +195,32 @@ router.delete(
 );
 
 // ==================== QUESTIONS ====================
-router.get(
-  "/:id/chapters/:chapterId/questions",
-  authenticateToken,
-  async (req, res) => {
-    try {
-      const { id: subjectId, chapterId: chapterPk } = req.params;
-      const [rows] = await db.execute(
-        `
-      SELECT 
+router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
+  try {
+    const { id: subjectId, chapterId } = req.params;
+    const [rows] = await db.execute(
+      `
+      SELECT
         q.id AS question_id,
         q.content AS question_content,
-
+        q.explanation AS question_explanation,
         q.status,
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM questions q
-      INNER JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
-      LEFT JOIN answers a ON q.id = a.question_id
-      WHERE c.id = ? AND c.subject_id = ?
-    `,
-        [chapterPk, subjectId],
-      );
+      FROM Questions q
+      LEFT JOIN Answers a ON q.id = a.question_id
+      WHERE q.subject_id = ? AND q.chapter_id = ?
+      ORDER BY q.id ASC, a.id ASC
+      `,
+      [subjectId, chapterId],
+    );
 
-      const result = [];
-      const map = {};
-
-      for (const row of rows) {
-        if (!map[row.question_id]) {
-          map[row.question_id] = {
-            id: row.question_id,
-            content: row.question_content,
-            status: row.status,
-            answers: [],
-          };
-          result.push(map[row.question_id]);
-        }
-        if (row.answer_id) {
-          map[row.question_id].answers.push({
-            id: row.answer_id,
-            content: row.answer_content,
-            is_correct: row.is_correct,
-          });
-        }
-      }
-
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  },
-);
+    res.json(mapQuestionRows(rows));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 router.post(
   "/:id/chapters/:chapterId/questions",
@@ -368,9 +328,7 @@ router.put(
         return res.status(404).json({ message: "Không tìm thấy câu hỏi" });
       }
 
-      await connection.execute("DELETE FROM Answers WHERE question_id = ?", [
-        questionId,
-      ]);
+      await connection.execute("DELETE FROM Answers WHERE question_id = ?", [questionId]);
       for (const answer of answers) {
         await connection.execute(
           "INSERT INTO Answers (content, is_correct, question_id) VALUES (?, ?, ?)",
