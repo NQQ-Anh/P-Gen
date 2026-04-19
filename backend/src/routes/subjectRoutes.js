@@ -196,31 +196,54 @@ router.delete(
 
 // ==================== QUESTIONS ====================
 router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
-  try {
-    const { id: subjectId, chapterId } = req.params;
-    const [rows] = await db.execute(
-      `
-      SELECT
+    try {
+      const { id: subjectId, chapterId: chapterPk } = req.params;
+      const [rows] = await db.execute(
+        `
+      SELECT 
         q.id AS question_id,
         q.content AS question_content,
-        q.explanation AS question_explanation,
+
         q.status,
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM Questions q
-      LEFT JOIN Answers a ON q.id = a.question_id
-      WHERE q.subject_id = ? AND q.chapter_id = ?
-      ORDER BY q.id ASC, a.id ASC
-      `,
-      [subjectId, chapterId],
-    );
+      FROM questions q
+      INNER JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      LEFT JOIN answers a ON q.id = a.question_id
+      WHERE c.id = ? AND c.subject_id = ?
+    `,
+        [chapterPk, subjectId],
+      );
 
-    res.json(mapQuestionRows(rows));
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+      const result = [];
+      const map = {};
+
+      for (const row of rows) {
+        if (!map[row.question_id]) {
+          map[row.question_id] = {
+            id: row.question_id,
+            content: row.question_content,
+            status: row.status,
+            answers: [],
+          };
+          result.push(map[row.question_id]);
+        }
+        if (row.answer_id) {
+          map[row.question_id].answers.push({
+            id: row.answer_id,
+            content: row.answer_content,
+            is_correct: row.is_correct,
+          });
+        }
+      }
+
+      res.json(result);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+);
 
 router.post(
   "/:id/chapters/:chapterId/questions",
