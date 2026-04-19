@@ -264,7 +264,7 @@ const Subjects = () => {
           onClick={handleClearFilters}
           disabled={!searchTerm && selectedStatus === "all"}
         >
-          Xoa loc
+          Hủy lọc
         </button>
       </div>
 
@@ -302,7 +302,7 @@ const Subjects = () => {
                             type="button"
                             className="admin-action-btn info table-action-icon"
                             onClick={() => handleGoToChapters(subject)}
-                            title="Quan ly chuong"
+                            title="Danh sách chương"
                             aria-label="Quan ly chuong"
                           >
                             <i className="fa-solid fa-list" />
@@ -311,7 +311,7 @@ const Subjects = () => {
                             type="button"
                             className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(subject)}
-                            title="Sua"
+                            title="Sửa"
                             aria-label="Sua mon hoc"
                           >
                             <i className="fa-solid fa-pen-to-square" />
@@ -332,7 +332,7 @@ const Subjects = () => {
                 ) : (
                   <tr>
                     <td colSpan={5} style={{ padding: "10px", textAlign: "center" }}>
-                      Khong co mon hoc phu hop.
+                      Không có môn học phù hợp.
                     </td>
                   </tr>
                 )}

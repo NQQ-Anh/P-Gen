@@ -256,7 +256,7 @@ const Users = () => {
             value={selectedRole}
             onChange={(event) => setSelectedRole(event.target.value)}
           >
-            <option value="all">Tat ca</option>
+            <option value="all">Tất cả</option>
             {roleOptions.map((role) => (
               <option key={role} value={role}>
                 {role}
@@ -271,7 +271,7 @@ const Users = () => {
           onClick={handleClearFilters}
           disabled={!searchTerm && selectedRole === "all"}
         >
-          Hủy
+          Hủy lọc
         </button>
       </div>
 
@@ -313,7 +313,7 @@ const Users = () => {
                             type="button"
                             className="admin-action-btn info table-action-icon"
                             onClick={() => handleViewProfile(user)}
-                            title="Chi tiet"
+                            title="Chi tiết"
                             aria-label="Chi tiet user"
                           >
                             <i className="fa-solid fa-circle-info" />
@@ -322,7 +322,7 @@ const Users = () => {
                             type="button"
                             className="admin-action-btn warning table-action-icon"
                             onClick={() => handleUpdateUser(user)}
-                            title="Sua"
+                            title="Sửa"
                             aria-label="Sua user"
                           >
                             <i className="fa-solid fa-pen-to-square" />
@@ -334,8 +334,8 @@ const Users = () => {
                             disabled={user.role === "Admin"}
                             title={
                               user.role === "Admin"
-                                ? "Backend khong cho phep xoa tai khoan Admin"
-                                : "Xoa user"
+                                ? "Không được xóa Admin"
+                                : "Xóa"
                             }
                             aria-label="Xoa user"
                           >

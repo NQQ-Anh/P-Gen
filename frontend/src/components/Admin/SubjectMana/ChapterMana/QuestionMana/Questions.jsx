@@ -271,7 +271,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
           onClick={handleClearFilters}
           disabled={!searchTerm && selectedStatus === "all"}
         >
-          Hủy
+          Hủy lọc
         </button>
       </div>
 
@@ -327,7 +327,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
                             type="button"
                             className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(question)}
-                            title="Sua"
+                            title="Sửa"
                             aria-label="Sua cau hoi"
                           >
                             <i className="fa-solid fa-pen-to-square" />

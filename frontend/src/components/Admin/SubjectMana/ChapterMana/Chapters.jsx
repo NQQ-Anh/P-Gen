@@ -222,7 +222,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
       )}
 
       <button type="button" className="admin-back-btn" onClick={onBackToSubjects}>
-        <i className="fa-solid fa-arrow-left" /> trở về danh sách môn học
+        <i className="fa-solid fa-arrow-left" /> Trở về danh sách môn học
       </button>
 
       <div className="user-list-header">
@@ -286,7 +286,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
           onClick={handleClearFilters}
           disabled={!searchTerm && selectedStatus === "all"}
         >
-          Hủy
+          Hủy lọc
         </button>
       </div>
 
@@ -322,7 +322,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
                             type="button"
                             className="admin-action-btn info table-action-icon"
                             onClick={() => handleGoToQuestions(chapter)}
-                            title="Quan ly cau hoi"
+                            title="Danh sách câu hỏi"
                             aria-label="Quan ly cau hoi"
                           >
                             <i className="fa-solid fa-circle-question" />
@@ -331,7 +331,7 @@ const Chapters = ({ subject, onBackToSubjects }) => {
                             type="button"
                             className="admin-action-btn warning table-action-icon"
                             onClick={() => handleGoToUpdate(chapter)}
-                            title="Sua"
+                            title="Sửa"
                             aria-label="Sua chuong"
                           >
                             <i className="fa-solid fa-pen-to-square" />

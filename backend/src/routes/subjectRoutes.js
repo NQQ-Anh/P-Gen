@@ -196,11 +196,11 @@ router.delete(
 
 // ==================== QUESTIONS ====================
 router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
-  try {
-    const { id: subjectId, chapterId } = req.params;
-    const [rows] = await db.execute(
-      `
-      SELECT
+    try {
+      const { id: subjectId, chapterId: chapterPk } = req.params;
+      const [rows] = await db.execute(
+        `
+      SELECT 
         q.id AS question_id,
         q.content AS question_content,
         q.explanation AS question_explanation,
