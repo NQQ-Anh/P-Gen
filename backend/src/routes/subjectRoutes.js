@@ -209,10 +209,7 @@ router.delete(
 );
 
 // ==================== QUESTIONS ====================
-router.get(
-  "/:id/chapters/:chapterId/questions",
-  authenticateToken,
-  async (req, res) => {
+router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
     try {
       const { id: subjectId, chapterId: chapterPk } = req.params;
       const [rows] = await db.execute(
