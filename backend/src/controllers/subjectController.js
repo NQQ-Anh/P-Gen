@@ -4,13 +4,18 @@ const normalizeStatus = (status) => (status === 'Inactive' ? 'Inactive' : 'Activ
 
 export const getAllSubjects = async (req, res) => {
   try {
+    const role = req.user.role;
+    
     const [rows] = await db.execute(`
       SELECT s.*, 
-        (SELECT COUNT(*) FROM Chapters WHERE subject_id = s.id) AS total_chapters,
-        (SELECT COUNT(*) FROM Questions q 
-         WHERE q.subject_id = s.id) AS total_questions
+        (SELECT COUNT(*) FROM Chapters WHERE subject_id = s.id 
+         AND (status = 'Active' OR ? = 'Admin')) AS total_chapters,
+        (SELECT COUNT(*) FROM Questions q WHERE q.subject_id = s.id 
+         AND (q.status = 'Active' OR ? = 'Admin')) AS total_questions
       FROM Subjects s
-    `);
+      WHERE (s.status = 'Active' OR ? = 'Admin')
+    `, [role, role, role]);
+
     res.json(rows);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -20,11 +25,22 @@ export const getAllSubjects = async (req, res) => {
 export const getSubjectById = async (req, res) => {
   try {
     const { id } = req.params;
+    const role = req.user.role;
+
     const [subjectRows] = await db.execute('SELECT * FROM Subjects WHERE id = ?', [id]);
+    
     if (subjectRows.length === 0) {
       return res.status(404).json({ message: 'Subject not found' });
     }
-    const [chapterRows] = await db.execute('SELECT * FROM Chapters WHERE subject_id = ?', [id]);
+
+    const [chapterRows] = await db.execute(
+      `SELECT c.* FROM Chapters c 
+       INNER JOIN Subjects s ON c.subject_id = s.id
+       WHERE c.subject_id = ? 
+       AND (? = 'Admin' OR (c.status = 'Active' AND s.status = 'Active'))`, 
+      [id, role]
+    );
+
     res.json({
       subject: subjectRows[0],
       chapters: chapterRows
