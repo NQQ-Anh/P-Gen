@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../styles/HistoryView.css";
 
-export const HistoryView = ({ onBack }) => {
+export const HistoryView = ({ attemptId, onBack }) => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState(null);
+
+  useEffect(() => {
+    if (attemptId) {
+      handleViewDetail(attemptId);
+    }
+  }, [attemptId]);
 
   useEffect(() => {
     fetch("http://localhost:5001/history/my-history", {
@@ -13,22 +19,20 @@ export const HistoryView = ({ onBack }) => {
       },
     })
       .then((res) => {
-        // Nếu server trả về lỗi (500, 401, 404...), ném lỗi vào catch
         if (!res.ok) return res.json().then(err => { throw err; });
         return res.json();
       })
       .then((data) => {
-        // CHỈ setHistory NẾU data là mảng
         if (Array.isArray(data)) {
           setHistory(data);
         } else {
-          setHistory([]); // Nếu không phải mảng, cho về mảng rỗng để không bị lỗi .map
+          setHistory([]);
         }
         setLoading(false);
       })
       .catch((err) => {
         console.error("Lỗi lấy lịch sử:", err);
-        setHistory([]); // Đảm bảo luôn là mảng khi có lỗi
+        setHistory([]);
         setLoading(false);
       });
   }, []);
@@ -145,7 +149,7 @@ export const HistoryView = ({ onBack }) => {
                           {item.subject_name} 
                         </span>
                         <span className="chapter-index">
-                          <i class="fa-solid fa-book-bookmark"></i> {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
+                          <i className="fa-solid fa-book-bookmark"></i> {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
                         </span>
                         <span className="attempt-date">
                           <i className="fa-regular fa-calendar"></i> {formatDate(item.created_at)}

@@ -187,9 +187,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: var(--fs-body);
 }
 
-.border-correct { border: 3px solid #27ae60 !important; }
+.border-correct { border: 3px solid #27ae60 !important; font-weight: bold;}
 .border-wrong { border: 3px solid #e74c3c !important; }
 
 /* Animations */

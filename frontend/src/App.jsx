@@ -33,6 +33,7 @@ function AppContent() {
   const [resumeData, setResumeData] = useState(null);
   const [reviewSubject, setReviewSubject] = useState(null);
   const [questionsForReview, setQuestionsForReview] = useState([]);
+  const [selectedAttemptId, setSelectedAttemptId] = useState(null);
 
   const handleSetView = (newView) => {
     startTransition(() => {
@@ -84,7 +85,6 @@ function AppContent() {
   };
 
   // Hiển thị dựa trên Role của người dùng
-  // Hiển thị dựa trên Role của người dùng
   useEffect(() => {
     if (user) {
       // 1. Kiểm tra xem URL có chứa param ?view=admin không
@@ -130,18 +130,18 @@ function AppContent() {
   useEffect(() => {
     // Đóng khi thay đổi kích thước hoặc cuộn trang
     const handleOutsideEvents = (event) => {
-    if (event.type === 'resize'|| event.type === 'wheel' || event.type === 'touchmove') {
-      console.log("resize");
-      setIsMenuOpen(false);
-    }
-
-    // Đóng khi click ra ngoài vùng Navbar
-    if (event.type === 'mousedown'|| event.type === 'touchstart') {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      if (event.type === 'resize'|| event.type === 'wheel' || event.type === 'touchmove') {
+        console.log("resize");
         setIsMenuOpen(false);
       }
-    }
-  };
+
+      // Đóng khi click ra ngoài vùng Navbar
+      if (event.type === 'mousedown'|| event.type === 'touchstart') {
+        if (navRef.current && !navRef.current.contains(event.target)) {
+          setIsMenuOpen(false);
+        }
+      }
+    };
     
     window.addEventListener("resize", handleOutsideEvents);
     window.addEventListener("wheel", handleOutsideEvents);
@@ -277,7 +277,14 @@ function AppContent() {
         )}
         {view === "login" && !user && <Login />}
         {view === "register" && !user && <Register />}
-        {view === "profile" && user && <Profile />}
+        {view === "profile" && user && (
+          <Profile 
+            onNavigate={(v, id) => {
+              handleSetView(v);
+              if (id) setSelectedAttemptId(id);
+            }}
+          />
+        )}
         {view === "subject" && (
           <SubjectView 
             onSelectSubject={(sub) => {
@@ -353,6 +360,15 @@ function AppContent() {
         )}
         {view === "history" && (
           <HistoryView onBack={() => setView("home")} />
+        )}
+        {view === "quiz-detail" && selectedAttemptId && (
+          <HistoryView 
+            attemptId={selectedAttemptId}
+            onBack={() => {
+              setSelectedAttemptId(null);
+              handleSetView("profile");
+            }} 
+          />
         )}
         {view === "review-dashboard" && (
           <ReviewDashboard 
