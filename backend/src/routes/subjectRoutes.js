@@ -151,11 +151,7 @@ router.post(
   },
 );
 
-router.put(
-  "/:id/chapters/:chapterId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.put( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId } = req.params;
       const chapterName =
@@ -185,11 +181,7 @@ router.put(
   },
 );
 
-router.delete(
-  "/:id/chapters/:chapterId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.delete( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId } = req.params;
       const [result] = await db.execute(
@@ -259,11 +251,7 @@ router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, 
   },
 );
 
-router.post(
-  "/:id/chapters/:chapterId/questions",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.post( "/:id/chapters/:chapterId/questions", authenticateToken, authorize("Admin"), async (req, res) => {
     const { id: subjectId, chapterId } = req.params;
     const validated = validateQuestionPayload(req.body);
     if (!validated.isValid) {
@@ -303,10 +291,7 @@ router.post(
   },
 );
 
-router.get(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  async (req, res) => {
+router.get("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, async (req, res) => {
     try {
       const { id: subjectId, chapterId, questionId } = req.params;
       const [rows] = await db.execute(
@@ -339,11 +324,7 @@ router.get(
   },
 );
 
-router.put(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.put("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, authorize("Admin"), async (req, res) => {
     const { id: subjectId, chapterId, questionId } = req.params;
     const validated = validateQuestionPayload(req.body);
     if (!validated.isValid) {
@@ -386,11 +367,7 @@ router.put(
   },
 );
 
-router.delete(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.delete( "/:id/chapters/:chapterId/questions/:questionId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId, questionId } = req.params;
       const [result] = await db.execute(
