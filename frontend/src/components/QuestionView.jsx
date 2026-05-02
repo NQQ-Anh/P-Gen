@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import '../styles/QuestionView.css';
 
 const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
@@ -6,6 +7,7 @@ const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.h
 export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, resumeData, initialQuestions, mode }) => {
     const isExam = settings?.isExam;
     const subjectId = subject?.id;
+    const { user } = useAuth();
 
     // 1. KHỞI TẠO STATE
     const [questions, setQuestions] = useState(resumeData?.questions || []);
@@ -50,8 +52,8 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             lastTimestamp: Date.now()
         };
 
-        localStorage.setItem('PTIT_QUIZ_SESSION', JSON.stringify(session));
-    }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam]);
+        localStorage.setItem(`PTIT_QUIZ_SESSION_${user.id}`, JSON.stringify(session));
+    }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam, user.id]);
 
     // 4. FETCH DỮ LIỆU
     const fetchQuestions = useCallback(async () => {
@@ -280,7 +282,9 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                 });
 
                 if (response.ok) {
-                    onFinish({ ...payload, isReview: true });
+                    localStorage.removeItem(`PTIT_QUIZ_SESSION_${user.id}`); 
+                    const savedResult = await response.json();
+                    onFinish({ ...payload, attemptId: savedResult.attemptId });
                 } else {
                     throw new Error("Lỗi cập nhật trí nhớ");
                 }
@@ -297,7 +301,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                 });
 
                 if (response.ok) {
-                    localStorage.removeItem('PTIT_QUIZ_SESSION'); 
+                    localStorage.removeItem(`PTIT_QUIZ_SESSION_${user.id}`); 
                     const savedResult = await response.json();
                     onFinish({ ...payload, attemptId: savedResult.attemptId });
                 }

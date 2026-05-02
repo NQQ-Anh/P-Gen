@@ -281,31 +281,31 @@ function AppContent() {
         {view === "subject" && (
           <SubjectView 
             onSelectSubject={(sub) => {
-              const savedSession = localStorage.getItem('PTIT_QUIZ_SESSION');
+              const sessionKey = `PTIT_QUIZ_SESSION_${user.id}`;
+              const savedSession = localStorage.getItem(sessionKey);
+
               if (savedSession) {
                 const session = JSON.parse(savedSession);
                 const sessionSubId = session.subject?.id || session.subjectId;
-                // Nếu session cũ ĐÚNG là của môn vừa chọn
+
                 if (sessionSubId) {
                   const confirmResume = window.confirm(
-                    `Bạn đang có bài [ ${session.isExam ? 'Luyện thi' : 'Ôn tập'} ] chưa hoàn thành ở môn [ ${session.subject?.subject_name} ].\n\nBạn có muốn tiếp tục không?\n- Chọn OK để TIẾP TỤC. \n- Chọn CANCEL để BỎ QUA.`
+                    `Bạn đang có bài [ ${session.isExam ? 'Luyện thi' : 'Ôn tập'} ] chưa hoàn thành của môn [ ${session.subject?.subject_name} ].\n\nBạn muốn tiếp tục không?\n- Chọn OK để TIẾP TỤC bài cũ.\n- Chọn CANCEL để BỎ QUA và làm môn mới.`
                   );
 
                   if (confirmResume) {
-                    // A. NẾU ĐỒNG Ý: Khôi phục toàn bộ trạng thái và nhảy thẳng vào QuestionView
-                    setSelectedSubject(sub);
+                    setSelectedSubject(session.subject); 
                     setSelectedChapters(session.chapterIds || []);
                     setQuizSettings(session.settings || {});
-                    setResumeData(session); // Đổ dữ liệu cũ vào đây
-                    handleSetView("question"); // Bỏ qua bước chọn Chapter
-                    return; // Kết thúc hàm tại đây
+                    setResumeData(session);
+                    handleSetView("question");
+                    return;
                   } else {
-                    // B. NẾU KHÔNG: Xóa session cũ để bắt đầu bài mới hoàn toàn
-                    localStorage.removeItem('PTIT_QUIZ_SESSION');
+                    localStorage.removeItem(sessionKey);
                   }
                 }
               }
-              // 2. Nếu không có session hoặc người dùng từ chối khôi phục
+              
               setSelectedSubject(sub);
               handleSetView("chapter");
             }}
