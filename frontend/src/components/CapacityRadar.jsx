@@ -1,12 +1,9 @@
-// src/components/CapacityRadar.jsx
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 const CapacityRadar = ({ data }) => {
-  // Xử lý dữ liệu để lấy phần trước dấu ":"
   const processedData = data.map(item => {
     const rawName = item.subject || "";
-    // Cắt chuỗi tại dấu ":" và lấy phần tử đầu tiên
     const shortName = rawName.includes(':') 
       ? rawName.split(':')[0].trim() 
       : rawName;

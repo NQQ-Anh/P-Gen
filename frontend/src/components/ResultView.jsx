@@ -69,7 +69,6 @@ export const ResultView = ({ result, onRestart, onHome }) => {
               const correctAns = q.answers.find(a => a.is_correct === 1 || a.is_correct === true);
               const isCorrect = selectedId === correctAns?.id;
 
-              // Xác định class cho nền của thẻ câu hỏi
               let questionCardClass = "review-item";
               if (isCorrect) questionCardClass += " correct-card";
               else questionCardClass += " incorrect-card";
@@ -84,10 +83,9 @@ export const ResultView = ({ result, onRestart, onHome }) => {
                       const isSelected = selectedId === ans.id;
                       const isCorrectAns = ans.is_correct === 1 || ans.is_correct === true;
 
-                      // Logic xác định Border cho từng đáp án
                       let ansClass = "review-ans-card";
-                      if (isCorrectAns) ansClass += " border-correct"; // Luôn hiện viền xanh cho đáp án đúng
-                      if (isSelected && !isCorrectAns) ansClass += " border-wrong"; // Hiện viền đỏ nếu chọn sai
+                      if (isCorrectAns) ansClass += " border-correct";
+                      if (isSelected && !isCorrectAns) ansClass += " border-wrong";
 
                       return (
                         <div key={ans.id} className={ansClass}>

@@ -1,5 +1,9 @@
 .profile-dashboard-wrapper {
-  color: #000000;
+  overflow: hidden;
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-bottom: -40px;
+  min-height: calc(100vh - 55px);
 }
 
 /* LƯỚI TỔNG THỂ */
@@ -15,7 +19,7 @@
 /* THIẾT KẾ CARD CHUNG */
 .profile-dashboard-wrapper .widget-card {
   background-color: var(--second-color);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid #eeeeee;
@@ -25,7 +29,7 @@
   box-sizing: border-box;
 }
 
-/* 1. SIDEBAR (CỘT TRÁI)[cite: 1] */
+/* 1. SIDEBAR */
 .profile-dashboard-wrapper .sidebar-widget {
   padding: 40px 24px;
   align-items: center;
@@ -84,7 +88,7 @@
   font-size: var(--fs-body);
 }
 
-/* 2. MAIN CONTENT (CỘT PHẢI)[cite: 1] */
+/* 2. MAIN CONTENT */
 .profile-dashboard-wrapper .dashboard-main-content {
   display: flex;
   flex-direction: column;

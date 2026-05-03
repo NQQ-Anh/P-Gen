@@ -207,7 +207,7 @@ function AppContent() {
               <button onClick={() => handleSetView("history")}>Lịch sử</button>
               {user.role === 'Admin' && (
                 <button onClick={() => {
-                  setIsMenuOpen(false); // Đóng menu lại
+                  setIsMenuOpen(false);
                   window.open(window.location.origin + window.location.pathname + '?view=admin', '_blank');
                 }}>
                   Quản lý

@@ -1,4 +1,3 @@
-/* src/styles/ResultView.css */
 :root {
   --primary-red: #A4161A;
   --bg-light: #f4f7f6;
@@ -59,7 +58,6 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  /* Progress được điều khiển bởi biến --progress từ JS */
   background: conic-gradient(
     var(--primary-red) var(--progress),
     #f1f3f5 0deg
@@ -174,14 +172,13 @@
   transition: background-color 0.3s ease;
 }
 
-/* Màu nền thay đổi theo trạng thái câu hỏi */
 .result-container .review-item.correct-card {
-  background-color: #f0fff4; /* Xanh lá cực nhẹ */
+  background-color: #f0fff4;
   border-color: #c6f6d5;
 }
 
 .result-container .review-item.incorrect-card {
-  background-color: #fff5f5; /* Đỏ cực nhẹ */
+  background-color: #fff5f5;
   border-color: #fed7d7;
 }
 

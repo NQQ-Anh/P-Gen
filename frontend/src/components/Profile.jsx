@@ -79,7 +79,7 @@ const Profile = ({ onNavigate }) => {
   if (loading) return <div className="loading">Đang tải hồ sơ...</div>;
 
   return (
-    <div className="profile-dashboard-wrapper">
+    <div className="all-wrapper profile-dashboard-wrapper">
       <div className="dashboard-grid">
         {/* SIDEBAR */}
         <aside className="widget-card sidebar-widget">

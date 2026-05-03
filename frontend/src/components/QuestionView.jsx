@@ -9,16 +9,16 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
     const subjectId = subject?.id;
     const { user } = useAuth();
 
-    // 1. KHỞI TẠO STATE
+    //KHỞI TẠO STATE
     const [questions, setQuestions] = useState(resumeData?.questions || []);
     const [currentIndex, setCurrentIndex] = useState(resumeData?.currentIndex || 0);
     const [userAnswers, setUserAnswers] = useState(resumeData?.userAnswers || {});
     const [isAnswered, setIsAnswered] = useState(resumeData?.isAnswered || {});
     const [flaggedQuestions, setFlaggedQuestions] = useState(resumeData?.flaggedQuestions || {});
-    const [loading, setLoading] = useState(!resumeData); // Nếu có resumeData thì không cần hiện loading fetch
+    const [loading, setLoading] = useState(!resumeData);
     const [isListView, setIsListView] = useState(settings?.viewMode === 'list');
 
-    // 2. LOGIC THỜI GIAN
+    //LOGIC THỜI GIAN
     const [timeLeft, setTimeLeft] = useState(() => {
         if (resumeData) {
             if (isExam && resumeData.lastTimestamp) {
@@ -34,7 +34,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         return null;
     });
 
-    // 3. LƯU PHIÊN
+    //LƯU PHIÊN
     useEffect(() => {
         if (questions.length === 0 || mode === 'review') return;
 
@@ -55,7 +55,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         localStorage.setItem(`PTIT_QUIZ_SESSION_${user.id}`, JSON.stringify(session));
     }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam, user.id]);
 
-    // 4. FETCH DỮ LIỆU
+    //FETCH DỮ LIỆU
     const fetchQuestions = useCallback(async () => {
         if (resumeData || (initialQuestions && initialQuestions.length > 0)) {
             if (initialQuestions) {
@@ -114,7 +114,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
 
     useEffect(() => { fetchQuestions(); }, [fetchQuestions]);
 
-    // 5. LOGIC TIMER & CHUYỂN CÂU
+    //LOGIC TIMER & CHUYỂN CÂU
     const handleNext = useCallback(() => {
         if (currentIndex < questions.length - 1) {
             setCurrentIndex(prev => prev + 1);
@@ -142,7 +142,6 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         return () => clearInterval(timer);
     }, [timeLeft, isExam, settings?.timePerQuestion, isListView, handleNext]);
 
-    // Ép nộp bài khi hết giờ
     useEffect(() => {
         if (isExam && timeLeft === 0) {
             alert("Đã hết thời gian làm bài!");
@@ -150,7 +149,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         }
     }, [timeLeft, isExam]);
 
-    // 6. QUESTION MAP & PAGINATION
+    //QUESTION MAP
     const questionsPerPageMap = 30; 
     const [mapPage, setMapPage] = useState(Math.floor(currentIndex / questionsPerPageMap));
 
@@ -161,7 +160,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
     const totalMapPages = Math.ceil(questions.length / questionsPerPageMap);
     const currentMapQuestions = questions.slice(mapPage * questionsPerPageMap, (mapPage + 1) * questionsPerPageMap);
 
-    // 7. LIST VIEW OBSERVER
+    //LIST VIEW OBSERVER
     useEffect(() => {
         if (!isListView || questions.length === 0) return;
 
@@ -195,7 +194,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         };
     }, [isListView, questions]);
 
-    // 8. CÁC HÀM TƯƠNG TÁC
+    //CÁC HÀM TƯƠNG TÁC
     const goToQuestion = (index) => {
         if (!isExam && settings?.timePerQuestion > 0) return; 
 
@@ -264,7 +263,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             const token = localStorage.getItem('accessToken');
             
             if (mode === "review") {
-                // A. CHẾ ĐỘ CỦNG CỐ: Cập nhật trí nhớ
+                // A. REVIEW MODE
                 const reviewPayload = {
                     results: details.map(d => ({
                         questionId: d.questionId,
@@ -290,7 +289,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                 }
 
             } else {
-                // B. CHẾ ĐỘ LUYỆN THI/LÀM BÀI: Lưu lịch sử
+                // B. PRACTICE MODE
                 const response = await fetch(`${API_URL}/history/save`, {
                     method: 'POST',
                     headers: {

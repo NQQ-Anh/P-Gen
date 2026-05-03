@@ -16,7 +16,6 @@
   gap: 60px;
 }
 
-/* 3. Cột Thông tin */
 .footer-info,
 .footer-connect {
   flex: 1;
@@ -103,7 +102,6 @@
   background-color: #f5f3f4;
 }
 
-/*Responsive cho Mobile */
 @media (max-width: 768px) {
     .footer-container {
     max-width: 100%;

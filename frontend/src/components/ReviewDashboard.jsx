@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "../styles/ReviewDashboard.css"; // Đảm bảo đúng đường dẫn file CSS mới
+import "../styles/ReviewDashboard.css";
 
 const ReviewDashboard = ({ onSelectSubject }) => {
     const [stats, setStats] = useState([]);
@@ -35,59 +35,58 @@ const ReviewDashboard = ({ onSelectSubject }) => {
     if (loading) return <div className="loading-center">Đang tải dữ liệu ôn tập...</div>;
 
     return (
-        <div className="subject-view-container review-dashboard">
-            <h1 className="view-title">Sổ tay ôn tập</h1>
-            <p className="view-subtitle">Củng cố những gì bạn đã học</p>
+        <div className='all-wrapper'>
+            <div className="review-dashboard">
+                <h1 className="view-title">Sổ tay ôn tập</h1>
+                <p className="view-subtitle">Củng cố những gì bạn đã học</p>
 
-            <div className="subject-grid">
-                {stats.length > 0 ? (
-                    stats.map((sub) => (
-                        <div key={sub.id} className="subject-card" onClick={() => onSelectSubject(sub)}>
-                            {/* Lớp nền mờ */}
-                            <div className="card-bg"></div>
+                <div className="subject-grid">
+                    {stats.length > 0 ? (
+                        stats.map((sub) => (
+                            <div key={sub.id} className="subject-card" onClick={() => onSelectSubject(sub)}>
+                                <div className="card-bg"></div>
 
-                            <div className="card-content">
-                                {/* Trạng thái 1: Tên môn và Icon */}
-                                <div className="card-basic-info">
-                                    <div className="subject-icon-box">
-                                        <i className="fa-solid fa-clock-rotate-left"></i>
-                                    </div>
-                                    <h3>{sub.name}</h3>
-                                </div>
-
-                                {/* Trạng thái 2: Hiện khi Hover (Progress & Due count) */}
-                                <div className="card-hover-details">
-                                    <div className="review-progress-wrapper">
-                                        <div className="progress-label-group">
-                                            <span>Tiến độ ghi nhớ: </span>
-                                            <span>{sub.progress}%</span>
+                                <div className="card-content">
+                                    <div className="card-basic-info">
+                                        <div className="subject-icon-box">
+                                            <i className="fa-solid fa-clock-rotate-left"></i>
                                         </div>
-                                        <div className="progress-bar-container">
-                                            <div 
-                                                className="progress-bar-fill" 
-                                                style={{ width: `${sub.progress}%` }}
-                                            ></div>
-                                        </div>
+                                        <h3>{sub.name}</h3>
                                     </div>
 
-                                    <div className="sub-stats">
-                                        <span>
-                                            <i className="fa-solid fa-circle-exclamation"></i>
-                                            {sub.dueCount} câu đến hạn
-                                        </span>
+                                    <div className="card-hover-details">
+                                        <div className="review-progress-wrapper">
+                                            <div className="progress-label-group">
+                                                <span>Tiến độ ghi nhớ: </span>
+                                                <span>{sub.progress}%</span>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div 
+                                                    className="progress-bar-fill" 
+                                                    style={{ width: `${sub.progress}%` }}
+                                                ></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="sub-stats">
+                                            <span>
+                                                <i className="fa-solid fa-circle-exclamation"></i>
+                                                {sub.dueCount} câu đến hạn
+                                            </span>
+                                        </div>
+                                        
+                                        <button className="red-btn">Ôn tập ngay</button>
                                     </div>
-                                    
-                                    <button className="red-btn">Ôn tập ngay</button>
                                 </div>
                             </div>
+                        ))
+                    ) : (
+                        <div className="empty-message">
+                            <i className="fa-solid fa- mug-hot"></i>
+                            <p>Bạn chưa có dữ liệu ôn tập. Hãy hoàn thành các bài luyện tập trước nhé!</p>
                         </div>
-                    ))
-                ) : (
-                    <div className="empty-message">
-                        <i className="fa-solid fa- mug-hot"></i>
-                        <p>Bạn chưa có dữ liệu ôn tập. Hãy hoàn thành các bài luyện tập trước nhé!</p>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
