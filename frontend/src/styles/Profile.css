@@ -144,6 +144,10 @@
 }
 
 /* PHÂN TÍCH NĂNG LỰC*/
+.profile-dashboard-wrapper .analysis-widget {
+  min-height: 100px;
+}
+
 .profile-dashboard-wrapper .analysis-header {
   display: flex;
   flex-direction: column;

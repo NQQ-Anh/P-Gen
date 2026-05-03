@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 const CapacityRadar = ({ data }) => {
   const processedData = data.map(item => {
@@ -25,6 +25,7 @@ const CapacityRadar = ({ data }) => {
             dataKey="displayName" 
             tick={{ fill: '#000000', fontSize: 13, fontWeight: 600 }} 
           />
+          <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
           <Radar
             name="Năng lực"
             dataKey="A"
