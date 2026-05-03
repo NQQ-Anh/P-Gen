@@ -6,8 +6,6 @@ const ReviewSubjectView = ({ subject, onStart, onBack }) => {
     const [selectedIds, setSelectedIds] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
-
-    // Cài đặt ôn tập
     const [viewMode, setViewMode] = useState("list");
     const [isShuffle, setIsShuffle] = useState(false);
     const [showAnswers, setShowAnswers] = useState(true);
@@ -23,7 +21,6 @@ const ReviewSubjectView = ({ subject, onStart, onBack }) => {
                 if (!response.ok) throw new Error("Không thể tải câu hỏi");
                 const data = await response.json();
                 setQuestions(Array.isArray(data) ? data : []);
-                // Mặc định chọn tất cả khi mới tải
                 if (Array.isArray(data)) setSelectedIds(data.map(q => q.id));
             } catch (error) {
                 console.error("Lỗi lấy danh sách câu hỏi:", error);
@@ -75,7 +72,6 @@ const ReviewSubjectView = ({ subject, onStart, onBack }) => {
             </div>
 
             <div className="review-two-columns">
-                {/* CỘT 1: DANH SÁCH CÂU HỎI */}
                 <div className="questions-column">
                     <div className="list-controls-wrapper">
                         <button className="select-all-btn red-btn" onClick={toggleSelectAll}>
@@ -134,7 +130,6 @@ const ReviewSubjectView = ({ subject, onStart, onBack }) => {
                     </div>
                 </div>
 
-                {/* CỘT 2: CÀI ĐẶT */}
                 <div className="settings-column">
                     <div className="settings-card">
                         <h3 className='title'><i className="fa-solid fa-sliders"></i> Cấu hình ôn tập</h3>

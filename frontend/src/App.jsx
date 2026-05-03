@@ -33,6 +33,7 @@ function AppContent() {
   const [resumeData, setResumeData] = useState(null);
   const [reviewSubject, setReviewSubject] = useState(null);
   const [questionsForReview, setQuestionsForReview] = useState([]);
+  const [selectedAttemptId, setSelectedAttemptId] = useState(null);
 
   const handleSetView = (newView) => {
     startTransition(() => {
@@ -84,7 +85,6 @@ function AppContent() {
   };
 
   // Hiển thị dựa trên Role của người dùng
-  // Hiển thị dựa trên Role của người dùng
   useEffect(() => {
     if (user) {
       // 1. Kiểm tra xem URL có chứa param ?view=admin không
@@ -130,18 +130,18 @@ function AppContent() {
   useEffect(() => {
     // Đóng khi thay đổi kích thước hoặc cuộn trang
     const handleOutsideEvents = (event) => {
-    if (event.type === 'resize'|| event.type === 'wheel' || event.type === 'touchmove') {
-      console.log("resize");
-      setIsMenuOpen(false);
-    }
-
-    // Đóng khi click ra ngoài vùng Navbar
-    if (event.type === 'mousedown'|| event.type === 'touchstart') {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      if (event.type === 'resize'|| event.type === 'wheel' || event.type === 'touchmove') {
+        console.log("resize");
         setIsMenuOpen(false);
       }
-    }
-  };
+
+      // Đóng khi click ra ngoài vùng Navbar
+      if (event.type === 'mousedown'|| event.type === 'touchstart') {
+        if (navRef.current && !navRef.current.contains(event.target)) {
+          setIsMenuOpen(false);
+        }
+      }
+    };
     
     window.addEventListener("resize", handleOutsideEvents);
     window.addEventListener("wheel", handleOutsideEvents);
@@ -207,7 +207,7 @@ function AppContent() {
               <button onClick={() => handleSetView("history")}>Lịch sử</button>
               {user.role === 'Admin' && (
                 <button onClick={() => {
-                  setIsMenuOpen(false); // Đóng menu lại
+                  setIsMenuOpen(false);
                   window.open(window.location.origin + window.location.pathname + '?view=admin', '_blank');
                 }}>
                   Quản lý
@@ -277,35 +277,42 @@ function AppContent() {
         )}
         {view === "login" && !user && <Login />}
         {view === "register" && !user && <Register />}
-        {view === "profile" && user && <Profile />}
+        {view === "profile" && user && (
+          <Profile 
+            onNavigate={(v, id) => {
+              handleSetView(v);
+              if (id) setSelectedAttemptId(id);
+            }}
+          />
+        )}
         {view === "subject" && (
           <SubjectView 
             onSelectSubject={(sub) => {
-              const savedSession = localStorage.getItem('PTIT_QUIZ_SESSION');
+              const sessionKey = `PTIT_QUIZ_SESSION_${user.id}`;
+              const savedSession = localStorage.getItem(sessionKey);
+
               if (savedSession) {
                 const session = JSON.parse(savedSession);
                 const sessionSubId = session.subject?.id || session.subjectId;
-                // Nếu session cũ ĐÚNG là của môn vừa chọn
+
                 if (sessionSubId) {
                   const confirmResume = window.confirm(
-                    `Bạn đang có bài [ ${session.isExam ? 'Luyện thi' : 'Ôn tập'} ] chưa hoàn thành ở môn [ ${session.subject?.subject_name} ].\n\nBạn có muốn tiếp tục không?\n- Chọn OK để TIẾP TỤC. \n- Chọn CANCEL để BỎ QUA.`
+                    `Bạn đang có bài [ ${session.isExam ? 'Luyện thi' : 'Ôn tập'} ] chưa hoàn thành của môn [ ${session.subject?.subject_name} ].\n\nBạn muốn tiếp tục không?\n- Chọn OK để TIẾP TỤC bài cũ.\n- Chọn CANCEL để BỎ QUA và làm môn mới.`
                   );
 
                   if (confirmResume) {
-                    // A. NẾU ĐỒNG Ý: Khôi phục toàn bộ trạng thái và nhảy thẳng vào QuestionView
-                    setSelectedSubject(sub);
+                    setSelectedSubject(session.subject); 
                     setSelectedChapters(session.chapterIds || []);
                     setQuizSettings(session.settings || {});
-                    setResumeData(session); // Đổ dữ liệu cũ vào đây
-                    handleSetView("question"); // Bỏ qua bước chọn Chapter
-                    return; // Kết thúc hàm tại đây
+                    setResumeData(session);
+                    handleSetView("question");
+                    return;
                   } else {
-                    // B. NẾU KHÔNG: Xóa session cũ để bắt đầu bài mới hoàn toàn
-                    localStorage.removeItem('PTIT_QUIZ_SESSION');
+                    localStorage.removeItem(sessionKey);
                   }
                 }
               }
-              // 2. Nếu không có session hoặc người dùng từ chối khôi phục
+              
               setSelectedSubject(sub);
               handleSetView("chapter");
             }}
@@ -353,6 +360,15 @@ function AppContent() {
         )}
         {view === "history" && (
           <HistoryView onBack={() => setView("home")} />
+        )}
+        {view === "quiz-detail" && selectedAttemptId && (
+          <HistoryView 
+            attemptId={selectedAttemptId}
+            onBack={() => {
+              setSelectedAttemptId(null);
+              handleSetView("profile");
+            }} 
+          />
         )}
         {view === "review-dashboard" && (
           <ReviewDashboard 

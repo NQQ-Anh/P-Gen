@@ -70,6 +70,8 @@ const reviewController = {
     getReviewStatus: async (req, res) => {
         try {
             const userId = req.user.id;
+            const role = req.user.role;
+
             const query = `
                 SELECT 
                     s.id, 
@@ -77,15 +79,23 @@ const reviewController = {
                     COUNT(CASE WHEN m.next_review_at <= NOW() THEN 1 END) as dueCount,
                     ROUND(
                         (SUM(IFNULL(m.memory_score, 0)) * 100.0 / 
-                        NULLIF((SELECT COUNT(*) FROM questions WHERE subject_id = s.id), 0)), 0
+                        NULLIF((SELECT COUNT(*) FROM questions q2 
+                                JOIN chapters c2 ON q2.chapter_id = c2.order_index AND q2.subject_id = c2.subject_id
+                                WHERE q2.subject_id = s.id 
+                                AND (? = 'Admin' OR (q2.status = 'Active' AND c2.status = 'Active'))), 0)), 0
                     ) as progress
                 FROM subjects s
                 JOIN questions q ON s.id = q.subject_id
+                JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
                 LEFT JOIN user_question_memory m ON q.id = m.question_id AND m.user_id = ?
+                WHERE (
+                    ? = 'Admin' 
+                    OR (s.status = 'Active' AND c.status = 'Active' AND q.status = 'Active')
+                )
                 GROUP BY s.id
                 HAVING progress > 0 OR dueCount > 0;
             `;
-            const [rows] = await db.execute(query, [userId]);
+            const [rows] = await db.execute(query, [role, userId, role]);
             res.json(rows);
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -99,30 +109,32 @@ const reviewController = {
         try {
             const { subjectId } = req.params;
             const userId = req.user.id;
+            const role = req.user.role;
 
             const query = `
-                SELECT 
-                    q.*, 
-                    m.correct_streak, 
-                    m.next_review_at
+                SELECT q.*, m.correct_streak, m.next_review_at
                 FROM questions q
                 JOIN user_question_memory m ON q.id = m.question_id
+                JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+                JOIN subjects s ON q.subject_id = s.id
                 WHERE q.subject_id = ? 
-                  AND m.user_id = ? 
-                  AND m.next_review_at <= NOW()
+                AND m.user_id = ?
+                AND m.next_review_at <= NOW()
+                AND (
+                    ? = 'Admin' 
+                    OR (q.status = 'Active' AND c.status = 'Active' AND s.status = 'Active')
+                )
                 ORDER BY m.next_review_at ASC
             `;
-
-            const [questions] = await db.execute(query, [subjectId, userId]);
+            const [questions] = await db.execute(query, [subjectId, userId, role]);
             
+            // Logic parse options giữ nguyên[cite: 2]
             const formattedQuestions = questions.map(q => ({
                 ...q,
-                options: typeof q.options === 'string' ? JSON.parse(q.options) : q.options
+                answers: typeof q.options === 'string' ? JSON.parse(q.options) : q.options
             }));
-
             res.json(formattedQuestions);
         } catch (error) {
-            console.error("Lỗi getDueQuestions:", error);
             res.status(500).json({ message: error.message });
         }
     },

@@ -7,7 +7,7 @@ async function resetDatabase() {
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: password,
+      password: "123456",
       database: "p_gen",
     });
 

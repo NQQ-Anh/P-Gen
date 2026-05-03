@@ -1,21 +1,17 @@
-/* ==========================================================================
-   REVIEWDASHBOARD.CSS - SCOPED & FIXED EXPANSION LAYOUT
-   ========================================================================== */
-
 .review-dashboard {
     padding: 60px 25px;
     max-width: 1250px;
     margin: 0 auto;
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
-    color: #1a1a1a; /* Mặc định chữ tối */
+    color: #1a1a1a;
 }
 
 .review-dashboard .view-title {
     color: #A4161A;
     margin-bottom: 8px;
     font-size: var(--fs-h1);
-    font-weight: 600; /* Max 600 */
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -33,16 +29,16 @@
     gap: 30px;
 }
 
-/* Thẻ môn học - Container cố định để giữ vị trí grid */
+/* Thẻ môn học */
 .review-dashboard .subject-card {
     position: relative;
-    height: 180px; /* Chiều cao cố định khi chưa hover */
+    height: 180px;
     perspective: 1000px;
     z-index: 1;
     transition: z-index 0s;
 }
 
-/* Nội dung thực sự của thẻ - Có thể nở ra mà không đẩy grid */
+/* Nội dung thực sự của thẻ */
 .review-dashboard .card-content {
     position: absolute;
     top: 0;
@@ -64,7 +60,6 @@
     overflow: hidden;
 }
 
-/* Card Background Layer (Lớp trang trí nếu cần) */
 .review-dashboard .card-bg {
     position: absolute;
     top: 0;
@@ -95,7 +90,7 @@
     line-height: 1.3;
 }
 
-/* Hover Details (Mặc định ẩn) */
+/* Hover Details */
 .review-dashboard .card-hover-details {
     max-height: 0;
     opacity: 0;
@@ -145,31 +140,13 @@
     margin-right: 6px;
 }
 
-/* Nút đỏ dùng biến common của Nam */
-.review-dashboard .red-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 12px;
-    font-size: var(--fs-small);
-    font-weight: 600;
-    background-color: #A4161A;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-/* ==========================================================================
-   HOVER STATE - FIX LỖI TRÀN LỀ
-   ========================================================================== */
-
 .review-dashboard .subject-card:hover {
-    z-index: 10; /* Đưa lên trên các card khác */
+    z-index: 10;
 }
 
 .review-dashboard .subject-card:hover .card-content {
-    height: auto; /* Nở tự do theo nội dung */
-    min-height: 260px; /* Đảm bảo đủ chỗ cho thông tin thêm */
+    height: auto;
+    min-height: 260px;
     transform: translateY(-5px);
     border-color: #A4161A;
     box-shadow: 0 15px 35px rgba(164, 22, 26, 0.12);

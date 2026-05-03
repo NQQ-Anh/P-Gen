@@ -5,14 +5,13 @@
   margin-left: -40px;
   margin-bottom: -40px;
   min-height: calc(100vh - 55px);
-  background: url('/img/auth-back.png') no-repeat center / cover;;
+  background: url('/img/auth-back.png') no-repeat center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
-/* 3. Khung chứa 2 cột*/
 .auth-container {
   display: flex;
   align-items: center;
@@ -28,7 +27,6 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* --- CỘT TRÁI --- */
 .auth-form-side{
   flex: 1;
   display: flex;
@@ -57,7 +55,6 @@
   margin-bottom: 20px; 
 }
 
-/* Style cho từng nhóm Input */
 .auth-group { margin-bottom: 16px;}
 
 .auth-group label { 
@@ -80,12 +77,11 @@
 }
 
 .auth-input:focus {
-  border-color: #A4161A; /* Đỏ đô */
+  border-color: #A4161A;
   outline: none;
   background: rgba(164, 22, 26, 0.05);
 }
 
-/* Thông báo lỗi*/
 .auth-error-msg {
   background: rgba(255, 77, 77, 0.1);
   color: #ff4d4d;
@@ -97,7 +93,6 @@
   text-align: center;
 }
 
-/* --- CỘT PHẢI: IMAGE --- */
 .auth-img-side {
   flex: 1;
   display: flex;
@@ -123,7 +118,6 @@
   50% { transform: translateY(-10px); }
 }
 
-/* Tablet */
 @media (max-width: 1200px) {
 
   .auth-form-side{
@@ -153,7 +147,6 @@
   .auth-img-desk{display: none;}
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .auth-img-side { display: none; }
   .auth-container { max-width: 500px; }

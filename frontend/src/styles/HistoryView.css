@@ -48,14 +48,14 @@
     border-color: rgba(164, 22, 26, 0.2);
 }
 
-.card-main {
+.history-container .card-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
 }
 
-.subject-name {
+.history-container .subject-name {
     font-size: var(--fs-h2);
     font-weight: 600;
     color: #1a1a1a;
@@ -63,10 +63,9 @@
     margin-bottom: 4px;
 }
 
-/* Phần tóm tắt chi tiết */
-.detail-summary {
+.history-container .detail-summary {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Chia cột cân đối hơn */
+    grid-template-columns: 1.2fr 0.8fr;
     background: #fff5f5;
     padding: 20px;
     border-radius: 15px;
@@ -75,13 +74,13 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.summary-col p {
+.history-container .summary-col p {
     margin: 10px 0;
     font-size: var(--fs-body);
     color: #333;
 }
-.chapter-index,
-.attempt-date {
+.history-container .chapter-index,
+.history-container .attempt-date {
     font-size: var(--fs-small);
     color: #999;
     display: flex;
@@ -90,7 +89,7 @@
 }
 
 /* Badge điểm số nổi bật */
-.score-badge {
+.history-container .score-badge {
     background: linear-gradient(135deg, #A4161A 0%, #660708 100%);
     color: white;
     padding: 12px 18px;
@@ -100,21 +99,21 @@
     box-shadow: 0 4px 15px rgba(164, 22, 26, 0.2);
 }
 
-.score-num {
+.history-container .score-num {
     font-size: var(--fs-h2);
     font-weight: 900;
     display: block;
     line-height: 1;
 }
 
-.score-text { 
+.history-container .score-text { 
     font-size: var(--fs-small); 
     text-transform: uppercase; 
     letter-spacing: 1px;
     opacity: 0.9;
 }
 
-.card-footer {
+.history-container .card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,36 +121,20 @@
     border-top: 1px solid #f5f5f5;
 }
 
-.stats {
+.history-container .stats {
     display: flex;
     gap: 20px;
     font-size: var(--fs-body);
     color: #555;
 }
 
-.stats strong { color: #2d2d2d; }
+.history-container .stats strong { color: #2d2d2d; }
 
-/* Nút chi tiết */
-.detail-link-btn {
-    background: #fff0f0;
-    border: none;
-    color: #A4161A;
-    padding: 8px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.history-container .red-btn {
+    width: 120px;
 }
 
-.detail-link-btn:hover {
-    background: #A4161A;
-    color: white;
-}
-
-/* --- Detail View (Phần xem lại câu hỏi) --- */
-.detail-summary {
+.history-container .detail-summary {
     color: #1a1a1a;
     background: white;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);
@@ -164,7 +147,7 @@
     border-left: 5px solid #A4161A;
 }
 
-.detail-view .review-item {
+.history-container .detail-view .review-item {
     background: white;
     border-radius: 20px;
     padding: 25px;
@@ -172,13 +155,12 @@
     border: 1px solid #eee;
 }
 
-/* Màu nền nhẹ cho thẻ câu hỏi */
-.correct-card { background-color: #f0fff4 !important; border-color: #c6f6d5 !important; }
-.incorrect-card { background-color: #fff5f5 !important; border-color: #fed7d7 !important; }
+.history-container .correct-card { background-color: #f0fff4 !important; border-color: #c6f6d5 !important; }
+.history-container .incorrect-card { background-color: #fff5f5 !important; border-color: #fed7d7 !important; }
 
-.review-q-text { font-size: var(--fs-body); font-weight: 500; margin-bottom: 15px; }
+.history-container .review-q-text { font-size: var(--fs-body); font-weight: 500; margin-bottom: 15px; }
 
-.review-ans-card {
+.history-container .review-ans-card {
     background: white;
     padding: 14px 18px;
     border-radius: 16px;
@@ -187,21 +169,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: var(--fs-body);
 }
 
-.border-correct { border: 3px solid #27ae60 !important; }
-.border-wrong { border: 3px solid #e74c3c !important; }
+.history-container .border-correct { border: 3px solid #27ae60 !important; font-weight: bold;}
+.history-container .border-wrong { border: 3px solid #e74c3c !important; }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 600px) {
-    .card-main { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .score-badge { width: 100%; }
-    .card-footer { flex-direction: column; gap: 15px; align-items: flex-start; }
-    .detail-link-btn { width: 100%; justify-content: center; }
+    .history-container .card-main { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .history-container .score-badge { width: 100%; }
+    .history-container .card-footer { flex-direction: column; gap: 15px; align-items: flex-start; }
+    .history-container .detail-link-btn { width: 100%; justify-content: center; }
 }
