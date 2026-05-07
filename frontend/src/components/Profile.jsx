@@ -146,19 +146,28 @@ const Profile = ({ onNavigate }) => {
                 </tr>
               </thead>
               <tbody>
-                {dashboardData.recentActivities?.map((act) => (
-                  <tr key={act.id}>
-                    <td><strong>{act.subject_name}</strong></td>
-                    <td>{act.order_index ? `Chương ${act.order_index}` : 'Kiểm tra'}</td>
-                    <td className="score-cell">{act.score}</td>
-                    <td className="time-cell">{formatTimeAgo(act.created_at)}</td>
-                    <td>
-                      <button className="red-btn" onClick={() => handleViewDetail(act.id)}>
-                        <i class="fa-solid fa-eye"></i> Chi tiết
-                      </button>
+                {dashboardData.recentActivities?.length > 0 ? (
+                  dashboardData.recentActivities.map((act) => (
+                    <tr key={act.id}>
+                      <td><strong>{act.subject_name}</strong></td>
+                      <td>{act.order_index ? `Chương ${act.order_index}` : 'Kiểm tra'}</td>
+                      <td className="score-cell">{act.score}</td>
+                      <td className="time-cell">{formatTimeAgo(act.created_at)}</td>
+                      <td>
+                        <button className="red-btn" onClick={() => handleViewDetail(act.id)}>
+                          <i className="fa-solid fa-eye"></i>
+                          <span className="btn-text"> Chi tiết</span>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5" className="empty-state-cell">
+                      <p>Bạn chưa có bài làm nào gần đây. Bắt đầu ôn luyện ngay!</p>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </section>

@@ -216,7 +216,7 @@
   font-weight: 600;
 }
 
-.profile-dashboard-wrapper .recent-table i {margin-right: 4px;}
+.profile-dashboard-wrapper .recent-table .btn-text {margin-left: 4px;}
 
 .profile-dashboard-wrapper .score-cell {
   color: var(--primary-color);
@@ -228,6 +228,12 @@
   font-weight: 400;
 }
 
+.profile-dashboard-wrapper .empty-state-cell {
+  text-align: center;
+  padding: 40px !important;
+  color: #888888;
+}
+
 /* NÚT BẤM */
 .profile-dashboard-wrapper .red-btn {
   max-width: 120px;
@@ -237,5 +243,8 @@
   .profile-dashboard-wrapper .dashboard-grid,
   .profile-dashboard-wrapper .top-row {
     grid-template-columns: 1fr;
+  }
+  .profile-dashboard-wrapper .recent-table .btn-text {
+    display: none;
   }
 }
