@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "../styles/HistoryView.css";
 
-export const HistoryView = ({ onBack }) => {
+export const HistoryView = ({ attemptId, onBack }) => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState(null);
+
+  const [filterSubject, setFilterSubject] = useState("");
+  const [filterDate, setFilterDate] = useState("");
+  const [filterMinScore, setFilterMinScore] = useState("");
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    if (attemptId) {
+      handleViewDetail(attemptId);
+    }
+  }, [attemptId]);
 
   useEffect(() => {
     fetch("http://localhost:5001/history/my-history", {
@@ -13,29 +26,25 @@ export const HistoryView = ({ onBack }) => {
       },
     })
       .then((res) => {
-        // Nếu server trả về lỗi (500, 401, 404...), ném lỗi vào catch
         if (!res.ok) return res.json().then(err => { throw err; });
         return res.json();
       })
       .then((data) => {
-        // CHỈ setHistory NẾU data là mảng
         if (Array.isArray(data)) {
           setHistory(data);
         } else {
-          setHistory([]); // Nếu không phải mảng, cho về mảng rỗng để không bị lỗi .map
+          setHistory([]);
         }
         setLoading(false);
       })
       .catch((err) => {
         console.error("Lỗi lấy lịch sử:", err);
-        setHistory([]); // Đảm bảo luôn là mảng khi có lỗi
+        setHistory([]);
         setLoading(false);
       });
   }, []);
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleString("vi-VN");
-  };
+  const formatDate = (dateString) => { return new Date(dateString).toLocaleString("vi-VN");};
 
   const formatDuration = (totalSeconds) => {
     if (!totalSeconds || totalSeconds <= 0) return "0 phút";
@@ -65,113 +74,200 @@ export const HistoryView = ({ onBack }) => {
     } catch (err) {
       console.error(err);
       alert("Lỗi: " + err.message);
-      setSelectedDetail(null); // Reset về null để không bị sập trang
+      setSelectedDetail(null);
     }
   };
 
+  // Lấy danh sách môn học duy nhất cho thẻ Select
+  const subjectOptions = Array.from(new Set(history.map(item => item.subject_name)));
+
+  // Reset trang về 1 mỗi khi thay đổi bộ lọc
+  useEffect(() => { setCurrentPage(1); }, [filterSubject, filterDate, filterMinScore]);
+
+  // Xử lý logic Lọc
+  const filteredHistory = history.filter(item => {
+    const matchSubject = filterSubject ? item.subject_name === filterSubject : true;
+    
+    // Xử lý lọc theo ngày (chuyển created_at về dạng YYYY-MM-DD)
+    let matchDate = true;
+    if (filterDate) {
+      const itemDate = new Date(item.created_at).toISOString().split('T')[0];
+      matchDate = itemDate === filterDate;
+    }
+
+    const matchScore = filterMinScore ? item.score >= parseFloat(filterMinScore) : true;
+
+    return matchSubject && matchDate && matchScore;
+  });
+
+  // Xử lý logic Phân trang
+  const totalPages = Math.ceil(filteredHistory.length / itemsPerPage);
+  const currentData = filteredHistory.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
-    <div className="history-container">
-      {/* HEADER: Điều hướng linh hoạt giữa Danh sách và Chi tiết */}
-      <div className="history-header">
-        <button className="red-btn" onClick={selectedDetail ? () => setSelectedDetail(null) : onBack}>
-          <i className="fa-solid fa-caret-left"></i> {selectedDetail ? "Trở lại" : "Quay lại"}
-        </button>
-        <h2>{selectedDetail ? "Chi tiết bài làm" : "Lịch sử làm bài"}</h2>
-      </div>
-
-      {loading ? (
-        <div className="loader">Đang tải dữ liệu...</div>
-      ) : (
-        <div className="history-content">
-          {/* TRƯỜNG HỢP 1: XEM CHI TIẾT CÂU HỎI */}
-          {selectedDetail ? (
-            <div className="detail-view">
-              <div className="detail-summary">
-                <div className="summary-col">
-                  <p>Môn học: <strong>{selectedDetail?.attempt?.subject_name || "Đang tải..."}</strong></p>
-                  <p>Nội dung: <strong>{selectedDetail.attempt.order_index ? `Chương ${selectedDetail.attempt.order_index}` : "Đề tổng hợp"}</strong></p>
-                </div>
-                <div className="summary-col">
-                  <p>Điểm: <strong className="red-text">{selectedDetail.attempt.score}</strong></p>
-                  <p>Thời gian làm: <strong>{formatDuration(selectedDetail.attempt.time_spent)}</strong></p>
-                </div>
-              </div>
-
-              <div className="review-list">
-                {selectedDetail.questions.map((q, index) => {
-                  const selectedId = q.selected_answer_id;
-                  const correctAns = q.answers?.find(a => a.is_correct === 1 || a.is_correct === true);
-                  const isCorrect = selectedId === correctAns?.id;
-
-                  return (
-                    <div key={q.id} className={`review-item ${isCorrect ? 'correct-card' : 'incorrect-card'}`}>
-                      <p className="review-q-text">
-                        <strong>Câu {index + 1}:</strong> {q.content}
-                      </p>
-                      <div className="review-answers">
-                        {q.answers?.map((ans) => {
-                          const isUserSelected = selectedId === ans.id;
-                          const isCorrectAns = ans.is_correct === 1 || ans.is_correct === true;
-
-                          let ansClass = "review-ans-card";
-                          if (isCorrectAns) ansClass += " border-correct";
-                          if (isUserSelected && !isCorrectAns) ansClass += " border-wrong";
-
-                          return (
-                            <div key={ans.id} className={ansClass}>
-                              <span className="ans-text">{ans.content}</span>
-                              <div className="tags">
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ) : (
-            /* TRƯỜNG HỢP 2: DANH SÁCH LỊCH SỬ TỔNG QUÁT */
-            <div className="history-list">
-              {history.length === 0 ? (
-                <p className="no-data">Bạn chưa có lượt làm bài nào.</p>
-              ) : (
-                history.map((item) => (
-                  <div key={item.id} className="history-card">
-                    <div className="card-main">
-                      <div className="subject-info">
-                        <span className="subject-name">
-                          {item.subject_name} 
-                        </span>
-                        <span className="chapter-index">
-                          <i class="fa-solid fa-book-bookmark"></i> {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
-                        </span>
-                        <span className="attempt-date">
-                          <i className="fa-regular fa-calendar"></i> {formatDate(item.created_at)}
-                        </span>
-                      </div>
-                      <div className="score-badge">
-                        <span className="score-num">{item.score}</span>
-                        <span className="score-text">điểm</span>
-                      </div>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <span>Kết quả: <strong>{item.correct_count}/{item.total_questions}</strong></span>
-                        <span>Thời gian: <strong>{formatDuration(item.time_spent)}</strong></span>
-                      </div>
-                      <button className="detail-link-btn" onClick={() => handleViewDetail(item.id)}>
-                        <i className="fa-solid fa-eye"></i> Chi tiết
-                      </button>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          )}
+    <div className="all-wrapper">
+      <div className="history-container">
+        <div className="history-header">
+          <button className="red-btn" onClick={selectedDetail ? () => setSelectedDetail(null) : onBack}>
+            <i className="fa-solid fa-caret-left"></i> {selectedDetail ? "Trở lại" : "Quay lại"}
+          </button>
+          <h2>{selectedDetail ? "Chi tiết bài làm" : "Lịch sử làm bài"}</h2>
         </div>
-      )}
+
+        {loading ? (
+          <div className="loader">Đang tải dữ liệu...</div>
+        ) : (
+          <div className="history-content">
+            {selectedDetail ? (
+              <div className="detail-view">
+                <div className="detail-summary">
+                  <div className="summary-col">
+                    <p>Môn học: <strong>{selectedDetail?.attempt?.subject_name || "Đang tải..."}</strong></p>
+                    <p>Nội dung: <strong>{selectedDetail.attempt.order_index ? `Chương ${selectedDetail.attempt.order_index}` : "Đề tổng hợp"}</strong></p>
+                  </div>
+                  <div className="summary-col">
+                    <p>Điểm: <strong className="red-text">{selectedDetail.attempt.score}</strong></p>
+                    <p>Thời gian làm: <strong>{formatDuration(selectedDetail.attempt.time_spent)}</strong></p>
+                  </div>
+                </div>
+
+                <div className="review-list">
+                  {selectedDetail.questions.map((q, index) => {
+                    const selectedId = q.selected_answer_id;
+                    const correctAns = q.answers?.find(a => a.is_correct === 1 || a.is_correct === true);
+                    const isCorrect = selectedId === correctAns?.id;
+
+                    return (
+                      <div key={q.id} className={`review-item ${isCorrect ? 'correct-card' : 'incorrect-card'}`}>
+                        <p className="review-q-text">
+                          <strong>Câu {index + 1}:</strong> {q.content}
+                        </p>
+                        <div className="review-answers">
+                          {q.answers?.map((ans) => {
+                            const isUserSelected = selectedId === ans.id;
+                            const isCorrectAns = ans.is_correct === 1 || ans.is_correct === true;
+
+                            let ansClass = "review-ans-card";
+                            if (isCorrectAns) ansClass += " border-correct";
+                            if (isUserSelected && !isCorrectAns) ansClass += " border-wrong";
+
+                            return (
+                              <div key={ans.id} className={ansClass}>
+                                <span className="ans-text">{ans.content}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <div className="history-list-view">
+
+                <div className="history-filters">
+                  <div className="filter-item">
+                    <select value={filterSubject} onChange={e => setFilterSubject(e.target.value)}>
+                      <option value="">Tất cả môn học</option>
+                      {subjectOptions.map(sub => (
+                        <option key={sub} value={sub}>{sub}</option>
+                      ))}
+                    </select>
+                    <i className="fa-solid fa-chevron-down"></i>
+                  </div>
+
+                  <div className="filter-item">
+                    <input 
+                      type="date" 
+                      value={filterDate} 
+                      onChange={e => setFilterDate(e.target.value)} 
+                    />
+                    <i className="fa-solid fa-calendar-days"></i>
+                  </div>
+
+                  <div className="filter-item">
+                    <input 
+                      type="number" 
+                      placeholder="Điểm tối thiểu" 
+                      value={filterMinScore} 
+                      onChange={e => setFilterMinScore(e.target.value)} 
+                    />
+                    <i className="fa-solid fa-arrow-up-9-1"></i>
+                  </div>
+
+                  <button className="red-btn" onClick={() => {
+                    setFilterSubject(""); setFilterDate(""); setFilterMinScore("");
+                  }}>
+                    Xóa lọc
+                  </button>
+                </div>
+
+                {currentData.length === 0 ? (
+                  <p className="no-data">Không tìm thấy dữ liệu phù hợp.</p>
+                ) : (
+                  <div className="table-responsive">
+                    <table className="history-table">
+                      <thead>
+                        <tr>
+                          <th>Môn học</th>
+                          <th>Ngày làm</th>
+                          <th>Kết quả</th>
+                          <th>Thời gian</th>
+                          <th>Điểm</th>
+                          <th>Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {currentData.map((item) => (
+                          <tr key={item.id}>
+                            <td>
+                              <div className="tbl-subject">{item.subject_name}</div>
+                              <div className="tbl-chapter">
+                                {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
+                              </div>
+                            </td>
+                            <td>{formatDate(item.created_at)}</td>
+                            <td><strong>{item.correct_count}</strong> / {item.total_questions}</td>
+                            <td>{formatDuration(item.time_spent)}</td>
+                            <td><span className="tbl-score">{item.score}</span></td>
+                            <td>
+                              <button className="red-btn small-btn" onClick={() => handleViewDetail(item.id)}>
+                                <i className="fa-solid fa-eye"></i> Chi tiết
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {totalPages > 1 && (
+                  <div className="pagination">
+                    <button 
+                      disabled={currentPage === 1} 
+                      onClick={() => setCurrentPage(prev => prev - 1)}
+                    >
+                      &laquo; Trước
+                    </button>
+                    <span className="page-info">Trang {currentPage} / {totalPages}</span>
+                    <button 
+                      disabled={currentPage === totalPages} 
+                      onClick={() => setCurrentPage(prev => prev + 1)}
+                    >
+                      Sau &raquo;
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

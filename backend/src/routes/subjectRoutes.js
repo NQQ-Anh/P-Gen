@@ -92,6 +92,8 @@ router.delete("/:id", authenticateToken, authorize("Admin"), deleteSubject);
 router.get("/:id/chapters", authenticateToken, async (req, res) => {
   try {
     const { id: subjectId } = req.params;
+    const role = req.user.role;
+
     const [rows] = await db.execute(
       `
       SELECT
@@ -102,11 +104,15 @@ router.get("/:id/chapters", authenticateToken, async (req, res) => {
         c.subject_id,
         s.subject_name
       FROM Chapters c
-      LEFT JOIN Subjects s ON c.subject_id = s.id
+      INNER JOIN Subjects s ON c.subject_id = s.id -- Dùng INNER JOIN để kiểm tra trạng thái môn học
       WHERE c.subject_id = ?
+        AND (
+          ? = 'Admin' -- Nếu là Admin thì luôn thấy tất cả
+          OR (c.status = 'Active' AND s.status = 'Active') -- Nếu là User, chỉ hiện khi cả 2 đều Active[cite: 3]
+        )
       ORDER BY c.order_index ASC, c.id ASC
       `,
-      [subjectId],
+      [subjectId, role],
     );
     res.json(rows);
   } catch (error) {
@@ -115,12 +121,18 @@ router.get("/:id/chapters", authenticateToken, async (req, res) => {
 });
 
 router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, res) => {
-  try {
-    const { id: subjectId } = req.params;
-    const chapterName =
-      typeof req.body?.chapter_name === "string" ? req.body.chapter_name.trim() : "";
-    const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
-    const status = normalizeStatus(req.body?.status);
+    try {
+      const { id: subjectId } = req.params;
+      const chapterName =
+        typeof req.body?.chapter_name === "string"
+          ? req.body.chapter_name.trim()
+          : "";
+      const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
+      const status = normalizeStatus(req.body?.status);
+
+      if (!chapterName) {
+        return res.status(400).json({ message: "chapter_name is required" });
+      }
 
     if (!chapterName) {
       return res.status(400).json({ message: "chapter_name is required" });
@@ -139,11 +151,7 @@ router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, 
   }
 });
 
-router.put(
-  "/:id/chapters/:chapterId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.put( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId } = req.params;
       const chapterName =
@@ -171,11 +179,7 @@ router.put(
   },
 );
 
-router.delete(
-  "/:id/chapters/:chapterId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.delete( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId } = req.params;
       const [result] = await db.execute(
@@ -198,35 +202,41 @@ router.delete(
 router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
     try {
       const { id: subjectId, chapterId: chapterPk } = req.params;
+      const role = req.user.role;
+
       const [rows] = await db.execute(
         `
       SELECT 
         q.id AS question_id,
         q.content AS question_content,
-        q.explanation AS question_explanation,
         q.status,
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM Questions q
-      LEFT JOIN Answers a ON q.id = a.question_id
-      WHERE q.subject_id = ? AND q.chapter_id = ?
-      ORDER BY q.id ASC, a.id ASC
-      `,
-      [subjectId, chapterId],
-    );
+      FROM questions q
+      INNER JOIN chapters c ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      INNER JOIN subjects s ON c.subject_id = s.id 
+      LEFT JOIN answers a ON q.id = a.question_id
+      WHERE c.id = ? AND c.subject_id = ?
+        AND (
+          ? = 'Admin'
+          OR (q.status = 'Active' AND c.status = 'Active' AND s.status = 'Active')
+        )
+    `,
+        [chapterPk, subjectId, role],
+      );
 
-    res.json(mapQuestionRows(rows));
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+      if (rows.length === 0) return res.json([]);
+
+      const result = mapQuestionRows(rows);
+      res.json(result);
+    } catch (error) {
+      console.error("Lỗi lấy câu hỏi:", error.message);
+      res.status(500).json({ message: error.message });
+    }
 });
 
-router.post(
-  "/:id/chapters/:chapterId/questions",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.post( "/:id/chapters/:chapterId/questions", authenticateToken, authorize("Admin"), async (req, res) => {
     const { id: subjectId, chapterId } = req.params;
     const validated = validateQuestionPayload(req.body);
     if (!validated.isValid) {
@@ -266,10 +276,7 @@ router.post(
   },
 );
 
-router.get(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  async (req, res) => {
+router.get("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, async (req, res) => {
     try {
       const { id: subjectId, chapterId, questionId } = req.params;
       const [rows] = await db.execute(
@@ -302,11 +309,7 @@ router.get(
   },
 );
 
-router.put(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.put("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, authorize("Admin"), async (req, res) => {
     const { id: subjectId, chapterId, questionId } = req.params;
     const validated = validateQuestionPayload(req.body);
     if (!validated.isValid) {
@@ -347,11 +350,7 @@ router.put(
   },
 );
 
-router.delete(
-  "/:id/chapters/:chapterId/questions/:questionId",
-  authenticateToken,
-  authorize("Admin"),
-  async (req, res) => {
+router.delete( "/:id/chapters/:chapterId/questions/:questionId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId, questionId } = req.params;
       const [result] = await db.execute(

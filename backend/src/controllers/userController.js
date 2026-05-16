@@ -234,3 +234,108 @@ export const refreshToken = async (req, res) => {
     res.status(403).json({ message: 'Invalid refresh token' });
   }
 };
+
+export const getDashboardStats = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const role = req.user.role;
+
+    const [statsRows] = await db.execute(
+      `SELECT 
+        COUNT(qa.id) as totalQuizzes,
+        IFNULL(ROUND(SUM(qa.correct_count) * 100.0 / SUM(qa.total_questions), 1), 0) as accuracy
+       FROM QuizAttempts qa
+       JOIN subjects s ON qa.subject_id = s.id
+       LEFT JOIN chapters c ON qa.chapter_id = c.id
+       WHERE qa.user_id = ?
+         AND (
+           ? = 'Admin' 
+           OR (s.status = 'Active' AND (c.id IS NULL OR c.status = 'Active'))
+         )`,
+      [userId, role]
+    );
+
+    const [recentRows] = await db.execute(
+      `SELECT 
+        qa.id, qa.score, qa.created_at,
+        s.subject_name, c.order_index
+       FROM QuizAttempts qa
+       JOIN subjects s ON qa.subject_id = s.id
+       LEFT JOIN chapters c ON qa.chapter_id = c.id
+       WHERE qa.user_id = ?
+         AND (? = 'Admin' OR (s.status = 'Active' AND (c.id IS NULL OR c.status = 'Active')))
+       ORDER BY qa.created_at DESC
+       LIMIT 5`,
+      [userId, role]
+    );
+
+    const [dateRows] = await db.execute(
+      `SELECT DISTINCT DATE(qa.created_at) as studyDate 
+       FROM QuizAttempts qa
+       JOIN subjects s ON qa.subject_id = s.id
+       WHERE qa.user_id = ? 
+         AND (? = 'Admin' OR s.status = 'Active')
+       ORDER BY studyDate DESC`,
+      [userId, role]
+    );
+
+    let streak = 0;
+    if (dateRows.length > 0) {
+      const dates = dateRows.map(row => new Date(row.studyDate).setHours(0, 0, 0, 0));
+      const today = new Date().setHours(0, 0, 0, 0);
+      const yesterday = new Date(today - 86400000).setHours(0, 0, 0, 0);
+
+      if (dates[0] === today || dates[0] === yesterday) {
+        streak = 1;
+        for (let i = 0; i < dates.length - 1; i++) {
+          if (dates[i] - dates[i + 1] === 86400000) streak++;
+          else break;
+        }
+      }
+    }
+
+    res.json({
+      stats: {
+        totalQuizzes: statsRows[0].totalQuizzes,
+        accuracy: statsRows[0].accuracy,
+        streak: streak
+      },
+      recentActivities: recentRows
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getCapacityAnalysis = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { subjectId } = req.params;
+    const role = req.user.role;
+
+    const [rows] = await db.execute(
+      `SELECT 
+          c.chapter_name as subject,
+          IFNULL(ROUND(AVG(qad.is_correct) * 100, 0), 0) as A,
+          100 as fullMark
+      FROM chapters c
+      JOIN subjects s ON c.subject_id = s.id
+      LEFT JOIN questions q ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      LEFT JOIN (
+          SELECT qd.question_id, qd.is_correct
+          FROM quizattemptdetail qd
+          JOIN quizattempts qa ON qd.attempt_id = qa.id
+          WHERE qa.user_id = ?
+      ) qad ON q.id = qad.question_id
+      WHERE c.subject_id = ? 
+        AND (? = 'Admin' OR (s.status = 'Active' AND c.status = 'Active' AND (q.id IS NULL OR q.status = 'Active')))
+      GROUP BY c.id, c.chapter_name, c.order_index
+      ORDER BY c.order_index ASC`,
+      [userId, subjectId, role]
+    );
+
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

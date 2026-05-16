@@ -9,7 +9,7 @@ async function setupDatabase() {
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: password, // Thay bằng pass db local
+      password: "123456", // Thay bằng pass db local
     });
 
     // Tạo database

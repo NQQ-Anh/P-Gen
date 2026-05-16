@@ -1,4 +1,3 @@
-/* src/styles/ResultView.css */
 :root {
   --primary-red: #A4161A;
   --bg-light: #f4f7f6;
@@ -8,6 +7,7 @@
   --correct-green: #27ae60;
   --wrong-red: #e74c3c;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: var(--text-dark);
 }
 
 .result-container {
@@ -16,10 +16,11 @@
   align-items: center;
   min-height: 85vh;
   padding: 40px 20px;
+  color: var(--text-dark);
   background-color: var(--bg-light);
 }
 
-.result-card {
+.result-container .result-card {
   background: var(--card-white);
   padding: 50px 40px;
   border-radius: 28px;
@@ -31,14 +32,14 @@
   animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.trophy-icon {
+.result-container .trophy-icon {
   font-size: 60px;
   color: #f1c40f;
   margin-bottom: 15px;
   filter: drop-shadow(0 4px 10px rgba(241, 196, 15, 0.3));
 }
 
-.result-header h2 {
+.result-container .result-header h2 {
   color: var(--text-dark);
   font-size: var(--fs-h2);
   text-transform: uppercase;
@@ -46,18 +47,17 @@
   margin-bottom: 10px;
 }
 
-.score-section {
+.result-container .score-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 40px 0;
 }
 
-.score-circle {
+.result-container .score-circle {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  /* Progress được điều khiển bởi biến --progress từ JS */
   background: conic-gradient(
     var(--primary-red) var(--progress),
     #f1f3f5 0deg
@@ -70,7 +70,7 @@
   margin-bottom: 30px;
 }
 
-.score-inner {
+.result-container .score-inner {
   width: 180px;
   height: 180px;
   background: white;
@@ -82,14 +82,14 @@
   box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
 }
 
-.final-score {
+.result-container .final-score {
   font-size: 40px;
   font-weight: 900;
   color: var(--primary-red);
   line-height: 1;
 }
 
-.score-label {
+.result-container .score-label {
   color: var(--text-gray);
   font-size: 0.9rem;
   font-weight: 600;
@@ -98,14 +98,14 @@
   letter-spacing: 1px;
 }
 
-.stats-row {
+.result-container .stats-row {
   display: flex;
   gap: 20px;
   width: 100%;
   justify-content: center;
 }
 
-.stat-item {
+.result-container .stat-item {
   background: #f8f9fa;
   padding: 15px 25px;
   border-radius: 16px;
@@ -114,26 +114,26 @@
   transition: transform 0.3s;
 }
 
-.stat-item:hover {
+.result-container .stat-item:hover {
   transform: translateY(-5px);
 }
 
-.stat-value {
+.result-container .stat-value {
   font-size: var(--fs-h2);
   font-weight: 800;
   color: var(--text-dark);
   display: block;
 }
 
-.stat-correct { color: var(--correct-green); }
+.result-container .stat-correct { color: var(--correct-green); }
 
-.stat-label {
+.result-container .stat-label {
   color: var(--text-gray);
   font-size: var(--fs-body);
   font-weight: 500;
 }
 
-.result-feedback {
+.result-container .result-feedback {
   font-size: var(--fs-body);
   font-weight: 600;
   margin: 25px 0 40px;
@@ -141,7 +141,7 @@
   line-height: 1.5;
 }
 
-.result-actions {
+.result-container .result-actions {
   display: flex;
   gap: 15px;
   justify-content: center;
@@ -149,7 +149,7 @@
 }
 
 /* --- Review Section --- */
-.review-list {
+.result-container .review-list {
   margin-top: 40px;
   text-align: left;
   border-top: 2px dashed #eee;
@@ -157,14 +157,14 @@
   animation: fadeIn 0.5s ease;
 }
 
-.review-title {
+.result-container .review-title {
   font-size: var(--fs-h3);
   color: var(--text-dark);
   margin-bottom: 25px;
   text-align: center;
 }
 
-.review-item {
+.result-container .review-item {
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
@@ -172,31 +172,30 @@
   transition: background-color 0.3s ease;
 }
 
-/* Màu nền thay đổi theo trạng thái câu hỏi */
-.review-item.correct-card {
-  background-color: #f0fff4; /* Xanh lá cực nhẹ */
+.result-container .review-item.correct-card {
+  background-color: #f0fff4;
   border-color: #c6f6d5;
 }
 
-.review-item.incorrect-card {
-  background-color: #fff5f5; /* Đỏ cực nhẹ */
+.result-container .review-item.incorrect-card {
+  background-color: #fff5f5;
   border-color: #fed7d7;
 }
 
-.review-q-text {
+.result-container .review-q-text {
   font-size: var(--fs-body);
   color: var(--text-dark);
   margin-bottom: 15px;
   line-height: 1.5;
 }
 
-.review-answers {
+.result-container .review-answers {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.review-ans-card {
+.result-container .review-ans-card {
   padding: 12px 16px;
   border-radius: 16px;
   background: white;
@@ -209,16 +208,16 @@
 }
 
 /* Hiệu ứng Border cho đáp án */
-.review-ans-card.border-correct {
+.result-container .review-ans-card.border-correct {
   border: 3px solid var(--correct-green);
   font-weight: 600;
 }
 
-.review-ans-card.border-wrong {
+.result-container .review-ans-card.border-wrong {
   border: 3px solid var(--wrong-red);
 }
 
-.ans-text{
+.result-container .ans-text{
   color: var(--text-dark);
   line-height: 1.5;
 }
@@ -234,7 +233,7 @@
 }
 
 @media (max-width: 480px) {
-  .stats-row { flex-direction: column; align-items: center; }
-  .stat-item { width: 100%; }
-  .result-actions { flex-direction: column; }
+  .result-container .stats-row { flex-direction: column; align-items: center; }
+  .result-container .stat-item { width: 100%; }
+  .result-container .result-actions { flex-direction: column; }
 }

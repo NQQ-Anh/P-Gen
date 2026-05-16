@@ -58,7 +58,7 @@ const Login = memo(() => {
 
               {error && <div className="auth-error-msg">{error}</div>}
 
-              <button class="red-btn" type="submit" disabled={loading}>
+              <button className="red-btn" type="submit" disabled={loading}>
                 {loading ? "Logging in..." : "Đăng nhập"}
               </button>
             </form>

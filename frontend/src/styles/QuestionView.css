@@ -1,10 +1,10 @@
-/* 1. Biến màu sắc & Font size */
+/* Biến màu sắc & Font size */
 :root {
   --primary-red: #A4161A;
   --light-bg: #f8f9fa;
   --card-bg: #ffffff;
   --border-color: #e9ecef;
-  --text-main: #1a1a1a; /* Chỉnh lại tối hơn để rõ nét */
+  --text-main: #1a1a1a;
   --text-sub: #555555;
   --correct: #27ae60;
   --incorrect: #e74c3c;
@@ -12,7 +12,7 @@
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* 2. Container chính - Layout chia 2 cột trên Desktop */
+/* Container */
 .quiz-layout-wrapper {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -23,7 +23,7 @@
   align-items: start;
 }
 
-.quiz-container {
+.quiz-layout-wrapper .quiz-container {
   background: var(--card-bg);
   padding: 30px;
   min-height: 80vh;
@@ -34,8 +34,8 @@
   border: 1px solid var(--border-color);
 }
 
-/* 3. Header & Thanh điều hướng */
-.quiz-header {
+/* Header & Thanh điều hướng */
+.quiz-layout-wrapper .quiz-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,10 +43,10 @@
   border-bottom: 2px solid var(--light-bg);
 }
 
-.quiz-header > .red-btn {width: 110px;}
-.quiz-header > .red-btn i {margin-left: -4px;}
+.quiz-layout-wrapper .quiz-header > .red-btn {width: 110px;}
+.quiz-layout-wrapper .quiz-header > .red-btn i {margin-left: -4px;}
 
-.quiz-timer {
+.quiz-layout-wrapper .quiz-timer {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -59,46 +59,45 @@
   border: 1px solid #eee;
 }
 
-.timer-warning {
+.quiz-layout-wrapper .timer-warning {
   background: #fff0f0;
   border-color: #ffcccc;
   color: #e74c3c;
   animation: timer-pulse 1s infinite;
 }
 
-/* 4. MỚI: 2 THANH TIẾN TRÌNH SONG SONG */
 /* --- KHỐI TIẾN ĐỘ HOÀN THÀNH STICKY --- */
-.sticky-completion-wrapper {
+.quiz-layout-wrapper .sticky-completion-wrapper {
   position: sticky;
-  top: 50px; /* Trừ hao khoảng cách của Navbar chính của App */
+  top: 50px;
   z-index: 10;
-  background: var(--card-bg); /* Tiệp màu với nền container để không lộ khi dính */
+  background: var(--card-bg);
   padding: 20px 0 10px;
   margin-bottom: 10px;
 }
 
-.completion-card-pastel {
-  background-color: #E3F2FD; /* Xanh lá Pastel nhạt */
-  border: 2px solid #2196F3; /* Viền xanh lá đậm Bold */
+.quiz-layout-wrapper .completion-card-pastel {
+  background-color: #E3F2FD;
+  border: 2px solid #2196F3;
   border-radius: 16px;
   padding: 12px 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.completion-info {
+.quiz-layout-wrapper .completion-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.completion-label {
+.quiz-layout-wrapper .completion-label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #2196F3; /* Chữ xanh đậm */
+  color: #2196F3;
 }
 
-.completion-stats {
+.quiz-layout-wrapper .completion-stats {
   font-size: 0.85rem;
   font-weight: 600;
   color: #2196F3;
@@ -108,28 +107,27 @@
   border: 1px solid #2196F3;
 }
 
-.completion-bar-bg {
+.quiz-layout-wrapper .completion-bar-bg {
   height: 10px;
-  background: rgba(255, 255, 255, 0.5); /* Nền trắng trong suốt nhẹ */
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(39, 174, 96, 0.2);
 }
 
-.completion-bar-fill {
+.quiz-layout-wrapper .completion-bar-fill {
     height: 100%;
-    background-color: #2196F3; /* Màu xanh lá đậm cho phần đã làm */
+    background-color: #2196F3;
     border-radius: 10px;
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Điều chỉnh khoảng cách cho Quiz Body để không bị dính sát thanh tiến trình */
-.quiz-body {
+.quiz-layout-wrapper .quiz-body {
     margin-top: 10px;
 }
 
-/* 5. Question Card & Gắn cờ */
-.question-card {
+/* Question Card */
+.quiz-layout-wrapper .question-card {
   scroll-margin-top: 100px;
   background: var(--card-bg);
   padding: 30px;
@@ -138,7 +136,7 @@
   margin-bottom: 20px;
 }
 
-.question-card-header {
+.quiz-layout-wrapper .question-card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -146,7 +144,7 @@
   margin-bottom: 20px;
 }
 
-.question-text {
+.quiz-layout-wrapper .question-text {
   font-size: var(--fs-h3, 1.2rem);
   line-height: 1.6;
   color: var(--text-main);
@@ -154,7 +152,7 @@
   margin: 0;
 }
 
-.flag-toggle {
+.quiz-layout-wrapper .flag-toggle {
   background: transparent;
   border: none;
   font-size: 1.3rem;
@@ -164,17 +162,17 @@
   transition: 0.2s;
 }
 
-.flag-toggle:hover { transform: scale(1.1); }
-.flag-toggle.active { color: var(--pending); }
+.quiz-layout-wrapper .flag-toggle:hover { transform: scale(1.1); }
+.quiz-layout-wrapper .flag-toggle.active { color: var(--pending); }
 
-/* 6. Nút đáp án */
-.answers-grid {
+/* Nút đáp án */
+.quiz-layout-wrapper .answers-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
 
-.answer-btn {
+.quiz-layout-wrapper .answer-btn {
   padding: 16px 20px;
   background: #ffffff;
   border: 2px solid #eee;
@@ -187,39 +185,39 @@
   transition: all 0.2s;
 }
 
-.answer-btn:hover:not(:disabled) {
+.quiz-layout-wrapper .answer-btn:hover:not(:disabled) {
   border-color: var(--primary-red);
   background: #fffafa;
 }
 
-/* Trạng thái chọn thường ở chế độ Ôn tập (Vàng Pastel) */
-.answer-btn.selected {
-    background-color: #fff9db !important; /* Vàng cực nhẹ */
-    border: 2px solid #f1c40f !important; /* Viền vàng đậm */
-    color: #856404 !important; /* Chữ nâu đậm cho dễ đọc */
+/* Trạng thái chọn thường ở chế độ Ôn tập*/
+.quiz-layout-wrapper .answer-btn.selected {
+    background-color: #fff9db !important; 
+    border: 2px solid #f1c40f !important;
+    color: #856404 !important; 
 }
 
-/* Đúng: Xanh lá Pastel */
-.answer-btn.correct {
-    background-color: #eaffea !important; /* Xanh lá cực nhẹ */
-    border: 2px solid #27ae60 !important; /* Viền xanh lá đậm */
+/* Đúng */
+.quiz-layout-wrapper .answer-btn.correct {
+    background-color: #eaffea !important; 
+    border: 2px solid #27ae60 !important; 
     color: #155724 !important;
 }
 
-/* Sai: Đỏ Pastel */
-.answer-btn.incorrect {
-    background-color: #ffefef !important; /* Đỏ cực nhẹ */
-    border: 2px solid #e74c3c !important; /* Viền đỏ đậm */
+/* Sai */
+.quiz-layout-wrapper .answer-btn.incorrect {
+    background-color: #ffefef !important;
+    border: 2px solid #e74c3c !important;
     color: #721c24 !important;
 }
 
-/* 7. MỚI: BẢN ĐỒ CÂU HỎI (SIDE PANEL) */
-.quiz-sidebar {
+/* BẢN ĐỒ CÂU HỎI */
+.quiz-layout-wrapper .quiz-sidebar {
   position: sticky;
-  top: 80px; /* Khi cuộn trang, bảng Map sẽ "dính" ở trên đầu */
+  top: 80px;
 }
 
-.question-map-card {
+.quiz-layout-wrapper .question-map-card {
   background: var(--card-bg);
   padding: 20px;
   border-radius: 20px;
@@ -227,26 +225,26 @@
   border: 1px solid var(--border-color);
 }
 
-.question-map-card h4 {
-  color: #1a1a1a; /* Chữ màu tối */
+.quiz-layout-wrapper .question-map-card h4 {
+  color: #1a1a1a;
   font-size: var(--fs-body);
   padding: 6px 0;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.map-grid {
+.quiz-layout-wrapper .map-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Tăng lên 6 cột */
+  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
 }
 
-.map-node {
+.quiz-layout-wrapper .map-node {
   width: 36px;
   height: 32px;
   border-radius: 10px;
-  background: #ffffff; /* Nền trắng sạch */
-  border: 2px solid #eeeeee; /* Viền xám nhạt */
+  background: #ffffff;
+  border: 2px solid #eeeeee;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,11 +252,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #555555; /* Chữ xám đậm */
+  color: #555555;
   position: relative;
 }
 
-.map-node.current {
+.quiz-layout-wrapper .map-node.current {
     background-color: #e3f2fd !important;
     border: 2.5px solid #3498db !important;
     color: #3498db !important;
@@ -266,33 +264,33 @@
     z-index: 2;
 }
 
-/* Đã làm (Chế độ thường): Nền Vàng cam Pastel */
-.map-node.answered {
+/* Đã làm */
+.quiz-layout-wrapper .map-node.answered {
     background-color: #fff4e5 !important;
     border: 1px solid #f39c12 !important;
     color: #f39c12 !important;
 }
 
-/* Đúng (Map): Xanh lá Pastel */
-.map-node.correct {
+/* Đúng */
+.quiz-layout-wrapper .map-node.correct {
     background-color: #eaffea !important;
     border: 2px solid #2ecc71 !important;
     color: #27ae60 !important;
 }
 
-/* Sai (Map): Đỏ Pastel */
-.map-node.incorrect {
+/* Sai */
+.quiz-layout-wrapper .map-node.incorrect {
     background-color: #ffefef !important;
     border: 2px solid #e74c3c !important;
     color: #e74c3c !important;
 }
 
-/* Gắn cờ: Viền Vàng đậm */
-.map-node.flagged {
+/* Gắn cờ */
+.quiz-layout-wrapper .map-node.flagged {
     border: 3px solid #f1780f !important;
 }
 
-.node-flag-icon {
+.quiz-layout-wrapper .node-flag-icon {
   position: absolute;
   top: -6px;
   right: -6px;
@@ -302,14 +300,14 @@
   border-radius: 50%;
 }
 
-.map-card-header {
+.quiz-layout-wrapper .map-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: var(--fs-h3);
 }
 
-.map-pagination-info {
+.quiz-layout-wrapper .map-pagination-info {
     font-size: var(--fs-small);
     font-weight: 600;
     color: #3498db;
@@ -319,7 +317,7 @@
 }
 
 /* Bộ điều khiển trang */
-.map-page-controls {
+.quiz-layout-wrapper .map-page-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -328,7 +326,7 @@
     border-bottom: 1px dashed #eee;
 }
 
-.map-page-btn {
+.quiz-layout-wrapper .map-page-btn {
     background: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -339,24 +337,24 @@
     transition: 0.2s;
 }
 
-.map-page-btn:hover:not(:disabled) {
+.quiz-layout-wrapper .map-page-btn:hover:not(:disabled) {
     background: #e3f2fd;
     border-color: #3498db;
     color: #3498db;
 }
 
-.map-page-btn:disabled {
+.quiz-layout-wrapper .map-page-btn:disabled {
     opacity: 0.3;
     cursor: not-allowed;
 }
 
 /* Các chấm nhỏ chỉ số trang */
-.map-page-dots {
+.quiz-layout-wrapper .map-page-dots {
     display: flex;
     gap: 6px;
 }
 
-.page-dot {
+.quiz-layout-wrapper .page-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -365,13 +363,13 @@
     transition: 0.2s;
 }
 
-.page-dot.active {
+.quiz-layout-wrapper .page-dot.active {
     background: #3498db;
     transform: scale(1.3);
 }
 
-/* 8. Footer & Điều hướng */
-.quiz-footer {
+/* Footer & Điều hướng */
+.quiz-layout-wrapper .quiz-footer {
   margin-top: auto;
   padding-top: 25px;
   display: flex;
@@ -380,61 +378,61 @@
   border-top: 1px solid var(--light-bg);
 }
 
-.quiz-footer > .red-btn {max-width: 200px; margin-left: auto;}
+.quiz-layout-wrapper .quiz-footer > .red-btn {max-width: 200px; margin-left: auto;}
 
-.nav-buttons {
+.quiz-layout-wrapper .nav-buttons {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.nav-buttons .red-btn {
+.quiz-layout-wrapper .nav-buttons .red-btn {
   padding: 10px 20px;
   min-width: 100px;
 }
 
 /* 9. Responsive */
 @media (max-width: 1024px) {
-  .quiz-layout-wrapper {
+  .quiz-layout-wrapper .quiz-layout-wrapper {
     grid-template-columns: 1fr;
   }
-  .question-map-card {
+  .quiz-layout-wrapper .question-map-card {
     position: static;
   }
-  .quiz-page-layout {
+  .quiz-layout-wrapper .quiz-page-layout {
         grid-template-columns: 1fr; 
     }
-  .quiz-sidebar {
+  .quiz-layout-wrapper .quiz-sidebar {
       position: static;
   }
-  .map-node {
+  .quiz-layout-wrapper .map-node {
     width: 42px;
     height: 38px;
   }
-  .map-grid {
+  .quiz-layout-wrapper .map-grid {
     grid-template-columns: repeat(10, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .answers-grid {
+  .quiz-layout-wrapper .answers-grid {
     grid-template-columns: 1fr;
   }
-  .quiz-container {
+  .quiz-layout-wrapper .quiz-container {
     padding: 20px;
     border-radius: 0;
   }
-  .sticky-completion-wrapper {
+  .quiz-layout-wrapper .sticky-completion-wrapper {
     top: 60px;
   }
-  .completion-card-pastel {
+  .quiz-layout-wrapper .completion-card-pastel {
     padding: 10px 15px;
   }
-  .map-node {
+  .quiz-layout-wrapper .map-node {
     width: 46x;
     height: 42px;
   }
-  .map-grid {
+  .quiz-layout-wrapper .map-grid {
     grid-template-columns: repeat(10, 1fr);
   }
 }
