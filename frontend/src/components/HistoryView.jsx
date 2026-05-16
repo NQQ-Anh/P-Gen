@@ -6,6 +6,13 @@ export const HistoryView = ({ attemptId, onBack }) => {
   const [loading, setLoading] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState(null);
 
+  const [filterSubject, setFilterSubject] = useState("");
+  const [filterDate, setFilterDate] = useState("");
+  const [filterMinScore, setFilterMinScore] = useState("");
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
   useEffect(() => {
     if (attemptId) {
       handleViewDetail(attemptId);
@@ -37,9 +44,7 @@ export const HistoryView = ({ attemptId, onBack }) => {
       });
   }, []);
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleString("vi-VN");
-  };
+  const formatDate = (dateString) => { return new Date(dateString).toLocaleString("vi-VN");};
 
   const formatDuration = (totalSeconds) => {
     if (!totalSeconds || totalSeconds <= 0) return "0 phút";
@@ -72,6 +77,35 @@ export const HistoryView = ({ attemptId, onBack }) => {
       setSelectedDetail(null);
     }
   };
+
+  // Lấy danh sách môn học duy nhất cho thẻ Select
+  const subjectOptions = Array.from(new Set(history.map(item => item.subject_name)));
+
+  // Reset trang về 1 mỗi khi thay đổi bộ lọc
+  useEffect(() => { setCurrentPage(1); }, [filterSubject, filterDate, filterMinScore]);
+
+  // Xử lý logic Lọc
+  const filteredHistory = history.filter(item => {
+    const matchSubject = filterSubject ? item.subject_name === filterSubject : true;
+    
+    // Xử lý lọc theo ngày (chuyển created_at về dạng YYYY-MM-DD)
+    let matchDate = true;
+    if (filterDate) {
+      const itemDate = new Date(item.created_at).toISOString().split('T')[0];
+      matchDate = itemDate === filterDate;
+    }
+
+    const matchScore = filterMinScore ? item.score >= parseFloat(filterMinScore) : true;
+
+    return matchSubject && matchDate && matchScore;
+  });
+
+  // Xử lý logic Phân trang
+  const totalPages = Math.ceil(filteredHistory.length / itemsPerPage);
+  const currentData = filteredHistory.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="all-wrapper">
@@ -123,8 +157,6 @@ export const HistoryView = ({ attemptId, onBack }) => {
                             return (
                               <div key={ans.id} className={ansClass}>
                                 <span className="ans-text">{ans.content}</span>
-                                <div className="tags">
-                                </div>
                               </div>
                             );
                           })}
@@ -135,40 +167,101 @@ export const HistoryView = ({ attemptId, onBack }) => {
                 </div>
               </div>
             ) : (
-              <div className="history-list">
-                {history.length === 0 ? (
-                  <p className="no-data">Bạn chưa có lượt làm bài nào.</p>
+              <div className="history-list-view">
+
+                <div className="history-filters">
+                  <div className="filter-item">
+                    <select value={filterSubject} onChange={e => setFilterSubject(e.target.value)}>
+                      <option value="">Tất cả môn học</option>
+                      {subjectOptions.map(sub => (
+                        <option key={sub} value={sub}>{sub}</option>
+                      ))}
+                    </select>
+                    <i className="fa-solid fa-chevron-down"></i>
+                  </div>
+
+                  <div className="filter-item">
+                    <input 
+                      type="date" 
+                      value={filterDate} 
+                      onChange={e => setFilterDate(e.target.value)} 
+                    />
+                    <i className="fa-solid fa-calendar-days"></i>
+                  </div>
+
+                  <div className="filter-item">
+                    <input 
+                      type="number" 
+                      placeholder="Điểm tối thiểu" 
+                      value={filterMinScore} 
+                      onChange={e => setFilterMinScore(e.target.value)} 
+                    />
+                    <i className="fa-solid fa-arrow-up-9-1"></i>
+                  </div>
+
+                  <button className="red-btn" onClick={() => {
+                    setFilterSubject(""); setFilterDate(""); setFilterMinScore("");
+                  }}>
+                    Xóa lọc
+                  </button>
+                </div>
+
+                {currentData.length === 0 ? (
+                  <p className="no-data">Không tìm thấy dữ liệu phù hợp.</p>
                 ) : (
-                  history.map((item) => (
-                    <div key={item.id} className="history-card">
-                      <div className="card-main">
-                        <div className="subject-info">
-                          <span className="subject-name">
-                            {item.subject_name} 
-                          </span>
-                          <span className="chapter-index">
-                            <i className="fa-solid fa-book-bookmark"></i> {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
-                          </span>
-                          <span className="attempt-date">
-                            <i className="fa-regular fa-calendar"></i> {formatDate(item.created_at)}
-                          </span>
-                        </div>
-                        <div className="score-badge">
-                          <span className="score-num">{item.score}</span>
-                          <span className="score-text">điểm</span>
-                        </div>
-                      </div>
-                      <div className="card-footer">
-                        <div className="stats">
-                          <span>Kết quả: <strong>{item.correct_count}/{item.total_questions}</strong></span>
-                          <span>Thời gian: <strong>{formatDuration(item.time_spent)}</strong></span>
-                        </div>
-                        <button className="red-btn" onClick={() => handleViewDetail(item.id)}>
-                          <i className="fa-solid fa-eye"></i> Chi tiết
-                        </button>
-                      </div>
-                    </div>
-                  ))
+                  <div className="table-responsive">
+                    <table className="history-table">
+                      <thead>
+                        <tr>
+                          <th>Môn học</th>
+                          <th>Ngày làm</th>
+                          <th>Kết quả</th>
+                          <th>Thời gian</th>
+                          <th>Điểm</th>
+                          <th>Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {currentData.map((item) => (
+                          <tr key={item.id}>
+                            <td>
+                              <div className="tbl-subject">{item.subject_name}</div>
+                              <div className="tbl-chapter">
+                                {item.order_index ? `Chương ${item.order_index}` : "Tổng hợp"}
+                              </div>
+                            </td>
+                            <td>{formatDate(item.created_at)}</td>
+                            <td><strong>{item.correct_count}</strong> / {item.total_questions}</td>
+                            <td>{formatDuration(item.time_spent)}</td>
+                            <td><span className="tbl-score">{item.score}</span></td>
+                            <td>
+                              <button className="red-btn small-btn" onClick={() => handleViewDetail(item.id)}>
+                                <i className="fa-solid fa-eye"></i> Chi tiết
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {totalPages > 1 && (
+                  <div className="pagination">
+                    <button 
+                      disabled={currentPage === 1} 
+                      onClick={() => setCurrentPage(prev => prev - 1)}
+                    >
+                      &laquo; Trước
+                    </button>
+                    <span className="page-info">Trang {currentPage} / {totalPages}</span>
+                    <button 
+                      disabled={currentPage === totalPages} 
+                      onClick={() => setCurrentPage(prev => prev + 1)}
+                    >
+                      Sau &raquo;
+                    </button>
+                  </div>
                 )}
               </div>
             )}

@@ -315,18 +315,22 @@ export const getCapacityAnalysis = async (req, res) => {
 
     const [rows] = await db.execute(
       `SELECT 
-        c.chapter_name as subject,
-        IFNULL(ROUND(AVG(qad.is_correct) * 100, 0), 0) as A,
-        100 as fullMark
-       FROM chapters c
-       JOIN subjects s ON c.subject_id = s.id
-       LEFT JOIN questions q ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
-       LEFT JOIN quizattemptdetail qad ON q.id = qad.question_id
-       LEFT JOIN quizattempts qa ON qad.attempt_id = qa.id AND qa.user_id = ?
-       WHERE c.subject_id = ? 
-         AND (? = 'Admin' OR (s.status = 'Active' AND c.status = 'Active' AND (q.id IS NULL OR q.status = 'Active')))
-       GROUP BY c.id, c.chapter_name, c.order_index
-       ORDER BY c.order_index ASC`,
+          c.chapter_name as subject,
+          IFNULL(ROUND(AVG(qad.is_correct) * 100, 0), 0) as A,
+          100 as fullMark
+      FROM chapters c
+      JOIN subjects s ON c.subject_id = s.id
+      LEFT JOIN questions q ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      LEFT JOIN (
+          SELECT qd.question_id, qd.is_correct
+          FROM quizattemptdetail qd
+          JOIN quizattempts qa ON qd.attempt_id = qa.id
+          WHERE qa.user_id = ?
+      ) qad ON q.id = qad.question_id
+      WHERE c.subject_id = ? 
+        AND (? = 'Admin' OR (s.status = 'Active' AND c.status = 'Active' AND (q.id IS NULL OR q.status = 'Active')))
+      GROUP BY c.id, c.chapter_name, c.order_index
+      ORDER BY c.order_index ASC`,
       [userId, subjectId, role]
     );
 
