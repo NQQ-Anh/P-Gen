@@ -11,10 +11,12 @@ import { authenticateToken, authorize } from "../middleware/auth.js";
 
 const router = express.Router();
 
-const normalizeStatus = (status) => (status === "Inactive" ? "Inactive" : "Active");
+const normalizeStatus = (status) =>
+  status === "Inactive" ? "Inactive" : "Active";
 
 const validateQuestionPayload = (payload) => {
-  const content = typeof payload?.content === "string" ? payload.content.trim() : "";
+  const content =
+    typeof payload?.content === "string" ? payload.content.trim() : "";
   const explanation =
     typeof payload?.explanation === "string" ? payload.explanation.trim() : "";
   const status = normalizeStatus(payload?.status);
@@ -34,7 +36,10 @@ const validateQuestionPayload = (payload) => {
   }));
 
   if (answers.some((answer) => !answer.content)) {
-    return { isValid: false, message: "Vui lòng nhập nội dung cho đầy đủ 4 đáp án" };
+    return {
+      isValid: false,
+      message: "Vui lòng nhập nội dung cho đầy đủ 4 đáp án",
+    };
   }
 
   const correctCount = answers.filter((answer) => answer.is_correct).length;
@@ -134,28 +139,27 @@ router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, 
         return res.status(400).json({ message: "chapter_name is required" });
       }
 
-    if (!chapterName) {
-      return res.status(400).json({ message: "chapter_name is required" });
+      const [result] = await db.execute(
+        "INSERT INTO Chapters (chapter_name, order_index, subject_id, status) VALUES (?, ?, ?, ?)",
+        [chapterName, orderIndex, subjectId, status],
+      );
+      res.status(201).json({
+        message: "Chapter created successfully",
+        chapterId: result.insertId,
+      });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-
-    const [result] = await db.execute(
-      "INSERT INTO Chapters (chapter_name, order_index, subject_id, status) VALUES (?, ?, ?, ?)",
-      [chapterName, orderIndex, subjectId, status],
-    );
-    res.status(201).json({
-      message: "Chapter created successfully",
-      chapterId: result.insertId,
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+  },
+);
 
 router.put( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), async (req, res) => {
     try {
       const { id: subjectId, chapterId } = req.params;
       const chapterName =
-        typeof req.body?.chapter_name === "string" ? req.body.chapter_name.trim() : "";
+        typeof req.body?.chapter_name === "string"
+          ? req.body.chapter_name.trim()
+          : "";
       const orderIndex = Number.parseInt(req.body?.order_index, 10) || 0;
       const status = normalizeStatus(req.body?.status);
 
@@ -199,7 +203,10 @@ router.delete( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin")
 );
 
 // ==================== QUESTIONS ====================
-router.get("/:id/chapters/:chapterId/questions", authenticateToken, async (req, res) => {
+router.get(
+  "/:id/chapters/:chapterId/questions",
+  authenticateToken,
+  async (req, res) => {
     try {
       const { id: subjectId, chapterId: chapterPk } = req.params;
       const role = req.user.role;
@@ -331,7 +338,9 @@ router.put("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, 
         return res.status(404).json({ message: "Không tìm thấy câu hỏi" });
       }
 
-      await connection.execute("DELETE FROM Answers WHERE question_id = ?", [questionId]);
+      await connection.execute("DELETE FROM Answers WHERE question_id = ?", [
+        questionId,
+      ]);
       for (const answer of answers) {
         await connection.execute(
           "INSERT INTO Answers (content, is_correct, question_id) VALUES (?, ?, ?)",
