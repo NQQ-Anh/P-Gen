@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import { API_URL } from "../../config/api";
 import "../../styles/AdminSide.css";
-import { API_URL } from '../../config/api.js';
-
 
 const DEFAULT_FILTERS = {
   from: "",
@@ -12,7 +11,7 @@ const DEFAULT_FILTERS = {
 const formatDateTime = (value) => {
   if (!value) return "--";
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
+  if (Number.isNaN(date.getTime())) return "--";
   return date.toLocaleString("vi-VN");
 };
 
@@ -22,108 +21,207 @@ const formatScore = (value) => {
   return parsed.toFixed(2);
 };
 
+const formatNumber = (value) => {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) return "0";
+  return parsed.toLocaleString("vi-VN");
+};
+
+const formatDuration = (seconds) => {
+  const total = Number(seconds);
+  if (Number.isNaN(total) || total <= 0) return "--";
+
+  const hours = Math.floor(total / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+
+  if (hours > 0) return `${hours} giờ ${minutes} phút ${secs} giây`;
+  if (minutes > 0) return `${minutes} phút ${secs} giây`;
+  return `${secs} giây`;
+};
+
 const DashboardStats = () => {
   const { token } = useAuth();
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
-  const [stats, setStats] = useState({
+
+  const [systemStats, setSystemStats] = useState({
+    totalUsers: 0,
+    totalSubjects: 0,
+    totalChapters: 0,
+    totalQuestions: 0,
+    totalAttempts: 0,
+  });
+
+  const [listStats, setListStats] = useState({
     recentAttempts: [],
     latestRegisteredUsers: [],
-    leaderboard: [],
-    systemStats: {
-      totalUsers: 0,
-      totalSubjects: 0,
-      totalChapters: 0,
-      totalQuestions: 0,
-      totalAttempts: 0,
-    },
   });
+
   const [selectedAttempt, setSelectedAttempt] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
-  const loadStats = useCallback(
+  const [overviewLoading, setOverviewLoading] = useState(true);
+  const [listLoading, setListLoading] = useState(true);
+  const [overviewError, setOverviewError] = useState("");
+  const [listError, setListError] = useState("");
+
+  const loadOverviewStats = useCallback(async () => {
+    if (!token) {
+      setOverviewError("Phiên đăng nhập đã hết hạn.");
+      setOverviewLoading(false);
+      return;
+    }
+
+    try {
+      setOverviewLoading(true);
+      setOverviewError("");
+
+      const response = await fetch(`${API_URL}/admin-stats/dashboard?limit=5`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const payload = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(payload?.message || "Không thể tải thống kê tổng.");
+      }
+
+      setSystemStats({
+        totalUsers: Number(payload?.systemStats?.totalUsers) || 0,
+        totalSubjects: Number(payload?.systemStats?.totalSubjects) || 0,
+        totalChapters: Number(payload?.systemStats?.totalChapters) || 0,
+        totalQuestions: Number(payload?.systemStats?.totalQuestions) || 0,
+        totalAttempts: Number(payload?.systemStats?.totalAttempts) || 0,
+      });
+    } catch (error) {
+      setOverviewError(error.message || "Có lỗi khi tải thống kê tổng.");
+    } finally {
+      setOverviewLoading(false);
+    }
+  }, [token]);
+
+  const loadFilteredListStats = useCallback(
     async (nextFilters = DEFAULT_FILTERS) => {
       if (!token) {
-        setError("Phiên đăng nhập đã hết hạn");
-        setLoading(false);
+        setListError("Phiên đăng nhập đã hết hạn.");
+        setListLoading(false);
         return;
       }
 
       try {
-        setLoading(true);
-        setError("");
+        setListLoading(true);
+        setListError("");
 
         const params = new URLSearchParams();
+        params.set("limit", "5");
         if (nextFilters.from) params.set("from", nextFilters.from);
         if (nextFilters.to) params.set("to", nextFilters.to);
-        params.set("limit", "10");
 
         const response = await fetch(`${API_URL}/admin-stats/dashboard?${params.toString()}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
 
         const payload = await response.json().catch(() => null);
         if (!response.ok) {
-          throw new Error(payload?.message || "Không thể tải thống kê dashboard");
+          throw new Error(payload?.message || "Không thể tải dữ liệu danh sách.");
         }
 
-        setStats({
+        setListStats({
           recentAttempts: Array.isArray(payload?.recentAttempts) ? payload.recentAttempts : [],
           latestRegisteredUsers: Array.isArray(payload?.latestRegisteredUsers)
             ? payload.latestRegisteredUsers
-            : payload?.latestRegisteredUser
-              ? [payload.latestRegisteredUser]
-              : [],
-          leaderboard: Array.isArray(payload?.leaderboard) ? payload.leaderboard : [],
-          systemStats: payload?.systemStats || {
-            totalUsers: 0,
-            totalSubjects: 0,
-            totalChapters: 0,
-            totalQuestions: 0,
-            totalAttempts: 0,
-          },
+            : [],
         });
-      } catch (err) {
-        setError(err.message || "Có lỗi khi tải thống kê");
+      } catch (error) {
+        setListError(error.message || "Có lỗi khi tải dữ liệu danh sách.");
       } finally {
-        setLoading(false);
+        setListLoading(false);
       }
     },
     [token],
   );
 
   useEffect(() => {
-    loadStats(DEFAULT_FILTERS);
-  }, [loadStats]);
+    loadOverviewStats();
+    loadFilteredListStats(DEFAULT_FILTERS);
+  }, [loadOverviewStats, loadFilteredListStats]);
 
-  const hasFilter = useMemo(() => Boolean(filters.from || filters.to), [filters.from, filters.to]);
-
-  const handleChangeFilter = (event) => {
-    const { name, value } = event.target;
-    setFilters((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleApplyFilter = async (event) => {
+  const handleApplyFilters = async (event) => {
     event.preventDefault();
-    await loadStats(filters);
+    await loadFilteredListStats(filters);
   };
 
-  const handleResetFilter = async () => {
+  const handleResetFilters = async () => {
     setFilters(DEFAULT_FILTERS);
-    await loadStats(DEFAULT_FILTERS);
+    await loadFilteredListStats(DEFAULT_FILTERS);
   };
+
+  const overviewCards = useMemo(
+    () => [
+      {
+        key: "users",
+        title: "Tổng user",
+        value: formatNumber(systemStats.totalUsers),
+        icon: "fa-solid fa-users",
+      },
+      {
+        key: "subjects",
+        title: "Tổng môn học",
+        value: formatNumber(systemStats.totalSubjects),
+        icon: "fa-solid fa-book-open-reader",
+      },
+      {
+        key: "chapters",
+        title: "Tổng chương",
+        value: formatNumber(systemStats.totalChapters),
+        icon: "fa-solid fa-list-ol",
+      },
+      {
+        key: "questions",
+        title: "Tổng câu hỏi",
+        value: formatNumber(systemStats.totalQuestions),
+        icon: "fa-solid fa-circle-question",
+      },
+      {
+        key: "attempts",
+        title: "Tổng số lần làm bài",
+        value: formatNumber(systemStats.totalAttempts),
+        icon: "fa-solid fa-square-poll-vertical",
+      },
+    ],
+    [systemStats],
+  );
 
   return (
     <section className="admin-stats-panel">
+      <article className="admin-stats-card admin-overview-section">
+        <div className="admin-card-head">
+          <div>
+            <h4>Thống kê tổng quan</h4>
+            <p className="admin-card-subtitle">Ảnh chụp nhanh toàn bộ dữ liệu hệ thống hiện tại</p>
+          </div>
+        </div>
+
+        {overviewLoading && <p>Đang tải thống kê tổng...</p>}
+        {!overviewLoading && overviewError && <p className="user-error">{overviewError}</p>}
+        {!overviewLoading && !overviewError && (
+          <div className="admin-overview-grid">
+            {overviewCards.map((card) => (
+              <article key={card.key} className="admin-overview-card">
+                <div className="admin-overview-icon">
+                  <i className={card.icon} />
+                </div>
+                <div className="admin-overview-content">
+                  <p>{card.title}</p>
+                  <strong>{card.value}</strong>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </article>
+
       <div className="admin-stats-header">
-        <h3></h3>
-        <form className="admin-stats-filter" onSubmit={handleApplyFilter}>
+        <form className="admin-stats-filter admin-toolbar-card" onSubmit={handleApplyFilters}>
           <label htmlFor="stats-from">
             Từ ngày
             <input
@@ -131,7 +229,12 @@ const DashboardStats = () => {
               name="from"
               type="date"
               value={filters.from}
-              onChange={handleChangeFilter}
+              onChange={(event) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  from: event.target.value,
+                }))
+              }
             />
           </label>
           <label htmlFor="stats-to">
@@ -141,7 +244,12 @@ const DashboardStats = () => {
               name="to"
               type="date"
               value={filters.to}
-              onChange={handleChangeFilter}
+              onChange={(event) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  to: event.target.value,
+                }))
+              }
             />
           </label>
           <button type="submit" className="admin-action-btn info">
@@ -150,114 +258,99 @@ const DashboardStats = () => {
           <button
             type="button"
             className="admin-action-btn secondary"
-            onClick={handleResetFilter}
-            disabled={!hasFilter}
+            onClick={handleResetFilters}
+            disabled={!filters.from && !filters.to}
           >
             Đặt lại
           </button>
-          <button type="button" className="red-btn" onClick={() => loadStats(filters)} disabled={loading}>
+          <button
+            type="button"
+            className="red-btn"
+            onClick={() => loadFilteredListStats(filters)}
+            disabled={listLoading}
+          >
             Tải lại
           </button>
         </form>
       </div>
 
-      {loading && <p>Đang tải dữ liệu thống kê...</p>}
-      {!loading && error && <p className="user-error">{error}</p>}
+      {listLoading && <p>Đang tải dữ liệu danh sách...</p>}
+      {!listLoading && listError && <p className="user-error">{listError}</p>}
 
-      {!loading && !error && (
-        <div className="admin-stats-layout-four-parts">
-          {/* Part 1: Recent Attempts (5 most recent) */}
-          <article className="admin-stats-card admin-stats-recent-attempts">
-            <h4>5 Bài làm gần nhất</h4>
-            {stats.recentAttempts.length === 0 ? (
-              <p className="admin-stats-empty">Không có dữ liệu trong khoảng thời gian đã chọn.</p>
-            ) : (
-              <div className="admin-compact-list">
-                {stats.recentAttempts.map((attempt) => (
-                  <button
-                    key={attempt.id}
-                    type="button"
-                    className="admin-compact-item"
-                    onClick={() => setSelectedAttempt(attempt)}
-                  >
-                    <span className="attempt-user">{attempt.username}</span>
-                    <strong className="attempt-score">{formatScore(attempt.score)}</strong>
-                  </button>
-                ))}
-              </div>
-            )}
-          </article>
-
-          {/* Part 2: Latest Registered Users (5 most recent) */}
-          <article className="admin-stats-card admin-stats-latest-users">
-            <h4>5 User đăng ký gần nhất</h4>
-            {stats.latestRegisteredUsers.length === 0 ? (
-              <p className="admin-stats-empty">Không có user mới trong khoảng thời gian đã chọn.</p>
-            ) : (
-              <div className="admin-compact-list">
-                {stats.latestRegisteredUsers.map((user) => (
-                  <button
-                    key={user.userId}
-                    type="button"
-                    className="admin-compact-item"
-                    onClick={() => setSelectedUser(user)}
-                  >
-                    <span className="user-username">{user.username}</span>
-                    <span className="user-email">{user.email}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </article>
-
-          {/* Part 3: Leaderboard (Top 10 users by attempts) */}
-          <article className="admin-stats-card admin-stats-leaderboard">
-            <h4>Xếp hạng</h4>
-            {stats.leaderboard.length === 0 ? (
-              <p className="admin-stats-empty">Không có dữ liệu xếp hạng trong khoảng thời gian đã chọn.</p>
-            ) : (
-              <div className="admin-leaderboard-list">
-                {stats.leaderboard.map((item, index) => (
-                  <div key={item.userId} className="leaderboard-item">
-                    <span className="rank">#{index + 1}</span>
-                    <span className="username">{item.username}</span>
-                    <strong className="attempt-count">{item.attemptCount}</strong>
-                  </div>
-                ))}
-              </div>
-            )}
-          </article>
-
-          {/* Part 4: System Statistics */}
-          <article className="admin-stats-card admin-stats-system-stats">
-            <h4>Thống kê hệ thống</h4>
-            <div className="system-stats-grid">
-              <div className="stat-box">
-                <span className="stat-label">Tổng User</span>
-                <strong className="stat-value">{stats.systemStats.totalUsers}</strong>
-              </div>
-              <div className="stat-box">
-                <span className="stat-label">Tổng Môn học</span>
-                <strong className="stat-value">{stats.systemStats.totalSubjects}</strong>
-              </div>
-              <div className="stat-box">
-                <span className="stat-label">Tổng Chương</span>
-                <strong className="stat-value">{stats.systemStats.totalChapters}</strong>
-              </div>
-              <div className="stat-box">
-                <span className="stat-label">Tổng Câu hỏi</span>
-                <strong className="stat-value">{stats.systemStats.totalQuestions}</strong>
-              </div>
-              <div className="stat-box">
-                <span className="stat-label">Tổng Lượt làm bài</span>
-                <strong className="stat-value">{stats.systemStats.totalAttempts}</strong>
-              </div>
+      {!listLoading && !listError && (
+        <div className="admin-stats-grid">
+          <article className="admin-stats-card">
+            <div className="admin-card-head">
+              <h4>Bài làm gần đây</h4>
+              <span className="admin-pill">{listStats.recentAttempts.length} bản ghi</span>
             </div>
+            {listStats.recentAttempts.length === 0 ? (
+              <p className="admin-stats-empty">Chưa có bài làm nào trong khoảng thời gian đã chọn.</p>
+            ) : (
+              <div className="table-responsive">
+                <table className="admin-stats-table">
+                  <thead>
+                    <tr>
+                      <th>Tên user</th>
+                      <th>Thời gian làm bài</th>
+                      <th>Điểm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {listStats.recentAttempts.map((attempt) => (
+                      <tr
+                        key={attempt.id}
+                        className="admin-clickable-row"
+                        onClick={() => setSelectedAttempt(attempt)}
+                      >
+                        <td>{attempt.username || "Không xác định"}</td>
+                        <td>{formatDateTime(attempt.createdAt)}</td>
+                        <td>{formatScore(attempt.score)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </article>
+
+          <article className="admin-stats-card">
+            <div className="admin-card-head">
+              <h4>Người dùng mới</h4>
+              <span className="admin-pill">{listStats.latestRegisteredUsers.length} bản ghi</span>
+            </div>
+            {listStats.latestRegisteredUsers.length === 0 ? (
+              <p className="admin-stats-empty">Chưa có user mới trong khoảng thời gian đã chọn.</p>
+            ) : (
+              <div className="table-responsive">
+                <table className="admin-stats-table">
+                  <thead>
+                    <tr>
+                      <th>Tên user</th>
+                      <th>Email</th>
+                      <th>Thời điểm đăng ký</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {listStats.latestRegisteredUsers.map((user) => (
+                      <tr
+                        key={user.userId}
+                        className="admin-clickable-row"
+                        onClick={() => setSelectedUser(user)}
+                      >
+                        <td>{user.username || "Không xác định"}</td>
+                        <td>{user.email || "--"}</td>
+                        <td>{formatDateTime(user.registeredAt)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </article>
         </div>
       )}
 
-      {/* Dialog for Recent Attempt Details */}
       {selectedAttempt && (
         <div className="modal-overlay">
           <div className="modal-container">
@@ -267,26 +360,30 @@ const DashboardStats = () => {
                 &times;
               </button>
             </div>
+
             <div className="admin-profile-view">
               <div className="admin-profile-item">
-                <span>User</span>
-                <strong>{selectedAttempt.username}</strong>
+                <span>Tên user</span>
+                <strong>{selectedAttempt.username || "Không xác định"}</strong>
               </div>
               <div className="admin-profile-item">
                 <span>Email</span>
-                <strong>{selectedAttempt.email}</strong>
+                <strong>{selectedAttempt.email || "--"}</strong>
               </div>
               <div className="admin-profile-item">
-                <span>Môn</span>
-                <strong>{selectedAttempt.subjectName}</strong>
+                <span>Môn học</span>
+                <strong>{selectedAttempt.subjectName || "Không xác định"}</strong>
               </div>
               <div className="admin-profile-item">
                 <span>Chương</span>
                 <strong>
-                  {selectedAttempt.chapterName || "--"}
-                  {selectedAttempt.chapterOrder !== null && selectedAttempt.chapterOrder !== undefined
-                    ? ` (#${selectedAttempt.chapterOrder})`
-                    : ""}
+                  {selectedAttempt.chapterName
+                    ? `${selectedAttempt.chapterName}${
+                        selectedAttempt.chapterOrder !== null && selectedAttempt.chapterOrder !== undefined
+                          ? ` (#${selectedAttempt.chapterOrder})`
+                          : ""
+                      }`
+                    : "--"}
                 </strong>
               </div>
               <div className="admin-profile-item">
@@ -294,17 +391,17 @@ const DashboardStats = () => {
                 <strong>{formatScore(selectedAttempt.score)}</strong>
               </div>
               <div className="admin-profile-item">
-                <span>Đúng / Tổng</span>
+                <span>Kết quả</span>
                 <strong>
-                  {selectedAttempt.correctCount}/{selectedAttempt.totalQuestions}
+                  {selectedAttempt.correctCount ?? 0}/{selectedAttempt.totalQuestions ?? 0}
                 </strong>
               </div>
               <div className="admin-profile-item">
-                <span>Thời gian làm</span>
-                <strong>{selectedAttempt.timeSpent ? `${selectedAttempt.timeSpent}s` : "--"}</strong>
+                <span>Thời gian làm bài</span>
+                <strong>{formatDuration(selectedAttempt.timeSpent)}</strong>
               </div>
               <div className="admin-profile-item">
-                <span>Thời gian nộp</span>
+                <span>Thời điểm nộp</span>
                 <strong>{formatDateTime(selectedAttempt.createdAt)}</strong>
               </div>
             </div>
@@ -312,35 +409,35 @@ const DashboardStats = () => {
         </div>
       )}
 
-      {/* Dialog for Latest User Details */}
       {selectedUser && (
         <div className="modal-overlay">
           <div className="modal-container">
             <div className="modal-header">
-              <h3>Chi tiết người dùng</h3>
+              <h3>Chi tiết user</h3>
               <button className="modal-close-btn" type="button" onClick={() => setSelectedUser(null)}>
                 &times;
               </button>
             </div>
+
             <div className="admin-profile-view">
               <div className="admin-profile-item">
                 <span>ID</span>
                 <strong>{selectedUser.userId}</strong>
               </div>
               <div className="admin-profile-item">
-                <span>Tên đăng nhập</span>
-                <strong>{selectedUser.username}</strong>
+                <span>Tên user</span>
+                <strong>{selectedUser.username || "Không xác định"}</strong>
               </div>
               <div className="admin-profile-item">
                 <span>Email</span>
-                <strong>{selectedUser.email}</strong>
+                <strong>{selectedUser.email || "--"}</strong>
               </div>
               <div className="admin-profile-item">
                 <span>Vai trò</span>
-                <strong>{selectedUser.role}</strong>
+                <strong>{selectedUser.role || "--"}</strong>
               </div>
               <div className="admin-profile-item">
-                <span>Thời gian đăng kí</span>
+                <span>Thời điểm đăng ký</span>
                 <strong>{formatDateTime(selectedUser.registeredAt)}</strong>
               </div>
             </div>
@@ -352,4 +449,3 @@ const DashboardStats = () => {
 };
 
 export default DashboardStats;
-

@@ -1,28 +1,16 @@
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import DashboardStats from "./DashboardStats";
+import RankingBoard from "./RankingBoard";
 import Users from "./UserMana/Users";
 import Subjects from "./SubjectMana/Subjects";
 import "../../styles/AdminSide.css";
 
 const MENU_ITEMS = [
-  { id: "dashboard", label: "Dashboard", icon: "fa-solid fa-table-columns" },
+  { id: "dashboard", label: "Thống kê", icon: "fa-solid fa-chart-simple" },
+  { id: "rankings", label: "Xếp hạng", icon: "fa-solid fa-ranking-star" },
   { id: "users", label: "Quản lý user", icon: "fa-solid fa-users" },
   { id: "subjects", label: "Quản lý môn học", icon: "fa-solid fa-book-open" },
-];
-
-const FEATURES = [
-  {
-    id: "users",
-    title: "Quản lý user",
-    desc: "Xem, tạo mới, cập nhật, xóa và xem profile user.",
-    available: true,
-  },
-  {
-    id: "subjects",
-    title: "Quản lý môn học",
-    desc: "Quản lý subject, chapter và question",
-    available: true,
-  },
 ];
 
 const AdminSide = () => {
@@ -32,48 +20,49 @@ const AdminSide = () => {
   const getHeaderInfo = () => {
     if (activeView === "dashboard") {
       return {
-        title: "Admin Dashboard",
-        sub: "Chọn chức năng quản trị hệ thống.",
+        title: "Thống kê hệ thống",
+        sub: "Theo dõi bài làm gần nhất và tài khoản mới đăng ký.",
       };
     }
-    if (activeView === "users") return { title: "Quản lý user", sub: "" };
-    if (activeView === "subjects") return { title: "Quản lý môn học", sub: "" };
 
-    const feature = FEATURES.find((item) => item.id === activeView);
-    return {
-      title: feature?.title || "Tính năng",
-      sub: "Tính năng này đang được cập nhật.",
-    };
+    if (activeView === "rankings") {
+      return {
+        title: "Xếp hạng người dùng",
+        sub: "Xếp hạng theo tiêu chí đã chọn.",
+      };
+    }
+
+    if (activeView === "users") {
+      return { title: "Quản lý user", sub: "" };
+    }
+
+    if (activeView === "subjects") {
+      return { title: "Quản lý môn học", sub: "" };
+    }
+
+    return { title: "Admin", sub: "" };
   };
 
   const renderMainContent = () => {
-    switch (activeView) {
-      case "dashboard":
-        return (
-          <div className="admin-feature-grid">
-            {FEATURES.map((feature) => (
-              <article key={feature.id} className="admin-feature-card">
-                <h3>{feature.title}</h3>
-                <p>{feature.desc}</p>
-                <button className="red-btn" onClick={() => setActiveView(feature.id)}>
-                  {feature.available ? "Truy cập" : "Xem chi tiết"}
-                </button>
-              </article>
-            ))}
-          </div>
-        );
-      case "users":
-        return <Users />;
-      case "subjects":
-        return <Subjects />;
-      default:
-        return (
-          <div className="admin-empty-state">
-            <h3>Tính năng đang phát triển</h3>
-            <p>Module này sẽ được bổ sung trong các bước tiếp theo.</p>
-          </div>
-        );
+    if (activeView === "dashboard") {
+      return <DashboardStats />;
     }
+    if (activeView === "rankings") {
+      return <RankingBoard />;
+    }
+    if (activeView === "users") {
+      return <Users />;
+    }
+    if (activeView === "subjects") {
+      return <Subjects />;
+    }
+
+    return (
+      <div className="admin-empty-state">
+        <h3>Tính năng đang phát triển</h3>
+        <p>Module này sẽ được bổ sung trong các bước tiếp theo.</p>
+      </div>
+    );
   };
 
   const headerInfo = getHeaderInfo();
@@ -99,7 +88,8 @@ const AdminSide = () => {
                 className={`admin-nav-btn ${activeView === item.id ? "active" : ""}`}
                 onClick={() => setActiveView(item.id)}
               >
-                <i className={item.icon} /> <span>{item.label}</span>
+                <i className={item.icon} />
+                <span>{item.label}</span>
               </button>
             ))}
           </nav>
