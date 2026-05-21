@@ -224,7 +224,7 @@ export const refreshToken = async (req, res) => {
     }
 
     // Generate new tokens
-    const { accessToken, newRefreshToken } = generateTokens(decoded.userId);
+    const { accessToken, refreshToken: newRefreshToken } = generateTokens(decoded.userId);
 
     res.json({
       accessToken,
