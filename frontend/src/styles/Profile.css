@@ -6,7 +6,6 @@
   min-height: calc(100vh - 55px);
 }
 
-/* LƯỚI TỔNG THỂ */
 .profile-dashboard-wrapper .dashboard-grid {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -16,7 +15,6 @@
   padding: 28px;
 }
 
-/* THIẾT KẾ CARD CHUNG */
 .profile-dashboard-wrapper .widget-card {
   background-color: var(--second-color);
   border-radius: 20px;
@@ -25,11 +23,10 @@
   border: 1px solid #eeeeee;
   display: flex;
   flex-direction: column;
-  align-items: stretch; 
+  align-items: stretch;
   box-sizing: border-box;
 }
 
-/* 1. SIDEBAR */
 .profile-dashboard-wrapper .sidebar-widget {
   padding: 40px 24px;
   align-items: center;
@@ -74,7 +71,6 @@
 }
 
 .profile-dashboard-wrapper .profile-details p {
-  font-size: var(--fs-body);
   margin: 12px 0;
   display: flex;
   align-items: center;
@@ -88,7 +84,6 @@
   font-size: var(--fs-body);
 }
 
-/* 2. MAIN CONTENT */
 .profile-dashboard-wrapper .dashboard-main-content {
   display: flex;
   flex-direction: column;
@@ -110,7 +105,6 @@
   border-bottom: 1px solid #f0f0f0;
 }
 
-/* THỐNG KÊ NHANH */
 .profile-dashboard-wrapper .stats-list {
   display: flex;
   flex-direction: column;
@@ -143,7 +137,6 @@
   color: var(--primary-color);
 }
 
-/* PHÂN TÍCH NĂNG LỰC*/
 .profile-dashboard-wrapper .analysis-widget {
   min-height: 400px;
 }
@@ -173,7 +166,6 @@
   font-weight: 400;
 }
 
-/* BẢNG HOẠT ĐỘNG*/
 .profile-dashboard-wrapper .header-flex {
   display: flex;
   justify-content: space-between;
@@ -187,7 +179,7 @@
   border: none;
 }
 
-.profile-dashboard-wrapper .header-flex .red-btn{
+.profile-dashboard-wrapper .header-flex .red-btn {
   margin: 0;
 }
 
@@ -216,7 +208,9 @@
   font-weight: 600;
 }
 
-.profile-dashboard-wrapper .recent-table .btn-text {margin-left: 4px;}
+.profile-dashboard-wrapper .recent-table .btn-text {
+  margin-left: 4px;
+}
 
 .profile-dashboard-wrapper .score-cell {
   color: var(--primary-color);
@@ -234,9 +228,128 @@
   color: #888888;
 }
 
-/* NÚT BẤM */
 .profile-dashboard-wrapper .red-btn {
-  max-width: 120px;
+  max-width: 140px;
+}
+
+.profile-dashboard-wrapper .profile-edit-btn {
+  margin-bottom: 10px;
+}
+
+.profile-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  padding: 16px;
+}
+
+.profile-dialog-container {
+  width: 100%;
+  max-width: 520px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.24);
+}
+
+.profile-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
+.profile-dialog-header h3 {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.profile-dialog-close {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  color: #666666;
+  cursor: pointer;
+}
+
+.profile-dialog-error {
+  margin: 0 0 10px 0;
+  color: #dc3545;
+  font-size: 14px;
+}
+
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-edit-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.profile-edit-field input {
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 14px;
+  color: #1f1f1f;
+}
+
+.profile-edit-field input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(212, 63, 51, 0.15);
+}
+
+.profile-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.profile-btn-cancel,
+.profile-btn-save {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-btn-cancel {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.profile-btn-save {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.profile-btn-cancel:disabled,
+.profile-btn-save:disabled,
+.profile-dialog-close:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1100px) {
@@ -244,6 +357,7 @@
   .profile-dashboard-wrapper .top-row {
     grid-template-columns: 1fr;
   }
+
   .profile-dashboard-wrapper .recent-table .btn-text {
     display: none;
   }

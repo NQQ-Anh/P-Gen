@@ -136,7 +136,7 @@ router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, 
       const status = normalizeStatus(req.body?.status);
 
       if (!chapterName) {
-        return res.status(400).json({ message: "chapter_name is required" });
+        return res.status(400).json({ message: "Tên chương là bắt buộc" });
       }
 
       const [result] = await db.execute(
@@ -144,7 +144,7 @@ router.post("/:id/chapters", authenticateToken, authorize("Admin"), async (req, 
         [chapterName, orderIndex, subjectId, status],
       );
       res.status(201).json({
-        message: "Chapter created successfully",
+        message: "Tạo chương thành công",
         chapterId: result.insertId,
       });
     } catch (error) {
@@ -176,7 +176,7 @@ router.put( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin"), a
         return res.status(404).json({ message: "Không tìm thấy chương" });
       }
 
-      res.json({ message: "Chapter updated successfully" });
+      res.json({ message: "Cập nhật chương thành công" });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -195,7 +195,7 @@ router.delete( "/:id/chapters/:chapterId", authenticateToken, authorize("Admin")
         return res.status(404).json({ message: "Không tìm thấy chương" });
       }
 
-      res.json({ message: "Chapter deleted successfully" });
+      res.json({ message: "Xóa chương thành công" });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -271,7 +271,7 @@ router.post( "/:id/chapters/:chapterId/questions", authenticateToken, authorize(
 
       await connection.commit();
       res.status(201).json({
-        message: "Question created successfully",
+        message: "Tạo câu hỏi thành công",
         questionId: questionResult.insertId,
       });
     } catch (error) {
@@ -349,7 +349,7 @@ router.put("/:id/chapters/:chapterId/questions/:questionId", authenticateToken, 
       }
 
       await connection.commit();
-      res.json({ message: "Question updated successfully" });
+      res.json({ message: "Cập nhật câu hỏi thành công" });
     } catch (error) {
       await connection.rollback();
       res.status(500).json({ message: error.message });
@@ -371,7 +371,7 @@ router.delete( "/:id/chapters/:chapterId/questions/:questionId", authenticateTok
         return res.status(404).json({ message: "Không tìm thấy câu hỏi" });
       }
 
-      res.json({ message: "Question deleted successfully" });
+      res.json({ message: "Xóa câu hỏi thành công" });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
