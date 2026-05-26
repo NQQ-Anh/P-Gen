@@ -51,7 +51,7 @@ export const createQuestion = async (req, res) => {
       [title, content],
     );
     res.status(201).json({
-      message: "Question created successfully",
+      message: "Tạo câu hỏi thành công",
       questionId: result.insertId,
     });
   } catch (error) {
@@ -67,7 +67,7 @@ export const updateQuestion = async (req, res) => {
       "UPDATE Questions SET title = ?, content = ? WHERE id = ?",
       [title, content, id],
     );
-    res.json({ message: "Question updated successfully" });
+    res.json({ message: "Cập nhật câu hỏi thành công" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -77,7 +77,7 @@ export const deleteQuestion = async (req, res) => {
   try {
     const { id } = req.params;
     await db.execute("DELETE FROM Questions WHERE id = ?", [id]);
-    res.json({ message: "Question deleted successfully" });
+    res.json({ message: "Xóa câu hỏi thành công" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   } 

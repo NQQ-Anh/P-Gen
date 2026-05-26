@@ -30,7 +30,7 @@ export const getSubjectById = async (req, res) => {
     const [subjectRows] = await db.execute('SELECT * FROM Subjects WHERE id = ?', [id]);
     
     if (subjectRows.length === 0) {
-      return res.status(404).json({ message: 'Subject not found' });
+      return res.status(404).json({ message: 'Không tìm thấy môn học' });
     }
 
     const [chapterRows] = await db.execute(
@@ -58,7 +58,7 @@ export const createSubject = async (req, res) => {
       'INSERT INTO Subjects (subject_name, description, status) VALUES (?, ?, ?)',
       [subject_name, description, status],
     );
-    res.status(201).json({ message: 'Subject created successfully', subjectId: result.insertId });
+    res.status(201).json({ message: 'Tạo môn học thành công', subjectId: result.insertId });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -73,7 +73,7 @@ export const updateSubject = async (req, res) => {
       'UPDATE Subjects SET subject_name = ?, description = ?, status = ? WHERE id = ?',
       [subject_name, description, status, id],
     );
-    res.json({ message: 'Subject updated successfully' });
+    res.json({ message: 'Cập nhật môn học thành công' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -83,7 +83,7 @@ export const deleteSubject = async (req, res) => {
   try {
     const { id } = req.params;
     await db.execute('DELETE FROM Subjects WHERE id = ?', [id]);
-    res.json({ message: 'Subject deleted successfully' });
+    res.json({ message: 'Xóa môn học thành công' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Login failed");
+        throw new Error(data.message || "Đăng nhập thất bại");
       }
 
       // Store tokens
@@ -166,7 +166,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const refreshToken = localStorage.getItem("refreshToken");
       if (!refreshToken) {
-        throw new Error("No refresh token");
+        throw new Error("Không tìm thấy refresh token");
       }
 
       const response = await fetch(`${API_URL}/auth/refresh`, {
@@ -180,7 +180,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Token refresh failed");
+        throw new Error(data.message || "Làm mới token thất bại");
       }
 
       // Update tokens
@@ -221,7 +221,7 @@ export const AuthProvider = ({ children }) => {
         // Token expired, try refresh
         await refreshAccessToken();
       } else {
-        throw new Error("Failed to fetch profile");
+        throw new Error("Không thể tải hồ sơ người dùng");
       }
     } catch (error) {
       console.error("Profile fetch error:", error);
@@ -291,9 +291,10 @@ export const AuthProvider = ({ children }) => {
       loading,
       login,
       logout,
+      refreshProfile: fetchProfile,
       token: localStorage.getItem("accessToken"),
     }),
-    [user, loading, logout],
+    [user, loading, logout, fetchProfile],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

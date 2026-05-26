@@ -11,7 +11,7 @@ export const authenticateToken = async (req, res, next) => {
   const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
 
   if (!token) {
-    return res.status(401).json({ message: "Access token required" });
+    return res.status(401).json({ message: "Cần access token" });
   }
 
   try {
@@ -23,16 +23,16 @@ export const authenticateToken = async (req, res, next) => {
       [decoded.userId],
     );
     if (users.length === 0) {
-      return res.status(401).json({ message: "User not found" });
+      return res.status(401).json({ message: "Không tìm thấy người dùng" });
     }
 
     req.user = users[0];
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {
-      return res.status(401).json({ message: "Token expired" });
+      return res.status(401).json({ message: "Token đã hết hạn" });
     }
-    return res.status(403).json({ message: "Invalid token" });
+    return res.status(403).json({ message: "Token không hợp lệ" });
   }
 };
 
@@ -57,11 +57,11 @@ export const verifyRefreshToken = (token) => {
 export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
-      return res.status(401).json({ message: "Authentication required" });
+      return res.status(401).json({ message: "Cần đăng nhập để tiếp tục" });
     }
 
     if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ message: "Insufficient permissions" });
+      return res.status(403).json({ message: "Bạn không có quyền thực hiện thao tác này" });
     }
 
     next();

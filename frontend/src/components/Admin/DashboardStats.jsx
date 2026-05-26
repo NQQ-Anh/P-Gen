@@ -197,7 +197,6 @@ const DashboardStats = () => {
         <div className="admin-card-head">
           <div>
             <h4>Thống kê tổng quan</h4>
-            <p className="admin-card-subtitle">Ảnh chụp nhanh toàn bộ dữ liệu hệ thống hiện tại</p>
           </div>
         </div>
 

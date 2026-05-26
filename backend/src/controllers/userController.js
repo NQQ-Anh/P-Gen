@@ -18,7 +18,7 @@ export const createUser = async (req, res) => {
     // Check if user already exists
     const [existingUsers] = await db.execute('SELECT id FROM Users WHERE username = ? OR email = ?', [username, email]);
     if (existingUsers.length > 0) {
-      return res.status(400).json({ message: 'Username or email already exists' });
+      return res.status(400).json({ message: 'Tên đăng nhập hoặc email đã tồn tại' });
     }
 
     // Hash password
@@ -31,7 +31,7 @@ export const createUser = async (req, res) => {
     );
 
     res.status(201).json({
-      message: 'User created successfully',
+      message: 'Tạo người dùng thành công',
       userId: result.insertId
     });
   } catch (error) {
@@ -42,40 +42,69 @@ export const createUser = async (req, res) => {
 export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const { username, email, role } = req.body;
+    const { username, email, role, password } = req.body;
     const currentUser = req.user;
+    const normalizedUsername = typeof username === 'string' ? username.trim() : '';
+    const normalizedEmail = typeof email === 'string' ? email.trim() : '';
+    const normalizedPassword = typeof password === 'string' ? password : '';
 
     // Check permissions
     if (currentUser.role !== 'Admin' && currentUser.id != id) {
-      return res.status(403).json({ message: 'You can only update your own profile' });
+      return res.status(403).json({ message: 'Bạn chỉ có thể cập nhật hồ sơ của chính mình' });
     }
 
-    // If not admin, prevent role change
+    if (!normalizedUsername || !normalizedEmail) {
+      return res.status(400).json({ message: 'Tên đăng nhập và email là bắt buộc' });
+    }
+
+    if (normalizedPassword && normalizedPassword.length < 6) {
+      return res.status(400).json({ message: 'Mật khẩu phải có ít nhất 6 ký tự' });
+    }
+
+    // Always load current role when role is missing; non-admin cannot change role
     let updateRole = role;
-    if (currentUser.role !== 'Admin') {
-      // Get current user role from DB to prevent role change
+    if (currentUser.role !== 'Admin' || !role) {
       const [currentUserData] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
       if (currentUserData.length === 0) {
-        return res.status(404).json({ message: 'User not found' });
+        return res.status(404).json({ message: 'Không tìm thấy người dùng' });
       }
-      updateRole = currentUserData[0].role;
+      updateRole = currentUser.role !== 'Admin' ? currentUserData[0].role : (role || currentUserData[0].role);
     }
 
     // Prevent changing role to Admin if not already Admin
     if (role === 'Admin' && currentUser.role !== 'Admin') {
-      return res.status(403).json({ message: 'Cannot assign Admin role' });
+      return res.status(403).json({ message: 'Bạn không thể gán vai trò Admin' });
     }
 
+    const [existingUsers] = await db.execute(
+      'SELECT id FROM Users WHERE (username = ? OR email = ?) AND id != ?',
+      [normalizedUsername, normalizedEmail, id]
+    );
+    if (existingUsers.length > 0) {
+      return res.status(400).json({ message: 'Tên đăng nhập hoặc email đã tồn tại' });
+    }
+
+    const updateFields = ['username = ?', 'email = ?', 'role = ?'];
+    const updateValues = [normalizedUsername, normalizedEmail, updateRole];
+
+    if (normalizedPassword) {
+      const hashedPassword = await bcrypt.hash(normalizedPassword, 10);
+      updateFields.push('password = ?');
+      updateValues.push(hashedPassword);
+    }
+
+    updateValues.push(id);
+
     const [result] = await db.execute(
-      'UPDATE Users SET username = ?, email = ?, role = ? WHERE id = ?',
-      [username, email, updateRole, id]
+      `UPDATE Users SET ${updateFields.join(', ')} WHERE id = ?`,
+      updateValues
     );
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'Không tìm thấy người dùng' });
     }
 
-    res.json({ message: 'User updated successfully' });
+    res.json({ message: 'Cập nhật người dùng thành công' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -90,20 +119,20 @@ export const deleteUser = async (req, res) => {
     if (currentUser.role === 'Admin') {
       const [userToDelete] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
       if (userToDelete.length === 0) {
-        return res.status(404).json({ message: 'User not found' });
+        return res.status(404).json({ message: 'Không tìm thấy người dùng' });
       }
       if (userToDelete[0].role === 'Admin') {
-        return res.status(403).json({ message: 'Cannot delete Admin users' });
+        return res.status(403).json({ message: 'Không thể xóa tài khoản Admin' });
       }
     }
 
     const [result] = await db.execute('DELETE FROM Users WHERE id = ?', [id]);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'Không tìm thấy người dùng' });
     }
 
-    res.json({ message: 'User deleted successfully' });
+    res.json({ message: 'Xóa người dùng thành công' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -116,17 +145,17 @@ export const register = async (req, res) => {
 
     // Validate input
     if (!username || !password || !email) {
-      return res.status(400).json({ message: 'Username, password, and email are required' });
+      return res.status(400).json({ message: 'Tên đăng nhập, mật khẩu và email là bắt buộc' });
     }
 
     if (password.length < 6) {
-      return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+      return res.status(400).json({ message: 'Mật khẩu phải có ít nhất 6 ký tự' });
     }
 
     // Check if user already exists
     const [existingUsers] = await db.execute('SELECT id FROM Users WHERE username = ? OR email = ?', [username, email]);
     if (existingUsers.length > 0) {
-      return res.status(400).json({ message: 'Username or email already exists' });
+      return res.status(400).json({ message: 'Tên đăng nhập hoặc email đã tồn tại' });
     }
 
     // Hash password
@@ -145,7 +174,7 @@ export const register = async (req, res) => {
     const [newUser] = await db.execute('SELECT id, username, email, role FROM Users WHERE id = ?', [result.insertId]);
 
     res.status(201).json({
-      message: 'User registered successfully',
+      message: 'Đăng ký tài khoản thành công',
       user: newUser[0],
       accessToken,
       refreshToken
@@ -162,7 +191,7 @@ export const login = async (req, res) => {
     // Find user
     const [users] = await db.execute('SELECT id, username, password, email, role FROM Users WHERE username = ?', [username]);
     if (users.length === 0) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không đúng' });
     }
 
     const user = users[0];
@@ -170,7 +199,7 @@ export const login = async (req, res) => {
     // Check password
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không đúng' });
     }
 
     // Generate tokens
@@ -180,7 +209,7 @@ export const login = async (req, res) => {
     const { password: _, ...userWithoutPassword } = user;
 
     res.json({
-      message: 'Login successful',
+      message: 'Đăng nhập thành công',
       user: userWithoutPassword,
       accessToken,
       refreshToken
@@ -203,7 +232,7 @@ export const getProfile = async (req, res) => {
 export const logout = async (req, res) => {
   // In a stateless JWT system, logout is handled client-side by removing tokens
   // For server-side logout, you might want to implement a token blacklist
-  res.json({ message: 'Logged out successfully' });
+  res.json({ message: 'Đăng xuất thành công' });
 };
 
 export const refreshToken = async (req, res) => {
@@ -211,7 +240,7 @@ export const refreshToken = async (req, res) => {
     const { refreshToken } = req.body;
 
     if (!refreshToken) {
-      return res.status(401).json({ message: 'Refresh token required' });
+      return res.status(401).json({ message: 'Cần refresh token' });
     }
 
     // Verify refresh token
@@ -220,7 +249,7 @@ export const refreshToken = async (req, res) => {
     // Check if user still exists
     const [users] = await db.execute('SELECT id FROM Users WHERE id = ?', [decoded.userId]);
     if (users.length === 0) {
-      return res.status(401).json({ message: 'User not found' });
+      return res.status(401).json({ message: 'Không tìm thấy người dùng' });
     }
 
     // Generate new tokens
@@ -231,7 +260,7 @@ export const refreshToken = async (req, res) => {
       refreshToken: newRefreshToken
     });
   } catch (error) {
-    res.status(403).json({ message: 'Invalid refresh token' });
+    res.status(403).json({ message: 'Refresh token không hợp lệ' });
   }
 };
 

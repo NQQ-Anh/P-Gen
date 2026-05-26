@@ -37,7 +37,7 @@ export const getChapterById = async (req, res) => {
       [chapterId, subjectId],
     );
     if (chapterRows.length === 0) {
-      return res.status(404).json({ message: "Chapter not found" });
+      return res.status(404).json({ message: "Không tìm thấy chương" });
     }
     const [questionRows] = await db.execute(
       `
@@ -93,7 +93,7 @@ export const createChapter = async (req, res) => {
       [chapter_name, order_index, subjectId],
     );
     res.status(201).json({
-      message: "Chapter created successfully",
+      message: "Tạo chương thành công",
       chapterId: result.insertId,
     });
   } catch (error) {
@@ -109,7 +109,7 @@ export const updateChapter = async (req, res) => {
       "UPDATE Chapters SET chapter_name = ?, order_index = ? WHERE id = ? AND subject_id = ?",
       [chapter_name, order_index, chapterId, subjectId],
     );
-    res.json({ message: "Chapter updated successfully" });
+    res.json({ message: "Cập nhật chương thành công" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -122,7 +122,7 @@ export const deleteChapter = async (req, res) => {
       chapterId,
       subjectId,
     ]);
-    res.json({ message: "Chapter deleted successfully" });
+    res.json({ message: "Xóa chương thành công" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

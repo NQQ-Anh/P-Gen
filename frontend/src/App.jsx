@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, startTransition } from "react";
+﻿import { useState, useEffect, useRef, startTransition } from "react";
 import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from './contexts/AuthContext';
 import Login from "./components/Login";
@@ -84,35 +84,18 @@ function AppContent() {
     }
   };
 
-  // Hiển thị dựa trên Role của người dùng
   useEffect(() => {
     if (user) {
-      // 1. Kiểm tra xem URL có chứa param ?view=admin không
       const urlParams = new URLSearchParams(window.location.search);
       const isTabAdmin = urlParams.get('view') === 'admin';
 
-      if (user.role === 'Admin') {
-        if (isTabAdmin) {
-          // Nếu đây là tab mới bật ra có chứa URL chỉ định làm admin
+      if (isTabAdmin) {
           setView("admin");
-        } else {
-          // Tab hiện tại (tab vừa nhấn đăng nhập) sẽ hiển thị giao diện user thường
-          setView("profile");
-
-          // 2. Dùng sessionStorage để chỉ tự động mở tab 1 lần khi login
-          // (Tránh việc người dùng F5 tải lại trang làm nhảy ra tab mới liên tục)
-          if (!sessionStorage.getItem('adminTabOpened')) {
-            window.open(window.location.origin + window.location.pathname + '?view=admin', '_blank');
-            sessionStorage.setItem('adminTabOpened', 'true');
-          }
-        }
       } else {
         setView("profile");
       }
     } else {
       setView("home");
-      // Xóa cờ đánh dấu khi người dùng đăng xuất
-      sessionStorage.removeItem('adminTabOpened'); 
     }
   }, [user]);
   // Hiệu ứng của welcome
@@ -159,7 +142,7 @@ function AppContent() {
   }, []);
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Đang tải...</div>;
   }
 
   const isAdminStandalone = view === "admin" && user && user.role === "Admin";
@@ -442,7 +425,7 @@ function AppContent() {
           </div>
         </div>
         <div className="footer-copyright">
-          &copy; 2026 P-Gen Project. Developed by nam. and quanh
+          &copy; 2026 P-Gen Project. Phát triển bởi nam. và quanh
         </div>
       </footer>
     </div>

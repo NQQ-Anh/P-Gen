@@ -6,7 +6,6 @@ import "../../styles/AdminSide.css";
 const RANKING_OPTIONS = [
   { value: "attempt_count", label: "Số lần làm bài " },
   { value: "average_score", label: "Điểm trung bình " },
-  { value: "shortest_time", label: "Thời gian làm bài " },
 ];
 
 const formatDateTime = (value) => {
@@ -93,13 +92,10 @@ const RankingBoard = () => {
   const metricHeaderLabel =
     criteria === "average_score"
       ? "Điểm trung bình"
-      : criteria === "shortest_time"
-        ? "Thời gian trung bình"
         : "Số lần làm bài";
 
   const renderMetricValue = (row) => {
     if (criteria === "average_score") return formatScore(row.avgScore);
-    if (criteria === "shortest_time") return formatDuration(row.avgTimeSpent);
     return row.attemptCount ?? 0;
   };
 

@@ -73,7 +73,7 @@ const AdminSide = () => {
         <aside className="admin-sidebar">
           <div className="admin-brand">
             <h2>P-Gen Admin</h2>
-            <p>System management</p>
+            <p>Quản trị hệ thống</p>
           </div>
 
           <div className="admin-user-box">
