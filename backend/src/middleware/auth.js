@@ -19,7 +19,7 @@ export const authenticateToken = async (req, res, next) => {
 
     // Verify user still exists
     const [users] = await db.execute(
-      "SELECT id, username, email, role FROM Users WHERE id = ?",
+      "SELECT id, username, email, role FROM users WHERE id = ?",
       [decoded.userId],
     );
     if (users.length === 0) {
@@ -61,7 +61,9 @@ export const authorize = (...roles) => {
     }
 
     if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ message: "Bạn không có quyền thực hiện thao tác này" });
+      return res
+        .status(403)
+        .json({ message: "Bạn không có quyền thực hiện thao tác này" });
     }
 
     next();

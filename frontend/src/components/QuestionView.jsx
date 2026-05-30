@@ -8,6 +8,11 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
     const isExam = settings?.isExam;
     const subjectId = subject?.id;
     const { user } = useAuth();
+    const [startedAt] = useState(() => {
+        const resumed = Number(resumeData?.startedAt);
+        if (Number.isFinite(resumed) && resumed > 0) return resumed;
+        return Date.now();
+    });
 
     //KHỞI TẠO STATE
     const [questions, setQuestions] = useState(resumeData?.questions || []);
@@ -49,11 +54,12 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             flaggedQuestions,
             timeLeft,
             isExam,
+            startedAt,
             lastTimestamp: Date.now()
         };
 
         localStorage.setItem(`PTIT_QUIZ_SESSION_${user.id}`, JSON.stringify(session));
-    }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam, user.id]);
+    }, [userAnswers, isAnswered, currentIndex, flaggedQuestions, timeLeft, questions, subject, chapterIds, settings, isExam, startedAt, user.id]);
 
     //FETCH DỮ LIỆU
     const fetchQuestions = useCallback(async () => {
@@ -231,7 +237,10 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
         else if (!window.confirm("Bạn có muốn nộp bài tập không?")) return;
 
         const totalTimeSet = isExam ? (settings?.totalTime || 15) * 60 : 0;
-        const timeSpent = isExam ? totalTimeSet - timeLeft : 0;
+        const remainingExamTime = Number.isFinite(timeLeft) ? timeLeft : 0;
+        const examTimeSpent = Math.max(0, totalTimeSet - remainingExamTime);
+        const practiceTimeSpent = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+        const timeSpent = isExam ? examTimeSpent : practiceTimeSpent;
         
         let correctCount = 0;
         const details = questions.map(q => {
@@ -247,12 +256,17 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             };
         });
 
+        const totalQuestions = questions.length;
+        const score = totalQuestions > 0
+            ? ((correctCount / totalQuestions) * 10).toFixed(2)
+            : "0.00";
+
         const payload = {
             subjectId: subjectId,
             chapterId: (chapterIds && chapterIds.length === 1) ? chapterIds[0] : null,
-            score: ((correctCount / questions.length) * 10).toFixed(2),
+            score,
             correct: correctCount,
-            total: questions.length,
+            total: totalQuestions,
             timeSpent,
             details: details,
             questions,

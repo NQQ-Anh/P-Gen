@@ -1,14 +1,25 @@
 import mysql from "mysql2/promise";
+import dotenv from 'dotenv';
 
-const password = process.env.SQL_PASS;
+dotenv.config();
+
+const password = process.env.SQL_PASS ;
+const port = process.env.SQL_PORT ;
+const host = process.env.SQL_HOST ;
+const user = process.env.SQL_USER ;
+const database = process.env.SQL_DB ;
 
 const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
+  host: host,
+  port: port,
+  user: user,
   password: password, // Thay bằng pass db local
-  database: "p_gen",
+  database: database,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   waitForConnections: true,
-  connectionLimit: 10,
+  connectionLimit: 5,
   queueLimit: 0,
 });
 

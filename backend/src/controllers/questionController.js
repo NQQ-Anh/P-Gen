@@ -10,8 +10,8 @@ export const getAllQuestions = async (req, res) => {
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM Questions q
-      LEFT JOIN Answers a ON q.id = a.question_id
+      FROM questions q
+      LEFT JOIN answers a ON q.id = a.question_id
       `);
 
     const result = [];
@@ -47,7 +47,7 @@ export const createQuestion = async (req, res) => {
   try {
     const { title, content } = req.body;
     const [result] = await db.execute(
-      "INSERT INTO Questions (title, content) VALUES (?, ?)",
+      "INSERT INTO questions (title, content) VALUES (?, ?)",
       [title, content],
     );
     res.status(201).json({
@@ -64,7 +64,7 @@ export const updateQuestion = async (req, res) => {
     const { id } = req.params;
     const { title, content } = req.body;
     await db.execute(
-      "UPDATE Questions SET title = ?, content = ? WHERE id = ?",
+      "UPDATE questions SET title = ?, content = ? WHERE id = ?",
       [title, content, id],
     );
     res.json({ message: "Cập nhật câu hỏi thành công" });
@@ -76,7 +76,7 @@ export const updateQuestion = async (req, res) => {
 export const deleteQuestion = async (req, res) => {
   try {
     const { id } = req.params;
-    await db.execute("DELETE FROM Questions WHERE id = ?", [id]);
+    await db.execute("DELETE FROM questions WHERE id = ?", [id]);
     res.json({ message: "Xóa câu hỏi thành công" });
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -1,5 +1,4 @@
 ﻿import { useState, useEffect, useRef, startTransition } from "react";
-import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from './contexts/AuthContext';
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -433,11 +432,7 @@ function AppContent() {
 }
 
 function App() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
-  );
+  return <AppContent />;
 }
 
 export default App;

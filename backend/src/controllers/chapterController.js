@@ -10,8 +10,8 @@ export const getAllChapters = async (req, res) => {
         c.status,
         c.subject_id,
         s.subject_name
-      FROM Chapters c
-      LEFT JOIN Subjects s ON c.subject_id = s.id
+      FROM chapters c
+      LEFT JOIN subjects s ON c.subject_id = s.id
     `);
     res.json(rows);
   } catch (error) {
@@ -30,8 +30,8 @@ export const getChapterById = async (req, res) => {
         c.order_index,
         c.subject_id,
         s.subject_name
-      FROM Chapters c
-      LEFT JOIN Subjects s ON c.subject_id = s.id
+      FROM chapters c
+      LEFT JOIN subjects s ON c.subject_id = s.id
       WHERE c.id = ? AND c.subject_id = ?
     `,
       [chapterId, subjectId],
@@ -47,8 +47,8 @@ export const getChapterById = async (req, res) => {
         a.id AS answer_id,
         a.content AS answer_content,
         a.is_correct
-      FROM Questions q
-      LEFT JOIN Answers a ON q.id = a.question_id
+      FROM questions q
+      LEFT JOIN answers a ON q.id = a.question_id
       WHERE q.chapter_id = ?
     `,
       [chapterId],
@@ -89,7 +89,7 @@ export const createChapter = async (req, res) => {
     const { id: subjectId } = req.params;
     const { chapter_name, order_index } = req.body;
     const [result] = await db.execute(
-      "INSERT INTO Chapters (chapter_name, order_index, subject_id) VALUES (?, ?, ?)",
+      "INSERT INTO chapters (chapter_name, order_index, subject_id) VALUES (?, ?, ?)",
       [chapter_name, order_index, subjectId],
     );
     res.status(201).json({
@@ -106,7 +106,7 @@ export const updateChapter = async (req, res) => {
     const { id: subjectId, chapterId } = req.params;
     const { chapter_name, order_index } = req.body;
     await db.execute(
-      "UPDATE Chapters SET chapter_name = ?, order_index = ? WHERE id = ? AND subject_id = ?",
+      "UPDATE chapters SET chapter_name = ?, order_index = ? WHERE id = ? AND subject_id = ?",
       [chapter_name, order_index, chapterId, subjectId],
     );
     res.json({ message: "Cập nhật chương thành công" });
@@ -118,7 +118,7 @@ export const updateChapter = async (req, res) => {
 export const deleteChapter = async (req, res) => {
   try {
     const { id: subjectId, chapterId } = req.params;
-    await db.execute("DELETE FROM Chapters WHERE id = ? AND subject_id = ?", [
+    await db.execute("DELETE FROM chapters WHERE id = ? AND subject_id = ?", [
       chapterId,
       subjectId,
     ]);

@@ -4,7 +4,7 @@ import { generateTokens, verifyRefreshToken } from '../middleware/auth.js';
 
 export const getAllUsers = async (req, res) => {
   try {
-    const [users] = await db.execute('SELECT id, username, email, role FROM Users');
+    const [users] = await db.execute('SELECT id, username, email, role FROM users');
     res.json(users);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -16,7 +16,7 @@ export const createUser = async (req, res) => {
     const { username, password, email, role = 'User' } = req.body;
 
     // Check if user already exists
-    const [existingUsers] = await db.execute('SELECT id FROM Users WHERE username = ? OR email = ?', [username, email]);
+    const [existingUsers] = await db.execute('SELECT id FROM users WHERE username = ? OR email = ?', [username, email]);
     if (existingUsers.length > 0) {
       return res.status(400).json({ message: 'Tên đăng nhập hoặc email đã tồn tại' });
     }
@@ -26,7 +26,7 @@ export const createUser = async (req, res) => {
 
     // Insert user
     const [result] = await db.execute(
-      'INSERT INTO Users (username, password, email, role) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)',
       [username, hashedPassword, email, role]
     );
 
@@ -64,7 +64,7 @@ export const updateUser = async (req, res) => {
     // Always load current role when role is missing; non-admin cannot change role
     let updateRole = role;
     if (currentUser.role !== 'Admin' || !role) {
-      const [currentUserData] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
+      const [currentUserData] = await db.execute('SELECT role FROM users WHERE id = ?', [id]);
       if (currentUserData.length === 0) {
         return res.status(404).json({ message: 'Không tìm thấy người dùng' });
       }
@@ -77,7 +77,7 @@ export const updateUser = async (req, res) => {
     }
 
     const [existingUsers] = await db.execute(
-      'SELECT id FROM Users WHERE (username = ? OR email = ?) AND id != ?',
+      'SELECT id FROM users WHERE (username = ? OR email = ?) AND id != ?',
       [normalizedUsername, normalizedEmail, id]
     );
     if (existingUsers.length > 0) {
@@ -96,7 +96,7 @@ export const updateUser = async (req, res) => {
     updateValues.push(id);
 
     const [result] = await db.execute(
-      `UPDATE Users SET ${updateFields.join(', ')} WHERE id = ?`,
+      `UPDATE users SET ${updateFields.join(', ')} WHERE id = ?`,
       updateValues
     );
 
@@ -117,7 +117,7 @@ export const deleteUser = async (req, res) => {
 
     // Prevent deleting other Admins
     if (currentUser.role === 'Admin') {
-      const [userToDelete] = await db.execute('SELECT role FROM Users WHERE id = ?', [id]);
+      const [userToDelete] = await db.execute('SELECT role FROM users WHERE id = ?', [id]);
       if (userToDelete.length === 0) {
         return res.status(404).json({ message: 'Không tìm thấy người dùng' });
       }
@@ -126,7 +126,7 @@ export const deleteUser = async (req, res) => {
       }
     }
 
-    const [result] = await db.execute('DELETE FROM Users WHERE id = ?', [id]);
+    const [result] = await db.execute('DELETE FROM users WHERE id = ?', [id]);
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Không tìm thấy người dùng' });
@@ -171,7 +171,7 @@ export const register = async (req, res) => {
     const { accessToken, refreshToken } = generateTokens(result.insertId);
 
     // Get the created user data
-    const [newUser] = await db.execute('SELECT id, username, email, role FROM Users WHERE id = ?', [result.insertId]);
+    const [newUser] = await db.execute('SELECT id, username, email, role FROM users WHERE id = ?', [result.insertId]);
 
     res.status(201).json({
       message: 'Đăng ký tài khoản thành công',
@@ -189,7 +189,7 @@ export const login = async (req, res) => {
     const { username, password } = req.body;
 
     // Find user
-    const [users] = await db.execute('SELECT id, username, password, email, role FROM Users WHERE username = ?', [username]);
+    const [users] = await db.execute('SELECT id, username, password, email, role FROM users WHERE username = ?', [username]);
     if (users.length === 0) {
       return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không đúng' });
     }
@@ -247,7 +247,7 @@ export const refreshToken = async (req, res) => {
     const decoded = verifyRefreshToken(refreshToken);
 
     // Check if user still exists
-    const [users] = await db.execute('SELECT id FROM Users WHERE id = ?', [decoded.userId]);
+    const [users] = await db.execute('SELECT id FROM users WHERE id = ?', [decoded.userId]);
     if (users.length === 0) {
       return res.status(401).json({ message: 'Không tìm thấy người dùng' });
     }
@@ -265,15 +265,29 @@ export const refreshToken = async (req, res) => {
 };
 
 export const getDashboardStats = async (req, res) => {
+  const route = '/history/dashboard-stats';
+  const userId = req.user?.id;
+  const role = req.user?.role || 'User';
+
   try {
-    const userId = req.user.id;
-    const role = req.user.role;
+    if (!userId) {
+      return res.status(401).json({ message: 'User not found' });
+    }
+
+    // Re-check user existence to avoid returning 500 when token is valid but user was deleted.
+    const [userRows] = await db.execute(
+      'SELECT id FROM users WHERE id = ? LIMIT 1',
+      [userId],
+    );
+    if (!Array.isArray(userRows) || userRows.length === 0) {
+      return res.status(401).json({ message: 'User not found' });
+    }
 
     const [statsRows] = await db.execute(
       `SELECT 
         COUNT(qa.id) as totalQuizzes,
         IFNULL(ROUND(SUM(qa.correct_count) * 100.0 / SUM(qa.total_questions), 1), 0) as accuracy
-       FROM QuizAttempts qa
+       FROM quizAttempts qa
        JOIN subjects s ON qa.subject_id = s.id
        LEFT JOIN chapters c ON qa.chapter_id = c.id
        WHERE qa.user_id = ?
@@ -281,40 +295,53 @@ export const getDashboardStats = async (req, res) => {
            ? = 'Admin' 
            OR (s.status = 'Active' AND (c.id IS NULL OR c.status = 'Active'))
          )`,
-      [userId, role]
+      [userId, role],
     );
 
     const [recentRows] = await db.execute(
       `SELECT 
         qa.id, qa.score, qa.created_at,
         s.subject_name, c.order_index
-       FROM QuizAttempts qa
+       FROM quizAttempts qa
        JOIN subjects s ON qa.subject_id = s.id
        LEFT JOIN chapters c ON qa.chapter_id = c.id
        WHERE qa.user_id = ?
          AND (? = 'Admin' OR (s.status = 'Active' AND (c.id IS NULL OR c.status = 'Active')))
        ORDER BY qa.created_at DESC
        LIMIT 5`,
-      [userId, role]
+      [userId, role],
     );
 
     const [dateRows] = await db.execute(
       `SELECT DISTINCT DATE(qa.created_at) as studyDate 
-       FROM QuizAttempts qa
+       FROM quizAttempts qa
        JOIN subjects s ON qa.subject_id = s.id
        WHERE qa.user_id = ? 
          AND (? = 'Admin' OR s.status = 'Active')
        ORDER BY studyDate DESC`,
-      [userId, role]
+      [userId, role],
     );
 
-    let streak = 0;
-    if (dateRows.length > 0) {
-      const dates = dateRows.map(row => new Date(row.studyDate).setHours(0, 0, 0, 0));
-      const today = new Date().setHours(0, 0, 0, 0);
-      const yesterday = new Date(today - 86400000).setHours(0, 0, 0, 0);
+    const stats = Array.isArray(statsRows) && statsRows.length > 0 ? statsRows[0] : null;
+    const totalQuizzes = Number(stats?.totalQuizzes ?? 0) || 0;
+    const accuracy = Number(stats?.accuracy ?? 0) || 0;
+    const safeRecentRows = Array.isArray(recentRows) ? recentRows : [];
+    const safeDateRows = Array.isArray(dateRows) ? dateRows : [];
 
-      if (dates[0] === today || dates[0] === yesterday) {
+    let streak = 0;
+    if (safeDateRows.length > 0) {
+      const dates = safeDateRows
+        .map((row) => {
+          if (!row?.studyDate) return null;
+          const value = new Date(row.studyDate).setHours(0, 0, 0, 0);
+          return Number.isNaN(value) ? null : value;
+        })
+        .filter((value) => typeof value === 'number');
+
+      const today = new Date().setHours(0, 0, 0, 0);
+      const yesterday = today - 86400000;
+
+      if (dates.length > 0 && (dates[0] === today || dates[0] === yesterday)) {
         streak = 1;
         for (let i = 0; i < dates.length - 1; i++) {
           if (dates[i] - dates[i + 1] === 86400000) streak++;
@@ -323,19 +350,25 @@ export const getDashboardStats = async (req, res) => {
       }
     }
 
-    res.json({
+    return res.json({
       stats: {
-        totalQuizzes: statsRows[0].totalQuizzes,
-        accuracy: statsRows[0].accuracy,
-        streak: streak
+        totalQuizzes,
+        accuracy,
+        streak,
       },
-      recentActivities: recentRows
+      recentActivities: safeRecentRows,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('[dashboard-stats]', {
+      route,
+      userId,
+      message: error?.message,
+      stack: error?.stack,
+    });
+
+    return res.status(500).json({ message: 'Failed to load dashboard statistics' });
   }
 };
-
 export const getCapacityAnalysis = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -349,11 +382,11 @@ export const getCapacityAnalysis = async (req, res) => {
           100 as fullMark
       FROM chapters c
       JOIN subjects s ON c.subject_id = s.id
-      LEFT JOIN questions q ON q.chapter_id = c.order_index AND q.subject_id = c.subject_id
+      LEFT JOIN questions q ON q.chapter_id = c.id AND q.subject_id = c.subject_id
       LEFT JOIN (
           SELECT qd.question_id, qd.is_correct
-          FROM quizattemptdetail qd
-          JOIN quizattempts qa ON qd.attempt_id = qa.id
+          FROM quizAttemptDetail qd
+          JOIN quizAttempts qa ON qd.attempt_id = qa.id
           WHERE qa.user_id = ?
       ) qad ON q.id = qad.question_id
       WHERE c.subject_id = ? 

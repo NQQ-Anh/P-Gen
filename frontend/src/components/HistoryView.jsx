@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/HistoryView.css";
 
+const DISPLAY_TIME_ZONE = "Asia/Ho_Chi_Minh";
+
 export const HistoryView = ({ attemptId, onBack }) => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,39 @@ export const HistoryView = ({ attemptId, onBack }) => {
       });
   }, []);
 
-  const formatDate = (dateString) => { return new Date(dateString).toLocaleString("vi-VN");};
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
+    return new Intl.DateTimeFormat("vi-VN", {
+      timeZone: DISPLAY_TIME_ZONE,
+      hour12: false,
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(date);
+  };
+
+  const formatDateKeyInDisplayTimeZone = (dateString) => {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
+
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: DISPLAY_TIME_ZONE,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(date);
+
+    const year = parts.find((p) => p.type === "year")?.value;
+    const month = parts.find((p) => p.type === "month")?.value;
+    const day = parts.find((p) => p.type === "day")?.value;
+
+    if (!year || !month || !day) return "";
+    return `${year}-${month}-${day}`;
+  };
 
   const formatDuration = (totalSeconds) => {
     if (!totalSeconds || totalSeconds <= 0) return "0 phút";
@@ -91,7 +125,7 @@ export const HistoryView = ({ attemptId, onBack }) => {
     // Xử lý lọc theo ngày (chuyển created_at về dạng YYYY-MM-DD)
     let matchDate = true;
     if (filterDate) {
-      const itemDate = new Date(item.created_at).toISOString().split('T')[0];
+      const itemDate = formatDateKeyInDisplayTimeZone(item.created_at);
       matchDate = itemDate === filterDate;
     }
 
