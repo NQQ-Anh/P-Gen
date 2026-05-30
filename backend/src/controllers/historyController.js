@@ -11,7 +11,7 @@ export const saveQuizAttempt = async (req, res) => {
 
     // 1. Lưu vào bảng QuizAttempts
     const [attemptResult] = await connection.execute( 
-        `INSERT INTO QuizAttempts (user_id, subject_id, chapter_id, score, correct_count, total_questions, time_spent) 
+        `INSERT INTO quizAttempts (user_id, subject_id, chapter_id, score, correct_count, total_questions, time_spent) 
         VALUES (?, ?, ?, ?, ?, ?, ?)`,
         [userId, subjectId, chapterId || null, score, correct, total, timeSpent]
     );
@@ -28,7 +28,7 @@ export const saveQuizAttempt = async (req, res) => {
       ]);
 
       await connection.query(
-        `INSERT INTO QuizAttemptDetail (attempt_id, question_id, selected_answer_id, is_correct) VALUES ?`,
+        `INSERT INTO quizAttemptDetail (attempt_id, question_id, selected_answer_id, is_correct) VALUES ?`,
         [detailValues]
       );
     }
@@ -53,9 +53,9 @@ export const getUserHistory = async (req, res) => {
         
         const [rows] = await db.execute(
             `SELECT qa.*, s.subject_name, c.order_index 
-            FROM QuizAttempts qa
-            JOIN Subjects s ON qa.subject_id = s.id
-            LEFT JOIN Chapters c ON qa.chapter_id = c.id 
+            FROM quizAttempts qa
+            JOIN subjects s ON qa.subject_id = s.id
+            LEFT JOIN chapters c ON qa.chapter_id = c.id 
             WHERE qa.user_id = ?
             ORDER BY qa.created_at DESC`,
             [userId]
@@ -75,9 +75,9 @@ export const getAttemptDetails = async (req, res) => {
         // 1. Lấy thông tin tổng quát và kiểm tra quyền sở hữu
         const [attempts] = await db.execute(
             `SELECT qa.*, s.subject_name, c.order_index 
-            FROM QuizAttempts qa 
-            JOIN Subjects s ON qa.subject_id = s.id 
-            LEFT JOIN Chapters c ON qa.chapter_id = c.id
+            FROM quizAttempts qa 
+            JOIN subjects s ON qa.subject_id = s.id 
+            LEFT JOIN chapters c ON qa.chapter_id = c.id
             WHERE qa.id = ? AND qa.user_id = ?
             ORDER BY qa.created_at DESC`,
             [attemptId, userId]
@@ -94,8 +94,8 @@ export const getAttemptDetails = async (req, res) => {
                 q.content AS question_content,
                 qad.selected_answer_id,
                 qad.is_correct
-            FROM QuizAttemptDetail qad
-            JOIN Questions q ON qad.question_id = q.id
+            FROM quizAttemptDetail qad
+            JOIN questions q ON qad.question_id = q.id
             WHERE qad.attempt_id = ?`,
             [attemptId]
         );
@@ -103,7 +103,7 @@ export const getAttemptDetails = async (req, res) => {
         // 3. Với mỗi câu hỏi, lấy danh sách các đáp án của nó
         const fullDetails = await Promise.all(details.map(async (d) => {
             const [answers] = await db.execute(
-                `SELECT id, content, is_correct FROM Answers WHERE question_id = ?`,
+                `SELECT id, content, is_correct FROM answers WHERE question_id = ?`,
                 [d.question_id]
             );
             return {

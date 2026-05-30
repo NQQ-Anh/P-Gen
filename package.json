@@ -2,13 +2,19 @@
   "name": "p-gen",
   "version": "1.0.0",
   "description": "P-Gen project with JWT authentication",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && npm start"
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "install:all": "npm install",
+    "build": "npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "buildDB": "npm run buildDB -w backend"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
@@ -20,10 +26,5 @@
     "authentication"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.15.2",
-    "moment": "^2.30.1",
-    "recharts": "^3.8.1"
-  }
+  "license": "ISC"
 }

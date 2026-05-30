@@ -54,10 +54,10 @@ export const ResultView = ({ result, onRestart, onHome }) => {
              {showReview ? "Ẩn danh sách" : "Xem lại kết quả"}
           </button>
           <button className="red-btn restart-btn red" onClick={onRestart}>
-            <i class="fa-solid fa-arrow-rotate-left"></i> Làm lại
+            <i className="fa-solid fa-arrow-rotate-left"></i> Làm lại
           </button>
           <button className="red-btn home-btn" onClick={onHome}>
-            <i class="fa-solid fa-list"></i> Môn học khác
+            <i className="fa-solid fa-list"></i> Môn học khác
           </button>
         </div>
 

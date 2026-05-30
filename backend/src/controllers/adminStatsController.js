@@ -72,7 +72,7 @@ const ensureUsersCreatedAtColumn = async () => {
     `SELECT COLUMN_NAME
      FROM information_schema.COLUMNS
      WHERE TABLE_SCHEMA = DATABASE()
-       AND TABLE_NAME = 'Users'
+       AND TABLE_NAME = 'users'
        AND COLUMN_NAME = 'created_at'
      LIMIT 1`,
   );
@@ -80,7 +80,7 @@ const ensureUsersCreatedAtColumn = async () => {
   if (columns.length === 0) {
     try {
       await db.query(`
-        ALTER TABLE Users
+        ALTER TABLE users
         ADD COLUMN created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
       `);
     } catch (error) {
@@ -108,14 +108,6 @@ const RANKING_CRITERIA = {
     havingClause: "avgScore IS NOT NULL",
     metricField: "avgScore",
   },
-  shortest_time: {
-    key: "shortest_time",
-    label: "Thời gian làm bài ",
-    orderBy: "avgTimeSpent ASC, attemptCount DESC, userId ASC",
-    // Dùng trực tiếp field time_spent hiện có; chỉ tính bản ghi có time_spent > 0 để tránh dữ liệu thời gian không hợp lệ.
-    havingClause: "avgTimeSpent IS NOT NULL",
-    metricField: "avgTimeSpent",
-  },
 };
 
 const resolveRankingCriteria = (rawCriteria) => {
@@ -125,9 +117,6 @@ const resolveRankingCriteria = (rawCriteria) => {
     return RANKING_CRITERIA.average_score;
   }
 
-  if (normalized === "shortest_time" || normalized === "time" || normalized === "avg_time") {
-    return RANKING_CRITERIA.shortest_time;
-  }
 
   return RANKING_CRITERIA.attempt_count;
 };
@@ -167,10 +156,10 @@ export const getDashboardStats = async (req, res) => {
         qa.total_questions AS totalQuestions,
         qa.time_spent AS timeSpent,
         qa.created_at AS createdAt
-      FROM QuizAttempts qa
-      LEFT JOIN Users u ON qa.user_id = u.id
-      LEFT JOIN Subjects s ON qa.subject_id = s.id
-      LEFT JOIN Chapters c ON qa.chapter_id = c.id
+      FROM quizAttempts qa
+      LEFT JOIN users u ON qa.user_id = u.id
+      LEFT JOIN subjects s ON qa.subject_id = s.id
+      LEFT JOIN chapters c ON qa.chapter_id = c.id
       ${recentAttemptsFilter}
       ORDER BY qa.created_at DESC, qa.id DESC
       LIMIT ${listLimit}
@@ -193,7 +182,7 @@ export const getDashboardStats = async (req, res) => {
         COALESCE(u.email, '') AS email,
         u.role,
         u.created_at AS registeredAt
-      FROM Users u
+      FROM users u
       ${latestUserFilter}
       ORDER BY u.created_at DESC, u.id DESC
       LIMIT ${listLimit}
@@ -203,11 +192,11 @@ export const getDashboardStats = async (req, res) => {
 
     const [systemStatsRows] = await db.execute(`
       SELECT
-        (SELECT COUNT(*) FROM Users) AS totalUsers,
-        (SELECT COUNT(*) FROM Subjects) AS totalSubjects,
-        (SELECT COUNT(*) FROM Chapters) AS totalChapters,
-        (SELECT COUNT(*) FROM Questions) AS totalQuestions,
-        (SELECT COUNT(*) FROM QuizAttempts) AS totalAttempts
+        (SELECT COUNT(*) FROM users) AS totalUsers,
+        (SELECT COUNT(*) FROM subjects) AS totalSubjects,
+        (SELECT COUNT(*) FROM chapters) AS totalChapters,
+        (SELECT COUNT(*) FROM questions) AS totalQuestions,
+        (SELECT COUNT(*) FROM quizAttempts) AS totalAttempts
     `);
     const systemStats = systemStatsRows[0] || {};
 
@@ -260,8 +249,8 @@ export const getRankingStats = async (req, res) => {
         ROUND(AVG(CASE WHEN qa.score >= 0 AND qa.score <= 10 THEN qa.score END), 2) AS avgScore,
         ROUND(AVG(CASE WHEN qa.time_spent IS NOT NULL AND qa.time_spent > 0 THEN qa.time_spent END), 2) AS avgTimeSpent,
         MAX(qa.created_at) AS lastAttemptAt
-      FROM QuizAttempts qa
-      LEFT JOIN Users u ON qa.user_id = u.id
+      FROM quizAttempts qa
+      LEFT JOIN users u ON qa.user_id = u.id
       ${rankingFilter}
       GROUP BY u.id, u.username, u.email
       HAVING ${criteria.havingClause}

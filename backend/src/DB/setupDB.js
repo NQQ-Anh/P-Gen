@@ -1,15 +1,22 @@
 import mysql from "mysql2/promise";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 async function setupDatabase() {
   try {
     console.log("🚀 Setting up database...");
     const password = process.env.SQL_PASS;
+    const port = process.env.SQL_PORT;
+    const host = process.env.SQL_HOST;
+    const user = process.env.SQL_USER;
     // Kết nối MySQL (không chọn database trước)
     const connection = await mysql.createConnection({
-      host: "localhost",
-      user: "root",
-      password: "123456", // Thay bằng pass db local
+      host: host,
+      port: port,
+      user: user,
+      password: password,
     });
 
     // Tạo database
@@ -20,7 +27,7 @@ async function setupDatabase() {
     // Subjects
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Subjects (
+      CREATE TABLE IF NOT EXISTS subjects (
         id INT AUTO_INCREMENT PRIMARY KEY,
         subject_name VARCHAR(255) NOT NULL,
         description TEXT,
@@ -32,11 +39,11 @@ async function setupDatabase() {
     // Tags
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Tags (
+      CREATE TABLE IF NOT EXISTS tags (
         id INT AUTO_INCREMENT PRIMARY KEY,
         tag_name VARCHAR(100) NOT NULL,
         subject_id INT NOT NULL,
-        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -44,13 +51,13 @@ async function setupDatabase() {
     // Chapters
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Chapters (
+      CREATE TABLE IF NOT EXISTS chapters (
         id INT AUTO_INCREMENT PRIMARY KEY,
         chapter_name VARCHAR(255) NOT NULL,
         order_index INT DEFAULT 0,
         subject_id INT NOT NULL,
         status ENUM('Active', 'Inactive') DEFAULT 'Inactive',
-        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -58,7 +65,7 @@ async function setupDatabase() {
     // Users
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Users (
+      CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
@@ -71,7 +78,7 @@ async function setupDatabase() {
     // Questions
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Questions (
+      CREATE TABLE IF NOT EXISTS questions (
         id INT AUTO_INCREMENT PRIMARY KEY,
         content TEXT NOT NULL,
         explanation TEXT,
@@ -79,9 +86,9 @@ async function setupDatabase() {
         author_id INT NOT NULL,
         chapter_id INT NOT NULL,
         subject_id INT NOT NULL,
-        FOREIGN KEY (author_id) REFERENCES Users(id) ON DELETE CASCADE,
-        FOREIGN KEY (chapter_id) REFERENCES Chapters(id) ON DELETE CASCADE,
-        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE
+        FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (chapter_id) REFERENCES chapters(id) ON DELETE CASCADE,
+        FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -89,12 +96,12 @@ async function setupDatabase() {
     // Questions_Tags
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Questions_tags (
+      CREATE TABLE IF NOT EXISTS questions_tags (
         question_id INT NOT NULL,
         tag_id INT NOT NULL,
         PRIMARY KEY (question_id, tag_id),
-        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE,
-        FOREIGN KEY (tag_id) REFERENCES Tags(id) ON DELETE CASCADE
+        FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE,
+        FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -102,12 +109,12 @@ async function setupDatabase() {
     // Answers
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS Answers (
+      CREATE TABLE IF NOT EXISTS answers (
         id INT AUTO_INCREMENT PRIMARY KEY,
         content TEXT NOT NULL,
         is_correct BOOLEAN DEFAULT FALSE,
         question_id INT NOT NULL,
-        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -136,14 +143,14 @@ async function setupDatabase() {
     `);
 
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS History (
+      CREATE TABLE IF NOT EXISTS history (
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
         question_id INT NOT NULL,
         is_correct BOOLEAN NOT NULL,
         answered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -151,7 +158,7 @@ async function setupDatabase() {
     // Quiz Attempt
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS QuizAttempts (
+      CREATE TABLE IF NOT EXISTS quizAttempts (
         id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
         subject_id INT NOT NULL,
@@ -161,9 +168,9 @@ async function setupDatabase() {
         total_questions INT NOT NULL,
         time_spent INT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-        FOREIGN KEY (subject_id) REFERENCES Subjects(id) ON DELETE CASCADE,
-        FOREIGN KEY (chapter_id) REFERENCES Chapters(id) ON DELETE SET NULL
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE,
+        FOREIGN KEY (chapter_id) REFERENCES chapters(id) ON DELETE SET NULL
       ) ENGINE=InnoDB;
     `);
 
@@ -171,14 +178,14 @@ async function setupDatabase() {
     // Quiz Attempt Detail
     // =====================
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS QuizAttemptDetail (
+      CREATE TABLE IF NOT EXISTS quizAttemptDetail (
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
         attempt_id INT NOT NULL,
         question_id INT NOT NULL,
         selected_answer_id INT,
         is_correct BOOLEAN NOT NULL,
-        FOREIGN KEY (attempt_id) REFERENCES QuizAttempts(id) ON DELETE CASCADE,
-        FOREIGN KEY (question_id) REFERENCES Questions(id) ON DELETE CASCADE
+        FOREIGN KEY (attempt_id) REFERENCES quizAttempts(id) ON DELETE CASCADE,
+        FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
       ) ENGINE=InnoDB;
     `);
 
@@ -238,7 +245,7 @@ async function setupDatabase() {
       const hash = await bcrypt.hash(user.password, 10);
 
       await connection.query(
-        "INSERT INTO Users (id, username, password, email, role) VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO users (id, username, password, email, role) VALUES (?, ?, ?, ?, ?)",
         [user.id, user.username, hash, user.email, user.role],
       );
     }
