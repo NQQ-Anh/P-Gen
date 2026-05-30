@@ -153,7 +153,7 @@ export const register = async (req, res) => {
     }
 
     // Check if user already exists
-    const [existingUsers] = await db.execute('SELECT id FROM Users WHERE username = ? OR email = ?', [username, email]);
+    const [existingUsers] = await db.execute('SELECT id FROM users WHERE username = ? OR email = ?', [username, email]);
     if (existingUsers.length > 0) {
       return res.status(400).json({ message: 'Tên đăng nhập hoặc email đã tồn tại' });
     }
@@ -163,7 +163,7 @@ export const register = async (req, res) => {
 
     // Insert user
     const [result] = await db.execute(
-      'INSERT INTO Users (username, password, email, role) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)',
       [username, hashedPassword, email, 'User']
     );
 
