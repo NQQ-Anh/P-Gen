@@ -3,6 +3,12 @@ import "../styles/HistoryView.css";
 
 const DISPLAY_TIME_ZONE = "Asia/Ho_Chi_Minh";
 
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
+
+
 export const HistoryView = ({ attemptId, onBack }) => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +28,7 @@ export const HistoryView = ({ attemptId, onBack }) => {
   }, [attemptId]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/history/my-history", {
+    fetch(`${API_BASE}/history/my-history`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -95,7 +101,7 @@ export const HistoryView = ({ attemptId, onBack }) => {
 
   const handleViewDetail = async (attemptId) => {
     try {
-      const response = await fetch(`http://localhost:5001/history/details/${attemptId}`, {
+      const response = await fetch(`${API_BASE}/history/details/${attemptId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` },
       });
       

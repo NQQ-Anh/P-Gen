@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/ReviewDashboard.css";
 
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
+
 const ReviewDashboard = ({ onSelectSubject }) => {
     const [stats, setStats] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -9,7 +14,7 @@ const ReviewDashboard = ({ onSelectSubject }) => {
         const fetchStatus = async () => {
             try {
                 const token = localStorage.getItem('accessToken');
-                const response = await fetch('http://localhost:5001/review/status', {
+                const response = await fetch(`${API_BASE}/review/status`, {
                     headers: { 
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'

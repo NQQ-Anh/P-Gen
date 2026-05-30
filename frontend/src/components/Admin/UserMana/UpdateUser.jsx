@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -33,7 +33,7 @@ const UpdateUser = ({ userData, onClose, onRefresh }) => {
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/users/${userData.id}`, {
+      const response = await fetch(`${API_BASE}/users/${userData.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

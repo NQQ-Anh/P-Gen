@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -34,7 +34,7 @@ const CreateUser = ({ onClose, onRefresh }) => {
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/users`, {
+      const response = await fetch(`${API_BASE}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

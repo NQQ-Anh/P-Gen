@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import "../styles/ChapterView.css";
 
-const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 
 export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
   const { token } = useAuth();
@@ -26,7 +29,7 @@ export const ChapterView = ({ subject, onStartQuiz, onBack }) => {
     const loadChapters = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${API_URL}/subjects/${subject.id}`, {
+        const res = await fetch(`${API_BASE}/subjects/${subject.id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();

@@ -5,7 +5,7 @@ import UpdateUser from "./UpdateUser";
 import ProfileUser from "./ProfileUser";
 import "../../../styles/AdminSide.css";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -38,7 +38,7 @@ const Users = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch(`${API_URL}/users`, {
+      const response = await fetch(`${API_BASE}/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -162,7 +162,7 @@ const Users = () => {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`${API_URL}/users/${user.id}`, {
+      const response = await fetch(`${API_BASE}/users/${user.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
