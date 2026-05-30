@@ -30,12 +30,18 @@ app.use("/review", reviewRoutes);
 app.use("/admin-stats", adminStatsRoutes);
 // Question and chapter routes are now nested under /subjects
 
-const port = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5001;
 // Health check
-app.get("/api/health", (req, res) => {
-  res.json({ status: "OK", message: "Server is running" });
+app.get("/api/health", async (req, res) => {
+  try {
+    await db.query("SELECT 1");
+    res.json({ status: "OK", message: "Server is running" });
+  } catch (error) {
+    res.status(500).json({ status: "Error", message: "Failed to check server status" });
+  }
+  
 });
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`🚀 Server is running on port ${port}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
