@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 
 const AuthContext = createContext();
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
       if (accessToken) {
-        await fetch(`${API_URL}/auth/logout`, {
+        await fetch(`${API_BASE}/auth/logout`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -198,7 +198,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error("Không tìm thấy refresh token");
       }
 
-      const response = await fetch(`${API_URL}/auth/refresh`, {
+      const response = await fetch(`${API_BASE}/auth/refresh`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -241,7 +241,7 @@ export const AuthProvider = ({ children }) => {
       }
       setAxiosAuthHeader(accessToken);
 
-      const response = await fetch(`${API_URL}/auth/profile`, {
+      const response = await fetch(`${API_BASE}/auth/profile`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -258,7 +258,7 @@ export const AuthProvider = ({ children }) => {
         if (!nextToken) {
           return;
         }
-        const retryResponse = await fetch(`${API_URL}/auth/profile`, {
+        const retryResponse = await fetch(`${API_BASE}/auth/profile`, {
           headers: {
             Authorization: `Bearer ${nextToken}`,
           },

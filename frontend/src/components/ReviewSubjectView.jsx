@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/ReviewSubjectView.css";
 
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 const ReviewSubjectView = ({ subject, onStart, onBack }) => {
     const [questions, setQuestions] = useState([]);
     const [selectedIds, setSelectedIds] = useState([]);
@@ -15,7 +19,7 @@ const ReviewSubjectView = ({ subject, onStart, onBack }) => {
         const fetchDueQuestions = async () => {
             try {
                 const token = localStorage.getItem('accessToken');
-                const response = await fetch(`http://localhost:5001/review/questions/${subject.id}`, {
+                const response = await fetch(`${API_BASE}/review/questions/${subject.id}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (!response.ok) throw new Error("Không thể tải câu hỏi");

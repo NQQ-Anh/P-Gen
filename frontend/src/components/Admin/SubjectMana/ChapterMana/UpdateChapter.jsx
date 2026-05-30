@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthContext";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -41,7 +41,7 @@ const UpdateChapter = ({ subject, chapterData, onClose, onRefresh }) => {
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/subjects/${subject.id}/chapters/${chapterData.id}`, {
+      const response = await fetch(`${API_BASE}/subjects/${subject.id}/chapters/${chapterData.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

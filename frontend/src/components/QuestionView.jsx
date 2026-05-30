@@ -2,8 +2,10 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/QuestionView.css';
 
-const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
-
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, resumeData, initialQuestions, mode }) => {
     const isExam = settings?.isExam;
     const subjectId = subject?.id;
@@ -77,7 +79,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             let chaptersToFetch = chapterIds;
             
             if (isExam && (!chapterIds || chapterIds.length === 0)) {
-                const resSubject = await fetch(`${API_URL}/subjects/${subjectId}`, {
+                const resSubject = await fetch(`${API_BASE}/subjects/${subjectId}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const subjectData = await resSubject.json();
@@ -87,7 +89,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
             let allQuestions = [];
             for (const chapterId of chaptersToFetch) {
                 const response = await fetch(
-                    `${API_URL}/subjects/${subjectId}/chapters/${chapterId}/questions`,
+                    `${API_BASE}/subjects/${subjectId}/chapters/${chapterId}/questions`,
                     { headers: { 'Authorization': `Bearer ${token}` } }
                 );
                 
@@ -285,7 +287,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
                     }))
                 };
 
-                const response = await fetch('http://localhost:5001/review/submit', {
+                const response = await fetch(`${API_BASE}/review/submit`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -304,7 +306,7 @@ export const QuestionView = ({ subject, chapterIds, settings, onBack, onFinish, 
 
             } else {
                 // B. PRACTICE MODE
-                const response = await fetch(`${API_URL}/history/save`, {
+                const response = await fetch(`${API_BASE}/history/save`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

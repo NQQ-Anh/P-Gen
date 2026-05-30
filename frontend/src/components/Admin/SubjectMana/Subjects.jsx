@@ -5,7 +5,7 @@ import UpdateSubject from "./UpdateSubject";
 import Chapters from "./ChapterMana/Chapters";
 import "../../../styles/AdminSide.css";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -39,7 +39,7 @@ const Subjects = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch(`${API_URL}/subjects`, {
+      const response = await fetch(`${API_BASE}/subjects`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -163,7 +163,7 @@ const Subjects = () => {
   //   if (!confirmed) return;
 
   //   try {
-  //     const response = await fetch(`${API_URL}/subjects/${subject.id}`, {
+  //     const response = await fetch(`${API_BASE}/subjects/${subject.id}`, {
   //       method: "DELETE",
   //       headers: {
   //         Authorization: `Bearer ${token}`,

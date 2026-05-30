@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { API_URL } from "../../config/api";
 import "../../styles/AdminSide.css";
 
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 const RANKING_OPTIONS = [
   { value: "attempt_count", label: "Số lần làm bài " },
   { value: "average_score", label: "Điểm trung bình " },
@@ -64,7 +67,7 @@ const RankingBoard = () => {
         params.set("criteria", nextCriteria);
         params.set("limit", "10");
 
-        const response = await fetch(`${API_URL}/admin-stats/ranking?${params.toString()}`, {
+        const response = await fetch(`${API_BASE}/admin-stats/ranking?${params.toString()}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

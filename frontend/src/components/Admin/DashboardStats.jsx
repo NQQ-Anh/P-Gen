@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { API_URL } from "../../config/api";
 import "../../styles/AdminSide.css";
 
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 const DEFAULT_FILTERS = {
   from: "",
   to: "",
@@ -76,7 +79,7 @@ const DashboardStats = () => {
       setOverviewLoading(true);
       setOverviewError("");
 
-      const response = await fetch(`${API_URL}/admin-stats/dashboard?limit=5`, {
+      const response = await fetch(`${API_BASE}/admin-stats/dashboard?limit=5`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -116,7 +119,7 @@ const DashboardStats = () => {
         if (nextFilters.from) params.set("from", nextFilters.from);
         if (nextFilters.to) params.set("to", nextFilters.to);
 
-        const response = await fetch(`${API_URL}/admin-stats/dashboard?${params.toString()}`, {
+        const response = await fetch(`${API_BASE}/admin-stats/dashboard?${params.toString()}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

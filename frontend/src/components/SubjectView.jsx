@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import "../styles/SubjectView.css";
 
-const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  import.meta.env.REACT_APP_API_URL ||
+  `http://${window.location.hostname}:5001`;
 export const SubjectView = ({ onSelectSubject, onNavigate }) => {
   const { token } = useAuth();
   const [subjects, setSubjects] = useState([]);
@@ -19,7 +22,7 @@ export const SubjectView = ({ onSelectSubject, onNavigate }) => {
       setError(null);
 
       try {
-        const res = await fetch(`${API_URL}/subjects`, {
+        const res = await fetch(`${API_BASE}/subjects`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

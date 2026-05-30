@@ -4,7 +4,7 @@ import CreateQuestion from "./CreateQuestion";
 import UpdateQuestion from "./UpdateQuestion";
 import "../../../../../styles/AdminSide.css";
 
-const API_URL =
+const API_BASE =
   import.meta.env.VITE_API_URL ||
   import.meta.env.REACT_APP_API_URL ||
   `http://${window.location.hostname}:5001`;
@@ -44,7 +44,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
       setError("");
 
       const response = await fetch(
-        `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions`,
+        `${API_BASE}/subjects/${subject.id}/chapters/${chapter.id}/questions`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -162,7 +162,7 @@ const Questions = ({ subject, chapter, onBackToChapters }) => {
 
   //   try {
   //     const response = await fetch(
-  //       `${API_URL}/subjects/${subject.id}/chapters/${chapter.id}/questions/${question.id}`,
+  //       `${API_BASE}/subjects/${subject.id}/chapters/${chapter.id}/questions/${question.id}`,
   //       {
   //         method: "DELETE",
   //         headers: {

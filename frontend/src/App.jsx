@@ -18,6 +18,8 @@ import "./styles/Footer.css";
 import "./styles/Home.css";
 import "./styles/Navbar.css";
 
+const API_URL = import.meta.env.REACT_APP_API_URL || `http://${window.location.hostname}:5001`;
+
 function AppContent() {
   const { user, logout, loading } = useAuth();
   const [view, setView] = useState("home");
@@ -50,7 +52,7 @@ function AppContent() {
       const token = localStorage.getItem('accessToken');
     const idsParam = selectedIds.join(',');
       
-      const response = await fetch(`http://localhost:5001/review/get-by-ids?ids=${idsParam}`, {
+      const response = await fetch(`${API_BASE}/review/get-by-ids?ids=${idsParam}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
